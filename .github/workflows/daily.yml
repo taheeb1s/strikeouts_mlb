@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: "0 * * * *"
   workflow_dispatch:        # lets you trigger it by hand from the Actions tab
+    inputs:
+      force:
+        description: "Rebuild even if today already has odds"
+        required: false
+        default: "false"
 
 permissions:
   contents: write           # needed to commit the day's results back
@@ -26,6 +31,8 @@ jobs:
 
       - name: Is it time yet?
         id: gate
+        env:
+          FORCE_RUN: ${{ github.event.inputs.force || 'false' }}
         run: |
           if python3 should_run.py; then
             echo "go=yes" >> "$GITHUB_OUTPUT"
@@ -35,7 +42,9 @@ jobs:
 
       - name: Build projections
         if: steps.gate.outputs.go == 'yes'
-        run: python3 build_projections.py
+        # Use the date the gate decided on. Without this the builder falls
+        # back to the runner's UTC clock, which is a day ahead every evening.
+        run: python3 build_projections.py "${{ steps.gate.outputs.day }}"
 
       - name: Fetch odds
         if: steps.gate.outputs.go == 'yes'
@@ -58,7 +67,9 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-                    for f in projections.json scorecard.json; do
+          # Add only what exists - git add on a missing path is fatal,
+          # and scorecard.json won't exist until there's history to score.
+          for f in projections.json scorecard.json; do
             [ -f "$f" ] && git add "$f"
           done
           [ -d history ] && git add history/
