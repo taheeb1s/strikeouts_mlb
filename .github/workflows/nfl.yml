@@ -1,0 +1,60 @@
+name: NFL reception lines
+
+# Runs hourly and captures each game once, a few hours before kickoff.
+# A manifest in the repo tracks what's already been done, so most runs
+# spend nothing. Cost works out at one credit per game per week.
+#
+# Separate from the MLB workflow because the schedule is different: MLB
+# fires once at 10am, this watches for kickoffs across Thu/Sun/Mon.
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+    inputs:
+      window:
+        description: "Capture games kicking off within this many hours"
+        required: false
+        default: "4"
+
+permissions:
+  contents: write
+
+# Don't let two hourly runs overlap - they'd both read the same manifest
+# and double-spend on the same games.
+concurrency:
+  group: nfl-collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install requests
+
+      - name: Capture lines
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          WINDOW: ${{ github.event.inputs.window || '4' }}
+        run: python3 nfl_collect.py --window "$WINDOW"
+
+      - name: Publish
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          [ -d snapshots ] && git add snapshots/
+          if git diff --staged --quiet; then
+            echo "Nothing new captured."
+          else
+            # Pull first: the MLB workflow commits to the same branch and
+            # may have moved main since checkout.
+            git pull --rebase --autostash origin main || true
+            git commit -m "NFL reception lines $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
