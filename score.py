@@ -23,7 +23,7 @@ import json
 import os
 import sys
 from collections import defaultdict
-from datetime import date
+from datetime import date, datetime
 
 import numpy as np
 import requests
@@ -60,6 +60,10 @@ def actual_line(pid, day):
     return None  # postponed, scratched, or not yet played
 
 
+def _now():
+    return datetime.now().astimezone().isoformat(timespec='seconds')
+
+
 def tail(pmf, n):
     return sum(pmf[n:])
 
@@ -71,6 +75,10 @@ def main():
              if os.path.basename(f)[:-5] < today]
 
     if not files:
+        if "--json" in sys.argv:
+            with open("scorecard.json", "w") as f:
+                json.dump({"generated_at": _now(), "days": 0, "starts": 0,
+                           "verdict": "collecting"}, f, indent=1)
         print("No finished slates to score yet.")
         print("history/ fills up as you run build_projections.py each day.")
         print("Come back after a few days.")
@@ -80,6 +88,7 @@ def main():
     bf_proj, bf_actual = [], []
     buckets = defaultdict(lambda: {"p": 0.0, "hit": 0, "n": 0})
     mkt_model, mkt_line, mkt_actual = [], [], []
+    detail = []
     scored, missing = 0, 0
 
     print(f"Scoring {len(files)} slate(s)...\n")
@@ -108,6 +117,30 @@ def main():
                 mkt_model.append(s["proj_k"])
                 mkt_line.append(m["line"])
                 mkt_actual.append(k_act)
+
+            row = {
+                "date": day,
+                "pitcher": s["pitcher"],
+                "opponent": s.get("opponent", ""),
+                "proj": s["proj_k"],
+                "naive": s["naive_k"],
+                "actual": k_act,
+                "err": round(s["proj_k"] - k_act, 2),
+                "proj_bf": s.get("proj_bf"),
+                "bf": bf_act,
+            }
+            if m:
+                went_over = k_act > m["line"]
+                row.update(
+                    line=m["line"],
+                    model_over=m["model_over"],
+                    market_over=m.get("consensus_over"),
+                    side="Over" if m["edge"] > 0 else "Under",
+                    edge=m["edge"],
+                    hit=bool((m["edge"] > 0) == went_over),
+                    closer=bool(abs(s["proj_k"] - k_act) < abs(m["line"] - k_act)),
+                )
+            detail.append(row)
 
             # Calibration across thresholds near the projection.
             base = int(round(s["proj_k"]))
@@ -150,6 +183,22 @@ def main():
           f"   projected {bfp.mean():.1f} vs actual {bfa.mean():.1f}")
     print(f"  Actual spread     SD {actual.std():.2f} strikeouts per start")
 
+    card = {
+        "generated_at": _now(),
+        "days": len(files),
+        "starts": scored,
+        "mae_model": round(float(mae_m), 3),
+        "mae_naive": round(float(mae_n), 3),
+        "gap": round(float(gap), 3),
+        "bias_k": round(float((model - actual).mean()), 2),
+        "bias_bf": round(float((bfp - bfa).mean()), 2),
+        "sd_actual": round(float(actual.std()), 2),
+        "market": None,
+        # newest first, capped so the page payload stays small
+        "results": sorted(detail, key=lambda r: (r["date"], r["pitcher"]),
+                          reverse=True)[:120],
+    }
+
     if len(mkt_model) >= 10:
         mm = np.array(mkt_model, float)
         ml = np.array(mkt_line, float)
@@ -160,9 +209,20 @@ def main():
         print(f"    Book's line     MAE {e_bk.mean():.3f}")
 
         # The sharpest read: when the two disagreed, who was closer?
+        card["market"] = {
+            "starts": int(len(mm)),
+            "mae_model": round(float(e_me.mean()), 3),
+            "mae_book": round(float(e_bk.mean()), 3),
+            "disagreements": 0,
+            "won": 0,
+            "win_rate": None,
+        }
+
         big = np.abs(mm - ml) >= 1.0
         if big.sum() >= 5:
             won = (e_me[big] < e_bk[big]).sum()
+            card["market"].update(disagreements=int(big.sum()), won=int(won),
+                                  win_rate=round(float(won / big.sum()), 3))
             print(f"    Disagreed by 1+ K on {big.sum()} starts;"
                   f" model was closer on {won} ({won/big.sum():.0%})")
             print("    Under about half means the disagreements are your"
@@ -179,6 +239,14 @@ def main():
         print("\n  Those two columns should track each other. If 'predicted'"
               "\n  reads 30% where 'actual' reads 45%, the distributions are"
               "\n  too narrow and the confidence is overstated.")
+
+    if "--json" in sys.argv:
+        card["verdict"] = (
+            "collecting" if scored < 150
+            else ("model_ahead" if gap > 0 else "baseline_ahead"))
+        with open("scorecard.json", "w") as f:
+            json.dump(card, f, indent=1)
+        print("\n  Wrote scorecard.json")
 
     print(f"\n{'='*52}")
     if scored < 150:
