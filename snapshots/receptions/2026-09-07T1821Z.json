@@ -1,0 +1,674 @@
+{
+ "captured_at": "2026-09-07T18:21:39+00:00",
+ "market": "player_receptions",
+ "sport": "americanfootball_nfl",
+ "games_captured": 1,
+ "credits_spent": 1,
+ "credits_remaining": "443",
+ "games": [
+  {
+   "id": "8c94552d022acec4a0458d70c19d3da9",
+   "sport_key": "americanfootball_nfl",
+   "sport_title": "NFL",
+   "commence_time": "2026-09-10T00:20:00Z",
+   "home_team": "Seattle Seahawks",
+   "away_team": "New England Patriots",
+   "bookmakers": [
+    {
+     "key": "draftkings",
+     "title": "DraftKings",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-07T18:21:00Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Jaxon Smith-Njigba",
+         "price": -104,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaxon Smith-Njigba",
+         "price": -122,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "A.J. Brown",
+         "price": 124,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "A.J. Brown",
+         "price": -158,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Rhamondre Stevenson",
+         "price": 105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Rhamondre Stevenson",
+         "price": -135,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Romeo Doubs",
+         "price": 116,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Romeo Doubs",
+         "price": -149,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Hunter Henry",
+         "price": 124,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Hunter Henry",
+         "price": -159,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "AJ Barner",
+         "price": -154,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "AJ Barner",
+         "price": 121,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Cooper Kupp",
+         "price": -141,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Cooper Kupp",
+         "price": 111,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Rashid Shaheed",
+         "price": 102,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Rashid Shaheed",
+         "price": -131,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "DeMario Douglas",
+         "price": -182,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "DeMario Douglas",
+         "price": 141,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "George Holani",
+         "price": -146,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "George Holani",
+         "price": 115,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jadarian Price",
+         "price": 117,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jadarian Price",
+         "price": -149,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "fanduel",
+     "title": "FanDuel",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-07T18:20:51Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Romeo Doubs",
+         "price": 116,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Romeo Doubs",
+         "price": -154,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "AJ Barner",
+         "price": -158,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "AJ Barner",
+         "price": 118,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Cooper Kupp",
+         "price": -132,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Cooper Kupp",
+         "price": 100,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "A.J. Brown",
+         "price": -148,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "A.J. Brown",
+         "price": 112,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Jaxon Smith-Njigba",
+         "price": -102,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaxon Smith-Njigba",
+         "price": -130,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Rhamondre Stevenson",
+         "price": 116,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Rhamondre Stevenson",
+         "price": -154,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jadarian Price",
+         "price": 112,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jadarian Price",
+         "price": -148,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "DeMario Douglas",
+         "price": -178,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "DeMario Douglas",
+         "price": 132,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Hunter Henry",
+         "price": 134,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Hunter Henry",
+         "price": -180,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "George Holani",
+         "price": -148,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "George Holani",
+         "price": 112,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Rashid Shaheed",
+         "price": -108,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Rashid Shaheed",
+         "price": -122,
+         "point": 2.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betonlineag",
+     "title": "BetOnline.ag",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-07T18:20:59Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Jaxon Smith-Njigba",
+         "price": -102,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaxon Smith-Njigba",
+         "price": -127,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "DeMario Douglas",
+         "price": -175,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "DeMario Douglas",
+         "price": 135,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "AJ Barner",
+         "price": -147,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "AJ Barner",
+         "price": 113,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "A.J. Brown",
+         "price": -156,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "A.J. Brown",
+         "price": 120,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Cooper Kupp",
+         "price": -141,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Cooper Kupp",
+         "price": 108,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Rashid Shaheed",
+         "price": 106,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Rashid Shaheed",
+         "price": -137,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Hunter Henry",
+         "price": 128,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Hunter Henry",
+         "price": -167,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Romeo Doubs",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Romeo Doubs",
+         "price": -149,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jadarian Price",
+         "price": 110,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jadarian Price",
+         "price": -143,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "George Holani",
+         "price": -145,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "George Holani",
+         "price": 111,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Rhamondre Stevenson",
+         "price": 100,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Rhamondre Stevenson",
+         "price": -130,
+         "point": 3.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betrivers",
+     "title": "BetRivers",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-07T18:20:43Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Jaxon Smith-Njigba",
+         "price": -103,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "AJ Barner",
+         "price": -137,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "A.J. Brown",
+         "price": -143,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "George Holani",
+         "price": -159,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Rashid Shaheed",
+         "price": 102,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Romeo Doubs",
+         "price": 123,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Cooper Kupp",
+         "price": -132,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "DeMario Douglas",
+         "price": -180,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Hunter Henry",
+         "price": 130,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Rhamondre Stevenson",
+         "price": 117,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jadarian Price",
+         "price": 120,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "bovada",
+     "title": "Bovada",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-07T18:20:10Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "A.J. Brown",
+         "price": 120,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "A.J. Brown",
+         "price": -160,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "AJ Barner",
+         "price": -160,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "AJ Barner",
+         "price": 120,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Cooper Kupp",
+         "price": -145,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Cooper Kupp",
+         "price": 110,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "DeMario Douglas",
+         "price": -185,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "DeMario Douglas",
+         "price": 140,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "George Holani",
+         "price": -150,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "George Holani",
+         "price": 115,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Hunter Henry",
+         "price": 125,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Hunter Henry",
+         "price": -165,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jadarian Price",
+         "price": 115,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jadarian Price",
+         "price": -150,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jaxon Smith-Njigba",
+         "price": -105,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaxon Smith-Njigba",
+         "price": -125,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Rashid Shaheed",
+         "price": 100,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Rashid Shaheed",
+         "price": -130,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Rhamondre Stevenson",
+         "price": 105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Rhamondre Stevenson",
+         "price": -135,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Romeo Doubs",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Romeo Doubs",
+         "price": -150,
+         "point": 3.5
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
