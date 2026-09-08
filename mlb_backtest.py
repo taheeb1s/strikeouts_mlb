@@ -191,6 +191,11 @@ def main():
             continue
 
         k_tot = bf_tot = 0
+        # Strikeouts in STARTS only. k_tot includes relief outings, so
+        # dividing it by the number of starts inflates the baseline for
+        # anyone who works out of the bullpen between starts.
+        k_starts = 0
+        n_games = 0
         prior_starts = []
         for g in log:
             day = g["date"]
@@ -222,22 +227,27 @@ def main():
                     "date": day,
                     "pitcher": p["name"],
                     "model": exp_bf * pmatch,
-                    "naive": k_tot / len(prior_starts),
+                    "naive": k_starts / len(prior_starts),
                     "rate_only": season_mean * k_rate,   # no opponent adj
                     "actual": g["k"],
                     "n_prior": len(prior_starts),
+                    "relief_share": 1 - len(prior_starts) / max(1, n_games),
                     "exp_bf": exp_bf,
                     "act_bf": g["bf"],
                 })
 
             k_tot += g["k"]
             bf_tot += g["bf"]
+            n_games += 1
             if g["gs"] == 1 and g["bf"]:
                 prior_starts.append(g["bf"])
+                k_starts += g["k"]
 
     if not rows:
         print("\nNo starts could be scored. Season may be too young.")
         return 1
+
+    rows.sort(key=lambda r: r["date"])
 
     m = np.array([r["model"] for r in rows])
     n = np.array([r["naive"] for r in rows])
@@ -265,6 +275,10 @@ def main():
 
     # Where shrinkage should matter most: pitchers with little history.
     nprior = np.array([r["n_prior"] for r in rows])
+    relief = np.array([r["relief_share"] for r in rows])
+    print(f"\n  Relief appearances made up {relief.mean():.1%} of prior games"
+          f" on average")
+
     print("\nBy how many prior starts the pitcher had")
     for lo, hi, label in [(3, 6, "3-6"), (7, 14, "7-14"), (15, 99, "15+")]:
         idx = np.where((nprior >= lo) & (nprior <= hi))[0]
