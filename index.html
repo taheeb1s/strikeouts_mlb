@@ -547,6 +547,44 @@
   .nfl-row .px { font-size: 0.84rem; color: var(--ink-soft); }
   .nfl-row .shop { color: var(--pencil); font-weight: 600; }
 
+  /* --- parlays --- */
+  .par { margin: 2rem 0 0; }
+  .par h2 {
+    margin: 0 0 0.15rem; font-size: 0.95rem; font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .par .sub { margin: 0 0 0.9rem; font-size: 0.82rem; color: var(--ink-soft);
+              max-width: 58ch; }
+  .par .stake { display: flex; align-items: center; gap: 0.5rem;
+                margin-bottom: 0.9rem; font-size: 0.85rem; }
+  .par .stake input {
+    font: inherit; font-size: 0.9rem; width: 5.5rem;
+    padding: 0.3rem 0.5rem; border: 1px solid var(--rule);
+    background: var(--paper); color: var(--ink); border-radius: 0;
+  }
+  .slip {
+    background: var(--paper-warm); border-left: 3px solid var(--bar);
+    padding: 0.8rem 0.95rem; margin-bottom: 0.9rem;
+  }
+  .slip .n { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 0.4rem; }
+  .slip .leg {
+    display: flex; flex-wrap: wrap; gap: 0.2rem 0.7rem;
+    padding: 0.2rem 0; font-size: 0.9rem;
+  }
+  .slip .leg .who { font-weight: 600; }
+  .slip .leg .bk { color: var(--ink-soft); font-size: 0.82rem; }
+  .slip .tot {
+    display: flex; flex-wrap: wrap; gap: 0.3rem 1.3rem;
+    margin-top: 0.55rem; padding-top: 0.55rem;
+    border-top: 1px solid var(--rule); font-size: 0.9rem;
+  }
+  .slip .tot b { font-weight: 700; }
+  .slip .warn {
+    margin-top: 0.5rem; font-size: 0.82rem; color: var(--pencil);
+    font-weight: 600;
+  }
+  .slip .cost { margin-top: 0.4rem; font-size: 0.82rem; color: var(--ink-soft); }
+
   footer {
     margin-top: 2.5rem;
     font-size: 0.8rem;
@@ -1249,6 +1287,116 @@ function weatherLine(s) {
   return `<div class="wx">${bits.join("")}</div>`;
 }
 
+/* ---------- parlays ---------- */
+
+function amFromDec(d) {
+  return d >= 2 ? Math.round((d - 1) * 100) : Math.round(-100 / (d - 1));
+}
+
+function legsFor(d) {
+  // Only pitchers with a market, and only the side the model prefers.
+  return d.starters.filter(s => s.market && s.market.best_ev != null)
+    .map(s => {
+      const m = s.market;
+      const over = m.best_side === "Over";
+      const best = over ? m.best_over : m.best_under;
+      return {
+        pitcher: s.pitcher, team: s.team, opponent: s.opponent,
+        side: m.best_side, line: m.line, price: best.price, book: best.book,
+        dec: toDecimal(best.price),
+        mine: over ? m.model_over : 1 - m.model_over,
+        mkt: over ? m.consensus_over : 1 - m.consensus_over,
+        ev: m.best_ev,
+      };
+    })
+    .sort((a, b) => b.ev - a.ev);
+}
+
+function sameGame(a, b) {
+  return (a.team === b.opponent && a.opponent === b.team);
+}
+
+function buildSlip(legs, stake) {
+  const dec = legs.reduce((x, l) => x * l.dec, 1);
+  const mine = legs.reduce((x, l) => x * l.mine, 1);
+  const mkt = legs.reduce((x, l) => x * l.mkt, 1);
+  const be = 1 / dec;
+  const ev = mine * (dec - 1) - (1 - mine);
+  // Fair price if the books took no margin, from their own devigged numbers.
+  const fairDec = 1 / mkt;
+  const hold = 1 - dec / fairDec;
+  const b = dec - 1;
+  const kelly = Math.max(0, (mine * b - (1 - mine)) / b);
+  // Same sum, if the model is 5 points pessimistic on each leg.
+  const shaded = legs.reduce((x, l) => x * Math.max(0.02, l.mine - 0.05), 1);
+  const kellyLow = Math.max(0, (shaded * b - (1 - shaded)) / b);
+
+  const clash = legs.some((l, i) => legs.slice(i + 1).some(o => sameGame(l, o)));
+
+  return `<div class="slip">
+    <div class="n">${legs.length} leg${legs.length === 1 ? "" : "s"}</div>
+    ${legs.map(l => `<div class="leg">
+      <span class="who">${l.pitcher}</span>
+      <span>${l.side} ${l.line}</span>
+      <span>${l.price > 0 ? "+" : ""}${l.price}</span>
+      <span class="bk">${l.book}</span>
+    </div>`).join("")}
+    <div class="tot">
+      <span>Pays <b>${amFromDec(dec) > 0 ? "+" : ""}${amFromDec(dec)}</b></span>
+      <span>$${stake} returns <b>$${(stake * dec).toFixed(2)}</b></span>
+      <span>Needs <b>${(be * 100).toFixed(1)}%</b></span>
+      <span>My model <b>${(mine * 100).toFixed(1)}%</b></span>
+    </div>
+    <div class="cost">The books' margin on this combination is
+      <b>${(hold * 100).toFixed(1)}%</b> — that's what the parlay costs you
+      versus the same legs bet singly.</div>
+    <div class="cost">Kelly would stake ${(kelly * 100).toFixed(1)}% of your
+      bankroll on my numbers — but only ${(kellyLow * 100).toFixed(1)}% if each
+      leg is 5 points worse than I think. That swing is the point.</div>
+    ${clash ? `<div class="warn">Two legs are in the same game. Their outcomes
+      move together, so the combined probability above is overstated.</div>` : ""}
+  </div>`;
+}
+
+function parlayPanel() {
+  const d = state.data;
+  if (!d) return "";
+  const legs = legsFor(d);
+  if (legs.length < 2) {
+    return `<div class="par"><h2>Parlays</h2>
+      <p class="sub">Needs at least two pitchers with posted lines. Once the
+      board fills in, suggestions appear here.</p></div>`;
+  }
+
+  const stake = state.stake || 10;
+  const slips = [];
+
+  // Two and three legs, highest EV first, skipping same-game pairs.
+  for (const size of [2, 3]) {
+    const picked = [];
+    for (const l of legs) {
+      if (picked.length >= size) break;
+      if (picked.some(p => sameGame(p, l))) continue;
+      picked.push(l);
+    }
+    if (picked.length === size) slips.push(buildSlip(picked, stake));
+  }
+
+  return `<div class="par">
+    <h2>Suggested parlays</h2>
+    <p class="sub">Built from the legs my model rates highest, best available
+      price on each. Ranked by my numbers — which beat a season average by
+      0.04 strikeouts and have never been tested against a book. Errors
+      multiply across legs, so a model that's mildly wrong on singles can be
+      badly wrong here.</p>
+    <div class="stake">
+      <label for="stk">Stake $</label>
+      <input id="stk" type="number" min="1" step="1" value="${stake}">
+    </div>
+    ${slips.join("")}
+  </div>`;
+}
+
 function whyLine(s) {
   const lg = (state.data && state.data.league_k_pct) || 0.223;
   const bits = [];
@@ -1719,9 +1867,17 @@ function render() {
     </div>`;
 
   document.getElementById("card").innerHTML = scorecard();
-  document.getElementById("calc").innerHTML = calcPanel();
+  document.getElementById("calc").innerHTML = calcPanel() + parlayPanel();
   ["c-name", "c-side", "c-line", "c-odds", "c-other"].forEach(id =>
     document.getElementById(id).addEventListener("input", runCalc));
+  const stk = document.getElementById("stk");
+  if (stk) stk.oninput = () => {
+    state.stake = Math.max(1, parseFloat(stk.value) || 10);
+    document.getElementById("calc").innerHTML = calcPanel() + parlayPanel();
+    const el = document.getElementById("stk");
+    if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+    el.oninput = stk.oninput;
+  };
 
   document.getElementById("footer").innerHTML =
     `Projections combine each pitcher's strikeout rate with the opposing lineup's,
