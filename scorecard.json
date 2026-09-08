@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-09-08T01:52:19+00:00",
+ "generated_at": "2026-09-08T04:07:03+00:00",
  "days": 1,
- "starts": 20,
- "mae_model": 1.884,
- "mae_naive": 2.157,
- "gap": 0.273,
- "bias_k": -0.28,
- "bias_bf": 0.95,
- "sd_actual": 2.64,
+ "starts": 22,
+ "mae_model": 1.994,
+ "mae_naive": 2.32,
+ "gap": 0.326,
+ "bias_k": -0.36,
+ "bias_bf": -0.05,
+ "sd_actual": 2.79,
  "market": null,
  "results": [
   {
@@ -74,7 +74,7 @@
    "actual": 4,
    "err": -0.24,
    "proj_bf": 22.2,
-   "bf": 22
+   "bf": 27
   },
   {
    "date": "2026-09-07",
@@ -162,6 +162,24 @@
   },
   {
    "date": "2026-09-07",
+   "pitcher": "Jacob Lopez",
+   "opponent": "TOR",
+   "proj": 4.33,
+   "naive": 5.15,
+   "actual": 1,
+   "err": 3.33,
+   "proj_bf": 22.5,
+   "bf": 26,
+   "line": 4.5,
+   "model_over": 0.4394,
+   "market_over": 0.4656,
+   "side": "Under",
+   "edge": -0.0262,
+   "hit": true,
+   "closer": true
+  },
+  {
+   "date": "2026-09-07",
    "pitcher": "Grayson Rodriguez",
    "opponent": "BOS",
    "proj": 4.5,
@@ -199,17 +217,35 @@
    "opponent": "CIN",
    "proj": 5.73,
    "naive": 5.38,
-   "actual": 5,
-   "err": 0.73,
+   "actual": 10,
+   "err": -4.27,
    "proj_bf": 19.4,
-   "bf": 10,
+   "bf": 21,
    "line": 8.5,
    "model_over": 0.1227,
    "market_over": 0.4459,
    "side": "Under",
    "edge": -0.3232,
-   "hit": true,
-   "closer": true
+   "hit": false,
+   "closer": false
+  },
+  {
+   "date": "2026-09-07",
+   "pitcher": "Dylan Cease",
+   "opponent": "ATH",
+   "proj": 8.3,
+   "naive": 8.5,
+   "actual": 6,
+   "err": 2.3,
+   "proj_bf": 24.2,
+   "bf": 22,
+   "line": 7.5,
+   "model_over": 0.6139,
+   "market_over": 0.4942,
+   "side": "Over",
+   "edge": 0.1197,
+   "hit": false,
+   "closer": false
   },
   {
    "date": "2026-09-07",
@@ -228,10 +264,10 @@
    "opponent": "LAD",
    "proj": 5.56,
    "naive": 6.41,
-   "actual": 2,
-   "err": 3.56,
+   "actual": 5,
+   "err": 0.56,
    "proj_bf": 21.2,
-   "bf": 7
+   "bf": 10
   },
   {
    "date": "2026-09-07",
