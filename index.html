@@ -1,411 +1,1931 @@
-#!/usr/bin/env python3
-"""
-Backtest the strikeout model against every start this season.
 
-    python3 mlb_backtest.py              # this season
-    python3 mlb_backtest.py 2025         # a completed season
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strikeout projections</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:      #EDF0E6;
+    --paper-warm: #E4E9DA;
+    --rule:       #C7CFB8;
+    --ink:        #1B2733;
+    --ink-soft:   #5D6B78;
+    --bar:        #33513F;
+    --bar-fade:   #8FA394;
+    --pencil:     #A3301C;
 
-Same walk-forward rule as the live model: for each start, use only what was
-known before that day. No peeking. Replicates build_projections.py exactly -
-same shrinkage constants, same rolling window, same odds ratio.
+    --gutter: clamp(1rem, 4vw, 2.5rem);
+    --row-pad: 0.95rem;
+  }
 
-Answers the question score.py needs a month to answer: does this beat simply
-predicting each pitcher's season strikeouts per start?
+  * { box-sizing: border-box; }
 
-It cannot test against the market - historical odds are a paid feature - so
-"did we beat the books" still needs score.py and live collection.
+  html { -webkit-text-size-adjust: 100%; }
 
-Takes a few minutes and caches, so re-runs are fast. Nothing is written
-except the cache.
-"""
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Archivo, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.45;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+  }
 
-import json
-import os
-import sys
-from collections import defaultdict
-from datetime import date
+  .sheet {
+    max-width: 62rem;
+    margin: 0 auto;
+    padding: clamp(1.75rem, 5vw, 3.5rem) var(--gutter) 5rem;
+  }
 
-import numpy as np
-import requests
+  /* ---------- masthead ---------- */
 
-API = "https://statsapi.mlb.com/api/v1"
-CACHE = ".backtest_cache"
+  .masthead {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 2px solid var(--ink);
+  }
 
-# Must match build_projections.py or this measures a different model.
-K_PRIOR_BF = 100
-RECENT_STARTS = 8
-BF_PRIOR = 4
-MIN_PRIOR_STARTS = 3
-MIN_PRIOR_BF = 40
+  .masthead h1 {
+    margin: 0;
+    font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+  }
 
-session = requests.Session()
-session.headers["User-Agent"] = "strikeout-backtest/1.0"
+  .masthead .date {
+    display: block;
+    font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: 0;
+    margin-top: 0.25rem;
+  }
 
+  .meta {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-align: right;
+  }
 
-def cached(name, fetch):
-    os.makedirs(CACHE, exist_ok=True)
-    path = f"{CACHE}/{name}.json"
-    if os.path.exists(path):
-        try:
-            return json.load(open(path))
-        except Exception:
-            pass
-    data = fetch()
-    try:
-        json.dump(data, open(path, "w"))
-    except Exception:
-        pass
-    return data
+  /* ---------- notice ---------- */
 
+  .notice {
+    margin-top: 1.25rem;
+    padding: 0.7rem 0.95rem;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--pencil);
+    font-size: 0.88rem;
+    color: var(--ink);
+  }
+  .notice code {
+    font-family: inherit;
+    font-weight: 600;
+    background: rgba(27, 39, 51, 0.07);
+    padding: 0.05em 0.35em;
+    border-radius: 2px;
+  }
 
-def get(path, **params):
-    r = session.get(f"{API}/{path}", params=params, timeout=30)
-    r.raise_for_status()
-    return r.json()
+  /* ---------- controls ---------- */
 
+  .controls {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin: 1.5rem 0 0.35rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
 
-def starters(season):
-    """Every pitcher who started a game this season.
+  .controls button {
+    font: inherit;
+    font-weight: 500;
+    color: var(--ink-soft);
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    padding: 0.15rem 0.1rem;
+    cursor: pointer;
+  }
+  .controls button:hover { color: var(--ink); }
+  .controls button[aria-pressed="true"] {
+    color: var(--ink);
+    font-weight: 600;
+    border-bottom-color: var(--pencil);
+  }
+  .controls button:focus-visible {
+    outline: 2px solid var(--pencil);
+    outline-offset: 3px;
+  }
 
-    playerPool defaults to qualified only - roughly 48 pitchers, the ones
-    with enough innings for a leaderboard. That silently excluded every
-    spot starter, callup and opener, which is exactly the population where
-    shrinkage is supposed to matter. ALL plus paging fixes it.
-    """
-    def fetch():
-        out, offset, page = [], 0, 1000
-        while True:
-            d = get("stats", stats="season", group="pitching", season=season,
-                    sportId=1, playerPool="ALL", limit=page, offset=offset)
-            splits = d["stats"][0]["splits"] if d.get("stats") else []
-            if not splits:
-                break
-            for sp in splits:
-                st, p = sp["stat"], sp.get("player", {})
-                if int(st.get("gamesStarted", 0)) >= 1 and p.get("id"):
-                    out.append({"id": p["id"], "name": p.get("fullName", "?")})
-            if len(splits) < page:
-                break
-            offset += page
-        # de-dupe: traded players appear once per team
-        seen, uniq = set(), []
-        for p in out:
-            if p["id"] not in seen:
-                seen.add(p["id"])
-                uniq.append(p)
-        return uniq
-    return cached(f"starters_all_{season}", fetch)
+  /* ---------- ledger ---------- */
 
+  .ledger { border-top: 1px solid var(--ink); }
 
-def pitcher_log(pid, season):
-    def fetch():
-        d = get(f"people/{pid}/stats", stats="gameLog",
-                group="pitching", season=season)
-        rows = []
-        for sp in (d["stats"][0]["splits"] if d.get("stats") else []):
-            s = sp["stat"]
-            opp = sp.get("opponent", {})
-            rows.append({
-                "date": sp.get("date"),
-                "gs": int(s.get("gamesStarted", 0)),
-                "k": int(s.get("strikeOuts", 0)),
-                "bf": int(s.get("battersFaced", 0)),
-                "opp_id": opp.get("id"),
-            })
-        return sorted(rows, key=lambda r: r["date"] or "")
-    return cached(f"p{pid}_{season}", fetch)
+  .entry { border-bottom: 1px solid var(--rule); }
 
+  .entry-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 0 1.1rem;
+    width: 100%;
+    padding: var(--row-pad) 0;
+    background: none;
+    border: 0;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .entry-head:hover { background: rgba(51, 81, 63, 0.045); }
+  .entry-head:focus-visible {
+    outline: 2px solid var(--pencil);
+    outline-offset: -2px;
+  }
 
-def pitcher_hands(season):
-    """id -> 'L' or 'R'. One call for the whole league."""
-    def fetch():
-        d = get("sports/1/players", season=season)
-        return {str(p["id"]): (p.get("pitchHand") or {}).get("code")
-                for p in d.get("people", []) if p.get("pitchHand")}
-    return cached(f"hands_{season}", fetch)
+  .who { min-width: 0; }
 
+  .name {
+    font-size: clamp(1rem, 2.6vw, 1.18rem);
+    font-weight: 600;
+    letter-spacing: -0.012em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-def team_hand_ratio(season):
-    """team -> {'L': mult, 'R': mult} on their overall strikeout rate.
+  .matchup {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-    The API only serves season totals for splits, not game logs, so this
-    ratio uses the full season - a small leak of future information. It
-    makes the handedness test optimistic, which is the point: if it can't
-    help even with the leak, it won't help without it.
-    """
-    def fetch():
-        teams = get("teams", sportId=1, season=season)["teams"]
-        out = {}
-        for t in teams:
-            try:
-                d = get(f"teams/{t['id']}/stats", stats="statSplits",
-                        group="hitting", season=season, sitCodes="vl,vr")
-            except Exception:
-                continue
-            rates = {}
-            for blk in d.get("stats", []):
-                code = (blk.get("split") or {}).get("code")
-                for sp in blk.get("splits", []):
-                    st = sp["stat"]
-                    pa = int(st.get("plateAppearances", 0) or 0)
-                    k = int(st.get("strikeOuts", 0) or 0)
-                    c = code or (sp.get("split") or {}).get("code")
-                    if pa > 200 and c in ("vl", "vr"):
-                        rates[c] = k / pa
-            if "vl" in rates and "vr" in rates:
-                # weight by typical exposure to get the blended rate back
-                overall = 0.28 * rates["vl"] + 0.72 * rates["vr"]
-                if overall > 0:
-                    out[str(t["id"])] = {"L": rates["vl"] / overall,
-                                         "R": rates["vr"] / overall}
-        return out
-    return cached(f"handratio_{season}", fetch)
+  .proj {
+    font-size: clamp(1.5rem, 4.2vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    text-align: right;
+    font-feature-settings: "tnum";
+  }
 
+  .strip { display: block; }
 
-def team_hitting(season):
-    """Each team's cumulative strikeout rate, day by day."""
-    def fetch():
-        teams = get("teams", sportId=1, season=season)["teams"]
-        out = {}
-        for t in teams:
-            d = get(f"teams/{t['id']}/stats", stats="gameLog",
-                    group="hitting", season=season)
-            rows = []
-            for sp in (d["stats"][0]["splits"] if d.get("stats") else []):
-                s = sp["stat"]
-                rows.append({"date": sp.get("date"),
-                             "k": int(s.get("strikeOuts", 0)),
-                             "pa": int(s.get("plateAppearances", 0))})
-            out[str(t["id"])] = sorted(rows, key=lambda r: r["date"] or "")
-        return out
-    return cached(f"teams_{season}", fetch)
+  /* ---------- detail ---------- */
 
+  .detail {
+    display: none;
+    padding: 0.35rem 0 1.6rem;
+  }
+  .entry[open-detail] .detail { display: block; }
 
-def running_k_rate(rows):
-    """date -> (K, PA) accumulated strictly BEFORE that date."""
-    acc, k, pa = {}, 0, 0
-    for r in rows:
-        acc[r["date"]] = (k, pa)
-        k += r["k"]
-        pa += r["pa"]
-    return acc, (k, pa)
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 1.1rem 1.5rem;
+    padding: 1.1rem 0 1.4rem;
+    border-top: 1px dashed var(--rule);
+  }
 
+  .fact dt {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.15rem;
+  }
+  .fact dd {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
 
-def odds(p):
-    return p / (1 - p)
+  .thresholds {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
 
+  .th {
+    flex: 1 1 5.5rem;
+    padding: 0.5rem 0.65rem;
+    background: var(--paper-warm);
+  }
+  .th b {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .th span {
+    font-size: 0.76rem;
+    color: var(--ink-soft);
+  }
 
-def main():
-    season = int(sys.argv[1]) if len(sys.argv) > 1 else date.today().year
-    print(f"Backtesting {season}. First run downloads a few hundred game "
-          f"logs; later runs use the cache.\n")
+  .chart-wrap { margin: 0.4rem 0 1.3rem; }
 
-    ps = starters(season)
-    print(f"{len(ps)} pitchers with at least one start")
-    if len(ps) < 150:
-        print("  WARNING: a full season is normally 250-350 starters.")
-        print("  This looks capped - the numbers below may not represent"
-              " the whole league.")
+  .market {
+    padding: 0.75rem 0.95rem;
+    margin: 0 0 1.2rem;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--pencil);
+    font-size: 0.9rem;
+  }
+  .market-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.3rem 1.3rem;
+    padding-bottom: 0.55rem;
+    margin-bottom: 0.55rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .market-top .book {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .market-top .juice { color: var(--ink-soft); font-size: 0.84rem; }
+  .market-lines {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.3rem;
+    padding-bottom: 0.55rem;
+    margin-bottom: 0.55rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .market .ev { margin-left: auto; font-weight: 600; }
+  .market .ev.pos { color: var(--pencil); }
+  .market .ev.neg { color: var(--ink-soft); }
+  .market-cmp {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.3rem 1.3rem;
+  }
+  .market b { font-weight: 600; }
+  .market .gap { margin-left: auto; color: var(--pencil); font-weight: 600; }
+  .market .none { color: var(--ink-soft); }
 
-    teams = team_hitting(season)
-    print(f"{len(teams)} team hitting logs")
+  .caption {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 0 1rem;
+  }
 
-    hands = pitcher_hands(season)
-    hratio = team_hand_ratio(season)
-    print(f"{len(hands)} pitcher hands, {len(hratio)} teams with usable splits")
+  /* ---------- empty ---------- */
 
-    team_acc, team_tot = {}, {}
-    for tid, rows in teams.items():
-        team_acc[tid], team_tot[tid] = running_k_rate(rows)
+  .empty {
+    padding: 3.5rem 0 2rem;
+    max-width: 44ch;
+  }
+  .empty h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.6rem;
+  }
+  .empty p { margin: 0 0 0.9rem; color: var(--ink-soft); }
+  .empty pre {
+    font-family: inherit;
+    font-weight: 600;
+    background: var(--paper-warm);
+    padding: 0.7rem 0.9rem;
+    margin: 0;
+    overflow-x: auto;
+    font-size: 0.9rem;
+  }
 
-    # League rate, accumulated by date, so early-season predictions don't
-    # get to use a baseline computed from the whole year.
-    daily = defaultdict(lambda: [0, 0])
-    for rows in teams.values():
-        for r in rows:
-            daily[r["date"]][0] += r["k"]
-            daily[r["date"]][1] += r["pa"]
-    league_by_date, k, pa = {}, 0, 0
-    for d in sorted(daily):
-        league_by_date[d] = (k / pa) if pa > 2000 else 0.223
-        k += daily[d][0]
-        pa += daily[d][1]
+  .card {
+    margin: 1.6rem 0 0;
+    padding: 0.9rem 1.05rem;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--bar);
+  }
+  .card h2 {
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .card-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.4rem;
+    font-size: 0.88rem;
+  }
+  .card-row + .card-row { margin-top: 0.35rem; }
+  .card b { font-weight: 600; }
+  .card .note {
+    margin: 0.6rem 0 0;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    max-width: 56ch;
+  }
+  .card .headline { color: var(--pencil); font-weight: 600; }
 
-    rows = []
-    for i, p in enumerate(ps, 1):
-        if i % 50 == 0:
-            print(f"  {i}/{len(ps)} pitchers")
-        try:
-            log = pitcher_log(p["id"], season)
-        except Exception:
-            continue
+  /* --- view switch --- */
+  .views {
+    display: flex; align-items: baseline; gap: 0.4rem;
+    margin: 1.4rem 0 0; font-size: 0.85rem; color: var(--ink-soft);
+  }
+  .views button {
+    font: inherit; font-weight: 500; color: var(--ink-soft);
+    background: none; border: 0; border-bottom: 2px solid transparent;
+    padding: 0.15rem 0.1rem; cursor: pointer;
+  }
+  .views button:hover { color: var(--ink); }
+  .views button[aria-pressed="true"] {
+    color: var(--ink); font-weight: 600; border-bottom-color: var(--pencil);
+  }
+  .views button:focus-visible { outline: 2px solid var(--pencil); outline-offset: 3px; }
 
-        k_tot = bf_tot = 0
-        # Strikeouts in STARTS only. k_tot includes relief outings, so
-        # dividing it by the number of starts inflates the baseline for
-        # anyone who works out of the bullpen between starts.
-        k_starts = 0
-        n_games = 0
-        prior_starts = []
-        for g in log:
-            day = g["date"]
-            if g["gs"] == 1 and len(prior_starts) >= MIN_PRIOR_STARTS \
-                    and bf_tot >= MIN_PRIOR_BF and day:
-                lg = league_by_date.get(day, 0.223)
+  /* --- results --- */
+  .res { border-top: 1px solid var(--ink); margin-top: 0.4rem; }
+  .res-day {
+    padding: 0.75rem 0 0.3rem; font-size: 0.82rem;
+    font-weight: 600; color: var(--ink-soft);
+  }
+  .res-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 3.2rem 3.2rem 3.4rem auto;
+    align-items: baseline; gap: 0 0.7rem;
+    padding: 0.5rem 0; border-bottom: 1px solid var(--rule);
+    font-size: 0.92rem;
+  }
+  .res-row .nm {
+    font-weight: 600; white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .res-row .n { text-align: right; font-variant-numeric: tabular-nums; }
+  .res-row .got { font-weight: 700; }
+  .res-row .miss { color: var(--ink-soft); }
+  .res-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 3.2rem 3.2rem 3.4rem auto;
+    gap: 0 0.7rem; padding: 0.4rem 0;
+    font-size: 0.74rem; color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule);
+  }
+  .res-head span:not(:first-child) { text-align: right; }
+  .tag {
+    font-size: 0.72rem; font-weight: 600; padding: 0.05rem 0.4rem;
+    background: var(--paper-warm); white-space: nowrap;
+  }
+  .tag.win { background: var(--bar); color: var(--paper); }
+  @media (max-width: 34rem) {
+    .res-row, .res-head { grid-template-columns: minmax(0,1fr) 2.7rem 2.7rem auto; }
+    .res-row .bf, .res-head .bf { display: none; }
+  }
 
-                # --- rate, exactly as the live model computes it
-                k_rate = (k_tot + lg * K_PRIOR_BF) / (bf_tot + K_PRIOR_BF)
+  .calc {
+    margin: 2rem 0 0;
+    padding: 1.05rem 1.15rem;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--ink);
+  }
+  .calc h2 {
+    margin: 0 0 0.15rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .calc .sub {
+    margin: 0 0 0.9rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    max-width: 54ch;
+  }
+  .calc-in {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 0.9rem;
+    align-items: flex-end;
+  }
+  .fld { display: flex; flex-direction: column; gap: 0.2rem; }
+  .fld label { font-size: 0.76rem; color: var(--ink-soft); }
+  .fld input, .fld select {
+    font: inherit;
+    font-size: 0.92rem;
+    font-variant-numeric: tabular-nums;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 0;
+  }
+  .fld input:focus, .fld select:focus {
+    outline: 2px solid var(--pencil);
+    outline-offset: -1px;
+  }
+  .fld input[type=text] { width: 11rem; }
+  .fld input[type=number] { width: 5.2rem; }
 
-                # --- volume
-                recent = np.array(prior_starts[-RECENT_STARTS:], float)
-                season_mean = float(np.mean(prior_starts))
-                w = len(recent) / (len(recent) + BF_PRIOR)
-                exp_bf = w * float(recent.mean()) + (1 - w) * season_mean
+  .calc-out { margin-top: 1rem; font-size: 0.9rem; }
+  .calc-out .line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 1.3rem;
+    padding: 0.4rem 0;
+    border-top: 1px solid var(--rule);
+  }
+  .calc-out b { font-weight: 600; }
+  .calc-out .verdict {
+    margin: 0.7rem 0 0;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    max-width: 58ch;
+  }
+  .calc-out .shop {
+    margin-top: 0.7rem;
+    padding: 0.5rem 0.7rem;
+    background: var(--paper);
+    border-left: 3px solid var(--pencil);
+    font-size: 0.86rem;
+  }
 
-                # --- opponent, as of that date
-                oid = str(g.get("opp_id"))
-                ok = lg
-                if oid in team_acc:
-                    tk, tpa = team_acc[oid].get(day, (0, 0))
-                    if tpa > 300:
-                        ok = tk / tpa
+  /* --- search --- */
+  .search {
+    margin: 1rem 0 0;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .search input {
+    font: inherit; font-size: 0.92rem;
+    padding: 0.4rem 0.6rem; width: 100%; max-width: 22rem;
+    border: 1px solid var(--rule); background: var(--paper);
+    color: var(--ink); border-radius: 0;
+  }
+  .search input:focus { outline: 2px solid var(--pencil); outline-offset: -1px; }
+  .search .count { font-size: 0.8rem; color: var(--ink-soft); white-space: nowrap; }
 
-                o = odds(k_rate) * odds(ok) / odds(lg)
-                pmatch = o / (1 + o)
+  /* --- why line --- */
+  .why {
+    margin: 0 0 1.1rem; font-size: 0.88rem; line-height: 1.5;
+    color: var(--ink); max-width: 60ch;
+  }
+  .why b { font-weight: 600; }
 
-                # same thing, but with the opponent rate adjusted for which
-                # hand the pitcher throws with
-                hand = hands.get(str(p["id"]))
-                ok_h = ok
-                if hand in ("L", "R") and oid in hratio:
-                    ok_h = min(0.45, max(0.10, ok * hratio[oid][hand]))
-                oh = odds(k_rate) * odds(ok_h) / odds(lg)
-                pmatch_h = oh / (1 + oh)
+  .wx {
+    display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem;
+    padding: 0.5rem 0.75rem; margin: 0 0 1.1rem;
+    background: var(--paper-warm); font-size: 0.86rem;
+  }
+  .wx .t { font-weight: 600; }
+  .wx .note { color: var(--ink-soft); }
 
-                rows.append({
-                    "date": day,
-                    "pitcher": p["name"],
-                    "model": exp_bf * pmatch,
-                    "model_hand": exp_bf * pmatch_h,
-                    "naive": k_starts / len(prior_starts),
-                    "rate_only": season_mean * k_rate,   # no opponent adj
-                    "actual": g["k"],
-                    "n_prior": len(prior_starts),
-                    "relief_share": 1 - len(prior_starts) / max(1, n_games),
-                    "exp_bf": exp_bf,
-                    "act_bf": g["bf"],
-                })
+  /* --- calendar --- */
+  .cal { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.8rem 0 1.4rem; }
+  .cal .d {
+    width: 2.5rem; padding: 0.3rem 0.1rem; text-align: center;
+    background: var(--paper-warm); font-size: 0.7rem; line-height: 1.25;
+    border-bottom: 3px solid var(--rule);
+  }
+  .cal .d .n { display: block; font-weight: 700; font-size: 0.85rem; }
+  .cal .d.good { border-bottom-color: var(--bar); }
+  .cal .d.bad  { border-bottom-color: var(--pencil); }
+  .cal-key { font-size: 0.78rem; color: var(--ink-soft); }
 
-            k_tot += g["k"]
-            bf_tot += g["bf"]
-            n_games += 1
-            if g["gs"] == 1 and g["bf"]:
-                prior_starts.append(g["bf"])
-                k_starts += g["k"]
+  /* --- pitcher history --- */
+  .plink { cursor: pointer; text-decoration: underline;
+           text-decoration-color: var(--rule); text-underline-offset: 3px; }
+  .plink:hover { text-decoration-color: var(--pencil); }
+  .pback {
+    font: inherit; font-size: 0.85rem; color: var(--ink-soft);
+    background: none; border: 0; padding: 0.15rem 0; cursor: pointer;
+    margin-bottom: 0.6rem;
+  }
+  .pback:hover { color: var(--ink); }
+  .phead { margin: 0 0 0.2rem; font-size: 1.3rem; font-weight: 700;
+           letter-spacing: -0.025em; }
+  .psum { font-size: 0.88rem; color: var(--ink-soft); margin: 0 0 1.1rem; }
+  .pbars { border-top: 1px solid var(--ink); }
+  .pbar {
+    display: grid; grid-template-columns: 4.6rem 1fr 2.6rem 2.6rem;
+    align-items: center; gap: 0 0.6rem;
+    padding: 0.45rem 0; border-bottom: 1px solid var(--rule);
+    font-size: 0.86rem;
+  }
+  .pbar .dt { color: var(--ink-soft); font-size: 0.8rem; }
+  .pbar .track { position: relative; height: 1.15rem; }
+  .pbar .pj, .pbar .ac {
+    position: absolute; top: 0; height: 100%;
+  }
+  .pbar .pj { background: var(--bar-fade); }
+  .pbar .ac { border-left: 2px solid var(--pencil); }
+  .pbar .n { text-align: right; font-variant-numeric: tabular-nums; }
+  .pbar .n.act { font-weight: 700; }
 
-    if not rows:
-        print("\nNo starts could be scored. Season may be too young.")
-        return 1
+  /* --- nfl rows --- */
+  .nfl-game { margin-top: 1.5rem; }
+  .nfl-game h3 {
+    margin: 0 0 0.1rem; font-size: 0.98rem; font-weight: 600;
+    letter-spacing: -0.012em;
+  }
+  .nfl-game .when { font-size: 0.8rem; color: var(--ink-soft); }
+  .nfl-row {
+    display: grid; grid-template-columns: minmax(0,1fr) 3rem auto;
+    gap: 0 0.8rem; align-items: baseline;
+    padding: 0.5rem 0; border-bottom: 1px solid var(--rule);
+    font-size: 0.92rem;
+  }
+  .nfl-row .nm { font-weight: 600; white-space: nowrap;
+                 overflow: hidden; text-overflow: ellipsis; }
+  .nfl-row .ln { text-align: right; font-weight: 700; }
+  .nfl-row .px { font-size: 0.84rem; color: var(--ink-soft); }
+  .nfl-row .shop { color: var(--pencil); font-weight: 600; }
 
-    rows.sort(key=lambda r: r["date"])
+  /* --- parlays --- */
+  .par { margin: 2rem 0 0; }
+  .par h2 {
+    margin: 0 0 0.15rem; font-size: 0.95rem; font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .par .sub { margin: 0 0 0.9rem; font-size: 0.82rem; color: var(--ink-soft);
+              max-width: 58ch; }
+  .par .stake { display: flex; align-items: center; gap: 0.5rem;
+                margin-bottom: 0.9rem; font-size: 0.85rem; }
+  .par .stake input {
+    font: inherit; font-size: 0.9rem; width: 5.5rem;
+    padding: 0.3rem 0.5rem; border: 1px solid var(--rule);
+    background: var(--paper); color: var(--ink); border-radius: 0;
+  }
+  .slip {
+    background: var(--paper-warm); border-left: 3px solid var(--bar);
+    padding: 0.8rem 0.95rem; margin-bottom: 0.9rem;
+  }
+  .slip .n { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 0.4rem; }
+  .slip .leg {
+    display: flex; flex-wrap: wrap; gap: 0.2rem 0.7rem;
+    padding: 0.2rem 0; font-size: 0.9rem;
+  }
+  .slip .leg .who { font-weight: 600; }
+  .slip .leg .bk { color: var(--ink-soft); font-size: 0.82rem; }
+  .slip .tot {
+    display: flex; flex-wrap: wrap; gap: 0.3rem 1.3rem;
+    margin-top: 0.55rem; padding-top: 0.55rem;
+    border-top: 1px solid var(--rule); font-size: 0.9rem;
+  }
+  .slip .tot b { font-weight: 700; }
+  .slip .warn {
+    margin-top: 0.5rem; font-size: 0.82rem; color: var(--pencil);
+    font-weight: 600;
+  }
+  .slip .cost { margin-top: 0.4rem; font-size: 0.82rem; color: var(--ink-soft); }
 
-    m = np.array([r["model"] for r in rows])
-    n = np.array([r["naive"] for r in rows])
-    ro = np.array([r["rate_only"] for r in rows])
-    mh = np.array([r["model_hand"] for r in rows])
-    a = np.array([r["actual"] for r in rows], float)
-    ebf = np.array([r["exp_bf"] for r in rows])
-    abf = np.array([r["act_bf"] for r in rows], float)
+  footer {
+    margin-top: 2.5rem;
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+    max-width: 52ch;
+  }
 
-    def mae(x):
-        return float(np.abs(x - a).mean())
+  @media (max-width: 40rem) {
+    .entry-head {
+      grid-template-columns: minmax(0, 1fr) auto;
+      row-gap: 0.55rem;
+    }
+    .strip { grid-column: 1 / -1; }
+  }
 
-    print(f"\n{'='*56}")
-    print(f"{len(rows)} starts, {rows[0]['date']} to {rows[-1]['date']}\n")
-    print("Mean absolute error, strikeouts per start")
-    base = mae(n)
-    for label, arr in [("Season-to-date average (baseline)", n),
-                       ("Rate only, no opponent adjustment", ro),
-                       ("Full model", m),
-                       ("Full model + handedness", mh)]:
-        print(f"  {label:36} {mae(arr):.4f}   {base - mae(arr):+.4f}")
+  @media (prefers-reduced-motion: no-preference) {
+    .entry-head { transition: background 120ms ease; }
+  }
+</style>
+</head>
+<body>
+<main class="sheet">
 
-    print(f"\n  Actual spread          SD {a.std():.2f}")
-    print(f"  Strikeout bias         {(m - a).mean():+.3f}")
-    print(f"  Batters faced bias     {(ebf - abf).mean():+.3f}"
-          f"   (projected {ebf.mean():.1f} vs actual {abf.mean():.1f})")
+  <div class="masthead">
+    <h1>Strikeout projections<span class="date" id="date">—</span></h1>
+    <div class="meta" id="meta"></div>
+  </div>
 
-    # Does a big disagreement mean a big edge, or a big mistake?
-    # Using the naive baseline as a stand-in for "the boring estimate",
-    # since historical market odds aren't available for free.
-    dis = np.abs(m - n)
-    print("\nBy how far the model departed from the simple estimate")
-    edges = [(0, 0.5, "under 0.5"), (0.5, 1.0, "0.5-1.0"),
-             (1.0, 2.0, "1.0-2.0"), (2.0, 99, "over 2.0")]
-    for lo, hi, label in edges:
-        idx = np.where((dis >= lo) & (dis < hi))[0]
-        if len(idx) < 30:
-            continue
-        mm = np.abs(m[idx] - a[idx]).mean()
-        nn = np.abs(n[idx] - a[idx]).mean()
-        print(f"  {label:10} n={len(idx):5}  model {mm:.3f}   simple {nn:.3f}"
-              f"   {nn - mm:+.3f}")
-    print("  If the gap column shrinks or goes negative as the departure"
-          "\n  grows, big disagreements are the model's mistakes, not its"
-          "\n  edges - and picking legs by largest gap selects for error.")
+  <div id="notice"></div>
 
-    # Where shrinkage should matter most: pitchers with little history.
-    nprior = np.array([r["n_prior"] for r in rows])
-    relief = np.array([r["relief_share"] for r in rows])
-    print(f"\n  Relief appearances made up {relief.mean():.1%} of prior games"
-          f" on average")
+  <div id="body"></div>
 
-    print("\nBy how many prior starts the pitcher had")
-    for lo, hi, label in [(3, 6, "3-6"), (7, 14, "7-14"), (15, 99, "15+")]:
-        idx = np.where((nprior >= lo) & (nprior <= hi))[0]
-        if len(idx) < 30:
-            continue
-        mm = np.abs(m[idx] - a[idx]).mean()
-        nn = np.abs(n[idx] - a[idx]).mean()
-        print(f"  {label:6} n={len(idx):5}  model {mm:.3f}   naive {nn:.3f}"
-              f"   {nn - mm:+.3f}")
+  <div id="card"></div>
 
-    # Does it hold up month by month, or is it one hot stretch?
-    print("\nBy month")
-    bym = defaultdict(list)
-    for i, r in enumerate(rows):
-        bym[r["date"][:7]].append(i)
-    for mo in sorted(bym):
-        idx = bym[mo]
-        print(f"  {mo}  n={len(idx):5}  model {np.abs(m[idx]-a[idx]).mean():.3f}"
-              f"   naive {np.abs(n[idx]-a[idx]).mean():.3f}"
-              f"   {np.abs(n[idx]-a[idx]).mean()-np.abs(m[idx]-a[idx]).mean():+.3f}")
+  <div id="calc"></div>
 
-    print(f"\n{'='*56}")
-    gap = base - mae(m)
-    se = float(np.std(np.abs(n - a) - np.abs(m - a)) / np.sqrt(len(rows)))
-    print(f"Gap {gap:+.4f}, standard error {se:.4f} "
-          f"-> {abs(gap/se):.1f} standard errors")
+  <footer id="footer"></footer>
+</main>
 
-    # Is handedness worth adding? Compare it against the model, not the baseline.
-    hgap = mae(m) - mae(mh)
-    hse = float(np.std(np.abs(m - a) - np.abs(mh - a)) / np.sqrt(len(rows)))
-    if hse > 0:
-        print(f"Handedness adds {hgap:+.4f} over the model "
-              f"({abs(hgap/hse):.1f} standard errors)"
-              + ("  <- worth keeping" if hgap > 2 * hse
-                 else "  <- not worth it" if abs(hgap) < 2 * hse
-                 else "  <- actively hurts"))
-        print("  Note: this uses full-season splits, so it flatters itself"
-              "\n  slightly. Treat it as a ceiling.")
-    if abs(gap) < 2 * se:
-        print("Inside noise. No evidence the model beats the baseline.")
-    elif gap > 0:
-        print("The model beats the baseline by more than noise explains.")
-    else:
-        print("The baseline beats the model by more than noise explains.")
-    return 0
+<script>
+// Sample slate, used when projections.json can't be loaded. Replaced at runtime
+// by the real file. Distributions here are simulated, not live projections.
+const SAMPLE = {
+ "date": "2026-09-06",
+ "generated_at": "2026-09-06T09:14:00-05:00",
+ "league_k_pct": 0.223,
+ "sample": true,
+ "starters": [
+  {
+   "pitcher": "Tarik Skubal",
+   "team": "DET",
+   "opponent": "CWS",
+   "home": true,
+   "venue": "Comerica Park",
+   "game_time": "1:10 PM",
+   "proj_k": 8.78,
+   "proj_bf": 25.4,
+   "k_rate": 0.3485,
+   "pitcher_k_pct": 0.312,
+   "opp_k_pct": 0.251,
+   "park_factor": 1.01,
+   "lineup_confirmed": false,
+   "pmf": [
+    5e-05,
+    0.00049,
+    0.00296,
+    0.01035,
+    0.02679,
+    0.0555,
+    0.09208,
+    0.12609,
+    0.14856,
+    0.14931,
+    0.12971,
+    0.10271,
+    0.07008,
+    0.04247,
+    0.02326,
+    0.01107,
+    0.00524
+   ]
+  },
+  {
+   "pitcher": "Garrett Crochet",
+   "team": "BOS",
+   "opponent": "NYY",
+   "home": true,
+   "venue": "Fenway Park",
+   "game_time": "7:05 PM",
+   "proj_k": 8.12,
+   "proj_bf": 25.9,
+   "k_rate": 0.3143,
+   "pitcher_k_pct": 0.301,
+   "opp_k_pct": 0.234,
+   "park_factor": 1.0,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00011,
+    0.00113,
+    0.00551,
+    0.01778,
+    0.04248,
+    0.07866,
+    0.11978,
+    0.15003,
+    0.15664,
+    0.14299,
+    0.11242,
+    0.07769,
+    0.0476,
+    0.02553,
+    0.01289,
+    0.0056,
+    0.00217
+   ]
+  },
+  {
+   "pitcher": "Paul Skenes",
+   "team": "PIT",
+   "opponent": "MIL",
+   "home": false,
+   "venue": "American Family",
+   "game_time": "2:10 PM",
+   "proj_k": 7.91,
+   "proj_bf": 24.8,
+   "k_rate": 0.3196,
+   "pitcher_k_pct": 0.318,
+   "opp_k_pct": 0.226,
+   "park_factor": 0.99,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00019,
+    0.00131,
+    0.00658,
+    0.02111,
+    0.04961,
+    0.08882,
+    0.12793,
+    0.15317,
+    0.15673,
+    0.13528,
+    0.10618,
+    0.07209,
+    0.04127,
+    0.02224,
+    0.01041,
+    0.00442,
+    0.00169
+   ]
+  },
+  {
+   "pitcher": "Hunter Brown",
+   "team": "HOU",
+   "opponent": "SEA",
+   "home": false,
+   "venue": "T-Mobile Park",
+   "game_time": "4:10 PM",
+   "proj_k": 7.75,
+   "proj_bf": 24.1,
+   "k_rate": 0.3223,
+   "pitcher_k_pct": 0.288,
+   "opp_k_pct": 0.245,
+   "park_factor": 1.04,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00023,
+    0.002,
+    0.00861,
+    0.0261,
+    0.05486,
+    0.09647,
+    0.13287,
+    0.15468,
+    0.15257,
+    0.13101,
+    0.09875,
+    0.06545,
+    0.03873,
+    0.02064,
+    0.00978,
+    0.00439,
+    0.00186
+   ]
+  },
+  {
+   "pitcher": "Cole Ragans",
+   "team": "KC",
+   "opponent": "MIN",
+   "home": false,
+   "venue": "Target Field",
+   "game_time": "2:10 PM",
+   "proj_k": 7.19,
+   "proj_bf": 23.8,
+   "k_rate": 0.3021,
+   "pitcher_k_pct": 0.294,
+   "opp_k_pct": 0.228,
+   "park_factor": 1.01,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.0004,
+    0.00351,
+    0.01494,
+    0.03921,
+    0.07744,
+    0.12082,
+    0.14999,
+    0.16174,
+    0.14468,
+    0.11385,
+    0.07781,
+    0.04781,
+    0.02589,
+    0.01284,
+    0.00551,
+    0.00242,
+    0.00077
+   ]
+  },
+  {
+   "pitcher": "Framber Valdez",
+   "team": "HOU",
+   "opponent": "SEA",
+   "home": false,
+   "venue": "T-Mobile Park",
+   "game_time": "9:40 PM",
+   "proj_k": 7.17,
+   "proj_bf": 26.1,
+   "k_rate": 0.2751,
+   "pitcher_k_pct": 0.244,
+   "opp_k_pct": 0.245,
+   "park_factor": 1.04,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00034,
+    0.00302,
+    0.01281,
+    0.03577,
+    0.07583,
+    0.12055,
+    0.15557,
+    0.16595,
+    0.14933,
+    0.1161,
+    0.07823,
+    0.04573,
+    0.02346,
+    0.0106,
+    0.00445,
+    0.00146,
+    0.00053
+   ]
+  },
+  {
+   "pitcher": "Logan Gilbert",
+   "team": "SEA",
+   "opponent": "HOU",
+   "home": true,
+   "venue": "T-Mobile Park",
+   "game_time": "4:10 PM",
+   "proj_k": 6.94,
+   "proj_bf": 24.6,
+   "k_rate": 0.2822,
+   "pitcher_k_pct": 0.279,
+   "opp_k_pct": 0.219,
+   "park_factor": 1.04,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00037,
+    0.00404,
+    0.01658,
+    0.04411,
+    0.08633,
+    0.13181,
+    0.1614,
+    0.16347,
+    0.1438,
+    0.10553,
+    0.0695,
+    0.03941,
+    0.01957,
+    0.00864,
+    0.00359,
+    0.00129,
+    0.00042
+   ]
+  },
+  {
+   "pitcher": "Zack Wheeler",
+   "team": "PHI",
+   "opponent": "ATL",
+   "home": true,
+   "venue": "Citizens Bank Park",
+   "game_time": "1:35 PM",
+   "proj_k": 6.91,
+   "proj_bf": 25.2,
+   "k_rate": 0.2742,
+   "pitcher_k_pct": 0.286,
+   "opp_k_pct": 0.213,
+   "park_factor": 1.0,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00036,
+    0.0038,
+    0.01628,
+    0.04469,
+    0.08715,
+    0.13256,
+    0.16306,
+    0.16478,
+    0.14278,
+    0.10594,
+    0.06792,
+    0.03877,
+    0.01912,
+    0.00793,
+    0.00334,
+    0.00102,
+    0.00033
+   ]
+  },
+  {
+   "pitcher": "Bryan Woo",
+   "team": "SEA",
+   "opponent": "LAA",
+   "home": true,
+   "venue": "T-Mobile Park",
+   "game_time": "9:40 PM",
+   "proj_k": 6.5,
+   "proj_bf": 25.5,
+   "k_rate": 0.2548,
+   "pitcher_k_pct": 0.238,
+   "opp_k_pct": 0.232,
+   "park_factor": 1.04,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00082,
+    0.00608,
+    0.02326,
+    0.05949,
+    0.10797,
+    0.15005,
+    0.17189,
+    0.1615,
+    0.12866,
+    0.08772,
+    0.05349,
+    0.02746,
+    0.01312,
+    0.0053,
+    0.00221,
+    0.00069,
+    0.0002
+   ]
+  },
+  {
+   "pitcher": "Sonny Gray",
+   "team": "STL",
+   "opponent": "CHC",
+   "home": true,
+   "venue": "Busch Stadium",
+   "game_time": "1:15 PM",
+   "proj_k": 6.0,
+   "proj_bf": 24.0,
+   "k_rate": 0.25,
+   "pitcher_k_pct": 0.256,
+   "opp_k_pct": 0.221,
+   "park_factor": 0.98,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00145,
+    0.01102,
+    0.03678,
+    0.08131,
+    0.13262,
+    0.16906,
+    0.1739,
+    0.15045,
+    0.10866,
+    0.06796,
+    0.03735,
+    0.01752,
+    0.00769,
+    0.0029,
+    0.00097,
+    0.00028,
+    6e-05
+   ]
+  },
+  {
+   "pitcher": "Joe Ryan",
+   "team": "MIN",
+   "opponent": "KC",
+   "home": true,
+   "venue": "Target Field",
+   "game_time": "2:10 PM",
+   "proj_k": 5.95,
+   "proj_bf": 24.3,
+   "k_rate": 0.2453,
+   "pitcher_k_pct": 0.271,
+   "opp_k_pct": 0.199,
+   "park_factor": 1.01,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00166,
+    0.01092,
+    0.03774,
+    0.08372,
+    0.13559,
+    0.16986,
+    0.17495,
+    0.14888,
+    0.10672,
+    0.06599,
+    0.03574,
+    0.01696,
+    0.00708,
+    0.00283,
+    0.001,
+    0.0003,
+    6e-05
+   ]
+  },
+  {
+   "pitcher": "Mitch Keller",
+   "team": "PIT",
+   "opponent": "MIL",
+   "home": false,
+   "venue": "American Family",
+   "game_time": "2:10 PM",
+   "proj_k": 4.99,
+   "proj_bf": 24.7,
+   "k_rate": 0.2022,
+   "pitcher_k_pct": 0.201,
+   "opp_k_pct": 0.226,
+   "park_factor": 0.99,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.0046,
+    0.02641,
+    0.0767,
+    0.13775,
+    0.18446,
+    0.18927,
+    0.15607,
+    0.10869,
+    0.06243,
+    0.03162,
+    0.01387,
+    0.00566,
+    0.00166,
+    0.00056,
+    0.0002,
+    3e-05,
+    2e-05
+   ]
+  },
+  {
+   "pitcher": "Shota Imanaga",
+   "team": "CHC",
+   "opponent": "STL",
+   "home": false,
+   "venue": "Busch Stadium",
+   "game_time": "1:15 PM",
+   "proj_k": 4.82,
+   "proj_bf": 23.4,
+   "k_rate": 0.2063,
+   "pitcher_k_pct": 0.229,
+   "opp_k_pct": 0.204,
+   "park_factor": 0.98,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.0061,
+    0.03207,
+    0.08654,
+    0.14968,
+    0.18835,
+    0.18684,
+    0.14787,
+    0.10019,
+    0.05628,
+    0.02785,
+    0.01178,
+    0.00438,
+    0.00152,
+    0.00043,
+    0.00011,
+    3e-05,
+    2e-05
+   ]
+  },
+  {
+   "pitcher": "Kyle Hendricks",
+   "team": "LAA",
+   "opponent": "SEA",
+   "home": false,
+   "venue": "T-Mobile Park",
+   "game_time": "9:40 PM",
+   "proj_k": 3.61,
+   "proj_bf": 21.9,
+   "k_rate": 0.1651,
+   "pitcher_k_pct": 0.153,
+   "opp_k_pct": 0.232,
+   "park_factor": 1.04,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.02584,
+    0.09448,
+    0.17581,
+    0.21343,
+    0.19528,
+    0.14115,
+    0.08385,
+    0.04194,
+    0.01787,
+    0.00699,
+    0.00241,
+    0.00065,
+    0.00022,
+    7e-05,
+    2e-05,
+    0.0,
+    0.0
+   ]
+  }
+ ]
+};
 
+const MAX_K = 16;
+let state = { data: null, card: null, nfl: null, q: "", pitcher: null,
+              sort: "proj", view: "slate", open: new Set() };
 
-if __name__ == "__main__":
-    sys.exit(main())
+/* ---------- helpers ---------- */
+
+const fmt1 = n => n.toFixed(1);
+
+function gameTime(s) {
+  // Prefer the raw timestamp so the browser shows it in the viewer's zone.
+  if (s.start_iso) {
+    const d = new Date(s.start_iso);
+    if (!isNaN(d)) return d.toLocaleTimeString(undefined,
+      { hour: "numeric", minute: "2-digit" });
+  }
+  return s.game_time || "";
+}
+
+function startMs(s) {
+  if (s.start_iso) {
+    const t = Date.parse(s.start_iso);
+    if (!isNaN(t)) return t;
+  }
+  return Number.MAX_SAFE_INTEGER;   // undated games sort last, not first
+}
+const pct = n => Math.round(n * 100) + "%";
+
+function prettyDate(iso) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString(undefined, {
+    weekday: "long", month: "long", day: "numeric"
+  });
+}
+
+function tailProb(pmf, n) {
+  let s = 0;
+  for (let i = n; i < pmf.length; i++) s += pmf[i];
+  return s;
+}
+
+/* ---------- distribution graphics ---------- */
+
+// Compact strip shown on every row. Red tick marks the projection.
+function strip(pmf, mean, line) {
+  const W = 168, H = 40, n = MAX_K + 1, bw = W / n, peak = Math.max(...pmf);
+  let bars = "";
+  for (let i = 0; i < n; i++) {
+    const h = Math.max(1, (pmf[i] / peak) * (H - 6));
+    bars += `<rect x="${(i * bw + 0.6).toFixed(2)}" y="${(H - h).toFixed(2)}" ` +
+            `width="${(bw - 1.2).toFixed(2)}" height="${h.toFixed(2)}" fill="var(--bar)" ` +
+            `opacity="${(0.35 + 0.65 * (pmf[i] / peak)).toFixed(2)}"/>`;
+  }
+  const x = (mean + 0.5) * bw;
+  let book = "";
+  if (line != null) {
+    const lx = (line + 1) * bw;
+    book = `<line x1="${lx.toFixed(2)}" y1="0" x2="${lx.toFixed(2)}" y2="${H}" ` +
+           `stroke="var(--ink)" stroke-width="1" stroke-dasharray="3 2" opacity="0.65"/>`;
+  }
+  return `<svg class="strip" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" ` +
+         `role="img" aria-label="Distribution of likely strikeout totals">` +
+         bars + book +
+         `<line x1="${x.toFixed(2)}" y1="0" x2="${x.toFixed(2)}" y2="${H}" ` +
+         `stroke="var(--pencil)" stroke-width="1.5"/></svg>`;
+}
+
+// Full chart shown when a row is expanded.
+function chart(pmf, mean, line) {
+  const W = 560, H = 150, AX = 22, n = MAX_K + 1;
+  const bw = W / n, peak = Math.max(...pmf), plot = H - AX;
+  let bars = "", ticks = "";
+  for (let i = 0; i < n; i++) {
+    const h = Math.max(1, (pmf[i] / peak) * (plot - 8));
+    bars += `<rect x="${(i * bw + 1).toFixed(2)}" y="${(plot - h).toFixed(2)}" ` +
+            `width="${(bw - 2).toFixed(2)}" height="${h.toFixed(2)}" ` +
+            `fill="var(--bar)" opacity="${(0.3 + 0.7 * (pmf[i] / peak)).toFixed(2)}"/>`;
+    if (i % 2 === 0) {
+      ticks += `<text x="${(i * bw + bw / 2).toFixed(2)}" y="${H - 6}" ` +
+               `text-anchor="middle" font-size="11" fill="var(--ink-soft)">${i}</text>`;
+    }
+  }
+  const x = (mean + 0.5) * bw;
+  let book = "";
+  if (line != null) {
+    const lx = (line + 1) * bw;
+    book = `<line x1="${lx.toFixed(2)}" y1="0" x2="${lx.toFixed(2)}" y2="${plot}" ` +
+           `stroke="var(--ink)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.7"/>`;
+  }
+  return `<svg width="100%" height="${H}" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" ` +
+         `role="img" aria-label="Probability of each strikeout total">` +
+         bars + book +
+         `<line x1="0" y1="${plot}" x2="${W}" y2="${plot}" stroke="var(--rule)"/>` +
+         `<line x1="${x.toFixed(2)}" y1="0" x2="${x.toFixed(2)}" y2="${plot}" ` +
+         `stroke="var(--pencil)" stroke-width="1.5"/>` +
+         ticks + `</svg>`;
+}
+
+/* ---------- rendering ---------- */
+
+function detail(s) {
+  const base = Math.round(s.proj_k);
+  const lines = [base - 1, base, base + 1].filter(v => v >= 1);
+  const cells = lines.map(v =>
+    `<div class="th"><b>${pct(tailProb(s.pmf, v))}</b><span>${v} or more</span></div>`
+  ).join("");
+
+  const m = s.market;
+  const price = p => (p > 0 ? "+" : "") + p;
+  const evPct = v => (v > 0 ? "+" : "") + Math.round(v * 100) + "%";
+  const best = m && (m.best_side === "Over" ? m.best_over : m.best_under);
+
+  const mkt = m
+    ? `<div class="market">
+         <div class="market-lines">
+           <span>Market line <b>${m.line}</b></span>
+           <span>My line <b>${m.model_line ?? "—"}</b></span>
+           <span class="juice">${m.books} book${m.books === 1 ? "" : "s"},
+             ${pct(m.avg_vig)} margin${m.book_spread > 0.05
+               ? `, disagreeing by ${Math.round(m.book_spread * 100)} pts` : ""}</span>
+         </div>
+         <div class="market-top">
+           <span>Market <b>${pct(m.consensus_over)}</b></span>
+           <span>This model <b>${pct(m.model_over)}</b></span>
+           <span class="gap">${m.edge > 0 ? "+" : ""}${Math.round(m.edge * 100)} pts</span>
+         </div>
+         <div class="market-cmp">
+           <span>Best ${m.best_side.toLowerCase()} <b>${price(best.price)}</b>
+             at ${best.book}</span>
+           <span class="ev ${m.best_ev > 0 ? "pos" : "neg"}">${evPct(m.best_ev)} by my numbers</span>
+         </div>
+       </div>`
+    : `<div class="market"><span class="none">No strikeout line posted for this start.</span></div>`;
+
+  return `
+    <div class="detail">
+      ${whyLine(s)}
+      ${weatherLine(s)}
+      <div class="chart-wrap">${chart(s.pmf, s.proj_k, m ? m.line : null)}</div>
+      ${mkt}
+      ${m ? `<p class="caption">Both percentages are the chance of clearing
+        ${m.line}, with the books' margin stripped out so they're comparable.
+        The last figure is what my numbers say that price is worth — which is
+        only as good as the model, and the model hasn't been graded yet.</p>` : ""}
+      <p class="caption">Height is the chance of that exact total. The red line is
+      the projection${m ? ", the dashed line is the book's" : ""} — note how little
+      of the distribution actually sits on any one number.</p>
+      <div class="thresholds">${cells}</div>
+      <dl class="detail-grid">
+        <div class="fact"><dt>Batters faced</dt><dd>${fmt1(s.proj_bf)}</dd></div>
+        <div class="fact"><dt>Matchup K rate</dt><dd>${pct(s.k_rate)}</dd></div>
+        <div class="fact"><dt>His K rate</dt><dd>${pct(s.pitcher_k_pct)}</dd></div>
+        <div class="fact"><dt>Their K rate</dt><dd>${pct(s.opp_k_pct)}</dd></div>
+        <div class="fact"><dt>Lineup</dt><dd>${s.lineup_confirmed ? "Posted" : "Projected"}</dd></div>
+      </dl>
+    </div>`;
+}
+
+function weatherLine(s) {
+  const w = s.weather;
+  if (!w) return "";
+  if (w.indoor) {
+    return `<div class="wx"><span class="t">Indoors</span>
+      <span class="note">${w.roof || "Dome"} — weather isn't a factor</span></div>`;
+  }
+  const bits = [];
+  if (w.temp_f != null) bits.push(`<span class="t">${w.temp_f}&deg;F</span>`);
+  if (w.wind) bits.push(`<span>Wind ${w.wind}${w.wind_dir ? " " + w.wind_dir : ""}</span>`);
+  if (w.conditions) bits.push(`<span>${w.conditions}</span>`);
+  if (w.rain_pct != null && w.rain_pct >= 30)
+    bits.push(`<span class="note">${w.rain_pct}% rain</span>`);
+  if (!bits.length) return "";
+  bits.push(`<span class="note">shown for context — not in the projection</span>`);
+  return `<div class="wx">${bits.join("")}</div>`;
+}
+
+/* ---------- parlays ---------- */
+
+function amFromDec(d) {
+  return d >= 2 ? Math.round((d - 1) * 100) : Math.round(-100 / (d - 1));
+}
+
+function legsFor(d) {
+  // Only pitchers with a market, and only the side the model prefers.
+  return d.starters.filter(s => s.market && s.market.best_ev != null)
+    .map(s => {
+      const m = s.market;
+      const over = m.best_side === "Over";
+      const best = over ? m.best_over : m.best_under;
+      return {
+        pitcher: s.pitcher, team: s.team, opponent: s.opponent,
+        side: m.best_side, line: m.line, price: best.price, book: best.book,
+        dec: toDecimal(best.price),
+        mine: over ? m.model_over : 1 - m.model_over,
+        mkt: over ? m.consensus_over : 1 - m.consensus_over,
+        ev: m.best_ev,
+      };
+    })
+    .sort((a, b) => b.ev - a.ev);
+}
+
+function sameGame(a, b) {
+  return (a.team === b.opponent && a.opponent === b.team);
+}
+
+function buildSlip(legs, stake) {
+  const dec = legs.reduce((x, l) => x * l.dec, 1);
+  const mine = legs.reduce((x, l) => x * l.mine, 1);
+  const mkt = legs.reduce((x, l) => x * l.mkt, 1);
+  const be = 1 / dec;
+  const ev = mine * (dec - 1) - (1 - mine);
+  // Fair price if the books took no margin, from their own devigged numbers.
+  const fairDec = 1 / mkt;
+  const hold = 1 - dec / fairDec;
+  const b = dec - 1;
+  const kelly = Math.max(0, (mine * b - (1 - mine)) / b);
+  // Same sum, if the model is 5 points pessimistic on each leg.
+  const shaded = legs.reduce((x, l) => x * Math.max(0.02, l.mine - 0.05), 1);
+  const kellyLow = Math.max(0, (shaded * b - (1 - shaded)) / b);
+
+  const clash = legs.some((l, i) => legs.slice(i + 1).some(o => sameGame(l, o)));
+
+  return `<div class="slip">
+    <div class="n">${legs.length} leg${legs.length === 1 ? "" : "s"}</div>
+    ${legs.map(l => `<div class="leg">
+      <span class="who">${l.pitcher}</span>
+      <span>${l.side} ${l.line}</span>
+      <span>${l.price > 0 ? "+" : ""}${l.price}</span>
+      <span class="bk">${l.book}</span>
+    </div>`).join("")}
+    <div class="tot">
+      <span>Pays <b>${amFromDec(dec) > 0 ? "+" : ""}${amFromDec(dec)}</b></span>
+      <span>$${stake} returns <b>$${(stake * dec).toFixed(2)}</b></span>
+      <span>Needs <b>${(be * 100).toFixed(1)}%</b></span>
+      <span>My model <b>${(mine * 100).toFixed(1)}%</b></span>
+    </div>
+    <div class="cost">The books' margin on this combination is
+      <b>${(hold * 100).toFixed(1)}%</b> — that's what the parlay costs you
+      versus the same legs bet singly.</div>
+    <div class="cost">Kelly would stake ${(kelly * 100).toFixed(1)}% of your
+      bankroll on my numbers — but only ${(kellyLow * 100).toFixed(1)}% if each
+      leg is 5 points worse than I think. That swing is the point.</div>
+    ${clash ? `<div class="warn">Two legs are in the same game. Their outcomes
+      move together, so the combined probability above is overstated.</div>` : ""}
+  </div>`;
+}
+
+function parlayPanel() {
+  const d = state.data;
+  if (!d) return "";
+  const legs = legsFor(d);
+  if (legs.length < 2) {
+    return `<div class="par"><h2>Parlays</h2>
+      <p class="sub">Needs at least two pitchers with posted lines. Once the
+      board fills in, suggestions appear here.</p></div>`;
+  }
+
+  const stake = state.stake || 10;
+  const slips = [];
+
+  // Two and three legs, highest EV first, skipping same-game pairs.
+  for (const size of [2, 3]) {
+    const picked = [];
+    for (const l of legs) {
+      if (picked.length >= size) break;
+      if (picked.some(p => sameGame(p, l))) continue;
+      picked.push(l);
+    }
+    if (picked.length === size) slips.push(buildSlip(picked, stake));
+  }
+
+  return `<div class="par">
+    <h2>Suggested parlays</h2>
+    <p class="sub">Built from the legs my model rates highest, best available
+      price on each. Ranked by my numbers — which beat a season average by
+      0.04 strikeouts and have never been tested against a book. Errors
+      multiply across legs, so a model that's mildly wrong on singles can be
+      badly wrong here.</p>
+    <div class="stake">
+      <label for="stk">Stake $</label>
+      <input id="stk" type="number" min="1" step="1" value="${stake}">
+    </div>
+    ${slips.join("")}
+  </div>`;
+}
+
+function whyLine(s) {
+  const lg = (state.data && state.data.league_k_pct) || 0.223;
+  const bits = [];
+
+  const pk = s.pitcher_k_pct, ok = s.opp_k_pct;
+  const pRel = pk / lg, oRel = ok / lg;
+
+  bits.push(pRel > 1.25 ? `<b>${s.pitcher}</b> strikes out far more hitters than average`
+    : pRel > 1.08 ? `<b>${s.pitcher}</b> runs a better-than-average strikeout rate`
+    : pRel < 0.8 ? `<b>${s.pitcher}</b> is well below average at missing bats`
+    : `<b>${s.pitcher}</b> is around league average at missing bats`);
+
+  bits.push(oRel > 1.12 ? `${s.opponent} strike out a lot`
+    : oRel < 0.9 ? `${s.opponent} are a tough, contact-heavy lineup`
+    : `${s.opponent} are about average in that respect`);
+
+  const bf = s.proj_bf;
+  bits.push(bf >= 25.5 ? `and he's been going deep — about ${bf.toFixed(0)} batters a start`
+    : bf <= 21 ? `but he's only facing about ${bf.toFixed(0)} batters a start, which caps the ceiling`
+    : `facing roughly ${bf.toFixed(0)} batters a start`);
+
+  let txt = bits[0] + ", " + bits[1] + ", " + bits[2] + ".";
+
+  if (s.starts_ytd != null && s.starts_ytd < 5) {
+    txt += ` Only ${s.starts_ytd} start${s.starts_ytd === 1 ? "" : "s"} on record,
+             so this leans heavily on league average.`;
+  }
+  const m = s.market;
+  if (m && Math.abs(m.edge) > 0.15) {
+    txt += ` The books disagree by ${Math.round(Math.abs(m.edge) * 100)} points —
+             usually a sign the model is missing something they know.`;
+  }
+  return `<p class="why">${txt}</p>`;
+}
+
+function calendar() {
+  const rows = (state.card && state.card.results) || [];
+  if (!rows.length) return "";
+  const byDay = {};
+  for (const r of rows) {
+    const b = byDay[r.date] || (byDay[r.date] = { n: 0, err: 0, hit: 0, lines: 0 });
+    b.n++; b.err += Math.abs(r.err || 0);
+    if (r.line != null) { b.lines++; if (r.hit) b.hit++; }
+  }
+  const days = Object.keys(byDay).sort();
+  const overall = rows.reduce((a, r) => a + Math.abs(r.err || 0), 0) / rows.length;
+
+  return `<div class="cal">${days.map(d => {
+    const b = byDay[d];
+    const mae = b.err / b.n;
+    const cls = mae < overall * 0.9 ? "good" : mae > overall * 1.1 ? "bad" : "";
+    const label = d.slice(5).replace("-", "/");
+    return `<div class="d ${cls}" title="${d}: ${b.n} starts, avg error ${mae.toFixed(2)}">
+      ${label}<span class="n">${mae.toFixed(1)}</span></div>`;
+  }).join("")}</div>
+  <p class="cal-key">Average error per day, in strikeouts. Green beat the
+    overall average of ${overall.toFixed(2)}, red was worse. Small numbers
+    are better.</p>`;
+}
+
+function nflView() {
+  const d = state.nfl;
+  if (!d || !d.games || !d.games.length) {
+    return `<div class="empty"><h2>No reception lines yet</h2>
+      <p>Lines are captured a few hours before each kickoff. This fills in
+      once the first game is collected.</p></div>`;
+  }
+  const q = state.q.toLowerCase();
+  let shown = 0;
+
+  const html = d.games.map(g => {
+    const ps = g.players.filter(p => !q || p.player.toLowerCase().includes(q)
+                                      || g.matchup.toLowerCase().includes(q));
+    if (!ps.length) return "";
+    shown += ps.length;
+    return `<div class="nfl-game">
+      <h3>${g.matchup}</h3>
+      <div class="when">${g.players.length} players · ${g.snapshots} snapshot${g.snapshots === 1 ? "" : "s"}</div>
+      ${ps.map(p => {
+        const best = Math.max(p.shop_over, p.shop_under);
+        const side = p.shop_over >= p.shop_under ? "over" : "under";
+        return `<div class="nfl-row">
+          <span class="nm">${p.player}</span>
+          <span class="ln">${p.line}</span>
+          <span class="px">${pct(p.consensus_over)} over ·
+            best over <b>${p.best_over.price > 0 ? "+" : ""}${p.best_over.price}</b>
+            ${p.best_over.book}
+            ${best >= 3 ? `· <span class="shop">$${best.toFixed(0)} in the ${side}</span>` : ""}
+          </span>
+        </div>`;
+      }).join("")}
+    </div>`;
+  }).join("");
+
+  return `<p class="caption" style="max-width:58ch">What the books are pricing,
+    margins removed. No projections here — the dollar figures are what taking
+    the best price instead of the worst is worth per $100.</p>
+    ${html || `<div class="empty"><p>Nothing matches "${state.q}".</p></div>`}`;
+}
+
+function pitcherView(name) {
+  const all = ((state.card && state.card.results) || [])
+    .filter(r => r.pitcher === name);
+  const rows = all.slice(0, 10);
+
+  let body;
+  if (!rows.length) {
+    body = `<p class="psum">No graded starts for ${name} yet. Results appear
+      the morning after each game.</p>`;
+  } else {
+    const errs = rows.map(r => Math.abs(r.err ?? (r.proj - r.actual)));
+    const mae = errs.reduce((a, b) => a + b, 0) / errs.length;
+    const high = rows.filter(r => r.proj > r.actual).length;
+    const withLine = rows.filter(r => r.line != null);
+    const hits = withLine.filter(r => r.hit).length;
+    const max = Math.max(...rows.map(r => Math.max(r.proj, r.actual)), 8);
+
+    body = `
+      <p class="psum">Last ${rows.length} graded start${rows.length === 1 ? "" : "s"}.
+        Average miss ${mae.toFixed(2)} strikeouts, projected high on ${high} of
+        ${rows.length}.${withLine.length
+          ? ` Model's side hit ${hits} of ${withLine.length} times.` : ""}</p>
+      <div class="pbars">
+        ${rows.map(r => {
+          const pw = (r.proj / max) * 100, aw = (r.actual / max) * 100;
+          return `<div class="pbar">
+            <span class="dt">${r.date.slice(5)}</span>
+            <span class="track">
+              <span class="pj" style="left:0;width:${pw.toFixed(1)}%"></span>
+              <span class="ac" style="left:${aw.toFixed(1)}%;width:2px"></span>
+            </span>
+            <span class="n">${r.proj.toFixed(1)}</span>
+            <span class="n act">${r.actual}</span>
+          </div>`;
+        }).join("")}
+      </div>
+      <p class="cal-key">Bar is the projection, red mark is what he actually
+        threw. ${all.length > 10 ? `${all.length} starts on record, showing 10.` : ""}</p>`;
+  }
+
+  return `<button class="pback" id="pb">&larr; back</button>
+    <h2 class="phead">${name}</h2>${body}`;
+}
+
+function results() {
+  const rows = (state.card && state.card.results) || [];
+  if (!rows.length) {
+    return `<div class="empty"><h2>No results yet</h2>
+      <p>Each day gets graded the following morning, once the games have
+      finished. Check back tomorrow.</p></div>`;
+  }
+
+  const withLine = rows.filter(r => r.line != null);
+  const hits = withLine.filter(r => r.hit).length;
+  const closer = withLine.filter(r => r.closer).length;
+
+  const days = [];
+  let cur = null;
+  for (const r of rows) {
+    if (!cur || cur.date !== r.date) { cur = { date: r.date, rows: [] }; days.push(cur); }
+    cur.rows.push(r);
+  }
+
+  const head = `<div class="res-head">
+      <span>Pitcher</span><span>Proj</span><span>Actual</span>
+      <span class="bf">Line</span><span></span></div>`;
+
+  return `
+    <p class="caption" style="max-width:58ch">Every graded start, newest first.
+      ${withLine.length ? `Where a line existed, the model's side came in
+      ${hits} of ${withLine.length} times, and its projection was closer to the
+      real number than the line was on ${closer}.` : ""}</p>
+    ${calendar()}
+    <div class="res">
+      ${days.map(d => `
+        <div class="res-day">${prettyDate(d.date)}</div>
+        ${head}
+        ${d.rows.map(r => `
+          <div class="res-row">
+            <span class="nm plink" data-pitcher="${r.pitcher}">${r.pitcher}</span>
+            <span class="n">${r.proj.toFixed(1)}</span>
+            <span class="n got">${r.actual}</span>
+            <span class="n bf">${r.line != null ? r.line : "—"}</span>
+            <span>${r.line != null
+              ? `<span class="tag ${r.hit ? "win" : "miss"}">${r.side}
+                 ${r.hit ? "hit" : "miss"}</span>`
+              : ""}</span>
+          </div>`).join("")}`).join("")}
+    </div>`;
+}
+
+function scorecard() {
+  const c = state.card;
+  if (!c || !c.starts) {
+    return `<div class="card"><h2>Accuracy</h2>
+      <p class="note">Nothing graded yet. Each finished day gets scored against
+      the real results; come back after a couple of weeks.</p></div>`;
+  }
+
+  const m = c.market;
+  const rate = m && m.win_rate != null ? m.win_rate : null;
+  const thin = c.starts < 150;
+
+  return `<div class="card">
+    <h2>Accuracy over ${c.days} day${c.days === 1 ? "" : "s"},
+        ${c.starts} start${c.starts === 1 ? "" : "s"}</h2>
+    <div class="card-row">
+      <span>My error <b>${c.mae_model}</b></span>
+      <span>Season-average baseline <b>${c.mae_naive}</b></span>
+      ${m ? `<span>The books <b>${m.mae_book}</b></span>` : ""}
+    </div>
+    <div class="card-row">
+      <span>Strikeout bias <b>${c.bias_k > 0 ? "+" : ""}${c.bias_k}</b></span>
+      <span>Batters faced <b>${c.bias_bf > 0 ? "+" : ""}${c.bias_bf}</b></span>
+      <span>Real spread <b>${c.sd_actual}</b></span>
+    </div>
+    ${rate != null ? `<div class="card-row"><span class="headline">
+      Disagreed with the books by a full strikeout ${m.disagreements} times,
+      and was closer on ${Math.round(rate * 100)}% of them.</span></div>` : ""}
+    <p class="note">${thin
+      ? `Under 150 starts, a gap this size is indistinguishable from luck. Keep collecting.`
+      : (rate != null && rate <= 0.5
+        ? `Losing the disagreements. The gaps flagged on the slate are this model's
+           blind spots rather than anything the market missed.`
+        : `Ahead of the baseline. The disagreement rate is the number that decides
+           whether the flagged gaps mean anything.`)}</p>
+  </div>`;
+}
+
+/* ---------- price checker ---------- */
+
+const toDecimal = p => (p > 0 ? 1 + p / 100 : 1 + 100 / -p);
+const breakEven = p => 1 / toDecimal(p);
+const fmtPrice = p => (p > 0 ? "+" : "") + p;
+
+function calcPanel() {
+  const names = state.data
+    ? state.data.starters.map(s => s.pitcher).sort()
+    : [];
+  return `<div class="calc">
+    <h2>Check a price</h2>
+    <p class="sub">Enter a price you've been offered. This shows the arithmetic:
+      what the price needs to be worth taking, what the market thinks, and
+      whether a better number exists elsewhere.</p>
+    <div class="calc-in">
+      <div class="fld">
+        <label for="c-name">Pitcher</label>
+        <input id="c-name" type="text" list="c-list" placeholder="Any name" autocomplete="off">
+        <datalist id="c-list">${names.map(n => `<option value="${n}">`).join("")}</datalist>
+      </div>
+      <div class="fld">
+        <label for="c-side">Side</label>
+        <select id="c-side"><option>Over</option><option>Under</option></select>
+      </div>
+      <div class="fld">
+        <label for="c-line">Line</label>
+        <input id="c-line" type="number" step="0.5" placeholder="5.5">
+      </div>
+      <div class="fld">
+        <label for="c-odds">Odds</label>
+        <input id="c-odds" type="number" step="5" placeholder="-115">
+      </div>
+      <div class="fld">
+        <label for="c-other">Other side <span style="opacity:.6">(optional)</span></label>
+        <input id="c-other" type="number" step="5" placeholder="-105">
+      </div>
+    </div>
+    <div class="calc-out" id="c-out"></div>
+  </div>`;
+}
+
+function runCalc() {
+  const name = document.getElementById("c-name").value.trim();
+  const side = document.getElementById("c-side").value;
+  const line = parseFloat(document.getElementById("c-line").value);
+  const odds = parseFloat(document.getElementById("c-odds").value);
+  const other = parseFloat(document.getElementById("c-other").value);
+  const out = document.getElementById("c-out");
+
+  if (!odds || Math.abs(odds) < 100) { out.innerHTML = ""; return; }
+
+  const be = breakEven(odds);
+  let html = `<div class="line">
+      <span>Pays <b>${fmtPrice(odds)}</b></span>
+      <span>Needs <b>${(be * 100).toFixed(1)}%</b> to break even</span>
+    </div>`;
+
+  // If both sides given, the vig can be stripped without any model at all.
+  if (other && Math.abs(other) >= 100) {
+    const a = breakEven(odds), b = breakEven(other);
+    const fair = a / (a + b);
+    html += `<div class="line">
+      <span>Fair after vig <b>${(fair * 100).toFixed(1)}%</b></span>
+      <span>Book's margin <b>${((a + b - 1) * 100).toFixed(1)}%</b></span>
+    </div>`;
+  }
+
+  // Anything below needs the pitcher to be on today's slate.
+  const s = state.data && state.data.starters.find(
+    x => x.pitcher.toLowerCase() === name.toLowerCase());
+
+  if (s && !isNaN(line)) {
+    const threshold = Math.floor(line) + 1;
+    const pOver = s.pmf.slice(threshold).reduce((a, b) => a + b, 0);
+    const mine = side === "Over" ? pOver : 1 - pOver;
+    const ev = mine * (toDecimal(odds) - 1) - (1 - mine);
+
+    html += `<div class="line">
+        <span>My model <b>${(mine * 100).toFixed(1)}%</b></span>
+        <span>Edge over break-even
+          <b>${((mine - be) * 100).toFixed(1)} pts</b></span>
+        <span>EV <b>${(ev * 100).toFixed(1)}%</b></span>
+      </div>`;
+
+    const m = s.market;
+    if (m) {
+      const mkt = side === "Over" ? m.consensus_over : 1 - m.consensus_over;
+      html += `<div class="line">
+          <span>Market line <b>${m.line}</b></span>
+          <span>Market <b>${(mkt * 100).toFixed(1)}%</b>
+            across ${m.books} book${m.books === 1 ? "" : "s"}</span>
+        </div>`;
+
+      // Line shopping - the one edge that doesn't depend on any model.
+      const best = side === "Over" ? m.best_over : m.best_under;
+      if (best && m.line === line) {
+        const gain = (toDecimal(best.price) - toDecimal(odds)) * 100;
+        html += gain > 0.5
+          ? `<div class="shop"><b>${best.book} has ${fmtPrice(best.price)}</b>
+             on the same line — about $${gain.toFixed(0)} more per $100 staked,
+             for the same bet. This part doesn't depend on the model being right.</div>`
+          : `<div class="shop">That's the best price I found across
+             ${m.books} book${m.books === 1 ? "" : "s"}.</div>`;
+      }
+    }
+
+    html += `<p class="verdict">The model has not been graded against results
+      yet, so treat the EV figure as a disagreement with the market rather
+      than an edge over it. The break-even and vig figures above are just
+      arithmetic and hold regardless.</p>`;
+  } else if (name) {
+    html += `<p class="verdict">${name} isn't on today's slate, so there's no
+      model number for him — but the break-even${other ? " and vig" : ""}
+      arithmetic above applies to any bet in any sport.</p>`;
+  } else {
+    html += `<p class="verdict">Add a pitcher from today's slate and a line to
+      compare against the model and check for a better price.</p>`;
+  }
+
+  out.innerHTML = html;
+}
+
+function render() {
+  const d = state.data;
+  document.getElementById("date").textContent = prettyDate(d.date);
+
+  const t = new Date(d.generated_at);
+  document.getElementById("meta").innerHTML =
+    `${d.starters.length} starters<br>built ${t.toLocaleTimeString(undefined,
+      { hour: "numeric", minute: "2-digit" })}`;
+
+  document.getElementById("notice").innerHTML = d.sample
+    ? `<div class="notice">Showing a sample slate — these are made-up numbers, not
+       today's games. Run <code>python build_projections.py</code> to write a real
+       <code>projections.json</code> next to this page.</div>`
+    : "";
+
+  const q = state.q.toLowerCase();
+  const rows = [...d.starters].filter(s => !q
+      || s.pitcher.toLowerCase().includes(q)
+      || (s.team || "").toLowerCase().includes(q)
+      || (s.opponent || "").toLowerCase().includes(q)).sort(
+    state.sort === "proj"
+      ? (a, b) => b.proj_k - a.proj_k
+      : (a, b) => startMs(a) - startMs(b) || b.proj_k - a.proj_k
+  );
+
+  const nflCount = state.nfl && state.nfl.totals ? state.nfl.totals.players : 0;
+  const viewBar = `
+    <div class="views">
+      <span>Showing</span>
+      <button data-view="slate" aria-pressed="${state.view === "slate"}">strikeouts</button>
+      <span aria-hidden="true">·</span>
+      <button data-view="nfl" aria-pressed="${state.view === "nfl"}">receptions${
+        nflCount ? ` (${nflCount})` : ""}</button>
+      <span aria-hidden="true">·</span>
+      <button data-view="results" aria-pressed="${state.view === "results"}">past results</button>
+    </div>`;
+
+  const searchBar = `
+    <div class="search">
+      <input id="q" type="search" placeholder="Search players or teams"
+             value="${state.q.replace(/"/g, "&quot;")}" autocomplete="off">
+      <span class="count" id="qc"></span>
+    </div>`;
+
+  const wire = () => {
+    document.querySelectorAll(".views button").forEach(b =>
+      b.onclick = () => { state.view = b.dataset.view; render(); });
+    const q = document.getElementById("q");
+    if (q) {
+      q.oninput = () => {
+        state.q = q.value;
+        render();
+        const el = document.getElementById("q");
+        if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+      };
+    }
+  };
+
+  if (state.pitcher) {
+    document.getElementById("body").innerHTML = pitcherView(state.pitcher);
+    document.getElementById("pb").onclick = () => { state.pitcher = null; render(); };
+    document.getElementById("card").innerHTML = "";
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML = "";
+    return;
+  }
+
+  if (state.view === "results") {
+    document.getElementById("body").innerHTML = viewBar + results();
+    wire();
+    document.querySelectorAll(".plink").forEach(el =>
+      el.onclick = () => { state.pitcher = el.dataset.pitcher; render(); });
+    document.getElementById("card").innerHTML = scorecard();
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML = "";
+    return;
+  }
+
+  if (state.view === "nfl") {
+    document.getElementById("body").innerHTML = viewBar + searchBar + nflView();
+    wire();
+    document.getElementById("card").innerHTML = "";
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML =
+      `Reception lines only. There is no reception projection here — a model
+       tested on the full 2025 season failed to beat each player's own season
+       average, so none is shown.`;
+    return;
+  }
+
+  document.getElementById("body").innerHTML = viewBar + searchBar + `
+    <div class="controls">
+      <span>Sort by</span>
+      <button data-sort="proj" aria-pressed="${state.sort === "proj"}">projection</button>
+      <span aria-hidden="true">·</span>
+      <button data-sort="time" aria-pressed="${state.sort === "time"}">first pitch</button>
+    </div>
+    <div class="ledger">
+      ${rows.length ? rows.map(s => {
+        const key = s.pitcher + s.opponent;
+        const open = state.open.has(key);
+        const vs = s.home ? "vs" : "at";
+        return `
+        <div class="entry" data-key="${key}" ${open ? "open-detail" : ""}>
+          <button class="entry-head" aria-expanded="${open}">
+            <span class="who">
+              <span class="name">${s.pitcher}</span>
+              <span class="matchup">${s.team} ${vs} ${s.opponent} · ${s.venue} · ${gameTime(s)}</span>
+            </span>
+            <span class="proj">${fmt1(s.proj_k)}</span>
+            ${strip(s.pmf, s.proj_k, s.market ? s.market.line : null)}
+          </button>
+          ${detail(s)}
+        </div>`;
+      }).join("") : `<p class="caption">Nothing matches "${state.q}".</p>`}
+    </div>`;
+
+  document.getElementById("card").innerHTML = scorecard();
+  document.getElementById("calc").innerHTML = calcPanel() + parlayPanel();
+  ["c-name", "c-side", "c-line", "c-odds", "c-other"].forEach(id =>
+    document.getElementById(id).addEventListener("input", runCalc));
+  const stk = document.getElementById("stk");
+  if (stk) stk.oninput = () => {
+    state.stake = Math.max(1, parseFloat(stk.value) || 10);
+    document.getElementById("calc").innerHTML = calcPanel() + parlayPanel();
+    const el = document.getElementById("stk");
+    if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+    el.oninput = stk.oninput;
+  };
+
+  document.getElementById("footer").innerHTML =
+    `Projections combine each pitcher's strikeout rate with the opposing lineup's,
+     then apply it across the batters he's expected to face. A start has a standard
+     deviation of roughly two and a half strikeouts, so treat any single number as
+     the middle of a wide range.`;
+
+  document.querySelectorAll(".controls button").forEach(b =>
+    b.onclick = () => { state.sort = b.dataset.sort; render(); });
+  wire();
+  const qc = document.getElementById("qc");
+  if (qc && state.q) qc.textContent = `${rows.length} of ${d.starters.length}`;
+
+  document.querySelectorAll(".entry-head").forEach(b => b.onclick = () => {
+    const entry = b.closest(".entry"), key = entry.dataset.key;
+    state.open.has(key) ? state.open.delete(key) : state.open.add(key);
+    entry.toggleAttribute("open-detail");
+    b.setAttribute("aria-expanded", state.open.has(key));
+  });
+}
+
+function empty(reason) {
+  document.getElementById("body").innerHTML = `
+    <div class="empty">
+      <h2>No slate loaded</h2>
+      <p>${reason}</p>
+      <p>Build today's file, then serve this folder so the page can read it:</p>
+      <pre>python build_projections.py
+python -m http.server 8000</pre>
+      <p>Then open localhost:8000 in your browser. Opening the file directly
+         won't work — browsers block pages on <code>file://</code> from reading
+         other local files.</p>
+    </div>`;
+}
+
+Promise.all([
+  fetch("scorecard.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+  fetch("receptions.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n]) => { state.card = c; state.nfl = n; })
+  .then(() => fetch("projections.json", { cache: "no-store" }))
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(d => { state.data = d; render(); })
+  .catch(() => {
+    if (SAMPLE) { state.data = SAMPLE; render(); }
+    else empty("Couldn't find projections.json in this folder.");
+  });
+</script>
+</body>
+</html>
