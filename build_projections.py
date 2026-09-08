@@ -165,6 +165,7 @@ def build(day):
                 "home": side == "home",
                 "venue": venue,
                 "game_time": local_time(start),
+                "start_iso": start,
                 "proj_k": round(proj, 2),
                 "proj_bf": round(bf, 1),
                 "naive_k": round(naive, 2) if naive is not None else None,
@@ -191,12 +192,19 @@ def build(day):
 
 
 def local_time(iso):
+    """Eastern-time fallback for anything that can't run the browser formatter.
+
+    Not .astimezone() with no argument - that uses the build machine's zone,
+    which on GitHub is UTC, and turned every evening game into a late-night
+    one. The page prefers start_iso and formats it client-side.
+    """
     if not iso:
         return ""
     from datetime import datetime
+    from zoneinfo import ZoneInfo
     try:
-        dt = datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone()
-        return dt.strftime("%-I:%M %p")
+        dt = datetime.fromisoformat(iso.replace("Z", "+00:00"))
+        return dt.astimezone(ZoneInfo("America/New_York")).strftime("%-I:%M %p ET")
     except ValueError:
         return ""
 
