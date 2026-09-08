@@ -498,6 +498,36 @@
   .cal .d.bad  { border-bottom-color: var(--pencil); }
   .cal-key { font-size: 0.78rem; color: var(--ink-soft); }
 
+  /* --- pitcher history --- */
+  .plink { cursor: pointer; text-decoration: underline;
+           text-decoration-color: var(--rule); text-underline-offset: 3px; }
+  .plink:hover { text-decoration-color: var(--pencil); }
+  .pback {
+    font: inherit; font-size: 0.85rem; color: var(--ink-soft);
+    background: none; border: 0; padding: 0.15rem 0; cursor: pointer;
+    margin-bottom: 0.6rem;
+  }
+  .pback:hover { color: var(--ink); }
+  .phead { margin: 0 0 0.2rem; font-size: 1.3rem; font-weight: 700;
+           letter-spacing: -0.025em; }
+  .psum { font-size: 0.88rem; color: var(--ink-soft); margin: 0 0 1.1rem; }
+  .pbars { border-top: 1px solid var(--ink); }
+  .pbar {
+    display: grid; grid-template-columns: 4.6rem 1fr 2.6rem 2.6rem;
+    align-items: center; gap: 0 0.6rem;
+    padding: 0.45rem 0; border-bottom: 1px solid var(--rule);
+    font-size: 0.86rem;
+  }
+  .pbar .dt { color: var(--ink-soft); font-size: 0.8rem; }
+  .pbar .track { position: relative; height: 1.15rem; }
+  .pbar .pj, .pbar .ac {
+    position: absolute; top: 0; height: 100%;
+  }
+  .pbar .pj { background: var(--bar-fade); }
+  .pbar .ac { border-left: 2px solid var(--pencil); }
+  .pbar .n { text-align: right; font-variant-numeric: tabular-nums; }
+  .pbar .n.act { font-weight: 700; }
+
   /* --- nfl rows --- */
   .nfl-game { margin-top: 1.5rem; }
   .nfl-game h3 {
@@ -1045,7 +1075,7 @@ const SAMPLE = {
 };
 
 const MAX_K = 16;
-let state = { data: null, card: null, nfl: null, q: "",
+let state = { data: null, card: null, nfl: null, q: "", pitcher: null,
               sort: "proj", view: "slate", open: new Set() };
 
 /* ---------- helpers ---------- */
@@ -1319,6 +1349,50 @@ function nflView() {
     ${html || `<div class="empty"><p>Nothing matches "${state.q}".</p></div>`}`;
 }
 
+function pitcherView(name) {
+  const all = ((state.card && state.card.results) || [])
+    .filter(r => r.pitcher === name);
+  const rows = all.slice(0, 10);
+
+  let body;
+  if (!rows.length) {
+    body = `<p class="psum">No graded starts for ${name} yet. Results appear
+      the morning after each game.</p>`;
+  } else {
+    const errs = rows.map(r => Math.abs(r.err ?? (r.proj - r.actual)));
+    const mae = errs.reduce((a, b) => a + b, 0) / errs.length;
+    const high = rows.filter(r => r.proj > r.actual).length;
+    const withLine = rows.filter(r => r.line != null);
+    const hits = withLine.filter(r => r.hit).length;
+    const max = Math.max(...rows.map(r => Math.max(r.proj, r.actual)), 8);
+
+    body = `
+      <p class="psum">Last ${rows.length} graded start${rows.length === 1 ? "" : "s"}.
+        Average miss ${mae.toFixed(2)} strikeouts, projected high on ${high} of
+        ${rows.length}.${withLine.length
+          ? ` Model's side hit ${hits} of ${withLine.length} times.` : ""}</p>
+      <div class="pbars">
+        ${rows.map(r => {
+          const pw = (r.proj / max) * 100, aw = (r.actual / max) * 100;
+          return `<div class="pbar">
+            <span class="dt">${r.date.slice(5)}</span>
+            <span class="track">
+              <span class="pj" style="left:0;width:${pw.toFixed(1)}%"></span>
+              <span class="ac" style="left:${aw.toFixed(1)}%;width:2px"></span>
+            </span>
+            <span class="n">${r.proj.toFixed(1)}</span>
+            <span class="n act">${r.actual}</span>
+          </div>`;
+        }).join("")}
+      </div>
+      <p class="cal-key">Bar is the projection, red mark is what he actually
+        threw. ${all.length > 10 ? `${all.length} starts on record, showing 10.` : ""}</p>`;
+  }
+
+  return `<button class="pback" id="pb">&larr; back</button>
+    <h2 class="phead">${name}</h2>${body}`;
+}
+
 function results() {
   const rows = (state.card && state.card.results) || [];
   if (!rows.length) {
@@ -1354,7 +1428,7 @@ function results() {
         ${head}
         ${d.rows.map(r => `
           <div class="res-row">
-            <span class="nm">${r.pitcher}</span>
+            <span class="nm plink" data-pitcher="${r.pitcher}">${r.pitcher}</span>
             <span class="n">${r.proj.toFixed(1)}</span>
             <span class="n got">${r.actual}</span>
             <span class="n bf">${r.line != null ? r.line : "—"}</span>
@@ -1585,9 +1659,20 @@ function render() {
     }
   };
 
+  if (state.pitcher) {
+    document.getElementById("body").innerHTML = pitcherView(state.pitcher);
+    document.getElementById("pb").onclick = () => { state.pitcher = null; render(); };
+    document.getElementById("card").innerHTML = "";
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML = "";
+    return;
+  }
+
   if (state.view === "results") {
     document.getElementById("body").innerHTML = viewBar + results();
     wire();
+    document.querySelectorAll(".plink").forEach(el =>
+      el.onclick = () => { state.pitcher = el.dataset.pitcher; render(); });
     document.getElementById("card").innerHTML = scorecard();
     document.getElementById("calc").innerHTML = "";
     document.getElementById("footer").innerHTML = "";
