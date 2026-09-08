@@ -65,17 +65,36 @@ def get(path, **params):
 
 
 def starters(season):
-    """Every pitcher who started a game this season."""
+    """Every pitcher who started a game this season.
+
+    playerPool defaults to qualified only - roughly 48 pitchers, the ones
+    with enough innings for a leaderboard. That silently excluded every
+    spot starter, callup and opener, which is exactly the population where
+    shrinkage is supposed to matter. ALL plus paging fixes it.
+    """
     def fetch():
-        d = get("stats", stats="season", group="pitching", season=season,
-                sportId=1, limit=2000)
-        out = []
-        for sp in d["stats"][0]["splits"]:
-            s, p = sp["stat"], sp.get("player", {})
-            if int(s.get("gamesStarted", 0)) >= 1 and p.get("id"):
-                out.append({"id": p["id"], "name": p.get("fullName", "?")})
-        return out
-    return cached(f"starters_{season}", fetch)
+        out, offset, page = [], 0, 1000
+        while True:
+            d = get("stats", stats="season", group="pitching", season=season,
+                    sportId=1, playerPool="ALL", limit=page, offset=offset)
+            splits = d["stats"][0]["splits"] if d.get("stats") else []
+            if not splits:
+                break
+            for sp in splits:
+                st, p = sp["stat"], sp.get("player", {})
+                if int(st.get("gamesStarted", 0)) >= 1 and p.get("id"):
+                    out.append({"id": p["id"], "name": p.get("fullName", "?")})
+            if len(splits) < page:
+                break
+            offset += page
+        # de-dupe: traded players appear once per team
+        seen, uniq = set(), []
+        for p in out:
+            if p["id"] not in seen:
+                seen.add(p["id"])
+                uniq.append(p)
+        return uniq
+    return cached(f"starters_all_{season}", fetch)
 
 
 def pitcher_log(pid, season):
@@ -137,6 +156,10 @@ def main():
 
     ps = starters(season)
     print(f"{len(ps)} pitchers with at least one start")
+    if len(ps) < 150:
+        print("  WARNING: a full season is normally 250-350 starters.")
+        print("  This looks capped - the numbers below may not represent"
+              " the whole league.")
 
     teams = team_hitting(season)
     print(f"{len(teams)} team hitting logs")
@@ -202,6 +225,7 @@ def main():
                     "naive": k_tot / len(prior_starts),
                     "rate_only": season_mean * k_rate,   # no opponent adj
                     "actual": g["k"],
+                    "n_prior": len(prior_starts),
                     "exp_bf": exp_bf,
                     "act_bf": g["bf"],
                 })
@@ -238,6 +262,18 @@ def main():
     print(f"  Strikeout bias         {(m - a).mean():+.3f}")
     print(f"  Batters faced bias     {(ebf - abf).mean():+.3f}"
           f"   (projected {ebf.mean():.1f} vs actual {abf.mean():.1f})")
+
+    # Where shrinkage should matter most: pitchers with little history.
+    nprior = np.array([r["n_prior"] for r in rows])
+    print("\nBy how many prior starts the pitcher had")
+    for lo, hi, label in [(3, 6, "3-6"), (7, 14, "7-14"), (15, 99, "15+")]:
+        idx = np.where((nprior >= lo) & (nprior <= hi))[0]
+        if len(idx) < 30:
+            continue
+        mm = np.abs(m[idx] - a[idx]).mean()
+        nn = np.abs(n[idx] - a[idx]).mean()
+        print(f"  {label:6} n={len(idx):5}  model {mm:.3f}   naive {nn:.3f}"
+              f"   {nn - mm:+.3f}")
 
     # Does it hold up month by month, or is it one hot stretch?
     print("\nBy month")
