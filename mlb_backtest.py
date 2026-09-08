@@ -1,0 +1,268 @@
+#!/usr/bin/env python3
+"""
+Backtest the strikeout model against every start this season.
+
+    python3 mlb_backtest.py              # this season
+    python3 mlb_backtest.py 2025         # a completed season
+
+Same walk-forward rule as the live model: for each start, use only what was
+known before that day. No peeking. Replicates build_projections.py exactly -
+same shrinkage constants, same rolling window, same odds ratio.
+
+Answers the question score.py needs a month to answer: does this beat simply
+predicting each pitcher's season strikeouts per start?
+
+It cannot test against the market - historical odds are a paid feature - so
+"did we beat the books" still needs score.py and live collection.
+
+Takes a few minutes and caches, so re-runs are fast. Nothing is written
+except the cache.
+"""
+
+import json
+import os
+import sys
+from collections import defaultdict
+from datetime import date
+
+import numpy as np
+import requests
+
+API = "https://statsapi.mlb.com/api/v1"
+CACHE = ".backtest_cache"
+
+# Must match build_projections.py or this measures a different model.
+K_PRIOR_BF = 100
+RECENT_STARTS = 8
+BF_PRIOR = 4
+MIN_PRIOR_STARTS = 3
+MIN_PRIOR_BF = 40
+
+session = requests.Session()
+session.headers["User-Agent"] = "strikeout-backtest/1.0"
+
+
+def cached(name, fetch):
+    os.makedirs(CACHE, exist_ok=True)
+    path = f"{CACHE}/{name}.json"
+    if os.path.exists(path):
+        try:
+            return json.load(open(path))
+        except Exception:
+            pass
+    data = fetch()
+    try:
+        json.dump(data, open(path, "w"))
+    except Exception:
+        pass
+    return data
+
+
+def get(path, **params):
+    r = session.get(f"{API}/{path}", params=params, timeout=30)
+    r.raise_for_status()
+    return r.json()
+
+
+def starters(season):
+    """Every pitcher who started a game this season."""
+    def fetch():
+        d = get("stats", stats="season", group="pitching", season=season,
+                sportId=1, limit=2000)
+        out = []
+        for sp in d["stats"][0]["splits"]:
+            s, p = sp["stat"], sp.get("player", {})
+            if int(s.get("gamesStarted", 0)) >= 1 and p.get("id"):
+                out.append({"id": p["id"], "name": p.get("fullName", "?")})
+        return out
+    return cached(f"starters_{season}", fetch)
+
+
+def pitcher_log(pid, season):
+    def fetch():
+        d = get(f"people/{pid}/stats", stats="gameLog",
+                group="pitching", season=season)
+        rows = []
+        for sp in (d["stats"][0]["splits"] if d.get("stats") else []):
+            s = sp["stat"]
+            opp = sp.get("opponent", {})
+            rows.append({
+                "date": sp.get("date"),
+                "gs": int(s.get("gamesStarted", 0)),
+                "k": int(s.get("strikeOuts", 0)),
+                "bf": int(s.get("battersFaced", 0)),
+                "opp_id": opp.get("id"),
+            })
+        return sorted(rows, key=lambda r: r["date"] or "")
+    return cached(f"p{pid}_{season}", fetch)
+
+
+def team_hitting(season):
+    """Each team's cumulative strikeout rate, day by day."""
+    def fetch():
+        teams = get("teams", sportId=1, season=season)["teams"]
+        out = {}
+        for t in teams:
+            d = get(f"teams/{t['id']}/stats", stats="gameLog",
+                    group="hitting", season=season)
+            rows = []
+            for sp in (d["stats"][0]["splits"] if d.get("stats") else []):
+                s = sp["stat"]
+                rows.append({"date": sp.get("date"),
+                             "k": int(s.get("strikeOuts", 0)),
+                             "pa": int(s.get("plateAppearances", 0))})
+            out[str(t["id"])] = sorted(rows, key=lambda r: r["date"] or "")
+        return out
+    return cached(f"teams_{season}", fetch)
+
+
+def running_k_rate(rows):
+    """date -> (K, PA) accumulated strictly BEFORE that date."""
+    acc, k, pa = {}, 0, 0
+    for r in rows:
+        acc[r["date"]] = (k, pa)
+        k += r["k"]
+        pa += r["pa"]
+    return acc, (k, pa)
+
+
+def odds(p):
+    return p / (1 - p)
+
+
+def main():
+    season = int(sys.argv[1]) if len(sys.argv) > 1 else date.today().year
+    print(f"Backtesting {season}. First run downloads a few hundred game "
+          f"logs; later runs use the cache.\n")
+
+    ps = starters(season)
+    print(f"{len(ps)} pitchers with at least one start")
+
+    teams = team_hitting(season)
+    print(f"{len(teams)} team hitting logs")
+
+    team_acc, team_tot = {}, {}
+    for tid, rows in teams.items():
+        team_acc[tid], team_tot[tid] = running_k_rate(rows)
+
+    # League rate, accumulated by date, so early-season predictions don't
+    # get to use a baseline computed from the whole year.
+    daily = defaultdict(lambda: [0, 0])
+    for rows in teams.values():
+        for r in rows:
+            daily[r["date"]][0] += r["k"]
+            daily[r["date"]][1] += r["pa"]
+    league_by_date, k, pa = {}, 0, 0
+    for d in sorted(daily):
+        league_by_date[d] = (k / pa) if pa > 2000 else 0.223
+        k += daily[d][0]
+        pa += daily[d][1]
+
+    rows = []
+    for i, p in enumerate(ps, 1):
+        if i % 50 == 0:
+            print(f"  {i}/{len(ps)} pitchers")
+        try:
+            log = pitcher_log(p["id"], season)
+        except Exception:
+            continue
+
+        k_tot = bf_tot = 0
+        prior_starts = []
+        for g in log:
+            day = g["date"]
+            if g["gs"] == 1 and len(prior_starts) >= MIN_PRIOR_STARTS \
+                    and bf_tot >= MIN_PRIOR_BF and day:
+                lg = league_by_date.get(day, 0.223)
+
+                # --- rate, exactly as the live model computes it
+                k_rate = (k_tot + lg * K_PRIOR_BF) / (bf_tot + K_PRIOR_BF)
+
+                # --- volume
+                recent = np.array(prior_starts[-RECENT_STARTS:], float)
+                season_mean = float(np.mean(prior_starts))
+                w = len(recent) / (len(recent) + BF_PRIOR)
+                exp_bf = w * float(recent.mean()) + (1 - w) * season_mean
+
+                # --- opponent, as of that date
+                oid = str(g.get("opp_id"))
+                ok = lg
+                if oid in team_acc:
+                    tk, tpa = team_acc[oid].get(day, (0, 0))
+                    if tpa > 300:
+                        ok = tk / tpa
+
+                o = odds(k_rate) * odds(ok) / odds(lg)
+                pmatch = o / (1 + o)
+
+                rows.append({
+                    "date": day,
+                    "pitcher": p["name"],
+                    "model": exp_bf * pmatch,
+                    "naive": k_tot / len(prior_starts),
+                    "rate_only": season_mean * k_rate,   # no opponent adj
+                    "actual": g["k"],
+                    "exp_bf": exp_bf,
+                    "act_bf": g["bf"],
+                })
+
+            k_tot += g["k"]
+            bf_tot += g["bf"]
+            if g["gs"] == 1 and g["bf"]:
+                prior_starts.append(g["bf"])
+
+    if not rows:
+        print("\nNo starts could be scored. Season may be too young.")
+        return 1
+
+    m = np.array([r["model"] for r in rows])
+    n = np.array([r["naive"] for r in rows])
+    ro = np.array([r["rate_only"] for r in rows])
+    a = np.array([r["actual"] for r in rows], float)
+    ebf = np.array([r["exp_bf"] for r in rows])
+    abf = np.array([r["act_bf"] for r in rows], float)
+
+    def mae(x):
+        return float(np.abs(x - a).mean())
+
+    print(f"\n{'='*56}")
+    print(f"{len(rows)} starts, {rows[0]['date']} to {rows[-1]['date']}\n")
+    print("Mean absolute error, strikeouts per start")
+    base = mae(n)
+    for label, arr in [("Season-to-date average (baseline)", n),
+                       ("Rate only, no opponent adjustment", ro),
+                       ("Full model", m)]:
+        print(f"  {label:36} {mae(arr):.4f}   {base - mae(arr):+.4f}")
+
+    print(f"\n  Actual spread          SD {a.std():.2f}")
+    print(f"  Strikeout bias         {(m - a).mean():+.3f}")
+    print(f"  Batters faced bias     {(ebf - abf).mean():+.3f}"
+          f"   (projected {ebf.mean():.1f} vs actual {abf.mean():.1f})")
+
+    # Does it hold up month by month, or is it one hot stretch?
+    print("\nBy month")
+    bym = defaultdict(list)
+    for i, r in enumerate(rows):
+        bym[r["date"][:7]].append(i)
+    for mo in sorted(bym):
+        idx = bym[mo]
+        print(f"  {mo}  n={len(idx):5}  model {np.abs(m[idx]-a[idx]).mean():.3f}"
+              f"   naive {np.abs(n[idx]-a[idx]).mean():.3f}"
+              f"   {np.abs(n[idx]-a[idx]).mean()-np.abs(m[idx]-a[idx]).mean():+.3f}")
+
+    print(f"\n{'='*56}")
+    gap = base - mae(m)
+    se = float(np.std(np.abs(n - a) - np.abs(m - a)) / np.sqrt(len(rows)))
+    print(f"Gap {gap:+.4f}, standard error {se:.4f} "
+          f"-> {abs(gap/se):.1f} standard errors")
+    if abs(gap) < 2 * se:
+        print("Inside noise. No evidence the model beats the baseline.")
+    elif gap > 0:
+        print("The model beats the baseline by more than noise explains.")
+    else:
+        print("The baseline beats the model by more than noise explains.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
