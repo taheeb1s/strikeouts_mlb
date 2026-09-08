@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -455,6 +456,58 @@
     border-left: 3px solid var(--pencil);
     font-size: 0.86rem;
   }
+
+  /* --- search --- */
+  .search {
+    margin: 1rem 0 0;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .search input {
+    font: inherit; font-size: 0.92rem;
+    padding: 0.4rem 0.6rem; width: 100%; max-width: 22rem;
+    border: 1px solid var(--rule); background: var(--paper);
+    color: var(--ink); border-radius: 0;
+  }
+  .search input:focus { outline: 2px solid var(--pencil); outline-offset: -1px; }
+  .search .count { font-size: 0.8rem; color: var(--ink-soft); white-space: nowrap; }
+
+  /* --- why line --- */
+  .why {
+    margin: 0 0 1.1rem; font-size: 0.88rem; line-height: 1.5;
+    color: var(--ink); max-width: 60ch;
+  }
+  .why b { font-weight: 600; }
+
+  /* --- calendar --- */
+  .cal { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.8rem 0 1.4rem; }
+  .cal .d {
+    width: 2.5rem; padding: 0.3rem 0.1rem; text-align: center;
+    background: var(--paper-warm); font-size: 0.7rem; line-height: 1.25;
+    border-bottom: 3px solid var(--rule);
+  }
+  .cal .d .n { display: block; font-weight: 700; font-size: 0.85rem; }
+  .cal .d.good { border-bottom-color: var(--bar); }
+  .cal .d.bad  { border-bottom-color: var(--pencil); }
+  .cal-key { font-size: 0.78rem; color: var(--ink-soft); }
+
+  /* --- nfl rows --- */
+  .nfl-game { margin-top: 1.5rem; }
+  .nfl-game h3 {
+    margin: 0 0 0.1rem; font-size: 0.98rem; font-weight: 600;
+    letter-spacing: -0.012em;
+  }
+  .nfl-game .when { font-size: 0.8rem; color: var(--ink-soft); }
+  .nfl-row {
+    display: grid; grid-template-columns: minmax(0,1fr) 3rem auto;
+    gap: 0 0.8rem; align-items: baseline;
+    padding: 0.5rem 0; border-bottom: 1px solid var(--rule);
+    font-size: 0.92rem;
+  }
+  .nfl-row .nm { font-weight: 600; white-space: nowrap;
+                 overflow: hidden; text-overflow: ellipsis; }
+  .nfl-row .ln { text-align: right; font-weight: 700; }
+  .nfl-row .px { font-size: 0.84rem; color: var(--ink-soft); }
+  .nfl-row .shop { color: var(--pencil); font-weight: 600; }
 
   footer {
     margin-top: 2.5rem;
@@ -984,7 +1037,8 @@ const SAMPLE = {
 };
 
 const MAX_K = 16;
-let state = { data: null, card: null, sort: "proj", view: "slate", open: new Set() };
+let state = { data: null, card: null, nfl: null, q: "",
+              sort: "proj", view: "slate", open: new Set() };
 
 /* ---------- helpers ---------- */
 
@@ -1099,6 +1153,7 @@ function detail(s) {
 
   return `
     <div class="detail">
+      ${whyLine(s)}
       <div class="chart-wrap">${chart(s.pmf, s.proj_k, m ? m.line : null)}</div>
       ${mkt}
       ${m ? `<p class="caption">Both percentages are the chance of clearing
@@ -1117,6 +1172,106 @@ function detail(s) {
         <div class="fact"><dt>Lineup</dt><dd>${s.lineup_confirmed ? "Posted" : "Projected"}</dd></div>
       </dl>
     </div>`;
+}
+
+function whyLine(s) {
+  const lg = (state.data && state.data.league_k_pct) || 0.223;
+  const bits = [];
+
+  const pk = s.pitcher_k_pct, ok = s.opp_k_pct;
+  const pRel = pk / lg, oRel = ok / lg;
+
+  bits.push(pRel > 1.25 ? `<b>${s.pitcher}</b> strikes out far more hitters than average`
+    : pRel > 1.08 ? `<b>${s.pitcher}</b> runs a better-than-average strikeout rate`
+    : pRel < 0.8 ? `<b>${s.pitcher}</b> is well below average at missing bats`
+    : `<b>${s.pitcher}</b> is around league average at missing bats`);
+
+  bits.push(oRel > 1.12 ? `${s.opponent} strike out a lot`
+    : oRel < 0.9 ? `${s.opponent} are a tough, contact-heavy lineup`
+    : `${s.opponent} are about average in that respect`);
+
+  const bf = s.proj_bf;
+  bits.push(bf >= 25.5 ? `and he's been going deep — about ${bf.toFixed(0)} batters a start`
+    : bf <= 21 ? `but he's only facing about ${bf.toFixed(0)} batters a start, which caps the ceiling`
+    : `facing roughly ${bf.toFixed(0)} batters a start`);
+
+  let txt = bits[0] + ", " + bits[1] + ", " + bits[2] + ".";
+
+  if (s.starts_ytd != null && s.starts_ytd < 5) {
+    txt += ` Only ${s.starts_ytd} start${s.starts_ytd === 1 ? "" : "s"} on record,
+             so this leans heavily on league average.`;
+  }
+  const m = s.market;
+  if (m && Math.abs(m.edge) > 0.15) {
+    txt += ` The books disagree by ${Math.round(Math.abs(m.edge) * 100)} points —
+             usually a sign the model is missing something they know.`;
+  }
+  return `<p class="why">${txt}</p>`;
+}
+
+function calendar() {
+  const rows = (state.card && state.card.results) || [];
+  if (!rows.length) return "";
+  const byDay = {};
+  for (const r of rows) {
+    const b = byDay[r.date] || (byDay[r.date] = { n: 0, err: 0, hit: 0, lines: 0 });
+    b.n++; b.err += Math.abs(r.err || 0);
+    if (r.line != null) { b.lines++; if (r.hit) b.hit++; }
+  }
+  const days = Object.keys(byDay).sort();
+  const overall = rows.reduce((a, r) => a + Math.abs(r.err || 0), 0) / rows.length;
+
+  return `<div class="cal">${days.map(d => {
+    const b = byDay[d];
+    const mae = b.err / b.n;
+    const cls = mae < overall * 0.9 ? "good" : mae > overall * 1.1 ? "bad" : "";
+    const label = d.slice(5).replace("-", "/");
+    return `<div class="d ${cls}" title="${d}: ${b.n} starts, avg error ${mae.toFixed(2)}">
+      ${label}<span class="n">${mae.toFixed(1)}</span></div>`;
+  }).join("")}</div>
+  <p class="cal-key">Average error per day, in strikeouts. Green beat the
+    overall average of ${overall.toFixed(2)}, red was worse. Small numbers
+    are better.</p>`;
+}
+
+function nflView() {
+  const d = state.nfl;
+  if (!d || !d.games || !d.games.length) {
+    return `<div class="empty"><h2>No reception lines yet</h2>
+      <p>Lines are captured a few hours before each kickoff. This fills in
+      once the first game is collected.</p></div>`;
+  }
+  const q = state.q.toLowerCase();
+  let shown = 0;
+
+  const html = d.games.map(g => {
+    const ps = g.players.filter(p => !q || p.player.toLowerCase().includes(q)
+                                      || g.matchup.toLowerCase().includes(q));
+    if (!ps.length) return "";
+    shown += ps.length;
+    return `<div class="nfl-game">
+      <h3>${g.matchup}</h3>
+      <div class="when">${g.players.length} players · ${g.snapshots} snapshot${g.snapshots === 1 ? "" : "s"}</div>
+      ${ps.map(p => {
+        const best = Math.max(p.shop_over, p.shop_under);
+        const side = p.shop_over >= p.shop_under ? "over" : "under";
+        return `<div class="nfl-row">
+          <span class="nm">${p.player}</span>
+          <span class="ln">${p.line}</span>
+          <span class="px">${pct(p.consensus_over)} over ·
+            best over <b>${p.best_over.price > 0 ? "+" : ""}${p.best_over.price}</b>
+            ${p.best_over.book}
+            ${best >= 3 ? `· <span class="shop">$${best.toFixed(0)} in the ${side}</span>` : ""}
+          </span>
+        </div>`;
+      }).join("")}
+    </div>`;
+  }).join("");
+
+  return `<p class="caption" style="max-width:58ch">What the books are pricing,
+    margins removed. No projections here — the dollar figures are what taking
+    the best price instead of the worst is worth per $100.</p>
+    ${html || `<div class="empty"><p>Nothing matches "${state.q}".</p></div>`}`;
 }
 
 function results() {
@@ -1147,6 +1302,7 @@ function results() {
       ${withLine.length ? `Where a line existed, the model's side came in
       ${hits} of ${withLine.length} times, and its projection was closer to the
       real number than the line was on ${closer}.` : ""}</p>
+    ${calendar()}
     <div class="res">
       ${days.map(d => `
         <div class="res-day">${prettyDate(d.date)}</div>
@@ -1341,31 +1497,71 @@ function render() {
        <code>projections.json</code> next to this page.</div>`
     : "";
 
-  const rows = [...d.starters].sort(
+  const q = state.q.toLowerCase();
+  const rows = [...d.starters].filter(s => !q
+      || s.pitcher.toLowerCase().includes(q)
+      || (s.team || "").toLowerCase().includes(q)
+      || (s.opponent || "").toLowerCase().includes(q)).sort(
     state.sort === "proj"
       ? (a, b) => b.proj_k - a.proj_k
       : (a, b) => a.game_time.localeCompare(b.game_time) || b.proj_k - a.proj_k
   );
 
+  const nflCount = state.nfl && state.nfl.totals ? state.nfl.totals.players : 0;
   const viewBar = `
     <div class="views">
       <span>Showing</span>
-      <button data-view="slate" aria-pressed="${state.view === "slate"}">today's slate</button>
+      <button data-view="slate" aria-pressed="${state.view === "slate"}">strikeouts</button>
+      <span aria-hidden="true">·</span>
+      <button data-view="nfl" aria-pressed="${state.view === "nfl"}">receptions${
+        nflCount ? ` (${nflCount})` : ""}</button>
       <span aria-hidden="true">·</span>
       <button data-view="results" aria-pressed="${state.view === "results"}">past results</button>
     </div>`;
 
-  if (state.view === "results") {
-    document.getElementById("body").innerHTML = viewBar + results();
+  const searchBar = `
+    <div class="search">
+      <input id="q" type="search" placeholder="Search players or teams"
+             value="${state.q.replace(/"/g, "&quot;")}" autocomplete="off">
+      <span class="count" id="qc"></span>
+    </div>`;
+
+  const wire = () => {
     document.querySelectorAll(".views button").forEach(b =>
       b.onclick = () => { state.view = b.dataset.view; render(); });
+    const q = document.getElementById("q");
+    if (q) {
+      q.oninput = () => {
+        state.q = q.value;
+        render();
+        const el = document.getElementById("q");
+        if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+      };
+    }
+  };
+
+  if (state.view === "results") {
+    document.getElementById("body").innerHTML = viewBar + results();
+    wire();
     document.getElementById("card").innerHTML = scorecard();
     document.getElementById("calc").innerHTML = "";
     document.getElementById("footer").innerHTML = "";
     return;
   }
 
-  document.getElementById("body").innerHTML = viewBar + `
+  if (state.view === "nfl") {
+    document.getElementById("body").innerHTML = viewBar + searchBar + nflView();
+    wire();
+    document.getElementById("card").innerHTML = "";
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML =
+      `Reception lines only. There is no reception projection here — a model
+       tested on the full 2025 season failed to beat each player's own season
+       average, so none is shown.`;
+    return;
+  }
+
+  document.getElementById("body").innerHTML = viewBar + searchBar + `
     <div class="controls">
       <span>Sort by</span>
       <button data-sort="proj" aria-pressed="${state.sort === "proj"}">projection</button>
@@ -1373,7 +1569,7 @@ function render() {
       <button data-sort="time" aria-pressed="${state.sort === "time"}">first pitch</button>
     </div>
     <div class="ledger">
-      ${rows.map(s => {
+      ${rows.length ? rows.map(s => {
         const key = s.pitcher + s.opponent;
         const open = state.open.has(key);
         const vs = s.home ? "vs" : "at";
@@ -1389,7 +1585,7 @@ function render() {
           </button>
           ${detail(s)}
         </div>`;
-      }).join("")}
+      }).join("") : `<p class="caption">Nothing matches "${state.q}".</p>`}
     </div>`;
 
   document.getElementById("card").innerHTML = scorecard();
@@ -1405,8 +1601,9 @@ function render() {
 
   document.querySelectorAll(".controls button").forEach(b =>
     b.onclick = () => { state.sort = b.dataset.sort; render(); });
-  document.querySelectorAll(".views button").forEach(b =>
-    b.onclick = () => { state.view = b.dataset.view; render(); });
+  wire();
+  const qc = document.getElementById("qc");
+  if (qc && state.q) qc.textContent = `${rows.length} of ${d.starters.length}`;
 
   document.querySelectorAll(".entry-head").forEach(b => b.onclick = () => {
     const entry = b.closest(".entry"), key = entry.dataset.key;
@@ -1430,10 +1627,12 @@ python -m http.server 8000</pre>
     </div>`;
 }
 
-fetch("scorecard.json", { cache: "no-store" })
-  .then(r => r.ok ? r.json() : null)
-  .then(c => { state.card = c; })
-  .catch(() => {})
+Promise.all([
+  fetch("scorecard.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+  fetch("receptions.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n]) => { state.card = c; state.nfl = n; })
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(d => { state.data = d; render(); })
