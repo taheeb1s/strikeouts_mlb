@@ -116,6 +116,52 @@ def pitcher_log(pid, season):
     return cached(f"p{pid}_{season}", fetch)
 
 
+def pitcher_hands(season):
+    """id -> 'L' or 'R'. One call for the whole league."""
+    def fetch():
+        d = get("sports/1/players", season=season)
+        return {str(p["id"]): (p.get("pitchHand") or {}).get("code")
+                for p in d.get("people", []) if p.get("pitchHand")}
+    return cached(f"hands_{season}", fetch)
+
+
+def team_hand_ratio(season):
+    """team -> {'L': mult, 'R': mult} on their overall strikeout rate.
+
+    The API only serves season totals for splits, not game logs, so this
+    ratio uses the full season - a small leak of future information. It
+    makes the handedness test optimistic, which is the point: if it can't
+    help even with the leak, it won't help without it.
+    """
+    def fetch():
+        teams = get("teams", sportId=1, season=season)["teams"]
+        out = {}
+        for t in teams:
+            try:
+                d = get(f"teams/{t['id']}/stats", stats="statSplits",
+                        group="hitting", season=season, sitCodes="vl,vr")
+            except Exception:
+                continue
+            rates = {}
+            for blk in d.get("stats", []):
+                code = (blk.get("split") or {}).get("code")
+                for sp in blk.get("splits", []):
+                    st = sp["stat"]
+                    pa = int(st.get("plateAppearances", 0) or 0)
+                    k = int(st.get("strikeOuts", 0) or 0)
+                    c = code or (sp.get("split") or {}).get("code")
+                    if pa > 200 and c in ("vl", "vr"):
+                        rates[c] = k / pa
+            if "vl" in rates and "vr" in rates:
+                # weight by typical exposure to get the blended rate back
+                overall = 0.28 * rates["vl"] + 0.72 * rates["vr"]
+                if overall > 0:
+                    out[str(t["id"])] = {"L": rates["vl"] / overall,
+                                         "R": rates["vr"] / overall}
+        return out
+    return cached(f"handratio_{season}", fetch)
+
+
 def team_hitting(season):
     """Each team's cumulative strikeout rate, day by day."""
     def fetch():
@@ -163,6 +209,10 @@ def main():
 
     teams = team_hitting(season)
     print(f"{len(teams)} team hitting logs")
+
+    hands = pitcher_hands(season)
+    hratio = team_hand_ratio(season)
+    print(f"{len(hands)} pitcher hands, {len(hratio)} teams with usable splits")
 
     team_acc, team_tot = {}, {}
     for tid, rows in teams.items():
@@ -223,10 +273,20 @@ def main():
                 o = odds(k_rate) * odds(ok) / odds(lg)
                 pmatch = o / (1 + o)
 
+                # same thing, but with the opponent rate adjusted for which
+                # hand the pitcher throws with
+                hand = hands.get(str(p["id"]))
+                ok_h = ok
+                if hand in ("L", "R") and oid in hratio:
+                    ok_h = min(0.45, max(0.10, ok * hratio[oid][hand]))
+                oh = odds(k_rate) * odds(ok_h) / odds(lg)
+                pmatch_h = oh / (1 + oh)
+
                 rows.append({
                     "date": day,
                     "pitcher": p["name"],
                     "model": exp_bf * pmatch,
+                    "model_hand": exp_bf * pmatch_h,
                     "naive": k_starts / len(prior_starts),
                     "rate_only": season_mean * k_rate,   # no opponent adj
                     "actual": g["k"],
@@ -252,6 +312,7 @@ def main():
     m = np.array([r["model"] for r in rows])
     n = np.array([r["naive"] for r in rows])
     ro = np.array([r["rate_only"] for r in rows])
+    mh = np.array([r["model_hand"] for r in rows])
     a = np.array([r["actual"] for r in rows], float)
     ebf = np.array([r["exp_bf"] for r in rows])
     abf = np.array([r["act_bf"] for r in rows], float)
@@ -265,7 +326,8 @@ def main():
     base = mae(n)
     for label, arr in [("Season-to-date average (baseline)", n),
                        ("Rate only, no opponent adjustment", ro),
-                       ("Full model", m)]:
+                       ("Full model", m),
+                       ("Full model + handedness", mh)]:
         print(f"  {label:36} {mae(arr):.4f}   {base - mae(arr):+.4f}")
 
     print(f"\n  Actual spread          SD {a.std():.2f}")
@@ -305,6 +367,18 @@ def main():
     se = float(np.std(np.abs(n - a) - np.abs(m - a)) / np.sqrt(len(rows)))
     print(f"Gap {gap:+.4f}, standard error {se:.4f} "
           f"-> {abs(gap/se):.1f} standard errors")
+
+    # Is handedness worth adding? Compare it against the model, not the baseline.
+    hgap = mae(m) - mae(mh)
+    hse = float(np.std(np.abs(m - a) - np.abs(mh - a)) / np.sqrt(len(rows)))
+    if hse > 0:
+        print(f"Handedness adds {hgap:+.4f} over the model "
+              f"({abs(hgap/hse):.1f} standard errors)"
+              + ("  <- worth keeping" if hgap > 2 * hse
+                 else "  <- not worth it" if abs(hgap) < 2 * hse
+                 else "  <- actively hurts"))
+        print("  Note: this uses full-season splits, so it flatters itself"
+              "\n  slightly. Treat it as a ceiling.")
     if abs(gap) < 2 * se:
         print("Inside noise. No evidence the model beats the baseline.")
     elif gap > 0:
