@@ -478,6 +478,14 @@
   }
   .why b { font-weight: 600; }
 
+  .wx {
+    display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem;
+    padding: 0.5rem 0.75rem; margin: 0 0 1.1rem;
+    background: var(--paper-warm); font-size: 0.86rem;
+  }
+  .wx .t { font-weight: 600; }
+  .wx .note { color: var(--ink-soft); }
+
   /* --- calendar --- */
   .cal { display: flex; flex-wrap: wrap; gap: 0.3rem; margin: 0.8rem 0 1.4rem; }
   .cal .d {
@@ -1043,6 +1051,24 @@ let state = { data: null, card: null, nfl: null, q: "",
 /* ---------- helpers ---------- */
 
 const fmt1 = n => n.toFixed(1);
+
+function gameTime(s) {
+  // Prefer the raw timestamp so the browser shows it in the viewer's zone.
+  if (s.start_iso) {
+    const d = new Date(s.start_iso);
+    if (!isNaN(d)) return d.toLocaleTimeString(undefined,
+      { hour: "numeric", minute: "2-digit" });
+  }
+  return s.game_time || "";
+}
+
+function startMs(s) {
+  if (s.start_iso) {
+    const t = Date.parse(s.start_iso);
+    if (!isNaN(t)) return t;
+  }
+  return Number.MAX_SAFE_INTEGER;   // undated games sort last, not first
+}
 const pct = n => Math.round(n * 100) + "%";
 
 function prettyDate(iso) {
@@ -1154,6 +1180,7 @@ function detail(s) {
   return `
     <div class="detail">
       ${whyLine(s)}
+      ${weatherLine(s)}
       <div class="chart-wrap">${chart(s.pmf, s.proj_k, m ? m.line : null)}</div>
       ${mkt}
       ${m ? `<p class="caption">Both percentages are the chance of clearing
@@ -1172,6 +1199,24 @@ function detail(s) {
         <div class="fact"><dt>Lineup</dt><dd>${s.lineup_confirmed ? "Posted" : "Projected"}</dd></div>
       </dl>
     </div>`;
+}
+
+function weatherLine(s) {
+  const w = s.weather;
+  if (!w) return "";
+  if (w.indoor) {
+    return `<div class="wx"><span class="t">Indoors</span>
+      <span class="note">${w.roof || "Dome"} — weather isn't a factor</span></div>`;
+  }
+  const bits = [];
+  if (w.temp_f != null) bits.push(`<span class="t">${w.temp_f}&deg;F</span>`);
+  if (w.wind) bits.push(`<span>Wind ${w.wind}${w.wind_dir ? " " + w.wind_dir : ""}</span>`);
+  if (w.conditions) bits.push(`<span>${w.conditions}</span>`);
+  if (w.rain_pct != null && w.rain_pct >= 30)
+    bits.push(`<span class="note">${w.rain_pct}% rain</span>`);
+  if (!bits.length) return "";
+  bits.push(`<span class="note">shown for context — not in the projection</span>`);
+  return `<div class="wx">${bits.join("")}</div>`;
 }
 
 function whyLine(s) {
@@ -1504,7 +1549,7 @@ function render() {
       || (s.opponent || "").toLowerCase().includes(q)).sort(
     state.sort === "proj"
       ? (a, b) => b.proj_k - a.proj_k
-      : (a, b) => a.game_time.localeCompare(b.game_time) || b.proj_k - a.proj_k
+      : (a, b) => startMs(a) - startMs(b) || b.proj_k - a.proj_k
   );
 
   const nflCount = state.nfl && state.nfl.totals ? state.nfl.totals.players : 0;
@@ -1578,7 +1623,7 @@ function render() {
           <button class="entry-head" aria-expanded="${open}">
             <span class="who">
               <span class="name">${s.pitcher}</span>
-              <span class="matchup">${s.team} ${vs} ${s.opponent} · ${s.venue} · ${s.game_time}</span>
+              <span class="matchup">${s.team} ${vs} ${s.opponent} · ${s.venue} · ${gameTime(s)}</span>
             </span>
             <span class="proj">${fmt1(s.proj_k)}</span>
             ${strip(s.pmf, s.proj_k, s.market ? s.market.line : null)}
