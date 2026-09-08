@@ -77,15 +77,20 @@ def pitcher_profile(pid, league_k):
               group="pitching", season=SEASON)
 
     splits = log["stats"][0]["splits"] if log.get("stats") else []
-    starts, k_tot, bf_tot = [], 0, 0
+    starts, k_tot, bf_tot, k_starts = [], 0, 0, 0
 
     for sp in splits:
         s = sp["stat"]
         bf = int(s.get("battersFaced", 0))
-        k_tot += int(s.get("strikeOuts", 0))
+        k = int(s.get("strikeOuts", 0))
+        k_tot += k
         bf_tot += bf
         if int(s.get("gamesStarted", 0)) == 1 and bf:
             starts.append(bf)
+            # Strikeouts in starts only. Counting relief outings here and
+            # then dividing by starts inflates the baseline for swingmen,
+            # which flatters the model in every comparison against it.
+            k_starts += k
 
     # Shrink toward league average by how much we've actually seen.
     k_rate = (k_tot + league_k * K_PRIOR_BF) / (bf_tot + K_PRIOR_BF)
@@ -103,7 +108,7 @@ def pitcher_profile(pid, league_k):
         mean_bf, sd_bf = DEFAULT_BF, DEFAULT_BF_SD
 
     # Naive baseline to beat: his season strikeouts per start, as of today.
-    naive = k_tot / len(starts) if starts else None
+    naive = k_starts / len(starts) if starts else None
 
     return k_rate, mean_bf, sd_bf, bf_tot, len(starts), naive
 
