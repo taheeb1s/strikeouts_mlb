@@ -335,6 +335,25 @@ def main():
     print(f"  Batters faced bias     {(ebf - abf).mean():+.3f}"
           f"   (projected {ebf.mean():.1f} vs actual {abf.mean():.1f})")
 
+    # Does a big disagreement mean a big edge, or a big mistake?
+    # Using the naive baseline as a stand-in for "the boring estimate",
+    # since historical market odds aren't available for free.
+    dis = np.abs(m - n)
+    print("\nBy how far the model departed from the simple estimate")
+    edges = [(0, 0.5, "under 0.5"), (0.5, 1.0, "0.5-1.0"),
+             (1.0, 2.0, "1.0-2.0"), (2.0, 99, "over 2.0")]
+    for lo, hi, label in edges:
+        idx = np.where((dis >= lo) & (dis < hi))[0]
+        if len(idx) < 30:
+            continue
+        mm = np.abs(m[idx] - a[idx]).mean()
+        nn = np.abs(n[idx] - a[idx]).mean()
+        print(f"  {label:10} n={len(idx):5}  model {mm:.3f}   simple {nn:.3f}"
+              f"   {nn - mm:+.3f}")
+    print("  If the gap column shrinks or goes negative as the departure"
+          "\n  grows, big disagreements are the model's mistakes, not its"
+          "\n  edges - and picking legs by largest gap selects for error.")
+
     # Where shrinkage should matter most: pitchers with little history.
     nprior = np.array([r["n_prior"] for r in rows])
     relief = np.array([r["relief_share"] for r in rows])
