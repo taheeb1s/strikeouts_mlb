@@ -513,7 +513,7 @@
   .psum { font-size: 0.88rem; color: var(--ink-soft); margin: 0 0 1.1rem; }
   .pbars { border-top: 1px solid var(--ink); }
   .pbar {
-    display: grid; grid-template-columns: 4.6rem 1fr 2.6rem 2.6rem;
+    display: grid; grid-template-columns: 4.6rem 1fr 2.6rem 2.6rem 2.9rem;
     align-items: center; gap: 0 0.6rem;
     padding: 0.45rem 0; border-bottom: 1px solid var(--rule);
     font-size: 0.86rem;
@@ -527,6 +527,17 @@
   .pbar .ac { border-left: 2px solid var(--pencil); }
   .pbar .n { text-align: right; font-variant-numeric: tabular-nums; }
   .pbar .n.act { font-weight: 700; }
+  .pbar .bf { text-align: right; color: var(--ink-soft); font-size: 0.8rem; }
+  .phead-row {
+    display: grid; grid-template-columns: 4.6rem 1fr 2.6rem 2.6rem 2.9rem;
+    gap: 0 0.6rem; padding: 0.3rem 0; font-size: 0.72rem;
+    color: var(--ink-soft); border-bottom: 1px solid var(--rule);
+  }
+  .phead-row span:not(:first-child):not(:nth-child(2)) { text-align: right; }
+  @media (max-width: 34rem) {
+    .pbar, .phead-row { grid-template-columns: 4rem 1fr 2.4rem 2.4rem; }
+    .pbar .bf, .phead-row .bfh { display: none; }
+  }
 
   /* --- nfl rows --- */
   .nfl-game { margin-top: 1.5rem; }
@@ -1513,12 +1524,22 @@ function pitcherView(name) {
     const withLine = rows.filter(r => r.line != null);
     const hits = withLine.filter(r => r.hit).length;
     const max = Math.max(...rows.map(r => Math.max(r.proj, r.actual)), 8);
+    const bfs = rows.filter(r => r.bf).map(r => r.bf);
+    const avgBf = bfs.length ? bfs.reduce((a, b) => a + b, 0) / bfs.length : null;
+    const ks = rows.map(r => r.actual);
+    const avgK = ks.reduce((a, b) => a + b, 0) / ks.length;
 
     body = `
-      <p class="psum">Last ${rows.length} graded start${rows.length === 1 ? "" : "s"}.
-        Average miss ${mae.toFixed(2)} strikeouts, projected high on ${high} of
+      <p class="psum">Last ${rows.length} graded start${rows.length === 1 ? "" : "s"}:
+        averaging <b>${avgK.toFixed(1)}</b> strikeouts${avgBf
+          ? ` on <b>${avgBf.toFixed(1)}</b> batters faced` : ""}.
+        Model missed by ${mae.toFixed(2)} on average, projected high on ${high} of
         ${rows.length}.${withLine.length
-          ? ` Model's side hit ${hits} of ${withLine.length} times.` : ""}</p>
+          ? ` Its side hit ${hits} of ${withLine.length} times.` : ""}</p>
+      <div class="phead-row">
+        <span>Date</span><span></span><span>Proj</span><span>K</span>
+        <span class="bfh">BF</span>
+      </div>
       <div class="pbars">
         ${rows.map(r => {
           const pw = (r.proj / max) * 100, aw = (r.actual / max) * 100;
@@ -1530,6 +1551,7 @@ function pitcherView(name) {
             </span>
             <span class="n">${r.proj.toFixed(1)}</span>
             <span class="n act">${r.actual}</span>
+            <span class="bf">${r.bf || "—"}</span>
           </div>`;
         }).join("")}
       </div>
