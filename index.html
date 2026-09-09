@@ -213,27 +213,24 @@
     letter-spacing: -0.015em;
   }
 
-  .thresholds {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
+  .bet { margin: 0 0 1.2rem; }
+  .bet-row {
+    display: grid;
+    grid-template-columns: 4.6rem 3.4rem 4.4rem 1fr;
+    align-items: baseline; gap: 0 0.7rem;
+    padding: 0.4rem 0; border-bottom: 1px solid var(--rule);
+    font-size: 0.9rem;
   }
-
-  .th {
-    flex: 1 1 5.5rem;
-    padding: 0.5rem 0.65rem;
-    background: var(--paper-warm);
+  .bet-row.head {
+    font-size: 0.72rem; color: var(--ink-soft);
+    border-bottom: 1px solid var(--ink); padding-bottom: 0.3rem;
   }
-  .th b {
-    display: block;
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-  .th span {
-    font-size: 0.76rem;
-    color: var(--ink-soft);
-  }
+  .bet-row .p { text-align: right; font-weight: 600; }
+  .bet-row .fair { text-align: right; font-weight: 700;
+                   font-variant-numeric: tabular-nums; }
+  .bet-row .note { font-size: 0.8rem; color: var(--ink-soft); }
+  .bet-row .good { color: var(--pencil); font-weight: 600; }
+  .bet-row.atline { background: var(--paper-warm); }
 
   .chart-wrap { margin: 0.4rem 0 1.3rem; }
 
@@ -1311,13 +1308,60 @@ function chart(pmf, mean, line) {
 
 /* ---------- rendering ---------- */
 
-function detail(s) {
-  const base = Math.round(s.proj_k);
-  const lines = [base - 1, base, base + 1].filter(v => v >= 1);
-  const cells = lines.map(v =>
-    `<div class="th"><b>${pct(tailProb(s.pmf, v))}</b><span>${v} or more</span></div>`
-  ).join("");
+// The price at which a given probability is exactly fair.
+function fairPrice(p) {
+  if (!(p > 0.005) || !(p < 0.995)) return null;
+  return p >= 0.5 ? -Math.round(100 * p / (1 - p))
+                  : Math.round(100 * (1 - p) / p);
+}
 
+function breakEvenTable(s) {
+  const base = Math.round(s.proj_k);
+  const lo = Math.max(1, base - 2), hi = base + 2;
+  const m = s.market;
+  const mktThresh = m ? Math.floor(m.line) + 1 : null;
+
+  const rows = [];
+  for (let n = lo; n <= hi; n++) {
+    const p = tailProb(s.pmf, n);
+    const fp = fairPrice(p);
+    if (fp == null) continue;
+    const atLine = n === mktThresh;
+
+    let note = "";
+    if (atLine && m) {
+      const offered = m.best_over.price;
+      const better = toDecimal(offered) > toDecimal(fp);
+      note = better
+        ? `<span class="good">${m.best_over.book} pays
+           ${offered > 0 ? "+" : ""}${offered} — better than fair</span>`
+        : `<span class="note">best offered
+           ${offered > 0 ? "+" : ""}${offered} at ${m.best_over.book}</span>`;
+    }
+
+    rows.push(`<div class="bet-row${atLine ? " atline" : ""}">
+      <span>${n} or more</span>
+      <span class="p">${(p * 100).toFixed(0)}%</span>
+      <span class="fair">${fp > 0 ? "+" : ""}${fp}</span>
+      <span>${note}</span>
+    </div>`);
+  }
+
+  return `<div class="bet">
+    <div class="bet-row head">
+      <span>Threshold</span><span class="p">Chance</span>
+      <span class="fair">Fair price</span><span></span>
+    </div>
+    ${rows.join("")}
+  </div>
+  <p class="caption">Fair price is what each threshold is worth if my
+    numbers are right — take anything better, pass on anything worse.
+    ${m ? "The shaded row is where the book set its line." : ""}
+    These follow from the distribution above, so they're only as good
+    as it is.</p>`;
+}
+
+function detail(s) {
   const m = s.market;
   const price = p => (p > 0 ? "+" : "") + p;
   const evPct = v => (v > 0 ? "+" : "") + Math.round(v * 100) + "%";
@@ -1362,7 +1406,7 @@ function detail(s) {
       <p class="caption">Height is the chance of that exact total. The red line is
       the projection${m ? ", the dashed line is the book's" : ""} — note how little
       of the distribution actually sits on any one number.</p>
-      <div class="thresholds">${cells}</div>
+      ${breakEvenTable(s)}
       <dl class="detail-grid">
         <div class="fact"><dt>Batters faced</dt><dd>${fmt1(s.proj_bf)}</dd></div>
         <div class="fact"><dt>Matchup K rate</dt><dd>${pct(s.k_rate)}</dd></div>
