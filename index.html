@@ -1157,6 +1157,48 @@ function prettyDate(iso) {
   });
 }
 
+// Inverse normal CDF (Acklam's rational approximation, ~1e-9 accurate).
+// Needed to turn the market's probability back into a projected total.
+function probit(p) {
+  if (p <= 0 || p >= 1) return NaN;
+  const a = [-3.969683028665376e+01, 2.209460984245205e+02, -2.759285104469687e+02,
+             1.383577518672690e+02, -3.066479806614716e+01, 2.506628277459239e+00];
+  const b = [-5.447609879822406e+01, 1.615858368580409e+02, -1.556989798598866e+02,
+             6.680131188771972e+01, -1.328068155288572e+01];
+  const c = [-7.784894002430293e-03, -3.223964580411365e-01, -2.400758277161838e+00,
+             -2.549732539343734e+00, 4.374664141464968e+00, 2.938163982698783e+00];
+  const d = [7.784695709041462e-03, 3.224671290700398e-01, 2.445134137142996e+00,
+             3.754408661907416e+00];
+  const pl = 0.02425, ph = 1 - pl;
+  let q, r;
+  if (p < pl) {
+    q = Math.sqrt(-2 * Math.log(p));
+    return (((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5]) /
+           ((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+  }
+  if (p > ph) {
+    q = Math.sqrt(-2 * Math.log(1 - p));
+    return -(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5]) /
+            ((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+  }
+  q = p - 0.5; r = q * q;
+  return (((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5]) * q /
+         (((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);
+}
+
+function pmfSd(pmf) {
+  let m = 0, m2 = 0;
+  for (let i = 0; i < pmf.length; i++) { m += i * pmf[i]; m2 += i * i * pmf[i]; }
+  return Math.sqrt(Math.max(0, m2 - m * m));
+}
+
+// What total is the market projecting? Invert its own probability against
+// the line, using this pitcher's spread rather than a league-wide one.
+function impliedMean(line, pOver, sd) {
+  if (!(sd > 0) || !(pOver > 0.02) || !(pOver < 0.98)) return null;
+  return line + sd * probit(pOver);
+}
+
 function tailProb(pmf, n) {
   let s = 0;
   for (let i = n; i < pmf.length; i++) s += pmf[i];
@@ -1238,7 +1280,10 @@ function detail(s) {
     ? `<div class="market">
          <div class="market-lines">
            <span>Market line <b>${m.line}</b></span>
-           <span>My line <b>${m.model_line ?? "—"}</b></span>
+           <span>Market projects
+             <b>${(() => { const im = impliedMean(m.line, m.consensus_over, pmfSd(s.pmf));
+                  return im == null ? "—" : im.toFixed(1); })()}</b></span>
+           <span>I project <b>${s.proj_k.toFixed(1)}</b></span>
            <span class="juice">${m.books} book${m.books === 1 ? "" : "s"},
              ${pct(m.avg_vig)} margin${m.book_spread > 0.05
                ? `, disagreeing by ${Math.round(m.book_spread * 100)} pts` : ""}</span>
