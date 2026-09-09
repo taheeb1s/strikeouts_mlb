@@ -517,6 +517,34 @@
   .daypick button:hover { color: var(--ink); border-bottom-color: var(--pencil); }
   .cal-key { font-size: 0.78rem; color: var(--ink-soft); }
 
+  /* --- season totals --- */
+  .totals {
+    display: flex; flex-wrap: wrap; gap: 0.9rem 2rem;
+    padding: 0.9rem 1.05rem; margin: 0.9rem 0 1.2rem;
+    background: var(--paper-warm); border-left: 3px solid var(--bar);
+  }
+  .totals .t { min-width: 6rem; }
+  .totals .t dt { font-size: 0.75rem; color: var(--ink-soft); margin-bottom: 0.1rem; }
+  .totals .t dd { margin: 0; font-size: 1.2rem; font-weight: 700;
+                  letter-spacing: -0.02em; }
+  .totals .t dd small { font-size: 0.75rem; font-weight: 500;
+                        color: var(--ink-soft); letter-spacing: 0; }
+
+  /* --- scatter --- */
+  .scat { margin: 0.4rem 0 1.3rem; }
+  .scat-key { font-size: 0.8rem; color: var(--ink-soft); max-width: 56ch; }
+
+  /* --- form flags --- */
+  .form {
+    display: flex; flex-wrap: wrap; gap: 0.3rem 0.5rem; margin: 0 0 1rem;
+  }
+  .flag {
+    font-size: 0.78rem; padding: 0.15rem 0.5rem;
+    background: var(--paper-warm); border-left: 2px solid var(--rule);
+  }
+  .flag.hot { border-left-color: var(--bar); }
+  .flag.cold { border-left-color: var(--pencil); }
+
   /* --- pitcher history --- */
   .plink { cursor: pointer; text-decoration: underline;
            text-decoration-color: var(--rule); text-underline-offset: 3px; }
@@ -1323,6 +1351,7 @@ function detail(s) {
   return `
     <div class="detail">
       ${whyLine(s)}
+      ${formFlags(s.pitcher)}
       ${weatherLine(s)}
       <div class="chart-wrap">${chart(s.pmf, s.proj_k, m ? m.line : null)}</div>
       ${mkt}
@@ -1472,6 +1501,42 @@ function parlayPanel() {
   </div>`;
 }
 
+function formFlags(name) {
+  const past = ((state.card && state.card.results) || [])
+    .filter(r => r.pitcher === name).slice(0, 5);
+  if (past.length < 3) return "";
+  const flags = [];
+
+  // Which side of the projection have recent starts landed on?
+  const last3 = past.slice(0, 3);
+  if (last3.every(r => r.actual > r.proj))
+    flags.push(`<span class="flag hot">Beat the projection 3 straight</span>`);
+  else if (last3.every(r => r.actual < r.proj))
+    flags.push(`<span class="flag cold">Fell short 3 straight</span>`);
+
+  // Workload direction - the thing that caps or raises the ceiling.
+  const bfs = past.filter(r => r.bf).map(r => r.bf);
+  if (bfs.length >= 4) {
+    const recent = (bfs[0] + bfs[1]) / 2;
+    const older = bfs.slice(2).reduce((a, b) => a + b, 0) / bfs.slice(2).length;
+    if (recent - older >= 2.5)
+      flags.push(`<span class="flag hot">Going deeper lately —
+        ${recent.toFixed(0)} batters vs ${older.toFixed(0)}</span>`);
+    else if (older - recent >= 2.5)
+      flags.push(`<span class="flag cold">Shorter outings lately —
+        ${recent.toFixed(0)} batters vs ${older.toFixed(0)}</span>`);
+  }
+
+  // Raw strikeout form.
+  const ks = past.map(r => r.actual);
+  const hi = Math.max(...ks), lo = Math.min(...ks);
+  if (hi - lo >= 6)
+    flags.push(`<span class="flag">Volatile — ${lo} to ${hi} over
+      ${past.length} starts</span>`);
+
+  return flags.length ? `<div class="form">${flags.join("")}</div>` : "";
+}
+
 function whyLine(s) {
   const lg = (state.data && state.data.league_k_pct) || 0.223;
   const bits = [];
@@ -1505,6 +1570,80 @@ function whyLine(s) {
              usually a sign the model is missing something they know.`;
   }
   return `<p class="why">${txt}</p>`;
+}
+
+function seasonTotals() {
+  const rows = (state.card && state.card.results) || [];
+  if (rows.length < 5) return "";
+  const err = rows.map(r => Math.abs(r.err ?? (r.proj - r.actual)));
+  const mae = err.reduce((a, b) => a + b, 0) / err.length;
+  const nErr = rows.map(r => Math.abs(r.naive - r.actual));
+  const nmae = nErr.reduce((a, b) => a + b, 0) / nErr.length;
+  const withLine = rows.filter(r => r.line != null);
+  const hits = withLine.filter(r => r.hit).length;
+  const days = new Set(rows.map(r => r.date)).size;
+
+  const sorted = [...rows].sort((a, b) =>
+    Math.abs(a.err ?? 0) - Math.abs(b.err ?? 0));
+  const best = sorted[0], worst = sorted[sorted.length - 1];
+
+  return `<dl class="totals">
+    <div class="t"><dt>Starts graded</dt><dd>${rows.length}
+      <small>over ${days} day${days === 1 ? "" : "s"}</small></dd></div>
+    <div class="t"><dt>Average miss</dt><dd>${mae.toFixed(2)}
+      <small>baseline ${nmae.toFixed(2)}</small></dd></div>
+    ${withLine.length ? `<div class="t"><dt>Side record</dt>
+      <dd>${hits}&ndash;${withLine.length - hits}
+      <small>${Math.round(hits / withLine.length * 100)}%</small></dd></div>` : ""}
+    <div class="t"><dt>Best call</dt><dd>${best.pitcher.split(" ").pop()}
+      <small>${best.proj.toFixed(1)} vs ${best.actual}</small></dd></div>
+    <div class="t"><dt>Worst call</dt><dd>${worst.pitcher.split(" ").pop()}
+      <small>${worst.proj.toFixed(1)} vs ${worst.actual}</small></dd></div>
+  </dl>`;
+}
+
+function scatter() {
+  const rows = (state.card && state.card.results) || [];
+  if (rows.length < 8) return "";
+  const W = 560, H = 300, PAD = 34;
+  const lim = Math.max(14, ...rows.map(r => Math.max(r.proj, r.actual))) + 1;
+  const px = v => PAD + (v / lim) * (W - PAD - 8);
+  const py = v => (H - PAD) - (v / lim) * (H - PAD - 8);
+
+  const dots = rows.map(r => {
+    const on = state.day && r.date === state.day;
+    return `<circle cx="${px(r.proj).toFixed(1)}" cy="${py(r.actual).toFixed(1)}"
+      r="${on ? 4.5 : 3}" fill="${on ? "var(--pencil)" : "var(--bar)"}"
+      opacity="${on ? 0.95 : 0.35}"><title>${r.pitcher} ${r.date}: projected
+      ${r.proj.toFixed(1)}, threw ${r.actual}</title></circle>`;
+  }).join("");
+
+  const ticks = [0, 4, 8, 12, 16].filter(t => t <= lim);
+  return `<div class="scat">
+    <svg width="100%" height="${H}" viewBox="0 0 ${W} ${H}" role="img"
+      aria-label="Projected against actual strikeouts for every graded start">
+      ${ticks.map(t => `
+        <line x1="${px(t)}" y1="8" x2="${px(t)}" y2="${H - PAD}"
+          stroke="var(--rule)" stroke-width="0.5"/>
+        <line x1="${PAD}" y1="${py(t)}" x2="${W - 8}" y2="${py(t)}"
+          stroke="var(--rule)" stroke-width="0.5"/>
+        <text x="${px(t)}" y="${H - PAD + 15}" text-anchor="middle"
+          font-size="10" fill="var(--ink-soft)">${t}</text>
+        <text x="${PAD - 7}" y="${py(t) + 3}" text-anchor="end"
+          font-size="10" fill="var(--ink-soft)">${t}</text>`).join("")}
+      <line x1="${px(0)}" y1="${py(0)}" x2="${px(lim)}" y2="${py(lim)}"
+        stroke="var(--ink)" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+      ${dots}
+      <text x="${W / 2}" y="${H - 4}" text-anchor="middle" font-size="10"
+        fill="var(--ink-soft)">projected</text>
+      <text x="10" y="${H / 2}" text-anchor="middle" font-size="10"
+        fill="var(--ink-soft)" transform="rotate(-90 10 ${H / 2})">actual</text>
+    </svg>
+    <p class="scat-key">Each dot is one start. The dashed line is a perfect
+      projection — dots above it are starts the model under-called, below it
+      over-called. A cloud that tilts away from the line means the model runs
+      high or low in a systematic, fixable way. Hover for names.</p>
+  </div>`;
 }
 
 function calendar() {
@@ -1674,7 +1813,9 @@ function results() {
       ${withLine.length ? `Where a line existed, the model's side came in
       ${hits} of ${withLine.length} times, and its projection was closer to the
       real number than the line was on ${closer}.` : ""}</p>
+    ${seasonTotals()}
     ${calendar()}
+    ${scatter()}
     <div class="res">
       ${days.map(d => `
         <div class="res-day">${prettyDate(d.date)}</div>
