@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Strikeout projections</title>
+<title>Prop projections</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -664,7 +664,7 @@
 <main class="sheet">
 
   <div class="masthead">
-    <h1>Strikeout projections<span class="date" id="date">—</span></h1>
+    <h1>Prop projections<span class="date" id="date">—</span></h1>
     <div class="meta" id="meta"></div>
   </div>
 
@@ -1517,26 +1517,48 @@ function parlayPanel() {
   }
 
   const stake = state.stake || 10;
-  const slips = [];
 
-  // Two and three legs, highest EV first, skipping same-game pairs.
-  for (const size of [2, 3]) {
-    const picked = [];
-    for (const l of legs) {
-      if (picked.length >= size) break;
-      if (picked.some(p => sameGame(p, l))) continue;
-      picked.push(l);
+  // Enumerate every valid combination of 2 to 4 legs, score by combined EV,
+  // then pick five with a cap on how often any one leg reappears - otherwise
+  // the top five are all the same pitcher with a rotating partner.
+  const pool = legs.slice(0, 10);
+  const combos = [];
+  const walk = (start, chosen) => {
+    if (chosen.length >= 2 && chosen.length <= 4) {
+      const dec = chosen.reduce((x, l) => x * l.dec, 1);
+      const mine = chosen.reduce((x, l) => x * l.mine, 1);
+      combos.push({ legs: [...chosen], ev: mine * (dec - 1) - (1 - mine) });
     }
-    if (picked.length === size) slips.push(buildSlip(picked, stake));
+    if (chosen.length === 4) return;
+    for (let i = start; i < pool.length; i++) {
+      if (chosen.some(c => sameGame(c, pool[i]))) continue;
+      chosen.push(pool[i]);
+      walk(i + 1, chosen);
+      chosen.pop();
+    }
+  };
+  walk(0, []);
+  combos.sort((a, b) => b.ev - a.ev);
+
+  const MAX_REUSE = 3;
+  const used = {};
+  const picked = [];
+  for (const c of combos) {
+    if (picked.length >= 5) break;
+    if (c.legs.some(l => (used[l.pitcher] || 0) >= MAX_REUSE)) continue;
+    picked.push(c);
+    c.legs.forEach(l => { used[l.pitcher] = (used[l.pitcher] || 0) + 1; });
   }
+  const slips = picked.map(c => buildSlip(c.legs, stake));
 
   return `<div class="par">
     <h2>Suggested parlays</h2>
-    <p class="sub">Built from the legs my model rates highest, best available
-      price on each. Ranked by my numbers — which beat a season average by
-      0.04 strikeouts and have never been tested against a book. Errors
-      multiply across legs, so a model that's mildly wrong on singles can be
-      badly wrong here.</p>
+    <p class="sub">Five combinations of two to four legs, ranked by my
+      numbers, best available price on each. No leg appears more than three
+      times, so these are genuinely different bets rather than one pitcher
+      with rotating partners. Showing more of them doesn't make any of them
+      better — the model beats a season average by 0.04 strikeouts and has
+      never been tested against a book, and errors multiply across legs.</p>
     <div class="stake">
       <label for="stk">Stake $</label>
       <input id="stk" type="number" min="1" step="1" value="${stake}">
