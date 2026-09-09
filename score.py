@@ -194,9 +194,11 @@ def main():
         "bias_bf": round(float((bfp - bfa).mean()), 2),
         "sd_actual": round(float(actual.std()), 2),
         "market": None,
-        # newest first, capped so the page payload stays small
+        # Newest first. 500 is roughly three weeks of slates and lands
+        # around 120KB - still quick to load. The full archive lives in
+        # history/ regardless, so nothing is lost when this rolls over.
         "results": sorted(detail, key=lambda r: (r["date"], r["pitcher"]),
-                          reverse=True)[:120],
+                          reverse=True)[:500],
     }
 
     if len(mkt_model) >= 10:
