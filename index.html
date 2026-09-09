@@ -496,6 +496,25 @@
   .cal .d .n { display: block; font-weight: 700; font-size: 0.85rem; }
   .cal .d.good { border-bottom-color: var(--bar); }
   .cal .d.bad  { border-bottom-color: var(--pencil); }
+  .cal .d { cursor: pointer; }
+  .cal .d:hover { background: var(--rule); }
+  .cal .d.sel { outline: 2px solid var(--pencil); outline-offset: -2px; }
+  .daypick {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem;
+    margin: 0.9rem 0 0.2rem; font-size: 0.85rem; color: var(--ink-soft);
+  }
+  .daypick select {
+    font: inherit; font-size: 0.88rem; padding: 0.3rem 0.5rem;
+    border: 1px solid var(--rule); background: var(--paper);
+    color: var(--ink); border-radius: 0;
+  }
+  .daypick select:focus { outline: 2px solid var(--pencil); outline-offset: -1px; }
+  .daypick button {
+    font: inherit; font-size: 0.82rem; color: var(--ink-soft);
+    background: none; border: 0; border-bottom: 2px solid transparent;
+    padding: 0.1rem 0; cursor: pointer;
+  }
+  .daypick button:hover { color: var(--ink); border-bottom-color: var(--pencil); }
   .cal-key { font-size: 0.78rem; color: var(--ink-soft); }
 
   /* --- pitcher history --- */
@@ -1124,7 +1143,7 @@ const SAMPLE = {
 };
 
 const MAX_K = 16;
-let state = { data: null, card: null, nfl: null, q: "", pitcher: null,
+let state = { data: null, card: null, nfl: null, q: "", pitcher: null, day: null,
               sort: "proj", view: "slate", open: new Set() };
 
 /* ---------- helpers ---------- */
@@ -1505,7 +1524,9 @@ function calendar() {
     const mae = b.err / b.n;
     const cls = mae < overall * 0.9 ? "good" : mae > overall * 1.1 ? "bad" : "";
     const label = d.slice(5).replace("-", "/");
-    return `<div class="d ${cls}" title="${d}: ${b.n} starts, avg error ${mae.toFixed(2)}">
+    const sel = state.day === d ? " sel" : "";
+    return `<div class="d ${cls}${sel}" data-day="${d}"
+      title="${d}: ${b.n} starts, avg error ${mae.toFixed(2)}">
       ${label}<span class="n">${mae.toFixed(1)}</span></div>`;
   }).join("")}</div>
   <p class="cal-key">Average error per day, in strikeouts. Green beat the
@@ -1616,13 +1637,27 @@ function results() {
       finished. Check back tomorrow.</p></div>`;
   }
 
-  const withLine = rows.filter(r => r.line != null);
+  const allDays = [...new Set(rows.map(r => r.date))].sort().reverse();
+  if (state.day && !allDays.includes(state.day)) state.day = null;
+  const shown = state.day ? rows.filter(r => r.date === state.day) : rows;
+
+  const picker = `<div class="daypick">
+      <label for="dsel">Day</label>
+      <select id="dsel">
+        <option value=""${state.day ? "" : " selected"}>All ${allDays.length} days</option>
+        ${allDays.map(d => `<option value="${d}"${state.day === d ? " selected" : ""}
+          >${prettyDate(d)}</option>`).join("")}
+      </select>
+      ${state.day ? `<button id="dclear">show all</button>` : ""}
+    </div>`;
+
+  const withLine = shown.filter(r => r.line != null);
   const hits = withLine.filter(r => r.hit).length;
   const closer = withLine.filter(r => r.closer).length;
 
   const days = [];
   let cur = null;
-  for (const r of rows) {
+  for (const r of shown) {
     if (!cur || cur.date !== r.date) { cur = { date: r.date, rows: [] }; days.push(cur); }
     cur.rows.push(r);
   }
@@ -1632,7 +1667,10 @@ function results() {
       <span class="bf">Line</span><span></span></div>`;
 
   return `
-    <p class="caption" style="max-width:58ch">Every graded start, newest first.
+    ${picker}
+    <p class="caption" style="max-width:58ch">${state.day
+      ? `${shown.length} start${shown.length === 1 ? "" : "s"} on this day.`
+      : "Every graded start, newest first."}
       ${withLine.length ? `Where a line existed, the model's side came in
       ${hits} of ${withLine.length} times, and its projection was closer to the
       real number than the line was on ${closer}.` : ""}</p>
@@ -1888,6 +1926,15 @@ function render() {
     wire();
     document.querySelectorAll(".plink").forEach(el =>
       el.onclick = () => { state.pitcher = el.dataset.pitcher; render(); });
+    const dsel = document.getElementById("dsel");
+    if (dsel) dsel.onchange = () => { state.day = dsel.value || null; render(); };
+    const dclr = document.getElementById("dclear");
+    if (dclr) dclr.onclick = () => { state.day = null; render(); };
+    document.querySelectorAll(".cal .d").forEach(el =>
+      el.onclick = () => {
+        state.day = state.day === el.dataset.day ? null : el.dataset.day;
+        render();
+      });
     document.getElementById("card").innerHTML = scorecard();
     document.getElementById("calc").innerHTML = "";
     document.getElementById("footer").innerHTML = "";
