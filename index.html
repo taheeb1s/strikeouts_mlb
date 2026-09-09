@@ -1524,12 +1524,12 @@ function parlayPanel() {
   const pool = legs.slice(0, 10);
   const combos = [];
   const walk = (start, chosen) => {
-    if (chosen.length >= 2 && chosen.length <= 4) {
+    if (chosen.length >= 2 && chosen.length <= 3) {
       const dec = chosen.reduce((x, l) => x * l.dec, 1);
       const mine = chosen.reduce((x, l) => x * l.mine, 1);
       combos.push({ legs: [...chosen], ev: mine * (dec - 1) - (1 - mine) });
     }
-    if (chosen.length === 4) return;
+    if (chosen.length === 3) return;
     for (let i = start; i < pool.length; i++) {
       if (chosen.some(c => sameGame(c, pool[i]))) continue;
       chosen.push(pool[i]);
@@ -1540,25 +1540,40 @@ function parlayPanel() {
   walk(0, []);
   combos.sort((a, b) => b.ev - a.ev);
 
+  // Ranking purely by EV always picks the longest slip available, because
+  // positive-EV legs multiply. That finds longer bets, not better ones. So
+  // fill a fixed shape instead: two doubles, three trebles.
   const MAX_REUSE = 3;
   const used = {};
   const picked = [];
-  for (const c of combos) {
-    if (picked.length >= 5) break;
-    if (c.legs.some(l => (used[l.pitcher] || 0) >= MAX_REUSE)) continue;
-    picked.push(c);
-    c.legs.forEach(l => { used[l.pitcher] = (used[l.pitcher] || 0) + 1; });
-  }
+  const take = (size, want) => {
+    let n = 0;
+    for (const c of combos) {
+      if (n >= want) break;
+      if (c.legs.length !== size) continue;
+      if (c.legs.some(l => (used[l.pitcher] || 0) >= MAX_REUSE)) continue;
+      picked.push(c);
+      c.legs.forEach(l => { used[l.pitcher] = (used[l.pitcher] || 0) + 1; });
+      n++;
+    }
+    return n;
+  };
+  const got2 = take(2, 2);
+  const got3 = take(3, 3);
+  // Backfill if one size ran short on a thin board.
+  if (picked.length < 5) take(2, 5 - picked.length);
+  if (picked.length < 5) take(3, 5 - picked.length);
+  picked.sort((a, b) => a.legs.length - b.legs.length || b.ev - a.ev);
   const slips = picked.map(c => buildSlip(c.legs, stake));
 
   return `<div class="par">
     <h2>Suggested parlays</h2>
-    <p class="sub">Five combinations of two to four legs, ranked by my
-      numbers, best available price on each. No leg appears more than three
-      times, so these are genuinely different bets rather than one pitcher
-      with rotating partners. Showing more of them doesn't make any of them
-      better — the model beats a season average by 0.04 strikeouts and has
-      never been tested against a book, and errors multiply across legs.</p>
+    <p class="sub">Two doubles and three trebles, best available price on
+      each, no leg used more than three times. Sizes are fixed deliberately:
+      ranking by EV alone always picks the longest slip, because positive-EV
+      legs multiply — that finds longer bets, not better ones. The model
+      beats a season average by 0.04 strikeouts and has never been tested
+      against a book, and errors compound with every leg you add.</p>
     <div class="stake">
       <label for="stk">Stake $</label>
       <input id="stk" type="number" min="1" step="1" value="${stake}">
