@@ -36,7 +36,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install requests
+      - run: pip install requests numpy
 
       - name: Capture lines
         env:
@@ -44,11 +44,19 @@ jobs:
           WINDOW: ${{ github.event.inputs.window || '4' }}
         run: python3 nfl_collect.py --window "$WINDOW"
 
+      - name: Build the page data
+        continue-on-error: true
+        run: |
+          if [ -d snapshots/receptions ]; then
+            python3 nfl_build.py
+          fi
+
       - name: Publish
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           [ -d snapshots ] && git add snapshots/
+          [ -f receptions.json ] && git add receptions.json
           if git diff --staged --quiet; then
             echo "Nothing new captured."
           else
