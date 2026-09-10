@@ -1,0 +1,1130 @@
+{
+ "captured_at": "2026-09-10T21:02:30+00:00",
+ "market": "player_receptions",
+ "sport": "americanfootball_nfl",
+ "games_captured": 1,
+ "credits_spent": 1,
+ "credits_remaining": "407",
+ "games": [
+  {
+   "id": "acc580d74344ea3b31bbcdd057fe6a9c",
+   "sport_key": "americanfootball_nfl",
+   "sport_title": "NFL",
+   "commence_time": "2026-09-11T00:35:00Z",
+   "home_team": "Los Angeles Rams",
+   "away_team": "San Francisco 49ers",
+   "bookmakers": [
+    {
+     "key": "draftkings",
+     "title": "DraftKings",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-10T21:01:45Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Puka Nacua",
+         "price": 114,
+         "point": 7.5
+        },
+        {
+         "name": "Under",
+         "description": "Puka Nacua",
+         "price": -145,
+         "point": 7.5
+        },
+        {
+         "name": "Over",
+         "description": "Christian McCaffrey",
+         "price": -134,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Christian McCaffrey",
+         "price": 105,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -108,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Davante Adams",
+         "price": -118,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Evans",
+         "price": -155,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Mike Evans",
+         "price": 121,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "George Kittle",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "George Kittle",
+         "price": -147,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "De'Zhaun Stribling",
+         "price": -156,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "De'Zhaun Stribling",
+         "price": 122,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Deebo Samuel",
+         "price": -151,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Deebo Samuel",
+         "price": 119,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Colby Parkinson",
+         "price": 127,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Colby Parkinson",
+         "price": -162,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": -173,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Terrance Ferguson",
+         "price": 135,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tyler Higbee",
+         "price": -152,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tyler Higbee",
+         "price": 119,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": -135,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyren Williams",
+         "price": 106,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Tonges",
+         "price": 156,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Tonges",
+         "price": -200,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyle Juszczyk",
+         "price": 162,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyle Juszczyk",
+         "price": -209,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Demarcus Robinson",
+         "price": 177,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Demarcus Robinson",
+         "price": -229,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jordan Whittington",
+         "price": -222,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Jordan Whittington",
+         "price": 172,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Blake Corum",
+         "price": -157,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Blake Corum",
+         "price": 122,
+         "point": 0.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betmgm",
+     "title": "BetMGM",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-10T21:02:02Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": -150,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyren Williams",
+         "price": 110,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Colby Parkinson",
+         "price": 150,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Colby Parkinson",
+         "price": -200,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": -165,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Terrance Ferguson",
+         "price": 125,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tyler Higbee",
+         "price": -135,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tyler Higbee",
+         "price": 100,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Christian McCaffrey",
+         "price": -125,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Christian McCaffrey",
+         "price": -105,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyle Juszczyk",
+         "price": -210,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyle Juszczyk",
+         "price": 150,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "George Kittle",
+         "price": 105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "George Kittle",
+         "price": -145,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Evans",
+         "price": -150,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Mike Evans",
+         "price": 110,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Deebo Samuel",
+         "price": -135,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Deebo Samuel",
+         "price": 100,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Puka Nacua",
+         "price": 105,
+         "point": 7.5
+        },
+        {
+         "name": "Under",
+         "description": "Puka Nacua",
+         "price": -140,
+         "point": 7.5
+        },
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -105,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Davante Adams",
+         "price": -125,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "De'Zhaun Stribling",
+         "price": -150,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "De'Zhaun Stribling",
+         "price": 110,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Tonges",
+         "price": 165,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Tonges",
+         "price": -220,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jordan Whittington",
+         "price": -225,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Jordan Whittington",
+         "price": 165,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Blake Corum",
+         "price": -160,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Blake Corum",
+         "price": 120,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Demarcus Robinson",
+         "price": 180,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Demarcus Robinson",
+         "price": -250,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "fanduel",
+     "title": "FanDuel",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-10T21:02:09Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Blake Corum",
+         "price": -138,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Blake Corum",
+         "price": 104,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Tyler Higbee",
+         "price": -136,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tyler Higbee",
+         "price": 102,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Christian McCaffrey",
+         "price": -122,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Christian McCaffrey",
+         "price": -108,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "George Kittle",
+         "price": 106,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "George Kittle",
+         "price": -140,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "De'Zhaun Stribling",
+         "price": -154,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "De'Zhaun Stribling",
+         "price": 116,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Tonges",
+         "price": 148,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Tonges",
+         "price": -200,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jordan Whittington",
+         "price": -200,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Jordan Whittington",
+         "price": 148,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Colby Parkinson",
+         "price": 128,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Colby Parkinson",
+         "price": -172,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Deebo Samuel",
+         "price": -136,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Deebo Samuel",
+         "price": 102,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Evans",
+         "price": -132,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Mike Evans",
+         "price": 100,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyle Juszczyk",
+         "price": 162,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyle Juszczyk",
+         "price": -220,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": -158,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Terrance Ferguson",
+         "price": 118,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -102,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Davante Adams",
+         "price": -130,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": -148,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyren Williams",
+         "price": 112,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Demarcus Robinson",
+         "price": 172,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Demarcus Robinson",
+         "price": -235,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Puka Nacua",
+         "price": 116,
+         "point": 7.5
+        },
+        {
+         "name": "Under",
+         "description": "Puka Nacua",
+         "price": -154,
+         "point": 7.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betonlineag",
+     "title": "BetOnline.ag",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-10T21:02:05Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Puka Nacua",
+         "price": 112,
+         "point": 7.5
+        },
+        {
+         "name": "Under",
+         "description": "Puka Nacua",
+         "price": -145,
+         "point": 7.5
+        },
+        {
+         "name": "Over",
+         "description": "Christian McCaffrey",
+         "price": -149,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Christian McCaffrey",
+         "price": 115,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Deebo Samuel",
+         "price": -164,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Deebo Samuel",
+         "price": 125,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "De'Zhaun Stribling",
+         "price": -149,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "De'Zhaun Stribling",
+         "price": 115,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Evans",
+         "price": -141,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Mike Evans",
+         "price": 109,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Colby Parkinson",
+         "price": 130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Colby Parkinson",
+         "price": -169,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": -147,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyren Williams",
+         "price": 113,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -112,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Davante Adams",
+         "price": -115,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": -175,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Terrance Ferguson",
+         "price": 135,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tyler Higbee",
+         "price": -149,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tyler Higbee",
+         "price": 115,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Demarcus Robinson",
+         "price": 171,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Demarcus Robinson",
+         "price": -227,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyle Juszczyk",
+         "price": 161,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyle Juszczyk",
+         "price": -213,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "George Kittle",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "George Kittle",
+         "price": -149,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Blake Corum",
+         "price": -152,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Blake Corum",
+         "price": 116,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Jordan Whittington",
+         "price": -233,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Jordan Whittington",
+         "price": 173,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Tonges",
+         "price": 149,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Tonges",
+         "price": -196,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betrivers",
+     "title": "BetRivers",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-10T21:02:05Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "De'Zhaun Stribling",
+         "price": -157,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Evans",
+         "price": -132,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Deebo Samuel",
+         "price": -137,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Colby Parkinson",
+         "price": 133,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": -175,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Puka Nacua",
+         "price": 116,
+         "point": 7.5
+        },
+        {
+         "name": "Over",
+         "description": "Christian McCaffrey",
+         "price": -118,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Blake Corum",
+         "price": -167,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Jordan Whittington",
+         "price": 180,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "George Kittle",
+         "price": -103,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyle Juszczyk",
+         "price": -245,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Tyler Higbee",
+         "price": -152,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Demarcus Robinson",
+         "price": 165,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -103,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": -165,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "bovada",
+     "title": "Bovada",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-10T21:01:15Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Blake Corum",
+         "price": -160,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Blake Corum",
+         "price": 120,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Christian McCaffrey",
+         "price": -135,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Christian McCaffrey",
+         "price": 105,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Colby Parkinson",
+         "price": 125,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Colby Parkinson",
+         "price": -165,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -110,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Davante Adams",
+         "price": -120,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "De'Zhaun Stribling",
+         "price": -160,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "De'Zhaun Stribling",
+         "price": 120,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Deebo Samuel",
+         "price": -150,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Deebo Samuel",
+         "price": 115,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Demarcus Robinson",
+         "price": 175,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Demarcus Robinson",
+         "price": -240,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "George Kittle",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "George Kittle",
+         "price": -150,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jordan Whittington",
+         "price": -230,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Jordan Whittington",
+         "price": 170,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyle Juszczyk",
+         "price": 160,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyle Juszczyk",
+         "price": -215,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": -135,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyren Williams",
+         "price": 105,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Evans",
+         "price": -160,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Mike Evans",
+         "price": 120,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Puka Nacua",
+         "price": 130,
+         "point": 7.5
+        },
+        {
+         "name": "Under",
+         "description": "Puka Nacua",
+         "price": -170,
+         "point": 7.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": -180,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Terrance Ferguson",
+         "price": 135,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tyler Higbee",
+         "price": -160,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tyler Higbee",
+         "price": 120,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
