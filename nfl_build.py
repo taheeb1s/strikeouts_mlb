@@ -174,7 +174,8 @@ def main():
             for g in games for p in g["players"]]
     allp.sort(key=lambda x: -max(x[0], x[1]))
     if allp:
-        print("\nBiggest price gaps between books (per $100 staked):")
+        print("\nWidest price gaps between books, per $100 staked.")
+        print("This is what shopping saves on that side - not a pick:")
         for so, su, name, match in allp[:6]:
             side = "over" if so >= su else "under"
             print(f"  {name:24} {side:5} ${max(so, su):5.2f}   {match}")
