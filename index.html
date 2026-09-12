@@ -602,6 +602,67 @@
   .nfl-row .px { font-size: 0.84rem; color: var(--ink-soft); }
   .nfl-row .shop { color: var(--pencil); font-weight: 600; }
 
+  /* --- compact table --- */
+  .cmp { border-top: 1px solid var(--ink); }
+  .cmp-head, .cmp-row {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) 5.5rem 2.9rem 2.9rem 3.2rem 3rem;
+    align-items: baseline; gap: 0 0.7rem;
+    padding: 0.42rem 0; border-bottom: 1px solid var(--rule);
+  }
+  .cmp-head {
+    font-size: 0.72rem; color: var(--ink-soft);
+    border-bottom: 1px solid var(--ink);
+  }
+  .cmp-head span:not(:first-child):not(:nth-child(2)) { text-align: right; }
+  .cmp-row { font-size: 0.9rem; cursor: pointer; }
+  .cmp-row:hover { background: rgba(51,81,63,0.05); }
+  .cmp-row .nm { font-weight: 600; white-space: nowrap;
+                 overflow: hidden; text-overflow: ellipsis; }
+  .cmp-row .vs { font-size: 0.78rem; color: var(--ink-soft); white-space: nowrap; }
+  .cmp-row .n { text-align: right; font-variant-numeric: tabular-nums; }
+  .cmp-row .pj { font-weight: 700; }
+  .cmp-row .gap { text-align: right; font-weight: 600; }
+  .cmp-row .gap.up { color: var(--pencil); }
+  .cmp-row .gap.flat { color: var(--ink-soft); font-weight: 400; }
+  @media (max-width: 40rem) {
+    .cmp-head, .cmp-row { grid-template-columns: minmax(0,1fr) 2.8rem 2.8rem 3rem; }
+    .cmp-row .vs, .cmp-head .vsh, .cmp-row .mk, .cmp-head .mkh { display: none; }
+  }
+
+  /* --- matchup cards --- */
+  .mu { display: grid; gap: 0.9rem;
+        grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); }
+  .mu-card { border-top: 2px solid var(--ink); padding-top: 0.5rem; }
+  .mu-card .g {
+    font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 0.45rem;
+  }
+  .mu-side {
+    display: grid; grid-template-columns: minmax(0,1fr) 2.6rem 2.6rem;
+    align-items: baseline; gap: 0 0.6rem;
+    padding: 0.4rem 0; border-bottom: 1px solid var(--rule);
+    cursor: pointer; font-size: 0.9rem;
+  }
+  .mu-side:hover { background: rgba(51,81,63,0.05); }
+  .mu-side .nm { font-weight: 600; white-space: nowrap;
+                 overflow: hidden; text-overflow: ellipsis; }
+  .mu-side .t { font-size: 0.76rem; color: var(--ink-soft); }
+  .mu-side .n { text-align: right; font-variant-numeric: tabular-nums; }
+  .mu-side .pj { font-weight: 700; }
+  .mu-card .tbd { font-size: 0.85rem; color: var(--ink-soft);
+                  padding: 0.4rem 0; border-bottom: 1px solid var(--rule); }
+  .mu-vs {
+    display: grid; grid-template-columns: 1fr auto 1fr;
+    align-items: center; gap: 0 0.6rem;
+    padding: 0.3rem 0 0.45rem; font-size: 0.8rem; color: var(--ink-soft);
+  }
+  .mu-vs .num { font-weight: 700; font-size: 1.02rem; color: var(--ink);
+                font-variant-numeric: tabular-nums; }
+  .mu-vs .lhs { text-align: left; }
+  .mu-vs .rhs { text-align: right; }
+  .mu-vs .mid { font-size: 0.72rem; letter-spacing: 0.04em; }
+  .mu-vs .hot { color: var(--pencil); }
+
   /* --- parlays --- */
   .par { margin: 2rem 0 0; }
   .par h2 {
@@ -1169,6 +1230,7 @@ const SAMPLE = {
 
 const MAX_K = 16;
 let state = { data: null, card: null, nfl: null, q: "", pitcher: null, day: null,
+              layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
 
 /* ---------- helpers ---------- */
@@ -1616,6 +1678,93 @@ function formFlags(name) {
       ${past.length} starts</span>`);
 
   return flags.length ? `<div class="form">${flags.join("")}</div>` : "";
+}
+
+function gapCell(s) {
+  const m = s.market;
+  if (!m) return `<span class="gap flat">—</span>`;
+  const pts = Math.round(m.edge * 100);
+  const cls = Math.abs(pts) >= 10 ? "gap up" : "gap flat";
+  return `<span class="${cls}">${pts > 0 ? "+" : ""}${pts}</span>`;
+}
+
+function compactView(rows) {
+  return `<div class="cmp">
+    <div class="cmp-head">
+      <span>Pitcher</span><span class="vsh">Matchup</span>
+      <span>Proj</span><span>Line</span><span class="mkh">Market</span><span>Gap</span>
+    </div>
+    ${rows.map(s => {
+      const m = s.market;
+      return `<div class="cmp-row" data-pitcher="${s.pitcher}">
+        <span class="nm">${s.pitcher}</span>
+        <span class="vs">${s.team} ${s.home ? "vs" : "at"} ${s.opponent}</span>
+        <span class="n pj">${fmt1(s.proj_k)}</span>
+        <span class="n">${m ? m.line : "—"}</span>
+        <span class="n mk">${m ? pct(m.consensus_over) : "—"}</span>
+        ${gapCell(s)}
+      </div>`;
+    }).join("")}
+  </div>`;
+}
+
+function matchupView(rows) {
+  // Pair starters who face each other; leave singletons on their own card.
+  const used = new Set();
+  const games = [];
+  for (const a of rows) {
+    if (used.has(a.pitcher)) continue;
+    const b = rows.find(x => !used.has(x.pitcher) && x !== a
+      && x.team === a.opponent && x.opponent === a.team);
+    used.add(a.pitcher);
+    if (b) used.add(b.pitcher);
+    const away = a.home ? (b || null) : a;
+    const home = a.home ? a : (b || null);
+    games.push({ away, home, venue: a.venue, when: gameTime(a),
+                 key: [a.team, a.opponent].sort().join("") });
+  }
+  games.sort((x, y) => startMs(x.home || x.away) - startMs(y.home || y.away));
+
+  const PA_PER_GAME = 38;   // roughly a team's plate appearances in nine innings
+  const lg = (state.data && state.data.league_k_pct) || 0.223;
+  const lgGame = lg * PA_PER_GAME;
+
+  // The two numbers behind the projection, in units you can compare:
+  // what he does to a neutral lineup, and what they do against neutral pitching.
+  const versus = s => {
+    if (!s || s.pitcher_k_pct == null || s.opp_k_pct == null) return "";
+    const his = s.pitcher_k_pct * (s.proj_bf || 23);
+    const theirs = s.opp_k_pct * PA_PER_GAME;
+    const hot = theirs > lgGame * 1.08 ? " hot" : "";
+    const cold = theirs < lgGame * 0.92;
+    return `<div class="mu-vs">
+      <span class="lhs"><span class="num">${his.toFixed(1)}</span> K a start</span>
+      <span class="mid">VS</span>
+      <span class="rhs"><span class="num${hot}">${theirs.toFixed(1)}</span>
+        ${s.opponent} K a game</span>
+    </div>
+    <div class="mu-vs" style="padding-top:0;grid-template-columns:1fr">
+      <span class="lhs">${hot ? `${s.opponent} strike out more than most`
+        : cold ? `${s.opponent} are a tough, contact-heavy lineup`
+        : `league average is ${lgGame.toFixed(1)} a game`}</span>
+    </div>`;
+  };
+
+  const side = s => s
+    ? `<div class="mu-side" data-pitcher="${s.pitcher}">
+         <span><span class="nm">${s.pitcher}</span>
+           <span class="t">${s.team}</span></span>
+         <span class="n pj">${fmt1(s.proj_k)}</span>
+         <span class="n">${s.market ? s.market.line : "—"}</span>
+       </div>${versus(s)}`
+    : `<div class="tbd">Starter not posted</div>`;
+
+  return `<div class="mu">${games.map(g => `
+    <div class="mu-card">
+      <div class="g">${(g.away && g.away.team) || "?"} at
+        ${(g.home && g.home.team) || "?"} · ${g.when}</div>
+      ${side(g.away)}${side(g.home)}
+    </div>`).join("")}</div>`;
 }
 
 function whyLine(s) {
@@ -2181,8 +2330,16 @@ function render() {
       <button data-sort="proj" aria-pressed="${state.sort === "proj"}">projection</button>
       <span aria-hidden="true">·</span>
       <button data-sort="time" aria-pressed="${state.sort === "time"}">first pitch</button>
+      <span style="margin-left:auto">View</span>
+      <button data-layout="ledger" aria-pressed="${state.layout === "ledger"}">cards</button>
+      <span aria-hidden="true">·</span>
+      <button data-layout="compact" aria-pressed="${state.layout === "compact"}">table</button>
+      <span aria-hidden="true">·</span>
+      <button data-layout="matchup" aria-pressed="${state.layout === "matchup"}">matchups</button>
     </div>
-    <div class="ledger">
+    ${state.layout === "compact" ? compactView(rows)
+      : state.layout === "matchup" ? matchupView(rows)
+      : `<div class="ledger">
       ${rows.length ? rows.map(s => {
         const key = s.pitcher + s.opponent;
         const open = state.open.has(key);
@@ -2200,7 +2357,7 @@ function render() {
           ${detail(s)}
         </div>`;
       }).join("") : `<p class="caption">Nothing matches "${state.q}".</p>`}
-    </div>`;
+    </div>`}`;
 
   document.getElementById("card").innerHTML = scorecard();
   document.getElementById("calc").innerHTML = calcPanel() + parlayPanel();
@@ -2222,7 +2379,13 @@ function render() {
      the middle of a wide range.`;
 
   document.querySelectorAll(".controls button").forEach(b =>
-    b.onclick = () => { state.sort = b.dataset.sort; render(); });
+    b.onclick = () => {
+      if (b.dataset.layout) state.layout = b.dataset.layout;
+      else state.sort = b.dataset.sort;
+      render();
+    });
+  document.querySelectorAll(".cmp-row, .mu-side").forEach(el =>
+    el.onclick = () => { state.pitcher = el.dataset.pitcher; render(); });
   wire();
   const qc = document.getElementById("qc");
   if (qc && state.q) qc.textContent = `${rows.length} of ${d.starters.length}`;
