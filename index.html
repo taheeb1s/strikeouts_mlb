@@ -602,6 +602,33 @@
   .nfl-row .px { font-size: 0.84rem; color: var(--ink-soft); }
   .nfl-row .shop { color: var(--pencil); font-weight: 600; }
 
+  .nfl-views { display: flex; gap: 0.4rem; align-items: baseline;
+               margin: 0.9rem 0 0.3rem; font-size: 0.85rem; color: var(--ink-soft); }
+  .nfl-views button {
+    font: inherit; font-weight: 500; color: var(--ink-soft);
+    background: none; border: 0; border-bottom: 2px solid transparent;
+    padding: 0.15rem 0.1rem; cursor: pointer;
+  }
+  .nfl-views button:hover { color: var(--ink); }
+  .nfl-views button[aria-pressed="true"] {
+    color: var(--ink); font-weight: 600; border-bottom-color: var(--pencil);
+  }
+  .rs-row, .rs-head {
+    display: grid; grid-template-columns: minmax(0,1fr) 2.6rem 2.9rem 2.6rem auto;
+    align-items: baseline; gap: 0 0.7rem;
+    padding: 0.42rem 0; border-bottom: 1px solid var(--rule); font-size: 0.9rem;
+  }
+  .rs-head { font-size: 0.72rem; color: var(--ink-soft);
+             border-bottom: 1px solid var(--ink); }
+  .rs-head span:not(:first-child) { text-align: right; }
+  .rs-row .nm { font-weight: 600; white-space: nowrap;
+                overflow: hidden; text-overflow: ellipsis; }
+  .rs-row .n { text-align: right; font-variant-numeric: tabular-nums; }
+  .rs-row .n.act { font-weight: 700; }
+  .rs-row .res { text-align: right; font-size: 0.76rem; font-weight: 600; }
+  .rs-row .res.o { color: var(--bar); }
+  .rs-row .res.u { color: var(--ink-soft); }
+
   /* --- compact table --- */
   .cmp { border-top: 1px solid var(--ink); }
   .cmp-head, .cmp-row {
@@ -1231,7 +1258,8 @@ const SAMPLE = {
 };
 
 const MAX_K = 16;
-let state = { data: null, card: null, nfl: null, q: "", pitcher: null, day: null,
+let state = { data: null, card: null, nfl: null, nflScore: null,
+              q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
 
@@ -1934,6 +1962,56 @@ function calendar() {
     are better.</p>`;
 }
 
+function nflGraded() {
+  const c = state.nflScore;
+  if (!c || !c.scored) {
+    return `<div class="empty"><h2>Nothing graded yet</h2>
+      <p>Captured lines get checked against real results once games have
+      been played. This fills in after the first week completes.</p></div>`;
+  }
+
+  const q = state.q.toLowerCase();
+  const rows = (c.results || []).filter(r => !q
+    || r.player.toLowerCase().includes(q)
+    || r.matchup.toLowerCase().includes(q));
+
+  const cal = c.calibration && c.calibration.length
+    ? `<p class="cal-key">Calibration: ${c.calibration.map(b =>
+        `${Math.round(b.says * 100)}% said, ${Math.round(b.happened * 100)}%
+         happened (${b.n})`).join(" · ")}. Those pairs should track each
+         other if the books' prices are honest.</p>`
+    : "";
+
+  return `
+    <dl class="totals">
+      <div class="t"><dt>Lines graded</dt><dd>${c.scored}</dd></div>
+      <div class="t"><dt>Market's error</dt><dd>${c.market_mae}
+        <small>receptions</small></dd></div>
+      <div class="t"><dt>Real spread</dt><dd>${c.sd_actual}
+        <small>SD</small></dd></div>
+      <div class="t"><dt>Overs hit</dt><dd>${Math.round(c.over_rate * 100)}%
+        <small>50% is efficient</small></dd></div>
+    </dl>
+    <p class="caption" style="max-width:60ch">This grades the books, not a
+      model — there isn't one for receptions. Their error of ${c.market_mae}
+      is the bar anything would have to beat. For scale, a season average
+      scored 1.49 and the best model I could build on 2025 scored 1.51, both
+      worse than the market.</p>
+    ${cal}
+    <div class="rs-head">
+      <span>Player</span><span>Wk</span><span>Line</span><span>Got</span><span></span>
+    </div>
+    ${rows.length ? rows.map(r => `
+      <div class="rs-row">
+        <span class="nm">${r.player}</span>
+        <span class="n">${r.week}</span>
+        <span class="n">${r.line}</span>
+        <span class="n act">${r.actual}</span>
+        <span class="res ${r.over ? "o" : "u"}">${r.over ? "OVER" : "under"}</span>
+      </div>`).join("")
+      : `<p class="caption">Nothing matches "${state.q}".</p>`}`;
+}
+
 function nflView() {
   const d = state.nfl;
   if (!d || !d.games || !d.games.length) {
@@ -1958,19 +2036,24 @@ function nflView() {
         return `<div class="nfl-row">
           <span class="nm">${p.player}</span>
           <span class="ln">${p.line}</span>
-          <span class="px">${pct(p.consensus_over)} over ·
+          <span class="px">books say ${pct(p.consensus_over)} over ·
             best over <b>${p.best_over.price > 0 ? "+" : ""}${p.best_over.price}</b>
             ${p.best_over.book}
-            ${best >= 3 ? `· <span class="shop">$${best.toFixed(0)} in the ${side}</span>` : ""}
+            ${best >= 3 ? `· <span class="shop" title="Widest price gap between
+              books is on the ${side} — this is a shopping saving, not a pick"
+              >$${best.toFixed(0)} to shop the ${side}</span>` : ""}
           </span>
         </div>`;
       }).join("")}
     </div>`;
   }).join("");
 
-  return `<p class="caption" style="max-width:58ch">What the books are pricing,
-    margins removed. No projections here — the dollar figures are what taking
-    the best price instead of the worst is worth per $100.</p>
+  return `<p class="caption" style="max-width:58ch"><b>Nothing here is a
+    pick.</b> Every percentage is the books' own number with their margin
+    removed — not a forecast. The dollar figure is what taking the best
+    available price instead of the worst is worth per $100 on that side; it
+    says where shopping pays, not which way to bet. There is no reception
+    model, because the one I tested lost to a season average.</p>
     ${html || `<div class="empty"><p>Nothing matches "${state.q}".</p></div>`}`;
 }
 
@@ -2344,7 +2427,17 @@ function render() {
   }
 
   if (state.view === "nfl") {
-    document.getElementById("body").innerHTML = viewBar + searchBar + nflView();
+    const nScored = state.nflScore && state.nflScore.scored;
+    const nflBar = `<div class="nfl-views">
+        <button data-nfltab="lines" aria-pressed="${state.nflTab === "lines"}">current lines</button>
+        <span aria-hidden="true">·</span>
+        <button data-nfltab="graded" aria-pressed="${state.nflTab === "graded"}">graded${
+          nScored ? ` (${nScored})` : ""}</button>
+      </div>`;
+    document.getElementById("body").innerHTML = viewBar + nflBar + searchBar
+      + (state.nflTab === "graded" ? nflGraded() : nflView());
+    document.querySelectorAll(".nfl-views button").forEach(b =>
+      b.onclick = () => { state.nflTab = b.dataset.nfltab; render(); });
     wire();
     document.getElementById("card").innerHTML = "";
     document.getElementById("calc").innerHTML = "";
@@ -2448,7 +2541,9 @@ Promise.all([
     .then(r => r.ok ? r.json() : null).catch(() => null),
   fetch("receptions.json", { cache: "no-store" })
     .then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([c, n]) => { state.card = c; state.nfl = n; })
+  fetch("receptions_score.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n, rs]) => { state.card = c; state.nfl = n; state.nflScore = rs; })
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(d => { state.data = d; render(); })
