@@ -623,8 +623,10 @@
   .cmp-row .n { text-align: right; font-variant-numeric: tabular-nums; }
   .cmp-row .pj { font-weight: 700; }
   .cmp-row .gap { text-align: right; font-weight: 600; }
-  .cmp-row .gap.up { color: var(--pencil); }
-  .cmp-row .gap.flat { color: var(--ink-soft); font-weight: 400; }
+  .cmp-row .gap.take  { color: var(--bar); font-weight: 700; }
+  .cmp-row .gap.avoid { color: var(--pencil); }
+  .cmp-row .gap.flat  { color: var(--ink-soft); font-weight: 400; }
+  .cmp-row .gap.wide::after { content: "*"; opacity: 0.5; font-weight: 400; }
   @media (max-width: 40rem) {
     .cmp-head, .cmp-row { grid-template-columns: minmax(0,1fr) 2.8rem 2.8rem 3rem; }
     .cmp-row .vs, .cmp-head .vsh, .cmp-row .mk, .cmp-head .mkh { display: none; }
@@ -1684,8 +1686,30 @@ function gapCell(s) {
   const m = s.market;
   if (!m) return `<span class="gap flat">—</span>`;
   const pts = Math.round(m.edge * 100);
-  const cls = Math.abs(pts) >= 10 ? "gap up" : "gap flat";
-  return `<span class="${cls}">${pts > 0 ? "+" : ""}${pts}</span>`;
+  const ev = m.best_ev;
+
+  // The number is direction: plus means the model likes the over, minus the
+  // under. The colour is value: green where the best available price beats
+  // what the model thinks it's worth, red where it doesn't.
+  let cls = "gap ";
+  if (ev == null) cls += "flat";
+  else if (ev >= 0.05) cls += "take";
+  else if (ev <= -0.02) cls += "avoid";
+  else cls += "flat";
+  if (Math.abs(pts) >= 15) cls += " wide";
+
+  const side = pts > 0 ? "over" : "under";
+  let title = ev == null ? "No price to judge"
+    : ev >= 0.05
+      ? `Best ${side} price is worth ${Math.round(ev * 100)}% by the model`
+      : ev <= -0.02
+        ? `Best ${side} price is ${Math.round(-ev * 100)}% short of fair`
+        : "Roughly fair — no value either way";
+  if (Math.abs(pts) >= 15)
+    title += ". Marked * because a gap this wide has usually been the model"
+           + " missing something, not the book being wrong.";
+
+  return `<span class="${cls}" title="${title}">${pts > 0 ? "+" : ""}${pts}</span>`;
 }
 
 function compactView(rows) {
@@ -1705,7 +1729,14 @@ function compactView(rows) {
         ${gapCell(s)}
       </div>`;
     }).join("")}
-  </div>`;
+  </div>
+  <p class="cal-key" style="margin-top:0.6rem">Gap is model minus market:
+    plus means it likes the over, minus the under. Colour is the price —
+    <b style="color:var(--bar)">green</b> where the best available number
+    beats what the model thinks it's worth,
+    <b style="color:var(--pencil)">red</b> where it falls short, grey where
+    it's roughly fair. A <b>*</b> marks gaps over 15 points, which have so
+    far been where this model is least accurate.</p>`;
 }
 
 function matchupView(rows) {
