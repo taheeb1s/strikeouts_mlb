@@ -330,6 +330,23 @@ def main():
                        ("Full model + handedness", mh)]:
         print(f"  {label:36} {mae(arr):.4f}   {base - mae(arr):+.4f}")
 
+    # Strikeouts are whole numbers. Reporting 8.3 when the answer is always
+    # an integer wastes error under MAE - rounding may be a free improvement,
+    # and it applies to the baseline too, so compare like with like.
+    print("\nSame, rounded to whole strikeouts")
+    rn, rm = np.round(n), np.round(m)
+    rbase = mae(rn)
+    print(f"  {'Baseline, rounded':36} {rbase:.4f}   {base - rbase:+.4f} vs raw")
+    print(f"  {'Full model, rounded':36} {mae(rm):.4f}   {rbase - mae(rm):+.4f} vs rounded baseline")
+    d1 = np.abs(n - a) - np.abs(rn - a)
+    se1 = float(d1.std() / np.sqrt(len(d1)))
+    print(f"  Rounding the baseline is worth {d1.mean():+.4f} "
+          f"({abs(d1.mean()/se1):.1f} se)")
+    d2 = np.abs(rn - a) - np.abs(rm - a)
+    se2 = float(d2.std() / np.sqrt(len(d2)))
+    print(f"  Model over rounded baseline:   {d2.mean():+.4f} "
+          f"({abs(d2.mean()/se2):.1f} se)")
+
     print(f"\n  Actual spread          SD {a.std():.2f}")
     print(f"  Strikeout bias         {(m - a).mean():+.3f}")
     print(f"  Batters faced bias     {(ebf - abf).mean():+.3f}"
