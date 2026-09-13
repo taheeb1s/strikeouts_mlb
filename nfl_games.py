@@ -242,6 +242,18 @@ def main():
         }, open("nfl_games.json", "w"), indent=1)
         print("\n  Wrote nfl_games.json")
 
+        # Date -> week lookup so nfl_build.py can label reception snapshots
+        # without needing nflreadpy itself.
+        sched = load([max(args.seasons)], played_only=False)
+        weeks = {}
+        for _, g in sched.iterrows():
+            day = str(g.get("gameday", ""))[:10]
+            if day:
+                weeks[day] = int(g.week)
+        json.dump({"season": int(max(args.seasons)), "weeks": weeks},
+                  open("nfl_weeks.json", "w"), indent=1)
+        print(f"  Wrote nfl_weeks.json ({len(weeks)} dates)")
+
 
 def _norm_cdf(x):
     from math import erf, sqrt
