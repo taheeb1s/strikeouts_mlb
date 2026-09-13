@@ -632,12 +632,12 @@
   /* --- game predictions --- */
   .gm { border-top: 1px solid var(--ink); }
   .gm-row {
-    display: grid; grid-template-columns: minmax(0,1fr) 4rem 3.4rem 4.2rem;
+    display: grid; grid-template-columns: minmax(0,1fr) 5.4rem 4rem 3.4rem 4.2rem;
     align-items: baseline; gap: 0 0.7rem;
     padding: 0.55rem 0; border-bottom: 1px solid var(--rule);
   }
   .gm-head {
-    display: grid; grid-template-columns: minmax(0,1fr) 4rem 3.4rem 4.2rem;
+    display: grid; grid-template-columns: minmax(0,1fr) 5.4rem 4rem 3.4rem 4.2rem;
     gap: 0 0.7rem; padding: 0.35rem 0; font-size: 0.72rem;
     color: var(--ink-soft); border-bottom: 1px solid var(--ink);
   }
@@ -650,6 +650,14 @@
   .gm-row .cf { font-weight: 700; }
   .gm-row .vg { color: var(--ink-soft); font-size: 0.85rem; }
   .gm-row .vg.split { color: var(--pencil); font-weight: 600; }
+  .gm-row .sc { text-align: right; font-weight: 700; font-size: 1rem;
+                letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .gm-row .sc small { font-weight: 500; font-size: 0.72rem;
+                      color: var(--ink-soft); letter-spacing: 0; }
+  @media (max-width: 40rem) {
+    .gm-row, .gm-head { grid-template-columns: minmax(0,1fr) 5rem 3.2rem 3.8rem; }
+    .gm-row .pk, .gm-head .pkh { display: none; }
+  }
 
   /* --- compact table --- */
   .cmp { border-top: 1px solid var(--ink); }
@@ -2014,15 +2022,20 @@ function gamesView() {
       the line is marked — for reference, a professional line calls about
       66% of games right and this model calls ${Math.round((bt.accuracy || 0) * 100)}%.</p>
     <div class="gm-head">
-      <span>Matchup</span><span>Pick</span><span>Win%</span><span>Margin</span>
+      <span>Matchup</span><span>Score</span><span class="pkh">Pick</span>
+      <span>Win%</span><span>Margin</span>
     </div>
     <div class="gm">
       ${rows.map(g => {
         const margin = g.pred_margin;
         const v = g.vegas_spread;
         const split = v != null && ((margin > 0) !== (v > 0));
+        const sh = g.score_home, sa = g.score_away;
         return `<div class="gm-row">
           <span class="mu2">${g.away} at ${g.home}</span>
+          <span class="sc">${sa == null ? "—"
+            : `${Math.round(sa)}&ndash;${Math.round(sh)}`}
+            ${g.pred_total != null ? `<br><small>o/u ${g.pred_total.toFixed(0)}</small>` : ""}</span>
           <span class="pk">${g.pick}</span>
           <span class="n cf">${Math.round(g.confidence * 100)}%</span>
           <span class="n">
@@ -2033,9 +2046,11 @@ function gamesView() {
         </div>`;
       }).join("")}
     </div>
-    <p class="cal-key">Margin is the model's predicted result from the home
-      team's side. The line underneath is Vegas; red where the two disagree
-      on who wins.</p>`;
+    <p class="cal-key">Score is away&ndash;home, with the projected game total
+      beneath it. Margin is from the home team's side, with the Vegas line
+      under it in red where the two disagree on the winner. The winner comes
+      from team ratings; the total is a weaker signal, beating a flat league
+      average by only a quarter of a point.</p>`;
 }
 
 function nflGraded() {
