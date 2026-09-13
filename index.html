@@ -629,6 +629,28 @@
   .rs-row .res.o { color: var(--bar); }
   .rs-row .res.u { color: var(--ink-soft); }
 
+  /* --- game predictions --- */
+  .gm { border-top: 1px solid var(--ink); }
+  .gm-row {
+    display: grid; grid-template-columns: minmax(0,1fr) 4rem 3.4rem 4.2rem;
+    align-items: baseline; gap: 0 0.7rem;
+    padding: 0.55rem 0; border-bottom: 1px solid var(--rule);
+  }
+  .gm-head {
+    display: grid; grid-template-columns: minmax(0,1fr) 4rem 3.4rem 4.2rem;
+    gap: 0 0.7rem; padding: 0.35rem 0; font-size: 0.72rem;
+    color: var(--ink-soft); border-bottom: 1px solid var(--ink);
+  }
+  .gm-head span:not(:first-child) { text-align: right; }
+  .gm-row .mu2 { font-size: 0.92rem; white-space: nowrap;
+                 overflow: hidden; text-overflow: ellipsis; }
+  .gm-row .pk { font-weight: 700; letter-spacing: -0.01em; }
+  .gm-row .n { text-align: right; font-variant-numeric: tabular-nums;
+               font-size: 0.9rem; }
+  .gm-row .cf { font-weight: 700; }
+  .gm-row .vg { color: var(--ink-soft); font-size: 0.85rem; }
+  .gm-row .vg.split { color: var(--pencil); font-weight: 600; }
+
   /* --- compact table --- */
   .cmp { border-top: 1px solid var(--ink); }
   .cmp-head, .cmp-row {
@@ -1258,7 +1280,7 @@ const SAMPLE = {
 };
 
 const MAX_K = 16;
-let state = { data: null, card: null, nfl: null, nflScore: null,
+let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
@@ -1962,6 +1984,60 @@ function calendar() {
     are better.</p>`;
 }
 
+function gamesView() {
+  const d = state.games;
+  if (!d || !d.games || !d.games.length) {
+    return `<div class="empty"><h2>No games loaded</h2>
+      <p>Predictions are rebuilt each week from team ratings. This fills in
+      once the model has run.</p></div>`;
+  }
+  const wk = Math.min(...d.games.map(g => g.week));
+  const week = d.games.filter(g => g.week === wk)
+    .sort((a, b) => b.confidence - a.confidence);
+  const q = state.q.toLowerCase();
+  const rows = week.filter(g => !q || g.home.toLowerCase().includes(q)
+    || g.away.toLowerCase().includes(q));
+  const bt = d.backtest || {};
+
+  return `
+    <dl class="totals">
+      <div class="t"><dt>Called right</dt>
+        <dd>${Math.round((bt.accuracy || 0) * 100)}%
+        <small>over ${bt.games || 0} games, ${bt.seasons || ""}</small></dd></div>
+      <div class="t"><dt>Home-team baseline</dt>
+        <dd>${Math.round((bt.home_baseline || 0) * 100)}%</dd></div>
+      <div class="t"><dt>Week</dt><dd>${wk}</dd></div>
+    </dl>
+    <p class="caption" style="max-width:60ch">Team ratings built from every
+      game since 2019, each one predicted using only what was known
+      beforehand. Where the model and the Vegas line pick different sides,
+      the line is marked — for reference, a professional line calls about
+      66% of games right and this model calls ${Math.round((bt.accuracy || 0) * 100)}%.</p>
+    <div class="gm-head">
+      <span>Matchup</span><span>Pick</span><span>Win%</span><span>Margin</span>
+    </div>
+    <div class="gm">
+      ${rows.map(g => {
+        const margin = g.pred_margin;
+        const v = g.vegas_spread;
+        const split = v != null && ((margin > 0) !== (v > 0));
+        return `<div class="gm-row">
+          <span class="mu2">${g.away} at ${g.home}</span>
+          <span class="pk">${g.pick}</span>
+          <span class="n cf">${Math.round(g.confidence * 100)}%</span>
+          <span class="n">
+            <span>${margin > 0 ? "+" : ""}${margin.toFixed(1)}</span><br>
+            <span class="vg${split ? " split" : ""}">${v == null ? ""
+              : `line ${v > 0 ? "+" : ""}${v.toFixed(1)}`}</span>
+          </span>
+        </div>`;
+      }).join("")}
+    </div>
+    <p class="cal-key">Margin is the model's predicted result from the home
+      team's side. The line underneath is Vegas; red where the two disagree
+      on who wins.</p>`;
+}
+
 function nflGraded() {
   const c = state.nflScore;
   if (!c || !c.scored) {
@@ -2433,9 +2509,12 @@ function render() {
         <span aria-hidden="true">·</span>
         <button data-nfltab="graded" aria-pressed="${state.nflTab === "graded"}">graded${
           nScored ? ` (${nScored})` : ""}</button>
+        <span aria-hidden="true">·</span>
+        <button data-nfltab="games" aria-pressed="${state.nflTab === "games"}">game picks</button>
       </div>`;
     document.getElementById("body").innerHTML = viewBar + nflBar + searchBar
-      + (state.nflTab === "graded" ? nflGraded() : nflView());
+      + (state.nflTab === "graded" ? nflGraded()
+         : state.nflTab === "games" ? gamesView() : nflView());
     document.querySelectorAll(".nfl-views button").forEach(b =>
       b.onclick = () => { state.nflTab = b.dataset.nfltab; render(); });
     wire();
@@ -2543,7 +2622,11 @@ Promise.all([
     .then(r => r.ok ? r.json() : null).catch(() => null),
   fetch("receptions_score.json", { cache: "no-store" })
     .then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([c, n, rs]) => { state.card = c; state.nfl = n; state.nflScore = rs; })
+  fetch("nfl_games.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n, rs, gm]) => {
+  state.card = c; state.nfl = n; state.nflScore = rs; state.games = gm;
+})
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
   .then(d => { state.data = d; render(); })
