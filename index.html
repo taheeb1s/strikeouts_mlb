@@ -1289,7 +1289,7 @@ const SAMPLE = {
 
 const MAX_K = 16;
 let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
-              cfb: null, cfbConf: "", league: "nfl",
+              cfb: null, cfbConf: "", league: "nfl", nflWeek: null,
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
@@ -2174,17 +2174,35 @@ function nflView() {
       <p>Lines are captured a few hours before each kickoff. This fills in
       once the first game is collected.</p></div>`;
   }
+  const weeks = (d.weeks && d.weeks.length) ? d.weeks : [];
+  // "all" is a valid choice, not a stale week number.
+  if (state.nflWeek != null && state.nflWeek !== "all"
+      && !weeks.includes(state.nflWeek)) state.nflWeek = null;
+  const latest = weeks.length ? Math.max(...weeks) : null;
+  const pick = state.nflWeek != null ? state.nflWeek : latest;
+
+  const picker = weeks.length > 1 ? `<div class="daypick">
+      <label for="wsel">Week</label>
+      <select id="wsel">
+        ${weeks.slice().reverse().map(w =>
+          `<option value="${w}"${w === pick ? " selected" : ""}>Week ${w}</option>`).join("")}
+        <option value="all"${state.nflWeek === "all" ? " selected" : ""}>All weeks</option>
+      </select>
+    </div>` : "";
+
   const q = state.q.toLowerCase();
   let shown = 0;
+  const inWeek = g => state.nflWeek === "all" || pick == null
+    || g.week == null || g.week === pick;
 
-  const html = d.games.map(g => {
+  const html = d.games.filter(inWeek).map(g => {
     const ps = g.players.filter(p => !q || p.player.toLowerCase().includes(q)
                                       || g.matchup.toLowerCase().includes(q));
     if (!ps.length) return "";
     shown += ps.length;
     return `<div class="nfl-game">
       <h3>${g.matchup}</h3>
-      <div class="when">${g.players.length} players · ${g.snapshots} snapshot${g.snapshots === 1 ? "" : "s"}</div>
+      <div class="when">${g.week ? `Week ${g.week} · ` : ""}${g.players.length} players · ${g.snapshots} snapshot${g.snapshots === 1 ? "" : "s"}</div>
       ${ps.map(p => {
         const best = Math.max(p.shop_over, p.shop_under);
         const side = p.shop_over >= p.shop_under ? "over" : "under";
@@ -2209,7 +2227,10 @@ function nflView() {
     available price instead of the worst is worth per $100 on that side; it
     says where shopping pays, not which way to bet. There is no reception
     model, because the one I tested lost to a season average.</p>
-    ${html || `<div class="empty"><p>Nothing matches "${state.q}".</p></div>`}`;
+    ${picker}
+    ${html || `<div class="empty"><p>${state.q
+      ? `Nothing matches "${state.q}".`
+      : "No games captured for this week yet."}</p></div>`}`;
 }
 
 function pitcherView(name) {
@@ -2620,6 +2641,11 @@ function render() {
       + (state.nflTab === "graded" ? nflGraded() : nflView());
     document.querySelectorAll(".nfl-views button").forEach(b =>
       b.onclick = () => { state.nflTab = b.dataset.nfltab; render(); });
+    const ws = document.getElementById("wsel");
+    if (ws) ws.onchange = () => {
+      state.nflWeek = ws.value === "all" ? "all" : Number(ws.value);
+      render();
+    };
     wire();
     document.getElementById("card").innerHTML = "";
     document.getElementById("calc").innerHTML = "";
