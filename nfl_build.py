@@ -22,6 +22,32 @@ from add_odds import devig, key_of, to_decimal
 
 INDIR = "snapshots/receptions"
 OUT = "receptions.json"
+WEEKS = "nfl_weeks.json"
+
+
+def week_lookup():
+    """Kickoff date -> NFL week, published by nfl_games.py."""
+    if not os.path.exists(WEEKS):
+        return {}
+    try:
+        return json.load(open(WEEKS)).get("weeks", {})
+    except Exception:
+        return {}
+
+
+def week_for(kickoff, lookup):
+    """Late kickoffs roll past midnight UTC, so try the previous day too."""
+    if not kickoff:
+        return None
+    day = kickoff[:10]
+    if day in lookup:
+        return lookup[day]
+    try:
+        from datetime import date, timedelta
+        prev = date.fromisoformat(day) - timedelta(days=1)
+        return lookup.get(str(prev))
+    except Exception:
+        return None
 
 
 def valid(q):
@@ -117,6 +143,7 @@ def main():
             if byplayer:
                 timeline[gid].append((when, dict(byplayer)))
 
+    weeks = week_lookup()
     games = []
     for gid, snaps in timeline.items():
         snaps.sort(key=lambda x: x[0])
@@ -147,6 +174,7 @@ def main():
         players.sort(key=lambda p: -p["line"])
         games.append({
             **meta[gid],
+            "week": week_for(meta[gid].get("kickoff"), weeks),
             "captured_at": latest_when,
             "snapshots": len(snaps),
             "players": players,
@@ -162,12 +190,14 @@ def main():
             "games": len(games),
             "players": sum(len(g["players"]) for g in games),
         },
+        "weeks": sorted({g["week"] for g in games if g.get("week")}),
     }
     with open(OUT, "w") as f:
         json.dump(out, f, indent=1)
 
     print(f"Wrote {OUT}: {out['totals']['games']} game(s), "
-          f"{out['totals']['players']} player(s)")
+          f"{out['totals']['players']} player(s)"
+          + (f", weeks {out['weeks']}" if out["weeks"] else ", no week labels"))
 
     # Where is shopping worth the most?
     allp = [(p["shop_over"], p["shop_under"], p["player"], g["matchup"])
