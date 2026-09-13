@@ -1,209 +1,97 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Reception lines</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --paper:      #EDF0E6;
-    --paper-warm: #E4E9DA;
-    --rule:       #C7CFB8;
-    --ink:        #1B2733;
-    --ink-soft:   #5D6B78;
-    --bar:        #33513F;
-    --pencil:     #A3301C;
-    --gutter: clamp(1rem, 4vw, 2.5rem);
-  }
-  * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: Archivo, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 1.45;
-    font-variant-numeric: tabular-nums;
-    -webkit-font-smoothing: antialiased;
-  }
-  .sheet {
-    max-width: 62rem;
-    margin: 0 auto;
-    padding: clamp(1.75rem, 5vw, 3.5rem) var(--gutter) 5rem;
-  }
+name: NFL reception lines
 
-  .masthead {
-    display: flex; flex-wrap: wrap; align-items: baseline;
-    justify-content: space-between; gap: 0.5rem 1.5rem;
-    padding-bottom: 0.9rem; border-bottom: 2px solid var(--ink);
-  }
-  .masthead h1 {
-    margin: 0; font-size: clamp(1.6rem, 4.5vw, 2.4rem);
-    font-weight: 700; letter-spacing: -0.025em; line-height: 1.05;
-  }
-  .masthead .sub {
-    display: block; font-size: clamp(0.9rem, 2.2vw, 1.05rem);
-    font-weight: 500; color: var(--ink-soft); margin-top: 0.25rem;
-  }
-  .meta { font-size: 0.85rem; color: var(--ink-soft); text-align: right; }
+# Runs hourly and captures each game once, a few hours before kickoff.
+# A manifest in the repo tracks what's already been done, so most runs
+# spend nothing. Cost works out at one credit per game per week.
+#
+# Separate from the MLB workflow because the trigger is different: MLB fires
+# once at 10am, this watches continuously for kickoffs. It reads the day's
+# games from the API rather than assuming which weekdays have football, so
+# Wednesday openers, Friday specials and international games are all caught.
 
-  .preamble {
-    margin: 1.3rem 0 0; font-size: 0.9rem; color: var(--ink-soft);
-    max-width: 60ch;
-  }
-  .preamble b { color: var(--ink); font-weight: 600; }
+on:
+  schedule:
+    - cron: "0 * * * *"
+  workflow_dispatch:
+    inputs:
+      window:
+        description: "Capture games kicking off within this many hours"
+        required: false
+        default: "4"
 
-  .game { margin-top: 2.2rem; }
-  .game h2 {
-    margin: 0 0 0.15rem; font-size: 1.05rem; font-weight: 600;
-    letter-spacing: -0.015em;
-  }
-  .game .when { font-size: 0.82rem; color: var(--ink-soft); }
+permissions:
+  contents: write
 
-  .rows { margin-top: 0.7rem; border-top: 1px solid var(--ink); }
-  .row { border-bottom: 1px solid var(--rule); padding: 0.75rem 0; }
+# Don't let two hourly runs overlap - they'd both read the same manifest
+# and double-spend on the same games.
+concurrency:
+  group: nfl-collect
+  cancel-in-progress: false
 
-  .top {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto auto;
-    align-items: baseline; gap: 0 1.1rem;
-  }
-  .who { font-weight: 600; letter-spacing: -0.01em; min-width: 0;
-         white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .ln { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.03em; }
-  .pc { font-size: 0.9rem; color: var(--ink-soft); }
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-  .prices {
-    display: flex; flex-wrap: wrap; gap: 0.25rem 1.2rem;
-    margin-top: 0.35rem; font-size: 0.88rem;
-  }
-  .prices b { font-weight: 600; }
-  .prices .bk { color: var(--ink-soft); }
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-  .shop {
-    margin-top: 0.4rem; padding: 0.35rem 0.6rem;
-    background: var(--paper-warm); border-left: 3px solid var(--pencil);
-    font-size: 0.84rem; display: inline-block;
-  }
-  .move { color: var(--pencil); font-weight: 600; }
+      - run: pip install requests numpy
 
-  .empty { padding: 3rem 0; max-width: 46ch; }
-  .empty h2 { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.6rem; }
-  .empty p { color: var(--ink-soft); }
+      # Scoring pulls a season of nflverse data, so run it once a day rather
+      # than on every hourly wake. 12:00 UTC is well after Monday night.
+      - name: Should we score?
+        id: sc
+        run: |
+          if [ "$(date -u +%H)" = "12" ]; then
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=no" >> "$GITHUB_OUTPUT"
+          fi
 
-  footer {
-    margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule);
-    font-size: 0.82rem; color: var(--ink-soft); max-width: 58ch;
-  }
-  footer a { color: var(--ink); }
+      - name: Capture lines
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          WINDOW: ${{ github.event.inputs.window || '4' }}
+        run: python3 nfl_collect.py --window "$WINDOW"
 
-  @media (max-width: 34rem) {
-    .top { grid-template-columns: minmax(0, 1fr) auto; row-gap: 0.2rem; }
-    .pc { grid-column: 1 / -1; }
-  }
-</style>
-</head>
-<body>
-<main class="sheet">
-  <div class="masthead">
-    <h1>Reception lines<span class="sub">What the books are pricing</span></h1>
-    <div class="meta" id="meta"></div>
-  </div>
-  <div id="body"></div>
-  <footer id="foot"></footer>
-</main>
+      - name: Build the page data
+        continue-on-error: true
+        run: |
+          if [ -d snapshots/receptions ]; then
+            python3 nfl_build.py
+          fi
 
-<script>
-const price = p => (p > 0 ? "+" : "") + p;
-const pct = n => Math.round(n * 100) + "%";
+      - name: Rebuild game predictions
+        if: steps.sc.outputs.go == 'yes'
+        continue-on-error: true
+        run: |
+          pip install nflreadpy pandas pyarrow
+          python3 nfl_games.py --json || echo "(game model unavailable)"
 
-function when(iso) {
-  if (!iso) return "";
-  const d = new Date(iso);
-  return d.toLocaleString(undefined, {
-    weekday: "short", month: "short", day: "numeric",
-    hour: "numeric", minute: "2-digit"
-  });
-}
+      - name: Grade captured lines
+        if: steps.sc.outputs.go == 'yes'
+        continue-on-error: true
+        run: |
+          pip install nflreadpy pandas pyarrow
+          python3 nfl_score.py --json || echo "(nothing to grade yet)"
 
-function row(p) {
-  const shopBest = Math.max(p.shop_over, p.shop_under);
-  const side = p.shop_over >= p.shop_under ? "over" : "under";
-
-  let moved = "";
-  if (p.moved_prob != null && Math.abs(p.moved_prob) >= 0.02) {
-    const dir = p.moved_prob > 0 ? "toward the over" : "toward the under";
-    moved = `<span class="move">moved ${dir}
-             ${Math.abs(Math.round(p.moved_prob * 100))} pts</span>`;
-  }
-
-  return `<div class="row">
-    <div class="top">
-      <span class="who">${p.player}</span>
-      <span class="ln">${p.line}</span>
-      <span class="pc">${pct(p.consensus_over)} over &middot;
-        ${p.books} book${p.books === 1 ? "" : "s"}</span>
-    </div>
-    <div class="prices">
-      <span>Best over <b>${price(p.best_over.price)}</b>
-        <span class="bk">${p.best_over.book}</span></span>
-      <span>Best under <b>${price(p.best_under.price)}</b>
-        <span class="bk">${p.best_under.book}</span></span>
-      ${p.book_spread > 0.05
-        ? `<span class="bk">books apart by
-           ${Math.round(p.book_spread * 100)} pts</span>` : ""}
-      ${moved}
-    </div>
-    ${shopBest >= 3
-      ? `<div class="shop">Taking the ${side} at the best price instead of the
-         worst is worth <b>$${shopBest.toFixed(0)}</b> per $100 staked.</div>`
-      : ""}
-  </div>`;
-}
-
-function render(d) {
-  document.getElementById("meta").innerHTML =
-    `${d.totals.games} game${d.totals.games === 1 ? "" : "s"}<br>` +
-    `${d.totals.players} players`;
-
-  document.getElementById("body").innerHTML = `
-    <p class="preamble">Every book's price on receptions, with the margin
-      stripped out so the percentages are comparable. <b>No projections here</b>
-      — this page reports what the market thinks, it doesn't try to beat it.
-      The one thing on it that's reliably worth money is taking the best
-      available price rather than the first one you see.</p>
-    ${d.games.map(g => `
-      <div class="game">
-        <h2>${g.matchup}</h2>
-        <div class="when">${when(g.kickoff)}
-          &middot; captured ${when(g.captured_at)}
-          ${g.snapshots > 1 ? `&middot; ${g.snapshots} snapshots` : ""}</div>
-        <div class="rows">${g.players.map(row).join("")}</div>
-      </div>`).join("")}`;
-
-  document.getElementById("foot").innerHTML =
-    `Lines are captured once a few hours before kickoff, which is when they're
-     sharpest. Percentages have each book's margin removed, so they add to 100
-     and can be compared like for like. &nbsp;<a href="./">Strikeout
-     projections</a>`;
-}
-
-fetch("receptions.json", { cache: "no-store" })
-  .then(r => r.ok ? r.json() : Promise.reject(r.status))
-  .then(render)
-  .catch(() => {
-    document.getElementById("body").innerHTML = `
-      <div class="empty">
-        <h2>Nothing captured yet</h2>
-        <p>Reception lines get collected a few hours before each kickoff.
-           Once the first game is captured this page fills in.</p>
-        <p><a href="./">Strikeout projections</a></p>
-      </div>`;
-  });
-</script>
-</body>
-</html>
+      - name: Publish
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          [ -d snapshots ] && git add snapshots/
+          [ -f receptions.json ] && git add receptions.json
+          [ -f receptions_score.json ] && git add receptions_score.json
+          [ -f nfl_games.json ] && git add nfl_games.json
+          if git diff --staged --quiet; then
+            echo "Nothing new captured."
+          else
+            # Pull first: the MLB workflow commits to the same branch and
+            # may have moved main since checkout.
+            git pull --rebase --autostash origin main || true
+            git commit -m "NFL reception lines $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
