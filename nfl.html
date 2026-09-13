@@ -18,6 +18,10 @@ on:
         description: "Capture games kicking off within this many hours"
         required: false
         default: "4"
+      force_daily:
+        description: "Run the daily jobs now (game picks, grading)"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -42,10 +46,14 @@ jobs:
 
       # Scoring pulls a season of nflverse data, so run it once a day rather
       # than on every hourly wake. 12:00 UTC is well after Monday night.
-      - name: Should we score?
+      - name: Should we run the daily jobs?
         id: sc
+        env:
+          FORCE: ${{ github.event.inputs.force_daily || 'false' }}
         run: |
-          if [ "$(date -u +%H)" = "12" ]; then
+          # These pull a season of nflverse data, so once a day is plenty.
+          # 12:00 UTC is well after Monday night football finishes.
+          if [ "$(date -u +%H)" = "12" ] || [ "$FORCE" = "true" ]; then
             echo "go=yes" >> "$GITHUB_OUTPUT"
           else
             echo "go=no" >> "$GITHUB_OUTPUT"
