@@ -22,6 +22,10 @@ HOME_EDGE = 48.0        # Elo points, worth about 1.9 on the scoreboard
 CARRYOVER = 0.75        # how much of a rating survives into the next season
 PTS_PER_ELO = 25.0      # 25 Elo points ~ 1 point of margin
 MARGIN_SD = 13.5        # spread of actual margins around the prediction
+LG_PTS = 22.5           # league average points per team per game
+OD_K = 0.08             # how fast scoring ratings move toward recent form
+TOTAL_TRUST = 0.5       # how far to trust them over a flat league average
+HOME_PTS = 1.0          # home team's share of the scoring edge
 
 
 def win_prob(diff):
@@ -41,7 +45,7 @@ def load(seasons, played_only=True):
     return s.sort_values(["season", "week", "gameday"]).reset_index(drop=True)
 
 
-def upcoming(seasons, elo):
+def upcoming(seasons, elo, off, dfn):
     """Predict games that haven't been played, from the current ratings."""
     s = load(seasons, played_only=False)
     todo = s[s.home_score.isna()]
@@ -51,12 +55,19 @@ def upcoming(seasons, elo):
         ea = elo.get(g.away_team, START)
         diff = eh - ea + HOME_EDGE
         p = win_prob(diff)
+        m = diff / PTS_PER_ELO
+        raw = (2 * LG_PTS + off.get(g.home_team, 0.0) + dfn.get(g.away_team, 0.0)
+               + off.get(g.away_team, 0.0) + dfn.get(g.home_team, 0.0))
+        tot = TOTAL_TRUST * raw + (1 - TOTAL_TRUST) * 2 * LG_PTS
         out.append({
             "season": int(g.season), "week": int(g.week),
             "kickoff": str(g.get("gameday", "")),
             "home": g.home_team, "away": g.away_team,
             "p_home": round(float(p), 4),
             "pred_margin": round(float(diff / PTS_PER_ELO), 2),
+            "score_home": round(float((tot + m) / 2), 1),
+            "score_away": round(float((tot - m) / 2), 1),
+            "pred_total": round(float(tot), 1),
             "pick": g.home_team if p >= 0.5 else g.away_team,
             "confidence": round(float(max(p, 1 - p)), 4),
             "vegas_spread": (None if pd.isna(g.get("spread_line"))
@@ -68,26 +79,46 @@ def upcoming(seasons, elo):
 
 def run(games):
     elo, rows, prev_season = {}, [], None
+    # Opponent-adjusted scoring rates: what a team scores and concedes
+    # relative to average, once you account for who they played.
+    off, dfn = {}, {}
 
     for _, g in games.iterrows():
         if g.season != prev_season:
             # New year: pull every rating partway back toward average.
             elo = {t: START + CARRYOVER * (r - START) for t, r in elo.items()}
+            off = {t: CARRYOVER * v for t, v in off.items()}
+            dfn = {t: CARRYOVER * v for t, v in dfn.items()}
             prev_season = g.season
 
         h, a = g.home_team, g.away_team
         eh = elo.setdefault(h, START)
         ea = elo.setdefault(a, START)
 
+        oh, dh = off.setdefault(h, 0.0), dfn.setdefault(h, 0.0)
+        oa, da = off.setdefault(a, 0.0), dfn.setdefault(a, 0.0)
+
         diff = eh - ea + HOME_EDGE
         p_home = win_prob(diff)
         pred_margin = diff / PTS_PER_ELO
+
+        # Expected points for each side, then rebalance so the margin
+        # matches Elo - which is the part that's been validated.
+        exp_h = LG_PTS + oh + da + HOME_PTS
+        exp_a = LG_PTS + oa + dh - HOME_PTS
+        # Scoring ratings are noisy, so meet a flat league average halfway.
+        # Trusting them fully scored worse than ignoring them entirely.
+        total = TOTAL_TRUST * (exp_h + exp_a) + (1 - TOTAL_TRUST) * 2 * LG_PTS
+        pred_h = (total + pred_margin) / 2
+        pred_a = (total - pred_margin) / 2
 
         margin = g.home_score - g.away_score
         rows.append({
             "season": int(g.season), "week": int(g.week),
             "home": h, "away": a,
             "p_home": p_home, "pred_margin": pred_margin,
+            "pred_total": total, "pred_h": pred_h, "pred_a": pred_a,
+            "total": g.home_score + g.away_score,
             "margin": margin, "home_won": int(margin > 0),
             "spread_line": g.get("spread_line", np.nan),
             "elo_h": eh, "elo_a": ea,
@@ -101,7 +132,14 @@ def run(games):
         elo[h] = eh + shift
         elo[a] = ea - shift
 
-    return pd.DataFrame(rows), elo
+        # Move scoring ratings toward what actually happened, with the
+        # opponent's strength taken out first.
+        off[h] = oh + OD_K * ((g.home_score - HOME_PTS - da - LG_PTS) - oh)
+        dfn[a] = da + OD_K * ((g.home_score - HOME_PTS - oh - LG_PTS) - da)
+        off[a] = oa + OD_K * ((g.away_score + HOME_PTS - dh - LG_PTS) - oa)
+        dfn[h] = dh + OD_K * ((g.away_score + HOME_PTS - oa - LG_PTS) - dh)
+
+    return pd.DataFrame(rows), elo, off, dfn
 
 
 def score(df, label):
@@ -127,7 +165,7 @@ def main():
 
     print(f"Loading {args.seasons[0]}-{args.seasons[-1]}...")
     games = load(args.seasons)
-    df, final = run(games)
+    df, final, off, dfn = run(games)
 
     keep = df[df.season >= args.seasons[0] + args.skip_first]
     d = keep[keep.margin != 0]
@@ -157,6 +195,20 @@ def main():
     print(f"\n  Elo over home-team baseline: {diff.mean():+.3f} "
           f"({abs(diff.mean() / se):.1f} standard errors)")
 
+    # Are the score predictions any better than assuming a league-average game?
+    tot_mae = np.abs(d.pred_total - d.total).mean()
+    flat_mae = np.abs(d.total.mean() - d.total).mean()
+    side_mae = (np.abs(d.pred_h - (d.margin + d.total) / 2).mean()
+                + np.abs(d.pred_a - (d.total - d.margin) / 2).mean()) / 2
+    print(f"\n  Game total, model error      {tot_mae:.2f} points")
+    print(f"  Game total, flat average     {flat_mae:.2f} points")
+    print(f"  Each team's score, error     {side_mae:.2f} points")
+    dt = np.abs(d.total.mean() - d.total) - np.abs(d.pred_total - d.total)
+    se = dt.std() / np.sqrt(len(dt))
+    print(f"  Totals beat a flat average by {dt.mean():+.3f} "
+          f"({abs(dt.mean()/se):.1f} se) - the two knobs behind this were")
+    print("  tuned on this same data, so treat it as an upper bound.")
+
     print("\n  acc = share of games called right (ties dropped)")
     print("  logloss and brier reward honest confidence; lower is better")
     print("  MAE = average miss on the final margin, in points")
@@ -165,16 +217,17 @@ def main():
     for t, r in sorted(final.items(), key=lambda x: -x[1])[:10]:
         print(f"  {t:4} {r:7.1f}")
 
-    nxt = upcoming([max(args.seasons)], final)
+    nxt = upcoming([max(args.seasons)], final, off, dfn)
     if nxt:
         wk = min(g["week"] for g in nxt)
         this = [g for g in nxt if g["week"] == wk]
         print(f"\nWeek {wk} predictions")
-        print(f"  {'matchup':22} {'pick':5} {'win%':>5} {'margin':>7}  vegas")
+        print(f"  {'matchup':22} {'score':>11} {'pick':5} {'win%':>5}  vegas")
         for g in sorted(this, key=lambda x: -x["confidence"]):
             v = "" if g["vegas_spread"] is None else f"{g['vegas_spread']:+.1f}"
-            print(f"  {g['away']+' at '+g['home']:22} {g['pick']:5} "
-                  f"{g['confidence']:>5.0%} {g['pred_margin']:>+7.1f}  {v}")
+            sc = f"{g['score_away']:.0f}-{g['score_home']:.0f}"
+            print(f"  {g['away']+' at '+g['home']:22} {sc:>11} {g['pick']:5} "
+                  f"{g['confidence']:>5.0%}  {v}")
 
     if args.json:
         import json
