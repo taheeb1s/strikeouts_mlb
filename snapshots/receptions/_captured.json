@@ -1,4 +1,14 @@
 {
+ "17885cb8dcade8f6c3bce14b2de805e8": {
+  "captured_at": "2026-09-13T17:02:26+00:00",
+  "kickoff": "2026-09-13T20:25:00Z",
+  "matchup": "Washington Commanders at Philadelphia Eagles"
+ },
+ "1edfa5ceaa1ad2cb57df1c1b908731f6": {
+  "captured_at": "2026-09-13T17:02:26+00:00",
+  "kickoff": "2026-09-13T20:25:00Z",
+  "matchup": "Arizona Cardinals at Los Angeles Chargers"
+ },
  "7dddb296a42e7a41a774b24bd1709ce1": {
   "captured_at": "2026-09-13T14:18:44+00:00",
   "kickoff": "2026-09-13T17:00:00Z",
@@ -33,6 +43,16 @@
   "captured_at": "2026-09-13T14:18:44+00:00",
   "kickoff": "2026-09-13T17:00:00Z",
   "matchup": "New Orleans Saints at Detroit Lions"
+ },
+ "c5d95f48a16849ab6bebc68fbbfcb74a": {
+  "captured_at": "2026-09-13T17:02:26+00:00",
+  "kickoff": "2026-09-13T20:25:00Z",
+  "matchup": "Miami Dolphins at Las Vegas Raiders"
+ },
+ "cb77efed7e711d25a72c1a2a0a1af119": {
+  "captured_at": "2026-09-13T17:02:26+00:00",
+  "kickoff": "2026-09-13T20:25:00Z",
+  "matchup": "Green Bay Packers at Minnesota Vikings"
  },
  "e55c6fe19fce094ce214c8b0e5b504e9": {
   "captured_at": "2026-09-13T14:18:44+00:00",
