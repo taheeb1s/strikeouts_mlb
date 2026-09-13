@@ -1289,6 +1289,7 @@ const SAMPLE = {
 
 const MAX_K = 16;
 let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
+              cfb: null, cfbConf: "",
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
@@ -1992,6 +1993,69 @@ function calendar() {
     are better.</p>`;
 }
 
+function cfbView() {
+  const d = state.cfb;
+  if (!d || !d.games || !d.games.length) {
+    return `<div class="empty"><h2>No college games loaded</h2>
+      <p>Ratings are rebuilt daily from every FBS result. This fills in once
+      the model has run.</p></div>`;
+  }
+  const wk = Math.min(...d.games.map(g => g.week));
+  let week = d.games.filter(g => g.week === wk);
+  const confs = [...new Set(week.flatMap(g => [g.home_conf, g.away_conf])
+    .filter(Boolean))].sort();
+
+  const q = state.q.toLowerCase();
+  if (state.cfbConf)
+    week = week.filter(g => g.home_conf === state.cfbConf
+                         || g.away_conf === state.cfbConf);
+  if (q) week = week.filter(g => g.home.toLowerCase().includes(q)
+                              || g.away.toLowerCase().includes(q));
+  week.sort((a, b) => b.confidence - a.confidence);
+
+  const bt = d.backtest || {};
+  return `
+    <dl class="totals">
+      <div class="t"><dt>Called right</dt>
+        <dd>${Math.round((bt.accuracy || 0) * 100)}%
+        <small>${bt.games || 0} games, ${bt.seasons || ""}</small></dd></div>
+      <div class="t"><dt>Home-team baseline</dt>
+        <dd>${Math.round((bt.home_baseline || 0) * 100)}%</dd></div>
+      <div class="t"><dt>Margin error</dt><dd>${bt.margin_mae || "—"}
+        <small>points</small></dd></div>
+      <div class="t"><dt>Week</dt><dd>${wk}</dd></div>
+    </dl>
+    <p class="caption" style="max-width:60ch">FBS teams only, rated from every
+      result since 2019. College is more predictable than the NFL — the talent
+      gaps are far wider — which is why this calls a higher share than the pro
+      model does. Games against non-FBS opponents still move the ratings but
+      aren't shown.</p>
+    <div class="daypick">
+      <label for="cfbc">Conference</label>
+      <select id="cfbc">
+        <option value=""${state.cfbConf ? "" : " selected"}>All</option>
+        ${confs.map(c => `<option value="${c}"${state.cfbConf === c ? " selected" : ""}>${c}</option>`).join("")}
+      </select>
+      <span class="count">${week.length} game${week.length === 1 ? "" : "s"}</span>
+    </div>
+    <div class="gm-head">
+      <span>Matchup</span><span>Score</span><span class="pkh">Pick</span>
+      <span>Win%</span><span>Margin</span>
+    </div>
+    <div class="gm">
+      ${week.map(g => `<div class="gm-row">
+        <span class="mu2">${g.away} at ${g.home}</span>
+        <span class="sc">${Math.round(g.score_away)}&ndash;${Math.round(g.score_home)}</span>
+        <span class="pk">${g.pick}</span>
+        <span class="n cf">${Math.round(g.confidence * 100)}%</span>
+        <span class="n">${g.pred_margin > 0 ? "+" : ""}${g.pred_margin.toFixed(1)}</span>
+      </div>`).join("")}
+    </div>
+    <p class="cal-key">Score is away&ndash;home. The margin is reliable; the
+      individual scores split a league-average total around it, so read them
+      as "by about this much" rather than a scoreline.</p>`;
+}
+
 function gamesView() {
   const d = state.games;
   if (!d || !d.games || !d.games.length) {
@@ -2517,6 +2581,19 @@ function render() {
     return;
   }
 
+  if (state.view === "cfb") {
+    document.getElementById("body").innerHTML = viewBar + searchBar + cfbView();
+    wire();
+    const cs = document.getElementById("cfbc");
+    if (cs) cs.onchange = () => { state.cfbConf = cs.value; render(); };
+    document.getElementById("card").innerHTML = "";
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML =
+      `College ratings update after every FBS result. Predictions come from
+       team strength only — no injuries, weather or lookahead.`;
+    return;
+  }
+
   if (state.view === "nfl") {
     const nScored = state.nflScore && state.nflScore.scored;
     const nflBar = `<div class="nfl-views">
@@ -2639,8 +2716,11 @@ Promise.all([
     .then(r => r.ok ? r.json() : null).catch(() => null),
   fetch("nfl_games.json", { cache: "no-store" })
     .then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([c, n, rs, gm]) => {
-  state.card = c; state.nfl = n; state.nflScore = rs; state.games = gm;
+  fetch("cfb_games.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n, rs, gm, cf]) => {
+  state.card = c; state.nfl = n; state.nflScore = rs;
+  state.games = gm; state.cfb = cf;
 })
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
