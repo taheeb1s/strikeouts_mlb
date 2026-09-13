@@ -84,7 +84,10 @@ def due(key, window_hours, done, recapture):
             skipped += 1
             continue
         out.append((t, ev))
-    return sorted(out), skipped
+    # Sort on the kickoff time only. Plain sorted() falls through to
+    # comparing the event dicts when two games start at the same moment,
+    # which is every 1pm Sunday kickoff.
+    return sorted(out, key=lambda x: x[0]), skipped
 
 
 def main():
