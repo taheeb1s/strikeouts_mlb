@@ -1,4 +1,4 @@
-name: NFL reception lines
+name: NFL and college
 
 # Runs hourly and captures each game once, a few hours before kickoff.
 # A manifest in the repo tracks what's already been done, so most runs
@@ -79,8 +79,9 @@ jobs:
         if: steps.sc.outputs.go == 'yes'
         continue-on-error: true
         run: |
-          pip install nflreadpy pandas pyarrow
-          python3 nfl_games.py --json || echo "(game model unavailable)"
+          pip install nflreadpy sportsdataverse pandas pyarrow
+          python3 nfl_games.py --json || echo "(NFL game model unavailable)"
+          python3 cfb_games.py --json || echo "(college model unavailable)"
 
       - name: Grade captured lines
         if: steps.sc.outputs.go == 'yes'
@@ -99,7 +100,7 @@ jobs:
           # fails. The MLB workflow shares this branch, so the pull is needed.
           git pull --rebase --autostash origin main || true
 
-          for f in receptions.json receptions_score.json nfl_games.json; do
+          for f in receptions.json receptions_score.json nfl_games.json cfb_games.json; do
             [ -f "$f" ] && git add "$f"
           done
           [ -d snapshots ] && git add snapshots/
