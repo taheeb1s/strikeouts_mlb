@@ -1289,7 +1289,7 @@ const SAMPLE = {
 
 const MAX_K = 16;
 let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
-              cfb: null, cfbConf: "",
+              cfb: null, cfbConf: "", league: "nfl",
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
@@ -2528,6 +2528,8 @@ function render() {
       <button data-view="nfl" aria-pressed="${state.view === "nfl"}">receptions${
         nflCount ? ` (${nflCount})` : ""}</button>
       <span aria-hidden="true">·</span>
+      <button data-view="picks" aria-pressed="${state.view === "picks"}">game picks</button>
+      <span aria-hidden="true">·</span>
       <button data-view="results" aria-pressed="${state.view === "results"}">past results</button>
     </div>`;
 
@@ -2581,16 +2583,28 @@ function render() {
     return;
   }
 
-  if (state.view === "cfb") {
-    document.getElementById("body").innerHTML = viewBar + searchBar + cfbView();
+  if (state.view === "picks") {
+    const nGm = state.games && state.games.games ? state.games.games.length : 0;
+    const nCf = state.cfb && state.cfb.games ? state.cfb.games.length : 0;
+    const leagueBar = `<div class="nfl-views">
+        <button data-league="nfl" aria-pressed="${state.league === "nfl"}">NFL</button>
+        <span aria-hidden="true">·</span>
+        <button data-league="cfb" aria-pressed="${state.league === "cfb"}">college</button>
+      </div>`;
+    document.getElementById("body").innerHTML = viewBar + leagueBar + searchBar
+      + (state.league === "cfb" ? cfbView() : gamesView());
+    document.querySelectorAll(".nfl-views button").forEach(b =>
+      b.onclick = () => { state.league = b.dataset.league; render(); });
     wire();
     const cs = document.getElementById("cfbc");
     if (cs) cs.onchange = () => { state.cfbConf = cs.value; render(); };
     document.getElementById("card").innerHTML = "";
     document.getElementById("calc").innerHTML = "";
-    document.getElementById("footer").innerHTML =
-      `College ratings update after every FBS result. Predictions come from
-       team strength only — no injuries, weather or lookahead.`;
+    document.getElementById("footer").innerHTML = state.league === "cfb"
+      ? `College ratings update after every FBS result. Predictions come from
+         team strength only — no injuries, weather or lookahead.`
+      : `NFL ratings update after every game. Predictions come from team
+         strength only — no injuries, weather or lookahead.`;
     return;
   }
 
@@ -2601,12 +2615,9 @@ function render() {
         <span aria-hidden="true">·</span>
         <button data-nfltab="graded" aria-pressed="${state.nflTab === "graded"}">graded${
           nScored ? ` (${nScored})` : ""}</button>
-        <span aria-hidden="true">·</span>
-        <button data-nfltab="games" aria-pressed="${state.nflTab === "games"}">game picks</button>
       </div>`;
     document.getElementById("body").innerHTML = viewBar + nflBar + searchBar
-      + (state.nflTab === "graded" ? nflGraded()
-         : state.nflTab === "games" ? gamesView() : nflView());
+      + (state.nflTab === "graded" ? nflGraded() : nflView());
     document.querySelectorAll(".nfl-views button").forEach(b =>
       b.onclick = () => { state.nflTab = b.dataset.nfltab; render(); });
     wire();
