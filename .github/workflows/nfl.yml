@@ -44,6 +44,9 @@ jobs:
 
       - run: pip install requests numpy
 
+      - name: Ignore build artefacts
+        run: printf '__pycache__/\n*.pyc\n' > .git/info/exclude
+
       # Scoring pulls a season of nflverse data, so run it once a day rather
       # than on every hourly wake. 12:00 UTC is well after Monday night.
       - name: Should we run the daily jobs?
@@ -90,16 +93,20 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Pull BEFORE staging. --autostash reapplies changes unstaged, so
+          # pulling after git add leaves nothing to commit and the commit
+          # fails. The MLB workflow shares this branch, so the pull is needed.
+          git pull --rebase --autostash origin main || true
+
+          for f in receptions.json receptions_score.json nfl_games.json; do
+            [ -f "$f" ] && git add "$f"
+          done
           [ -d snapshots ] && git add snapshots/
-          [ -f receptions.json ] && git add receptions.json
-          [ -f receptions_score.json ] && git add receptions_score.json
-          [ -f nfl_games.json ] && git add nfl_games.json
+
           if git diff --staged --quiet; then
-            echo "Nothing new captured."
+            echo "Nothing new to publish."
           else
-            # Pull first: the MLB workflow commits to the same branch and
-            # may have moved main since checkout.
-            git pull --rebase --autostash origin main || true
-            git commit -m "NFL reception lines $(date -u +%Y-%m-%dT%H:%MZ)"
+            git commit -m "NFL update $(date -u +%Y-%m-%dT%H:%MZ)"
             git push
           fi
