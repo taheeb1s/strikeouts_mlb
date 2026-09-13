@@ -4,8 +4,10 @@ name: NFL reception lines
 # A manifest in the repo tracks what's already been done, so most runs
 # spend nothing. Cost works out at one credit per game per week.
 #
-# Separate from the MLB workflow because the schedule is different: MLB
-# fires once at 10am, this watches for kickoffs across Thu/Sun/Mon.
+# Separate from the MLB workflow because the trigger is different: MLB fires
+# once at 10am, this watches continuously for kickoffs. It reads the day's
+# games from the API rather than assuming which weekdays have football, so
+# Wednesday openers, Friday specials and international games are all caught.
 
 on:
   schedule:
@@ -16,6 +18,10 @@ on:
         description: "Capture games kicking off within this many hours"
         required: false
         default: "4"
+      force_daily:
+        description: "Run the daily jobs now (game picks, grading)"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -38,6 +44,21 @@ jobs:
 
       - run: pip install requests numpy
 
+      # Scoring pulls a season of nflverse data, so run it once a day rather
+      # than on every hourly wake. 12:00 UTC is well after Monday night.
+      - name: Should we run the daily jobs?
+        id: sc
+        env:
+          FORCE: ${{ github.event.inputs.force_daily || 'false' }}
+        run: |
+          # These pull a season of nflverse data, so once a day is plenty.
+          # 12:00 UTC is well after Monday night football finishes.
+          if [ "$(date -u +%H)" = "12" ] || [ "$FORCE" = "true" ]; then
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=no" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Capture lines
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
@@ -51,12 +72,28 @@ jobs:
             python3 nfl_build.py
           fi
 
+      - name: Rebuild game predictions
+        if: steps.sc.outputs.go == 'yes'
+        continue-on-error: true
+        run: |
+          pip install nflreadpy pandas pyarrow
+          python3 nfl_games.py --json || echo "(game model unavailable)"
+
+      - name: Grade captured lines
+        if: steps.sc.outputs.go == 'yes'
+        continue-on-error: true
+        run: |
+          pip install nflreadpy pandas pyarrow
+          python3 nfl_score.py --json || echo "(nothing to grade yet)"
+
       - name: Publish
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           [ -d snapshots ] && git add snapshots/
           [ -f receptions.json ] && git add receptions.json
+          [ -f receptions_score.json ] && git add receptions_score.json
+          [ -f nfl_games.json ] && git add nfl_games.json
           if git diff --staged --quiet; then
             echo "Nothing new captured."
           else
