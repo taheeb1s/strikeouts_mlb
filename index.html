@@ -527,6 +527,22 @@
   .totals .t dd small { font-size: 0.75rem; font-weight: 500;
                         color: var(--ink-soft); letter-spacing: 0; }
 
+  /* --- record --- */
+  .rec {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.6rem;
+    padding: 0.85rem 1.05rem; margin: 0.9rem 0 0.4rem;
+    background: var(--paper-warm); border-left: 3px solid var(--pencil);
+  }
+  .rec .big {
+    font-size: 1.9rem; font-weight: 700; letter-spacing: -0.035em;
+    line-height: 1; font-variant-numeric: tabular-nums;
+  }
+  .rec .pctg { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; }
+  .rec .lbl { font-size: 0.78rem; color: var(--ink-soft); }
+  .rec .split { margin-left: auto; font-size: 0.84rem; color: var(--ink-soft);
+                text-align: right; }
+  .rec .split b { color: var(--ink); font-weight: 600; }
+
   /* --- scatter --- */
   .scat { margin: 0.4rem 0 1.3rem; }
   .scat-key { font-size: 0.8rem; color: var(--ink-soft); max-width: 56ch; }
@@ -1892,6 +1908,45 @@ function whyLine(s) {
   return `<p class="why">${txt}</p>`;
 }
 
+function recordBlock() {
+  const rows = ((state.card && state.card.results) || [])
+    .filter(r => r.line != null && r.hit != null);
+  if (rows.length < 3) return "";
+
+  const w = rows.filter(r => r.hit).length;
+  const l = rows.length - w;
+  const pct_ = w / rows.length;
+
+  // Does the model do better when it disagrees more? That's the question
+  // the EV column keeps implying an answer to.
+  const bands = [
+    [0, 0.08, "under 8 pts"],
+    [0.08, 0.15, "8 to 15"],
+    [0.15, 9, "over 15"],
+  ].map(([lo, hi, label]) => {
+    const s = rows.filter(r => Math.abs(r.edge || 0) >= lo
+                            && Math.abs(r.edge || 0) < hi);
+    if (!s.length) return null;
+    const sw = s.filter(r => r.hit).length;
+    return `${label} <b>${sw}&ndash;${s.length - sw}</b>`;
+  }).filter(Boolean);
+
+  return `<div class="rec">
+    <span><span class="big">${w}&ndash;${l}</span>
+      <span class="lbl">record</span></span>
+    <span><span class="pctg">${(pct_ * 100).toFixed(1)}%</span>
+      <span class="lbl">of sides hit</span></span>
+    ${bands.length ? `<span class="split">by size of disagreement<br>
+      ${bands.join(" · ")}</span>` : ""}
+  </div>
+  <p class="cal-key">A side counts as a hit when the pitcher landed on the
+    side the model preferred. ${rows.length < 100
+      ? `At ${rows.length} graded sides this is still mostly noise — a coin
+         flip lands outside 45-55% surprisingly often at this count.`
+      : `Break-even against a standard price is about 52.4%, so that's the
+         number to clear before any of this pays.`}</p>`;
+}
+
 function seasonTotals() {
   const rows = (state.card && state.card.results) || [];
   if (rows.length < 5) return "";
@@ -2333,6 +2388,7 @@ function results() {
       ${withLine.length ? `Where a line existed, the model's side came in
       ${hits} of ${withLine.length} times, and its projection was closer to the
       real number than the line was on ${closer}.` : ""}</p>
+    ${recordBlock()}
     ${seasonTotals()}
     ${calendar()}
     ${scatter()}
