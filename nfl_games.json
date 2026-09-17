@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-16T12:04:05+00:00",
+ "generated_at": "2026-09-17T12:03:58+00:00",
  "backtest": {
   "games": 1436,
   "accuracy": 0.6351,
@@ -89,7 +89,7 @@
    "pred_total": 45.2,
    "pick": "BAL",
    "confidence": 0.7638,
-   "vegas_spread": 7.5,
+   "vegas_spread": 8.5,
    "elo_home": 1577.1,
    "elo_away": 1421.2
   },
@@ -106,7 +106,7 @@
    "pred_total": 45.2,
    "pick": "CHI",
    "confidence": 0.529,
-   "vegas_spread": 5.5,
+   "vegas_spread": 4.5,
    "elo_home": 1554.4,
    "elo_away": 1582.3
   },
@@ -123,7 +123,7 @@
    "pred_total": 47.9,
    "pick": "HOU",
    "confidence": 0.7032,
-   "vegas_spread": 3.0,
+   "vegas_spread": 2.5,
    "elo_home": 1596.4,
    "elo_away": 1494.5
   },
@@ -140,7 +140,7 @@
    "pred_total": 42.1,
    "pick": "NE",
    "confidence": 0.6598,
-   "vegas_spread": 4.5,
+   "vegas_spread": 5.5,
    "elo_home": 1592.9,
    "elo_away": 1525.8
   },
@@ -157,7 +157,7 @@
    "pred_total": 45.6,
    "pick": "GB",
    "confidence": 0.6297,
-   "vegas_spread": -4.5,
+   "vegas_spread": -3.5,
    "elo_home": 1369.3,
    "elo_away": 1509.5
   },
