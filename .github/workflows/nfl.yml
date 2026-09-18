@@ -79,9 +79,10 @@ jobs:
         if: steps.sc.outputs.go == 'yes'
         continue-on-error: true
         run: |
-          pip install nflreadpy sportsdataverse pandas pyarrow
+          pip install nflreadpy sportsdataverse pandas pyarrow scikit-learn
           python3 nfl_games.py --json || echo "(NFL game model unavailable)"
           python3 cfb_games.py --json || echo "(college model unavailable)"
+          python3 rec_model.py --json || echo "(too early for reception projections)"
 
       - name: Grade captured lines
         if: steps.sc.outputs.go == 'yes'
@@ -100,7 +101,8 @@ jobs:
           # fails. The MLB workflow shares this branch, so the pull is needed.
           git pull --rebase --autostash origin main || true
 
-          for f in receptions.json receptions_score.json nfl_games.json cfb_games.json; do
+          for f in receptions.json receptions_score.json nfl_games.json \
+                   cfb_games.json receptions_proj.json nfl_weeks.json; do
             [ -f "$f" ] && git add "$f"
           done
           [ -d snapshots ] && git add snapshots/
