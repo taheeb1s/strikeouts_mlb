@@ -617,6 +617,13 @@
   .nfl-row .ln { text-align: right; font-weight: 700; }
   .nfl-row .px { font-size: 0.84rem; color: var(--ink-soft); }
   .nfl-row .shop { color: var(--pencil); font-weight: 600; }
+  .nfl-row .proj { font-weight: 700; color: var(--bar); }
+  .projnote {
+    padding: 0.6rem 0.85rem; margin: 0.8rem 0 0;
+    background: var(--paper-warm); border-left: 3px solid var(--bar);
+    font-size: 0.84rem; color: var(--ink-soft); max-width: 62ch;
+  }
+  .projnote b { color: var(--ink); font-weight: 600; }
 
   .nfl-views { display: flex; gap: 0.4rem; align-items: baseline;
                margin: 0.9rem 0 0.3rem; font-size: 0.85rem; color: var(--ink-soft); }
@@ -1305,7 +1312,7 @@ const SAMPLE = {
 
 const MAX_K = 16;
 let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
-              cfb: null, cfbConf: "", league: "nfl", nflWeek: null,
+              cfb: null, cfbConf: "", league: "nfl", nflWeek: null, recProj: null,
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
@@ -2172,6 +2179,15 @@ function gamesView() {
       average by only a quarter of a point.</p>`;
 }
 
+function projFor(name) {
+  const p = state.recProj;
+  if (!p || !p.players) return null;
+  const norm = s => s.toLowerCase().replace(/[.'`-]/g, "")
+    .split(" ").filter(w => !["jr","sr","ii","iii","iv"].includes(w)).join(" ");
+  const k = norm(name);
+  return p.players.find(x => norm(x.player) === k) || null;
+}
+
 function nflGraded() {
   const c = state.nflScore;
   if (!c || !c.scored) {
@@ -2264,7 +2280,8 @@ function nflView() {
         return `<div class="nfl-row">
           <span class="nm">${p.player}</span>
           <span class="ln">${p.line}</span>
-          <span class="px">books say ${pct(p.consensus_over)} over ·
+          <span class="px">${(() => { const pr = projFor(p.player);
+            return pr ? `<span class="proj">${pr.proj.toFixed(1)} proj</span> · ` : ""; })()}books say ${pct(p.consensus_over)} over ·
             best over <b>${p.best_over.price > 0 ? "+" : ""}${p.best_over.price}</b>
             ${p.best_over.book}
             ${best >= 3 ? `· <span class="shop" title="Widest price gap between
@@ -2276,7 +2293,20 @@ function nflView() {
     </div>`;
   }).join("");
 
-  return `<p class="caption" style="max-width:58ch"><b>Nothing here is a
+  const pj = state.recProj;
+  const note = pj && pj.players && pj.players.length
+    ? `<div class="projnote">The green number is this model's projection,
+        beside the line. Measured honestly: on a clean out-of-sample test it
+        missed by <b>${pj.honesty.model_mae}</b> receptions against
+        <b>${pj.honesty.baseline_mae}</b> for just using a player's season
+        average — so it's slightly better than guessing. The books missed by
+        <b>${pj.honesty.market_mae}</b>, so it is <b>not</b> better than the
+        line. Read it as context, not as an edge.</div>`
+    : `<div class="projnote">Projections start in Week 6 — the model needs
+        five games of current-season form before it will guess. Until then
+        this tab is line comparison only.</div>`;
+
+  return `${note}<p class="caption" style="max-width:58ch"><b>Nothing here is a
     pick.</b> Every percentage is the books' own number with their margin
     removed — not a forecast. The dollar figure is what taking the best
     available price instead of the worst is worth per $100 on that side; it
@@ -2811,9 +2841,11 @@ Promise.all([
     .then(r => r.ok ? r.json() : null).catch(() => null),
   fetch("cfb_games.json", { cache: "no-store" })
     .then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([c, n, rs, gm, cf]) => {
+  fetch("receptions_proj.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n, rs, gm, cf, rp]) => {
   state.card = c; state.nfl = n; state.nflScore = rs;
-  state.games = gm; state.cfb = cf;
+  state.games = gm; state.cfb = cf; state.recProj = rp;
 })
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
