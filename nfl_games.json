@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-18T12:03:36+00:00",
+ "generated_at": "2026-09-18T18:52:13+00:00",
  "backtest": {
   "games": 1437,
   "accuracy": 0.6354,
@@ -72,7 +72,7 @@
    "pred_total": 45.2,
    "pick": "BAL",
    "confidence": 0.7638,
-   "vegas_spread": 7.5,
+   "vegas_spread": 8.5,
    "elo_home": 1577.1,
    "elo_away": 1421.2
   },
@@ -242,7 +242,7 @@
    "pred_total": 49.5,
    "pick": "DAL",
    "confidence": 0.5357,
-   "vegas_spread": 3.5,
+   "vegas_spread": 4.5,
    "elo_home": 1428.4,
    "elo_away": 1451.6
   },
@@ -259,7 +259,7 @@
    "pred_total": 45.2,
    "pick": "SF",
    "confidence": 0.7951,
-   "vegas_spread": 13.5,
+   "vegas_spread": 12.5,
    "elo_home": 1603.1,
    "elo_away": 1415.5
   },
