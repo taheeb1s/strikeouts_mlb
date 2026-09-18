@@ -1,11 +1,11 @@
 {
- "generated_at": "2026-09-18T18:51:36+00:00",
+ "generated_at": "2026-09-18T19:03:28+00:00",
  "market": "player_receptions",
  "games": [
   {
    "matchup": "New England Patriots at Seattle Seahawks",
    "kickoff": "2026-09-10T00:20:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-07T18:21:39+00:00",
    "snapshots": 1,
    "players": [
@@ -640,7 +640,7 @@
   {
    "matchup": "San Francisco 49ers at Los Angeles Rams",
    "kickoff": "2026-09-11T00:35:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-10T21:02:30+00:00",
    "snapshots": 1,
    "players": [
@@ -1677,7 +1677,7 @@
   {
    "matchup": "Atlanta Falcons at Pittsburgh Steelers",
    "kickoff": "2026-09-13T17:00:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T14:18:44+00:00",
    "snapshots": 1,
    "players": [
@@ -2379,7 +2379,7 @@
   {
    "matchup": "Baltimore Ravens at Indianapolis Colts",
    "kickoff": "2026-09-13T17:00:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T14:18:44+00:00",
    "snapshots": 1,
    "players": [
@@ -3064,7 +3064,7 @@
   {
    "matchup": "Buffalo Bills at Houston Texans",
    "kickoff": "2026-09-13T17:00:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T14:18:44+00:00",
    "snapshots": 1,
    "players": [
@@ -3950,7 +3950,7 @@
   {
    "matchup": "Chicago Bears at Carolina Panthers",
    "kickoff": "2026-09-13T17:00:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T14:18:44+00:00",
    "snapshots": 1,
    "players": [
@@ -4828,7 +4828,7 @@
   {
    "matchup": "Tampa Bay Buccaneers at Cincinnati Bengals",
    "kickoff": "2026-09-13T17:00:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T14:18:44+00:00",
    "snapshots": 1,
    "players": [
@@ -5605,7 +5605,7 @@
   {
    "matchup": "Cleveland Browns at Jacksonville Jaguars",
    "kickoff": "2026-09-13T17:00:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T14:18:44+00:00",
    "snapshots": 1,
    "players": [
@@ -6277,7 +6277,7 @@
   {
    "matchup": "New Orleans Saints at Detroit Lions",
    "kickoff": "2026-09-13T17:00:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T14:18:44+00:00",
    "snapshots": 1,
    "players": [
@@ -6849,7 +6849,7 @@
   {
    "matchup": "New York Jets at Tennessee Titans",
    "kickoff": "2026-09-13T17:00:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T14:18:44+00:00",
    "snapshots": 1,
    "players": [
@@ -7638,7 +7638,7 @@
   {
    "matchup": "Arizona Cardinals at Los Angeles Chargers",
    "kickoff": "2026-09-13T20:25:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T17:02:26+00:00",
    "snapshots": 1,
    "players": [
@@ -8280,7 +8280,7 @@
   {
    "matchup": "Green Bay Packers at Minnesota Vikings",
    "kickoff": "2026-09-13T20:25:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T17:02:26+00:00",
    "snapshots": 1,
    "players": [
@@ -8968,7 +8968,7 @@
   {
    "matchup": "Miami Dolphins at Las Vegas Raiders",
    "kickoff": "2026-09-13T20:25:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T17:02:26+00:00",
    "snapshots": 1,
    "players": [
@@ -9687,7 +9687,7 @@
   {
    "matchup": "Washington Commanders at Philadelphia Eagles",
    "kickoff": "2026-09-13T20:25:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T17:02:26+00:00",
    "snapshots": 1,
    "players": [
@@ -10368,7 +10368,7 @@
   {
    "matchup": "Dallas Cowboys at New York Giants",
    "kickoff": "2026-09-14T00:20:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-13T20:27:05+00:00",
    "snapshots": 1,
    "players": [
@@ -11114,7 +11114,7 @@
   {
    "matchup": "Denver Broncos at Kansas City Chiefs",
    "kickoff": "2026-09-15T00:15:00Z",
-   "week": null,
+   "week": 1,
    "captured_at": "2026-09-14T21:03:02+00:00",
    "snapshots": 1,
    "players": [
@@ -11962,7 +11962,7 @@
   {
    "matchup": "Detroit Lions at Buffalo Bills",
    "kickoff": "2026-09-18T00:15:00Z",
-   "week": null,
+   "week": 2,
    "captured_at": "2026-09-17T21:02:33+00:00",
    "snapshots": 1,
    "players": [
@@ -12761,5 +12761,8 @@
   "games": 17,
   "players": 205
  },
- "weeks": []
+ "weeks": [
+  1,
+  2
+ ]
 }
