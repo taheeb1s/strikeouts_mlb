@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-09-18T18:52:21+00:00",
+ "generated_at": "2026-09-19T12:03:47+00:00",
  "backtest": {
-  "games": 6901,
-  "accuracy": 0.7055,
+  "games": 6903,
+  "accuracy": 0.7056,
   "home_baseline": 0.5838,
   "margin_mae": 13.58,
   "seasons": "2017-2026"
@@ -12,8 +12,8 @@
   "Georgia": 1869.2,
   "Notre Dame": 1849.6,
   "Ohio State": 1845.1,
-  "Texas Tech": 1816.7,
-  "Miami": 1807.8,
+  "Miami": 1831.0,
+  "Texas Tech": 1822.8,
   "Ole Miss": 1800.3,
   "Texas": 1793.6,
   "Alabama": 1779.7,
@@ -22,8 +22,8 @@
   "James Madison": 1755.6,
   "BYU": 1755.2,
   "Vanderbilt": 1752.4,
+  "Oregon": 1751.2,
   "USC": 1747.8,
-  "Oregon": 1747.3,
   "Iowa": 1728.9,
   "Duke": 1725.3,
   "Penn State": 1721.3,
@@ -50,36 +50,6 @@
   "Nebraska": 1598.2
  },
  "games": [
-  {
-   "season": 2026,
-   "week": 3,
-   "kickoff": "2026-09-18T23:30:00.000Z",
-   "home": "Wake Forest",
-   "away": "Miami",
-   "home_conf": "ACC",
-   "away_conf": "ACC",
-   "p_home": 0.2642,
-   "pred_margin": -8.09,
-   "score_home": 23.3,
-   "score_away": 31.4,
-   "pick": "Miami",
-   "confidence": 0.7358
-  },
-  {
-   "season": 2026,
-   "week": 3,
-   "kickoff": "2026-09-19T00:00:00.000Z",
-   "home": "Texas Tech",
-   "away": "Houston",
-   "home_conf": "Big 12",
-   "away_conf": "Big 12",
-   "p_home": 0.8262,
-   "pred_margin": 12.31,
-   "score_home": 33.5,
-   "score_away": 21.2,
-   "pick": "Texas Tech",
-   "confidence": 0.8262
-  },
   {
    "season": 2026,
    "week": 3,
@@ -973,12 +943,12 @@
    "away": "Houston",
    "home_conf": "Sun Belt",
    "away_conf": "Big 12",
-   "p_home": 0.4106,
-   "pred_margin": -2.85,
-   "score_home": 26.0,
-   "score_away": 28.8,
+   "p_home": 0.4192,
+   "pred_margin": -2.58,
+   "score_home": 26.1,
+   "score_away": 28.7,
    "pick": "Houston",
-   "confidence": 0.5894
+   "confidence": 0.5808
   },
   {
    "season": 2026,
@@ -1018,12 +988,12 @@
    "away": "Sam Houston",
    "home_conf": "Big 12",
    "away_conf": "Conference USA",
-   "p_home": 0.975,
-   "pred_margin": 28.92,
-   "score_home": 41.9,
-   "score_away": 12.9,
+   "p_home": 0.9758,
+   "pred_margin": 29.2,
+   "score_home": 42.0,
+   "score_away": 12.8,
    "pick": "Texas Tech",
-   "confidence": 0.975
+   "confidence": 0.9758
   },
   {
    "season": 2026,
@@ -1063,12 +1033,12 @@
    "away": "Wake Forest",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.6546,
-   "pred_margin": 5.05,
-   "score_home": 29.9,
-   "score_away": 24.9,
+   "p_home": 0.6842,
+   "pred_margin": 6.1,
+   "score_home": 30.4,
+   "score_away": 24.3,
    "pick": "Louisville",
-   "confidence": 0.6546
+   "confidence": 0.6842
   },
   {
    "season": 2026,
@@ -1423,12 +1393,12 @@
    "away": "Central Michigan",
    "home_conf": "ACC",
    "away_conf": "Mid-American",
-   "p_home": 0.9196,
-   "pred_margin": 19.24,
-   "score_home": 37.0,
-   "score_away": 17.8,
+   "p_home": 0.9289,
+   "pred_margin": 20.3,
+   "score_home": 37.5,
+   "score_away": 17.2,
    "pick": "Miami",
-   "confidence": 0.9196
+   "confidence": 0.9289
   },
   {
    "season": 2026,
@@ -1573,12 +1543,12 @@
    "away": "Oregon",
    "home_conf": "Big Ten",
    "away_conf": "Big Ten",
-   "p_home": 0.5722,
-   "pred_margin": 2.3,
-   "score_home": 28.5,
-   "score_away": 26.2,
+   "p_home": 0.5667,
+   "pred_margin": 2.12,
+   "score_home": 28.4,
+   "score_away": 26.3,
    "pick": "USC",
-   "confidence": 0.5722
+   "confidence": 0.5667
   },
   {
    "season": 2026,
@@ -1978,12 +1948,12 @@
    "away": "UCF",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.7462,
-   "pred_margin": 8.51,
-   "score_home": 31.6,
-   "score_away": 23.1,
+   "p_home": 0.7394,
+   "pred_margin": 8.24,
+   "score_home": 31.5,
+   "score_away": 23.3,
    "pick": "Houston",
-   "confidence": 0.7462
+   "confidence": 0.7394
   },
   {
    "season": 2026,
@@ -2008,12 +1978,12 @@
    "away": "Texas Tech",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.1461,
-   "pred_margin": -13.94,
-   "score_home": 20.4,
-   "score_away": 34.4,
+   "p_home": 0.1417,
+   "pred_margin": -14.22,
+   "score_home": 20.3,
+   "score_away": 34.5,
    "pick": "Texas Tech",
-   "confidence": 0.8539
+   "confidence": 0.8583
   },
   {
    "season": 2026,
@@ -2068,12 +2038,12 @@
    "away": "Miami",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.3012,
-   "pred_margin": -6.64,
-   "score_home": 24.1,
-   "score_away": 30.7,
+   "p_home": 0.2738,
+   "pred_margin": -7.7,
+   "score_home": 23.5,
+   "score_away": 31.2,
    "pick": "Miami",
-   "confidence": 0.6988
+   "confidence": 0.7262
   },
   {
    "season": 2026,
@@ -2098,12 +2068,12 @@
    "away": "Stanford",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.7103,
-   "pred_margin": 7.08,
-   "score_home": 30.9,
-   "score_away": 23.8,
+   "p_home": 0.682,
+   "pred_margin": 6.03,
+   "score_home": 30.4,
+   "score_away": 24.4,
    "pick": "Wake Forest",
-   "confidence": 0.7103
+   "confidence": 0.682
   },
   {
    "season": 2026,
@@ -2923,12 +2893,12 @@
    "away": "Houston",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.6433,
-   "pred_margin": 4.66,
-   "score_home": 29.7,
-   "score_away": 25.1,
+   "p_home": 0.6513,
+   "pred_margin": 4.93,
+   "score_home": 29.9,
+   "score_away": 24.9,
    "pick": "Kansas State",
-   "confidence": 0.6433
+   "confidence": 0.6513
   },
   {
    "season": 2026,
@@ -3013,12 +2983,12 @@
    "away": "Wake Forest",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.5453,
-   "pred_margin": 1.43,
-   "score_home": 28.1,
-   "score_away": 26.7,
+   "p_home": 0.5782,
+   "pred_margin": 2.49,
+   "score_home": 28.6,
+   "score_away": 26.1,
    "pick": "NC State",
-   "confidence": 0.5453
+   "confidence": 0.5782
   },
   {
    "season": 2026,
@@ -3088,12 +3058,12 @@
    "away": "UCLA",
    "home_conf": "Big Ten",
    "away_conf": "Big Ten",
-   "p_home": 0.7904,
-   "pred_margin": 10.48,
-   "score_home": 32.6,
-   "score_away": 22.2,
+   "p_home": 0.7941,
+   "pred_margin": 10.66,
+   "score_home": 32.7,
+   "score_away": 22.1,
    "pick": "Oregon",
-   "confidence": 0.7904
+   "confidence": 0.7941
   },
   {
    "season": 2026,
@@ -3748,12 +3718,12 @@
    "away": "Arizona State",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.8347,
-   "pred_margin": 12.78,
-   "score_home": 33.8,
-   "score_away": 21.0,
+   "p_home": 0.8395,
+   "pred_margin": 13.06,
+   "score_home": 33.9,
+   "score_away": 20.9,
    "pick": "Texas Tech",
-   "confidence": 0.8347
+   "confidence": 0.8395
   },
   {
    "season": 2026,
@@ -3793,12 +3763,12 @@
    "away": "Oklahoma State",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.8469,
-   "pred_margin": 13.51,
-   "score_home": 34.1,
-   "score_away": 20.6,
+   "p_home": 0.8423,
+   "pred_margin": 13.23,
+   "score_home": 34.0,
+   "score_away": 20.8,
    "pick": "Houston",
-   "confidence": 0.8469
+   "confidence": 0.8423
   },
   {
    "season": 2026,
@@ -3838,12 +3808,12 @@
    "away": "Florida State",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.9019,
-   "pred_margin": 17.51,
-   "score_home": 36.1,
-   "score_away": 18.6,
+   "p_home": 0.9131,
+   "pred_margin": 18.57,
+   "score_home": 36.7,
+   "score_away": 18.1,
    "pick": "Miami",
-   "confidence": 0.9019
+   "confidence": 0.9131
   },
   {
    "season": 2026,
@@ -3928,12 +3898,12 @@
    "away": "Wake Forest",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.3669,
-   "pred_margin": -4.31,
-   "score_home": 25.2,
-   "score_away": 29.5,
+   "p_home": 0.3985,
+   "pred_margin": -3.25,
+   "score_home": 25.8,
+   "score_away": 29.0,
    "pick": "Wake Forest",
-   "confidence": 0.6331
+   "confidence": 0.6015
   },
   {
    "season": 2026,
@@ -4003,12 +3973,12 @@
    "away": "Nebraska",
    "home_conf": "Big Ten",
    "away_conf": "Big Ten",
-   "p_home": 0.7588,
-   "pred_margin": 9.05,
-   "score_home": 31.9,
-   "score_away": 22.9,
+   "p_home": 0.7629,
+   "pred_margin": 9.23,
+   "score_home": 32.0,
+   "score_away": 22.8,
    "pick": "Oregon",
-   "confidence": 0.7588
+   "confidence": 0.7629
   },
   {
    "season": 2026,
@@ -4140,7 +4110,7 @@
    "away_conf": "Mid-American",
    "p_home": 0.3677,
    "pred_margin": -4.28,
-   "score_home": 25.3,
+   "score_home": 25.2,
    "score_away": 29.5,
    "pick": "Western Michigan",
    "confidence": 0.6323
@@ -4663,12 +4633,12 @@
    "away": "Houston",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.7827,
-   "pred_margin": 10.12,
-   "score_home": 32.5,
-   "score_away": 22.3,
+   "p_home": 0.7887,
+   "pred_margin": 10.4,
+   "score_home": 32.6,
+   "score_away": 22.2,
    "pick": "Utah",
-   "confidence": 0.7827
+   "confidence": 0.7887
   },
   {
    "season": 2026,
@@ -4708,12 +4678,12 @@
    "away": "Texas Tech",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.2367,
-   "pred_margin": -9.25,
-   "score_home": 22.8,
-   "score_away": 32.0,
+   "p_home": 0.2303,
+   "pred_margin": -9.53,
+   "score_home": 22.6,
+   "score_away": 32.2,
    "pick": "Texas Tech",
-   "confidence": 0.7633
+   "confidence": 0.7697
   },
   {
    "season": 2026,
@@ -4768,12 +4738,12 @@
    "away": "Pittsburgh",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.7423,
-   "pred_margin": 8.35,
-   "score_home": 31.6,
-   "score_away": 23.2,
+   "p_home": 0.767,
+   "pred_margin": 9.41,
+   "score_home": 32.1,
+   "score_away": 22.7,
    "pick": "Miami",
-   "confidence": 0.7423
+   "confidence": 0.767
   },
   {
    "season": 2026,
@@ -4813,12 +4783,12 @@
    "away": "Oregon",
    "home_conf": "Big Ten",
    "away_conf": "Big Ten",
-   "p_home": 0.3555,
-   "pred_margin": -4.7,
+   "p_home": 0.3504,
+   "pred_margin": -4.87,
    "score_home": 25.0,
-   "score_away": 29.7,
+   "score_away": 29.8,
    "pick": "Oregon",
-   "confidence": 0.6445
+   "confidence": 0.6496
   },
   {
    "season": 2026,
@@ -5398,12 +5368,12 @@
    "away": "Arizona",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.7688,
-   "pred_margin": 9.49,
-   "score_home": 32.1,
-   "score_away": 22.6,
+   "p_home": 0.7751,
+   "pred_margin": 9.77,
+   "score_home": 32.3,
+   "score_away": 22.5,
    "pick": "Texas Tech",
-   "confidence": 0.7688
+   "confidence": 0.7751
   },
   {
    "season": 2026,
@@ -5563,12 +5533,12 @@
    "away": "Miami",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.1833,
-   "pred_margin": -11.8,
-   "score_home": 21.5,
-   "score_away": 33.3,
+   "p_home": 0.1642,
+   "pred_margin": -12.85,
+   "score_home": 21.0,
+   "score_away": 33.8,
    "pick": "Miami",
-   "confidence": 0.8167
+   "confidence": 0.8358
   },
   {
    "season": 2026,
@@ -5593,12 +5563,12 @@
    "away": "Virginia",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.4507,
-   "pred_margin": -1.56,
-   "score_home": 26.6,
-   "score_away": 28.2,
+   "p_home": 0.4179,
+   "pred_margin": -2.62,
+   "score_home": 26.1,
+   "score_away": 28.7,
    "pick": "Virginia",
-   "confidence": 0.5493
+   "confidence": 0.5821
   },
   {
    "season": 2026,
@@ -5668,12 +5638,12 @@
    "away": "Northwestern",
    "home_conf": "Big Ten",
    "away_conf": "Big Ten",
-   "p_home": 0.8305,
-   "pred_margin": 12.55,
-   "score_home": 33.7,
-   "score_away": 21.1,
+   "p_home": 0.8336,
+   "pred_margin": 12.72,
+   "score_home": 33.8,
+   "score_away": 21.0,
    "pick": "Oregon",
-   "confidence": 0.8305
+   "confidence": 0.8336
   },
   {
    "season": 2026,
@@ -6373,12 +6343,12 @@
    "away": "Cincinnati",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.6168,
-   "pred_margin": 3.76,
-   "score_home": 29.3,
-   "score_away": 25.5,
+   "p_home": 0.6084,
+   "pred_margin": 3.48,
+   "score_home": 29.1,
+   "score_away": 25.7,
    "pick": "Houston",
-   "confidence": 0.6168
+   "confidence": 0.6084
   },
   {
    "season": 2026,
@@ -6433,12 +6403,12 @@
    "away": "West Virginia",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.8806,
-   "pred_margin": 15.78,
-   "score_home": 35.3,
-   "score_away": 19.5,
+   "p_home": 0.8843,
+   "pred_margin": 16.06,
+   "score_home": 35.4,
+   "score_away": 19.4,
    "pick": "Texas Tech",
-   "confidence": 0.8806
+   "confidence": 0.8843
   },
   {
    "season": 2026,
@@ -6553,12 +6523,12 @@
    "away": "Oregon",
    "home_conf": "Big Ten",
    "away_conf": "Big Ten",
-   "p_home": 0.7007,
-   "pred_margin": 6.72,
+   "p_home": 0.696,
+   "pred_margin": 6.54,
    "score_home": 30.7,
-   "score_away": 24.0,
+   "score_away": 24.1,
    "pick": "Ohio State",
-   "confidence": 0.7007
+   "confidence": 0.696
   },
   {
    "season": 2026,
@@ -6898,12 +6868,12 @@
    "away": "Miami",
    "home_conf": "FBS Independents",
    "away_conf": "ACC",
-   "p_home": 0.6291,
-   "pred_margin": 4.17,
-   "score_home": 29.5,
-   "score_away": 25.3,
+   "p_home": 0.5974,
+   "pred_margin": 3.12,
+   "score_home": 28.9,
+   "score_away": 25.8,
    "pick": "Notre Dame",
-   "confidence": 0.6291
+   "confidence": 0.5974
   },
   {
    "season": 2026,
@@ -7123,12 +7093,12 @@
    "away": "Houston",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.3788,
-   "pred_margin": -3.91,
-   "score_home": 25.4,
-   "score_away": 29.3,
+   "p_home": 0.3871,
+   "pred_margin": -3.63,
+   "score_home": 25.6,
+   "score_away": 29.2,
    "pick": "Houston",
-   "confidence": 0.6212
+   "confidence": 0.6129
   },
   {
    "season": 2026,
@@ -7213,12 +7183,12 @@
    "away": "Texas Tech",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.0827,
-   "pred_margin": -19.0,
-   "score_home": 17.9,
-   "score_away": 36.9,
+   "p_home": 0.0801,
+   "pred_margin": -19.28,
+   "score_home": 17.8,
+   "score_away": 37.0,
    "pick": "Texas Tech",
-   "confidence": 0.9173
+   "confidence": 0.9199
   },
   {
    "season": 2026,
@@ -7378,12 +7348,12 @@
    "away": "Duke",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.682,
-   "pred_margin": 6.02,
-   "score_home": 30.4,
-   "score_away": 24.4,
+   "p_home": 0.7102,
+   "pred_margin": 7.08,
+   "score_home": 30.9,
+   "score_away": 23.9,
    "pick": "Miami",
-   "confidence": 0.682
+   "confidence": 0.7102
   },
   {
    "season": 2026,
@@ -7453,12 +7423,12 @@
    "away": "Wake Forest",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.7494,
-   "pred_margin": 8.65,
-   "score_home": 31.7,
-   "score_away": 23.1,
+   "p_home": 0.7736,
+   "pred_margin": 9.7,
+   "score_home": 32.2,
+   "score_away": 22.5,
    "pick": "SMU",
-   "confidence": 0.7494
+   "confidence": 0.7736
   },
   {
    "season": 2026,
@@ -7543,12 +7513,12 @@
    "away": "Michigan",
    "home_conf": "Big Ten",
    "away_conf": "Big Ten",
-   "p_home": 0.6223,
-   "pred_margin": 3.94,
-   "score_home": 29.4,
-   "score_away": 25.4,
+   "p_home": 0.6276,
+   "pred_margin": 4.12,
+   "score_home": 29.5,
+   "score_away": 25.3,
    "pick": "Oregon",
-   "confidence": 0.6223
+   "confidence": 0.6276
   },
   {
    "season": 2026,
@@ -7590,7 +7560,7 @@
    "away_conf": "American Athletic",
    "p_home": 0.2013,
    "pred_margin": -10.88,
-   "score_home": 22.0,
+   "score_home": 21.9,
    "score_away": 32.8,
    "pick": "East Carolina",
    "confidence": 0.7987
@@ -8113,12 +8083,12 @@
    "away": "Oregon",
    "home_conf": "Big Ten",
    "away_conf": "Big Ten",
-   "p_home": 0.2542,
-   "pred_margin": -8.5,
+   "p_home": 0.25,
+   "pred_margin": -8.68,
    "score_home": 23.1,
-   "score_away": 31.6,
+   "score_away": 31.7,
    "pick": "Oregon",
-   "confidence": 0.7458
+   "confidence": 0.75
   },
   {
    "season": 2026,
@@ -8278,12 +8248,12 @@
    "away": "Houston",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.4622,
-   "pred_margin": -1.2,
-   "score_home": 26.8,
-   "score_away": 28.0,
+   "p_home": 0.4709,
+   "pred_margin": -0.92,
+   "score_home": 26.9,
+   "score_away": 27.8,
    "pick": "Houston",
-   "confidence": 0.5378
+   "confidence": 0.5291
   },
   {
    "season": 2026,
@@ -8308,12 +8278,12 @@
    "away": "Texas Tech",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.1765,
-   "pred_margin": -12.16,
-   "score_home": 21.3,
-   "score_away": 33.5,
+   "p_home": 0.1714,
+   "pred_margin": -12.44,
+   "score_home": 21.2,
+   "score_away": 33.6,
    "pick": "Texas Tech",
-   "confidence": 0.8235
+   "confidence": 0.8286
   },
   {
    "season": 2026,
@@ -8338,12 +8308,12 @@
    "away": "Virginia Tech",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.8723,
-   "pred_margin": 15.17,
-   "score_home": 35.0,
-   "score_away": 19.8,
+   "p_home": 0.8865,
+   "pred_margin": 16.23,
+   "score_home": 35.5,
+   "score_away": 19.3,
    "pick": "Miami",
-   "confidence": 0.8723
+   "confidence": 0.8865
   },
   {
    "season": 2026,
@@ -8428,12 +8398,12 @@
    "away": "Wake Forest",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.4639,
-   "pred_margin": -1.14,
-   "score_home": 26.8,
-   "score_away": 28.0,
+   "p_home": 0.4972,
+   "pred_margin": -0.09,
+   "score_home": 27.3,
+   "score_away": 27.4,
    "pick": "Wake Forest",
-   "confidence": 0.5361
+   "confidence": 0.5028
   },
   {
    "season": 2026,
@@ -8998,12 +8968,12 @@
    "away": "TCU",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.8328,
-   "pred_margin": 12.68,
-   "score_home": 33.7,
-   "score_away": 21.1,
+   "p_home": 0.8377,
+   "pred_margin": 12.96,
+   "score_home": 33.9,
+   "score_away": 20.9,
    "pick": "Texas Tech",
-   "confidence": 0.8328
+   "confidence": 0.8377
   },
   {
    "season": 2026,
@@ -9328,12 +9298,12 @@
    "away": "Baylor",
    "home_conf": "Big 12",
    "away_conf": "Big 12",
-   "p_home": 0.6996,
-   "pred_margin": 6.67,
-   "score_home": 30.7,
-   "score_away": 24.1,
+   "p_home": 0.6921,
+   "pred_margin": 6.4,
+   "score_home": 30.6,
+   "score_away": 24.2,
    "pick": "Houston",
-   "confidence": 0.6996
+   "confidence": 0.6921
   },
   {
    "season": 2026,
@@ -9403,12 +9373,12 @@
    "away": "Boston College",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.9256,
-   "pred_margin": 19.91,
-   "score_home": 37.3,
-   "score_away": 17.4,
+   "p_home": 0.9343,
+   "pred_margin": 20.96,
+   "score_home": 37.9,
+   "score_away": 16.9,
    "pick": "Miami",
-   "confidence": 0.9256
+   "confidence": 0.9343
   },
   {
    "season": 2026,
@@ -9418,12 +9388,12 @@
    "away": "Duke",
    "home_conf": "ACC",
    "away_conf": "ACC",
-   "p_home": 0.366,
-   "pred_margin": -4.34,
-   "score_home": 25.2,
-   "score_away": 29.6,
+   "p_home": 0.3356,
+   "pred_margin": -5.39,
+   "score_home": 24.7,
+   "score_away": 30.1,
    "pick": "Duke",
-   "confidence": 0.634
+   "confidence": 0.6644
   },
   {
    "season": 2026,
@@ -9553,12 +9523,12 @@
    "away": "Washington",
    "home_conf": "Big Ten",
    "away_conf": "Big Ten",
-   "p_home": 0.6654,
-   "pred_margin": 5.43,
-   "score_home": 30.1,
-   "score_away": 24.7,
+   "p_home": 0.6704,
+   "pred_margin": 5.61,
+   "score_home": 30.2,
+   "score_away": 24.6,
    "pick": "Oregon",
-   "confidence": 0.6654
+   "confidence": 0.6704
   },
   {
    "season": 2026,
