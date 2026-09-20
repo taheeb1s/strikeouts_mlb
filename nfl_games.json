@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-19T12:03:39+00:00",
+ "generated_at": "2026-09-20T12:03:25+00:00",
  "backtest": {
   "games": 1437,
   "accuracy": 0.6354,
@@ -157,7 +157,7 @@
    "pred_total": 43.0,
    "pick": "TB",
    "confidence": 0.6572,
-   "vegas_spread": 8.5,
+   "vegas_spread": 7.5,
    "elo_home": 1459.2,
    "elo_away": 1394.2
   },
@@ -191,7 +191,7 @@
    "pred_total": 44.7,
    "pick": "DEN",
    "confidence": 0.5666,
-   "vegas_spread": 2.5,
+   "vegas_spread": 3.0,
    "elo_home": 1582.9,
    "elo_away": 1584.3
   },
@@ -208,7 +208,7 @@
    "pred_total": 41.1,
    "pick": "LAC",
    "confidence": 0.7301,
-   "vegas_spread": 6.5,
+   "vegas_spread": 7.0,
    "elo_home": 1484.3,
    "elo_away": 1359.4
   },
@@ -276,7 +276,7 @@
    "pred_total": 46.0,
    "pick": "KC",
    "confidence": 0.7032,
-   "vegas_spread": 6.5,
+   "vegas_spread": 5.5,
    "elo_home": 1533.6,
    "elo_away": 1431.7
   },
