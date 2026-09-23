@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-22T12:03:48+00:00",
+ "generated_at": "2026-09-23T12:04:35+00:00",
  "backtest": {
   "games": 1452,
   "accuracy": 0.635,
@@ -55,7 +55,7 @@
    "pred_total": 44.7,
    "pick": "GB",
    "confidence": 0.7214,
-   "vegas_spread": 6.0,
+   "vegas_spread": 5.5,
    "elo_home": 1519.4,
    "elo_away": 1402.1
   },
@@ -123,7 +123,7 @@
    "pred_total": 47.5,
    "pick": "HOU",
    "confidence": 0.6179,
-   "vegas_spread": -2.5,
+   "vegas_spread": -3.0,
    "elo_home": 1424.0,
    "elo_away": 1555.5
   },
@@ -174,7 +174,7 @@
    "pred_total": 44.7,
    "pick": "NYG",
    "confidence": 0.7269,
-   "vegas_spread": 3.5,
+   "vegas_spread": 2.5,
    "elo_home": 1417.8,
    "elo_away": 1295.8
   },
@@ -259,7 +259,7 @@
    "pred_total": 49.4,
    "pick": "BAL",
    "confidence": 0.556,
-   "vegas_spread": -3.0,
+   "vegas_spread": -3.5,
    "elo_home": 1455.0,
    "elo_away": 1542.1
   },
@@ -310,7 +310,7 @@
    "pred_total": 44.4,
    "pick": "CHI",
    "confidence": 0.5019,
-   "vegas_spread": -3.0,
+   "vegas_spread": -4.5,
    "elo_home": 1533.6,
    "elo_away": 1580.3
   },
@@ -327,7 +327,7 @@
    "pred_total": 40.5,
    "pick": "PIT",
    "confidence": 0.5611,
-   "vegas_spread": null,
+   "vegas_spread": -3.0,
    "elo_home": 1416.5,
    "elo_away": 1507.1
   },
@@ -344,7 +344,7 @@
    "pred_total": 50.0,
    "pick": "WAS",
    "confidence": 0.57,
-   "vegas_spread": null,
+   "vegas_spread": -4.5,
    "elo_home": 1425.0,
    "elo_away": 1424.0
   },
@@ -361,7 +361,7 @@
    "pred_total": 46.1,
    "pick": "BAL",
    "confidence": 0.8448,
-   "vegas_spread": null,
+   "vegas_spread": 10.5,
    "elo_home": 1542.1,
    "elo_away": 1295.8
   },
@@ -378,7 +378,7 @@
    "pred_total": 46.2,
    "pick": "BUF",
    "confidence": 0.63,
-   "vegas_spread": null,
+   "vegas_spread": 5.5,
    "elo_home": 1656.0,
    "elo_away": 1611.6
   },
@@ -395,7 +395,7 @@
    "pred_total": 45.4,
    "pick": "CHI",
    "confidence": 0.7823,
-   "vegas_spread": null,
+   "vegas_spread": 3.0,
    "elo_home": 1533.6,
    "elo_away": 1359.4
   },
@@ -412,7 +412,7 @@
    "pred_total": 47.4,
    "pick": "CIN",
    "confidence": 0.524,
-   "vegas_spread": null,
+   "vegas_spread": 3.0,
    "elo_home": 1535.4,
    "elo_away": 1566.7
   },
@@ -429,7 +429,7 @@
    "pred_total": 47.2,
    "pick": "HOU",
    "confidence": 0.7016,
-   "vegas_spread": null,
+   "vegas_spread": 3.0,
    "elo_home": 1555.5,
    "elo_away": 1455.0
   },
@@ -446,7 +446,7 @@
    "pred_total": 45.5,
    "pick": "NYG",
    "confidence": 0.5852,
-   "vegas_spread": null,
+   "vegas_spread": 2.5,
    "elo_home": 1417.8,
    "elo_away": 1406.0
   },
@@ -463,7 +463,7 @@
    "pred_total": 44.4,
    "pick": "PHI",
    "confidence": 0.5496,
-   "vegas_spread": null,
+   "vegas_spread": -2.5,
    "elo_home": 1580.3,
    "elo_away": 1593.8
   },
@@ -480,7 +480,7 @@
    "pred_total": 46.2,
    "pick": "GB",
    "confidence": 0.5494,
-   "vegas_spread": null,
+   "vegas_spread": -1.5,
    "elo_home": 1436.9,
    "elo_away": 1519.4
   },
@@ -497,7 +497,7 @@
    "pred_total": 41.1,
    "pick": "MIN",
    "confidence": 0.8057,
-   "vegas_spread": null,
+   "vegas_spread": 10.5,
    "elo_home": 1603.0,
    "elo_away": 1403.9
   },
@@ -514,7 +514,7 @@
    "pred_total": 42.1,
    "pick": "KC",
    "confidence": 0.631,
-   "vegas_spread": null,
+   "vegas_spread": -6.0,
    "elo_home": 1400.1,
    "elo_away": 1541.3
   },
@@ -531,7 +531,7 @@
    "pred_total": 41.4,
    "pick": "SEA",
    "confidence": 0.863,
-   "vegas_spread": null,
+   "vegas_spread": 6.5,
    "elo_home": 1715.4,
    "elo_away": 1443.6
   },
@@ -548,7 +548,7 @@
    "pred_total": 44.2,
    "pick": "SF",
    "confidence": 0.5886,
-   "vegas_spread": null,
+   "vegas_spread": 4.5,
    "elo_home": 1614.7,
    "elo_away": 1600.5
   },
@@ -565,7 +565,7 @@
    "pred_total": 49.4,
    "pick": "DET",
    "confidence": 0.5976,
-   "vegas_spread": null,
+   "vegas_spread": -3.0,
    "elo_home": 1437.1,
    "elo_away": 1553.9
   },
@@ -582,7 +582,7 @@
    "pred_total": 43.0,
    "pick": "NO",
    "confidence": 0.6428,
-   "vegas_spread": null,
+   "vegas_spread": 3.5,
    "elo_home": 1456.2,
    "elo_away": 1402.1
   },
