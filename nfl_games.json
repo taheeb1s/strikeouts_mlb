@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T12:04:35+00:00",
+ "generated_at": "2026-09-24T12:03:52+00:00",
  "backtest": {
   "games": 1452,
   "accuracy": 0.635,
@@ -55,7 +55,7 @@
    "pred_total": 44.7,
    "pick": "GB",
    "confidence": 0.7214,
-   "vegas_spread": 5.5,
+   "vegas_spread": 4.5,
    "elo_home": 1519.4,
    "elo_away": 1402.1
   },
@@ -123,7 +123,7 @@
    "pred_total": 47.5,
    "pick": "HOU",
    "confidence": 0.6179,
-   "vegas_spread": -3.0,
+   "vegas_spread": -2.5,
    "elo_home": 1424.0,
    "elo_away": 1555.5
   },
@@ -157,7 +157,7 @@
    "pred_total": 43.2,
    "pick": "KC",
    "confidence": 0.6258,
-   "vegas_spread": -11.5,
+   "vegas_spread": -10.5,
    "elo_home": 1403.9,
    "elo_away": 1541.3
   },
@@ -174,7 +174,7 @@
    "pred_total": 44.7,
    "pick": "NYG",
    "confidence": 0.7269,
-   "vegas_spread": 2.5,
+   "vegas_spread": 3.0,
    "elo_home": 1417.8,
    "elo_away": 1295.8
   },
@@ -395,7 +395,7 @@
    "pred_total": 45.4,
    "pick": "CHI",
    "confidence": 0.7823,
-   "vegas_spread": 3.0,
+   "vegas_spread": 3.5,
    "elo_home": 1533.6,
    "elo_away": 1359.4
   },

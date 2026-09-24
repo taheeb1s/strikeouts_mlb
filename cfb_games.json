@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-23T12:04:42+00:00",
+ "generated_at": "2026-09-24T12:04:02+00:00",
  "backtest": {
   "games": 6957,
   "accuracy": 0.7063,
@@ -1029,21 +1029,6 @@
    "season": 2026,
    "week": 5,
    "kickoff": "2026-10-03T04:00:00.000Z",
-   "home": "Colorado",
-   "away": "Texas Tech",
-   "home_conf": "Big 12",
-   "away_conf": "Big 12",
-   "p_home": 0.1148,
-   "pred_margin": -16.13,
-   "score_home": 19.3,
-   "score_away": 35.5,
-   "pick": "Texas Tech",
-   "confidence": 0.8852
-  },
-  {
-   "season": 2026,
-   "week": 5,
-   "kickoff": "2026-10-03T04:00:00.000Z",
    "home": "Clemson",
    "away": "Miami",
    "home_conf": "ACC",
@@ -1594,6 +1579,21 @@
    "score_away": 20.3,
    "pick": "South Alabama",
    "confidence": 0.8584
+  },
+  {
+   "season": 2026,
+   "week": 5,
+   "kickoff": "2026-10-03T23:30:00.000Z",
+   "home": "Colorado",
+   "away": "Texas Tech",
+   "home_conf": "Big 12",
+   "away_conf": "Big 12",
+   "p_home": 0.1148,
+   "pred_margin": -16.13,
+   "score_home": 19.3,
+   "score_away": 35.5,
+   "pick": "Texas Tech",
+   "confidence": 0.8852
   },
   {
    "season": 2026,
