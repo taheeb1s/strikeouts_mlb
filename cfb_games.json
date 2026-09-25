@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-09-24T12:04:02+00:00",
+ "generated_at": "2026-09-25T12:04:19+00:00",
  "backtest": {
-  "games": 6957,
-  "accuracy": 0.7063,
+  "games": 6958,
+  "accuracy": 0.7062,
   "home_baseline": 0.5847,
   "margin_mae": 13.56,
   "seasons": "2017-2026"
@@ -50,21 +50,6 @@
   "Florida": 1604.7
  },
  "games": [
-  {
-   "season": 2026,
-   "week": 4,
-   "kickoff": "2026-09-24T23:30:00.000Z",
-   "home": "Coastal Carolina",
-   "away": "Liberty",
-   "home_conf": "Sun Belt",
-   "away_conf": "Conference USA",
-   "p_home": 0.5332,
-   "pred_margin": 1.05,
-   "score_home": 27.9,
-   "score_away": 26.9,
-   "pick": "Coastal Carolina",
-   "confidence": 0.5332
-  },
   {
    "season": 2026,
    "week": 4,
@@ -973,12 +958,12 @@
    "away": "Liberty",
    "home_conf": "Conference USA",
    "away_conf": "Conference USA",
-   "p_home": 0.6141,
-   "pred_margin": 3.67,
-   "score_home": 29.2,
-   "score_away": 25.6,
+   "p_home": 0.5354,
+   "pred_margin": 1.12,
+   "score_home": 28.0,
+   "score_away": 26.8,
    "pick": "Delaware",
-   "confidence": 0.6141
+   "confidence": 0.5354
   },
   {
    "season": 2026,
@@ -1558,12 +1543,12 @@
    "away": "Georgia Southern",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.5176,
-   "pred_margin": 0.55,
-   "score_home": 27.7,
-   "score_away": 27.1,
-   "pick": "Coastal Carolina",
-   "confidence": 0.5176
+   "p_home": 0.4372,
+   "pred_margin": -1.99,
+   "score_home": 26.4,
+   "score_away": 28.4,
+   "pick": "Georgia Southern",
+   "confidence": 0.5628
   },
   {
    "season": 2026,
@@ -1813,12 +1798,12 @@
    "away": "Sam Houston",
    "home_conf": "Conference USA",
    "away_conf": "Conference USA",
-   "p_home": 0.7713,
-   "pred_margin": 9.6,
-   "score_home": 32.2,
-   "score_away": 22.6,
+   "p_home": 0.8233,
+   "pred_margin": 12.15,
+   "score_home": 33.5,
+   "score_away": 21.3,
    "pick": "Liberty",
-   "confidence": 0.7713
+   "confidence": 0.8233
   },
   {
    "season": 2026,
@@ -2458,12 +2443,12 @@
    "away": "Coastal Carolina",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.7005,
-   "pred_margin": 6.71,
-   "score_home": 30.7,
-   "score_away": 24.0,
+   "p_home": 0.7636,
+   "pred_margin": 9.26,
+   "score_home": 32.0,
+   "score_away": 22.8,
    "pick": "Marshall",
-   "confidence": 0.7005
+   "confidence": 0.7636
   },
   {
    "season": 2026,
@@ -2773,12 +2758,12 @@
    "away": "App State",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.4858,
-   "pred_margin": -0.45,
-   "score_home": 27.2,
-   "score_away": 27.6,
+   "p_home": 0.4062,
+   "pred_margin": -3.0,
+   "score_home": 25.9,
+   "score_away": 28.9,
    "pick": "App State",
-   "confidence": 0.5142
+   "confidence": 0.5938
   },
   {
    "season": 2026,
@@ -3598,12 +3583,12 @@
    "away": "Liberty",
    "home_conf": "Conference USA",
    "away_conf": "Conference USA",
-   "p_home": 0.5851,
-   "pred_margin": 2.71,
-   "score_home": 28.7,
-   "score_away": 26.0,
+   "p_home": 0.5052,
+   "pred_margin": 0.16,
+   "score_home": 27.5,
+   "score_away": 27.3,
    "pick": "Kennesaw State",
-   "confidence": 0.5851
+   "confidence": 0.5052
   },
   {
    "season": 2026,
@@ -3976,7 +3961,7 @@
    "p_home": 0.3608,
    "pred_margin": -4.52,
    "score_home": 25.1,
-   "score_away": 29.7,
+   "score_away": 29.6,
    "pick": "Oregon",
    "confidence": 0.6392
   },
@@ -4993,12 +4978,12 @@
    "away": "Coastal Carolina",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.5065,
-   "pred_margin": 0.21,
-   "score_home": 27.5,
-   "score_away": 27.3,
+   "p_home": 0.5863,
+   "pred_margin": 2.75,
+   "score_home": 28.8,
+   "score_away": 26.0,
    "pick": "Georgia State",
-   "confidence": 0.5065
+   "confidence": 0.5863
   },
   {
    "season": 2026,
@@ -5143,12 +5128,12 @@
    "away": "Florida International",
    "home_conf": "Conference USA",
    "away_conf": "Conference USA",
-   "p_home": 0.5457,
-   "pred_margin": 1.45,
-   "score_home": 28.1,
-   "score_away": 26.7,
+   "p_home": 0.6239,
+   "pred_margin": 4.0,
+   "score_home": 29.4,
+   "score_away": 25.4,
    "pick": "Liberty",
-   "confidence": 0.5457
+   "confidence": 0.6239
   },
   {
    "season": 2026,
@@ -5566,7 +5551,7 @@
    "p_home": 0.4648,
    "pred_margin": -1.12,
    "score_home": 26.8,
-   "score_away": 28.0,
+   "score_away": 27.9,
    "pick": "Iowa State",
    "confidence": 0.5352
   },
@@ -5863,12 +5848,12 @@
    "away": "Old Dominion",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.4247,
-   "pred_margin": -2.4,
-   "score_home": 26.2,
-   "score_away": 28.6,
+   "p_home": 0.3484,
+   "pred_margin": -4.94,
+   "score_home": 24.9,
+   "score_away": 29.9,
    "pick": "Old Dominion",
-   "confidence": 0.5753
+   "confidence": 0.6516
   },
   {
    "season": 2026,
@@ -6013,12 +5998,12 @@
    "away": "Liberty",
    "home_conf": "Conference USA",
    "away_conf": "Conference USA",
-   "p_home": 0.3675,
-   "pred_margin": -4.29,
-   "score_home": 25.2,
-   "score_away": 29.5,
+   "p_home": 0.2962,
+   "pred_margin": -6.83,
+   "score_home": 24.0,
+   "score_away": 30.8,
    "pick": "Liberty",
-   "confidence": 0.6325
+   "confidence": 0.7038
   },
   {
    "season": 2026,
@@ -6868,12 +6853,12 @@
    "away": "Arkansas State",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.5534,
-   "pred_margin": 1.69,
-   "score_home": 28.2,
-   "score_away": 26.5,
-   "pick": "Coastal Carolina",
-   "confidence": 0.5534
+   "p_home": 0.4729,
+   "pred_margin": -0.86,
+   "score_home": 27.0,
+   "score_away": 27.8,
+   "pick": "Arkansas State",
+   "confidence": 0.5271
   },
   {
    "season": 2026,
@@ -7018,12 +7003,12 @@
    "away": "Middle Tennessee",
    "home_conf": "Conference USA",
    "away_conf": "Conference USA",
-   "p_home": 0.6853,
-   "pred_margin": 6.14,
-   "score_home": 30.5,
-   "score_away": 24.3,
+   "p_home": 0.7504,
+   "pred_margin": 8.69,
+   "score_home": 31.7,
+   "score_away": 23.0,
    "pick": "Liberty",
-   "confidence": 0.6853
+   "confidence": 0.7504
   },
   {
    "season": 2026,
@@ -7828,12 +7813,12 @@
    "away": "Coastal Carolina",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.6999,
-   "pred_margin": 6.69,
-   "score_home": 30.7,
-   "score_away": 24.0,
+   "p_home": 0.7631,
+   "pred_margin": 9.24,
+   "score_home": 32.0,
+   "score_away": 22.8,
    "pick": "Louisiana",
-   "confidence": 0.6999
+   "confidence": 0.7631
   },
   {
    "season": 2026,
@@ -7918,12 +7903,12 @@
    "away": "Western Kentucky",
    "home_conf": "Conference USA",
    "away_conf": "Conference USA",
-   "p_home": 0.6417,
-   "pred_margin": 4.6,
-   "score_home": 29.7,
-   "score_away": 25.1,
+   "p_home": 0.712,
+   "pred_margin": 7.15,
+   "score_home": 31.0,
+   "score_away": 23.8,
    "pick": "Liberty",
-   "confidence": 0.6417
+   "confidence": 0.712
   },
   {
    "season": 2026,
@@ -8848,12 +8833,12 @@
    "away": "Coastal Carolina",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.9123,
-   "pred_margin": 18.5,
-   "score_home": 36.6,
-   "score_away": 18.1,
+   "p_home": 0.9349,
+   "pred_margin": 21.05,
+   "score_home": 37.9,
+   "score_away": 16.9,
    "pick": "James Madison",
-   "confidence": 0.9123
+   "confidence": 0.9349
   },
   {
    "season": 2026,
@@ -8983,12 +8968,12 @@
    "away": "Liberty",
    "home_conf": "Conference USA",
    "away_conf": "Conference USA",
-   "p_home": 0.5258,
-   "pred_margin": 0.81,
-   "score_home": 27.8,
-   "score_away": 27.0,
-   "pick": "Missouri State",
-   "confidence": 0.5258
+   "p_home": 0.4453,
+   "pred_margin": -1.73,
+   "score_home": 26.5,
+   "score_away": 28.3,
+   "pick": "Liberty",
+   "confidence": 0.5547
   },
   {
    "season": 2026,
