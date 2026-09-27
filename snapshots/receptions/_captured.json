@@ -54,6 +54,11 @@
   "kickoff": "2026-09-27T17:00:00Z",
   "matchup": "Seattle Seahawks at Washington Commanders"
  },
+ "2e523fcb0497aa689473e290eb2b97de": {
+  "captured_at": "2026-09-27T17:02:28+00:00",
+  "kickoff": "2026-09-27T20:25:00Z",
+  "matchup": "Las Vegas Raiders at New Orleans Saints"
+ },
  "32367f882fac1a0c20a6335619922025": {
   "captured_at": "2026-09-21T21:02:16+00:00",
   "kickoff": "2026-09-22T00:15:00Z",
@@ -129,6 +134,11 @@
   "kickoff": "2026-09-13T17:00:00Z",
   "matchup": "Buffalo Bills at Houston Texans"
  },
+ "84cfca14efc21363fd605508404cf1ff": {
+  "captured_at": "2026-09-27T17:02:28+00:00",
+  "kickoff": "2026-09-27T20:25:00Z",
+  "matchup": "Baltimore Ravens at Dallas Cowboys"
+ },
  "85ef85098ddd22fe4ecf45e7e3c0a9c0": {
   "captured_at": "2026-09-20T17:02:20+00:00",
   "kickoff": "2026-09-20T20:25:00Z",
@@ -148,6 +158,11 @@
   "captured_at": "2026-09-20T13:02:15+00:00",
   "kickoff": "2026-09-20T17:00:00Z",
   "matchup": "Pittsburgh Steelers at New England Patriots"
+ },
+ "9d2b09e0f9b6dd5ce0d985894f4f98fa": {
+  "captured_at": "2026-09-27T17:02:27+00:00",
+  "kickoff": "2026-09-27T20:05:00Z",
+  "matchup": "Arizona Cardinals at San Francisco 49ers"
  },
  "acc580d74344ea3b31bbcdd057fe6a9c": {
   "captured_at": "2026-09-10T21:02:30+00:00",
@@ -198,6 +213,11 @@
   "captured_at": "2026-09-13T14:18:44+00:00",
   "kickoff": "2026-09-13T17:00:00Z",
   "matchup": "Tampa Bay Buccaneers at Cincinnati Bengals"
+ },
+ "f1724dead3eab61546033032fc782375": {
+  "captured_at": "2026-09-27T17:02:28+00:00",
+  "kickoff": "2026-09-27T20:05:00Z",
+  "matchup": "Minnesota Vikings at Tampa Bay Buccaneers"
  },
  "fafc649c455e32a0f2ba1bd06e2039bc": {
   "captured_at": "2026-09-20T13:02:15+00:00",
