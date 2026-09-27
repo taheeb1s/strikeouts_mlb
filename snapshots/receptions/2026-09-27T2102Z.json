@@ -1,0 +1,692 @@
+{
+ "captured_at": "2026-09-27T21:02:51+00:00",
+ "market": "player_receptions",
+ "sport": "americanfootball_nfl",
+ "games_captured": 1,
+ "credits_spent": 1,
+ "credits_remaining": "213",
+ "games": [
+  {
+   "id": "3bfd8bfb4b8e9a365a0877879b73b16b",
+   "sport_key": "americanfootball_nfl",
+   "sport_title": "NFL",
+   "commence_time": "2026-09-28T00:20:00Z",
+   "home_team": "Denver Broncos",
+   "away_team": "Los Angeles Rams",
+   "bookmakers": [
+    {
+     "key": "draftkings",
+     "title": "DraftKings",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-27T21:02:15Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -112,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Davante Adams",
+         "price": -114,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Jaylen Waddle",
+         "price": -155,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaylen Waddle",
+         "price": 121,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": -156,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Terrance Ferguson",
+         "price": 122,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Courtland Sutton",
+         "price": -102,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Courtland Sutton",
+         "price": -125,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Bryant",
+         "price": -138,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Pat Bryant",
+         "price": 108,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "RJ Harvey",
+         "price": -138,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "RJ Harvey",
+         "price": 108,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Evan Engram",
+         "price": -131,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Evan Engram",
+         "price": 103,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Colby Parkinson",
+         "price": -123,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Colby Parkinson",
+         "price": -104,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": 138,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyren Williams",
+         "price": -177,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Adam Trautman",
+         "price": -187,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Adam Trautman",
+         "price": 146,
+         "point": 0.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "fanduel",
+     "title": "FanDuel",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-27T21:02:49Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -130,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Davante Adams",
+         "price": -102,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Evan Engram",
+         "price": -128,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Evan Engram",
+         "price": -104,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Bryant",
+         "price": -136,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Pat Bryant",
+         "price": 102,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Adam Trautman",
+         "price": -205,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Adam Trautman",
+         "price": 152,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": -172,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Terrance Ferguson",
+         "price": 128,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jaylen Waddle",
+         "price": -154,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaylen Waddle",
+         "price": 116,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "RJ Harvey",
+         "price": -140,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "RJ Harvey",
+         "price": 106,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Colby Parkinson",
+         "price": -114,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Colby Parkinson",
+         "price": -114,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": 124,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyren Williams",
+         "price": -166,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Courtland Sutton",
+         "price": 102,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Courtland Sutton",
+         "price": -136,
+         "point": 3.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betrivers",
+     "title": "BetRivers",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-27T21:01:52Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -125,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": -175,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": 135,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Bryant",
+         "price": -122,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Evan Engram",
+         "price": -129,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Courtland Sutton",
+         "price": 102,
+         "point": 3.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betonlineag",
+     "title": "BetOnline.ag",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-27T21:01:47Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Jaylen Waddle",
+         "price": -159,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaylen Waddle",
+         "price": 122,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Courtland Sutton",
+         "price": 106,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Courtland Sutton",
+         "price": -137,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Bryant",
+         "price": -143,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Pat Bryant",
+         "price": 110,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Evan Engram",
+         "price": -122,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Evan Engram",
+         "price": -106,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": 130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyren Williams",
+         "price": -169,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -120,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Davante Adams",
+         "price": -108,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "RJ Harvey",
+         "price": -156,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "RJ Harvey",
+         "price": 120,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": 115,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Terrance Ferguson",
+         "price": -149,
+         "point": 4.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betmgm",
+     "title": "BetMGM",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-27T21:02:44Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Jaylen Waddle",
+         "price": -150,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaylen Waddle",
+         "price": 110,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Evan Engram",
+         "price": -125,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Evan Engram",
+         "price": -105,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Bryant",
+         "price": -115,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Pat Bryant",
+         "price": -115,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Courtland Sutton",
+         "price": 120,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Courtland Sutton",
+         "price": -160,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": -210,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyren Williams",
+         "price": 155,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -115,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Davante Adams",
+         "price": -115,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": -155,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Terrance Ferguson",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "RJ Harvey",
+         "price": -155,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "RJ Harvey",
+         "price": 115,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Adam Trautman",
+         "price": -225,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Adam Trautman",
+         "price": 165,
+         "point": 0.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "bovada",
+     "title": "Bovada",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-27T21:01:32Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Adam Trautman",
+         "price": -190,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Adam Trautman",
+         "price": 145,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Colby Parkinson",
+         "price": -125,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Colby Parkinson",
+         "price": -105,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Courtland Sutton",
+         "price": -105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Courtland Sutton",
+         "price": -125,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Davante Adams",
+         "price": -115,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Davante Adams",
+         "price": -115,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Evan Engram",
+         "price": -135,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Evan Engram",
+         "price": 105,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Jaylen Waddle",
+         "price": -160,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaylen Waddle",
+         "price": 120,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": 135,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyren Williams",
+         "price": -180,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Bryant",
+         "price": -145,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Pat Bryant",
+         "price": 110,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "RJ Harvey",
+         "price": -145,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "RJ Harvey",
+         "price": 110,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Terrance Ferguson",
+         "price": -160,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Terrance Ferguson",
+         "price": 120,
+         "point": 3.5
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
