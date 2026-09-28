@@ -1,0 +1,914 @@
+{
+ "captured_at": "2026-09-28T21:03:29+00:00",
+ "market": "player_receptions",
+ "sport": "americanfootball_nfl",
+ "games_captured": 1,
+ "credits_spent": 1,
+ "credits_remaining": "212",
+ "games": [
+  {
+   "id": "47dc7baa254659f3beb2ed2b38c207b6",
+   "sport_key": "americanfootball_nfl",
+   "sport_title": "NFL",
+   "commence_time": "2026-09-29T00:15:00Z",
+   "home_team": "Chicago Bears",
+   "away_team": "Philadelphia Eagles",
+   "bookmakers": [
+    {
+     "key": "draftkings",
+     "title": "DraftKings",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-28T21:01:10Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "DeVonta Smith",
+         "price": -120,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "DeVonta Smith",
+         "price": -106,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Luther Burden III",
+         "price": 103,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Luther Burden III",
+         "price": -132,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Colston Loveland",
+         "price": 109,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Colston Loveland",
+         "price": -139,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Dontayvion Wicks",
+         "price": 131,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Dontayvion Wicks",
+         "price": -167,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": -127,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Makai Lemon",
+         "price": -101,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Kalif Raymond",
+         "price": -116,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Kalif Raymond",
+         "price": -110,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Rome Odunze",
+         "price": 111,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Rome Odunze",
+         "price": -142,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "D'Andre Swift",
+         "price": 122,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "D'Andre Swift",
+         "price": -156,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": 140,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Saquon Barkley",
+         "price": -179,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Zach Ertz",
+         "price": -117,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Zach Ertz",
+         "price": -109,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyle Monangai",
+         "price": 116,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyle Monangai",
+         "price": -148,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Cole Kmet",
+         "price": 125,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Cole Kmet",
+         "price": -159,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Johnny Mundt",
+         "price": 125,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Johnny Mundt",
+         "price": -160,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "fanduel",
+     "title": "FanDuel",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-28T21:03:18Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Luther Burden III",
+         "price": 100,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Luther Burden III",
+         "price": -132,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "D'Andre Swift",
+         "price": 134,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "D'Andre Swift",
+         "price": -180,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Cole Kmet",
+         "price": 124,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Cole Kmet",
+         "price": -166,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyle Monangai",
+         "price": 116,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyle Monangai",
+         "price": -154,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": 134,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Saquon Barkley",
+         "price": -180,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Zach Ertz",
+         "price": -102,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Zach Ertz",
+         "price": -130,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Johnny Mundt",
+         "price": 130,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Johnny Mundt",
+         "price": -174,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "DeVonta Smith",
+         "price": -114,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "DeVonta Smith",
+         "price": -114,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Rome Odunze",
+         "price": 124,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Rome Odunze",
+         "price": -166,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Darius Cooper",
+         "price": -138,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Darius Cooper",
+         "price": 104,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Colston Loveland",
+         "price": 112,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Colston Loveland",
+         "price": -148,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Kalif Raymond",
+         "price": -114,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Kalif Raymond",
+         "price": -114,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Dontayvion Wicks",
+         "price": 130,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Dontayvion Wicks",
+         "price": -174,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": -130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Makai Lemon",
+         "price": -102,
+         "point": 2.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betrivers",
+     "title": "BetRivers",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-28T21:03:13Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": 143,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Cole Kmet",
+         "price": 123,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Rome Odunze",
+         "price": 104,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Colston Loveland",
+         "price": 106,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Luther Burden III",
+         "price": -125,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": -127,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Kalif Raymond",
+         "price": -130,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Zach Ertz",
+         "price": -109,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "DeVonta Smith",
+         "price": -120,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "D'Andre Swift",
+         "price": 138,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Dontayvion Wicks",
+         "price": 125,
+         "point": 3.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betonlineag",
+     "title": "BetOnline.ag",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-28T21:03:19Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": 130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Saquon Barkley",
+         "price": -169,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "DeVonta Smith",
+         "price": -114,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "DeVonta Smith",
+         "price": -114,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Dontayvion Wicks",
+         "price": 122,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Dontayvion Wicks",
+         "price": -159,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Luther Burden III",
+         "price": 105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Luther Burden III",
+         "price": -135,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": -135,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Makai Lemon",
+         "price": 105,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Colston Loveland",
+         "price": 110,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Colston Loveland",
+         "price": -143,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Rome Odunze",
+         "price": 115,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Rome Odunze",
+         "price": -149,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Zach Ertz",
+         "price": 100,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Zach Ertz",
+         "price": -130,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Kalif Raymond",
+         "price": -114,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Kalif Raymond",
+         "price": -114,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Cole Kmet",
+         "price": 120,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Cole Kmet",
+         "price": -156,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyle Monangai",
+         "price": 117,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyle Monangai",
+         "price": -152,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Johnny Mundt",
+         "price": 125,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Johnny Mundt",
+         "price": -164,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "D'Andre Swift",
+         "price": 120,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "D'Andre Swift",
+         "price": -156,
+         "point": 2.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betmgm",
+     "title": "BetMGM",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-28T21:03:04Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Dontayvion Wicks",
+         "price": 125,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Dontayvion Wicks",
+         "price": -165,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "DeVonta Smith",
+         "price": -105,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "DeVonta Smith",
+         "price": -125,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Colston Loveland",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Colston Loveland",
+         "price": -155,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Rome Odunze",
+         "price": 105,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Rome Odunze",
+         "price": -140,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Kalif Raymond",
+         "price": -125,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Kalif Raymond",
+         "price": -105,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Luther Burden III",
+         "price": -105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Luther Burden III",
+         "price": -125,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": -135,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Makai Lemon",
+         "price": 100,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Zach Ertz",
+         "price": -105,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Zach Ertz",
+         "price": -125,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": 135,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Saquon Barkley",
+         "price": -185,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "D'Andre Swift",
+         "price": 110,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "D'Andre Swift",
+         "price": -150,
+         "point": 2.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "bovada",
+     "title": "Bovada",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-09-28T21:02:48Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Cole Kmet",
+         "price": 125,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Cole Kmet",
+         "price": -165,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Colston Loveland",
+         "price": 110,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Colston Loveland",
+         "price": -145,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "D'Andre Swift",
+         "price": 120,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "D'Andre Swift",
+         "price": -160,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "DeVonta Smith",
+         "price": -120,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "DeVonta Smith",
+         "price": -110,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Dontayvion Wicks",
+         "price": 130,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Dontayvion Wicks",
+         "price": -170,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Johnny Mundt",
+         "price": 125,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Johnny Mundt",
+         "price": -165,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Kalif Raymond",
+         "price": -115,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Kalif Raymond",
+         "price": -115,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyle Monangai",
+         "price": 115,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyle Monangai",
+         "price": -150,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Luther Burden III",
+         "price": 105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Luther Burden III",
+         "price": -135,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": -130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Makai Lemon",
+         "price": 100,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Rome Odunze",
+         "price": 110,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Rome Odunze",
+         "price": -145,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": 140,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Saquon Barkley",
+         "price": -185,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Zach Ertz",
+         "price": -120,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Zach Ertz",
+         "price": -110,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
