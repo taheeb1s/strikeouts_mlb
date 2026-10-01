@@ -1,0 +1,974 @@
+{
+ "captured_at": "2026-10-01T21:02:59+00:00",
+ "market": "player_receptions",
+ "sport": "americanfootball_nfl",
+ "games_captured": 1,
+ "credits_spent": 1,
+ "credits_remaining": "497",
+ "games": [
+  {
+   "id": "d55cb69fed50a09170560b5b75d8de86",
+   "sport_key": "americanfootball_nfl",
+   "sport_title": "NFL",
+   "commence_time": "2026-10-02T00:15:00Z",
+   "home_team": "Cleveland Browns",
+   "away_team": "Pittsburgh Steelers",
+   "bookmakers": [
+    {
+     "key": "draftkings",
+     "title": "DraftKings",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-01T21:02:28Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Harold Fannin Jr.",
+         "price": -103,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Harold Fannin Jr.",
+         "price": -124,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "KC Concepcion",
+         "price": -160,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "KC Concepcion",
+         "price": 125,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "DK Metcalf",
+         "price": -146,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "DK Metcalf",
+         "price": 114,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jaylen Warren",
+         "price": -108,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaylen Warren",
+         "price": -118,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Michael Pittman Jr.",
+         "price": 108,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Michael Pittman Jr.",
+         "price": -138,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Freiermuth",
+         "price": 124,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Pat Freiermuth",
+         "price": -159,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Denzel Boston",
+         "price": -162,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Denzel Boston",
+         "price": 127,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Roman Wilson",
+         "price": 131,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Roman Wilson",
+         "price": -167,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Quinshon Judkins",
+         "price": -190,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Quinshon Judkins",
+         "price": 148,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Raheim Sanders",
+         "price": -159,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Raheim Sanders",
+         "price": 124,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Darnell Washington",
+         "price": -156,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Darnell Washington",
+         "price": 122,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jerry Jeudy",
+         "price": 116,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jerry Jeudy",
+         "price": -149,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Germie Bernard",
+         "price": 143,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Germie Bernard",
+         "price": -184,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Blake Whiteheart",
+         "price": -116,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Blake Whiteheart",
+         "price": -110,
+         "point": 0.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "fanduel",
+     "title": "FanDuel",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-01T21:02:13Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "DK Metcalf",
+         "price": -144,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "DK Metcalf",
+         "price": 108,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Darnell Washington",
+         "price": -168,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Darnell Washington",
+         "price": 126,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "KC Concepcion",
+         "price": -158,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "KC Concepcion",
+         "price": 118,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Freiermuth",
+         "price": 124,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Pat Freiermuth",
+         "price": -166,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Harold Fannin Jr.",
+         "price": -106,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Harold Fannin Jr.",
+         "price": -125,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Quinshon Judkins",
+         "price": 140,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Quinshon Judkins",
+         "price": -188,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Jerry Jeudy",
+         "price": 114,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jerry Jeudy",
+         "price": -152,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Blake Whiteheart",
+         "price": -114,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Blake Whiteheart",
+         "price": -114,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Denzel Boston",
+         "price": -158,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Denzel Boston",
+         "price": 118,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Raheim Sanders",
+         "price": -200,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Raheim Sanders",
+         "price": 148,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Michael Pittman Jr.",
+         "price": 106,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Michael Pittman Jr.",
+         "price": -140,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Roman Wilson",
+         "price": 134,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Roman Wilson",
+         "price": -180,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Germie Bernard",
+         "price": 172,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Germie Bernard",
+         "price": -235,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jaylen Warren",
+         "price": -108,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaylen Warren",
+         "price": -122,
+         "point": 3.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betonlineag",
+     "title": "BetOnline.ag",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-01T21:02:26Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "DK Metcalf",
+         "price": -145,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "DK Metcalf",
+         "price": 111,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Freiermuth",
+         "price": 130,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Pat Freiermuth",
+         "price": -169,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Denzel Boston",
+         "price": -149,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Denzel Boston",
+         "price": 115,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Harold Fannin Jr.",
+         "price": -103,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Harold Fannin Jr.",
+         "price": -125,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Michael Pittman Jr.",
+         "price": 107,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Michael Pittman Jr.",
+         "price": -139,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jaylen Warren",
+         "price": 100,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaylen Warren",
+         "price": -130,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Darnell Washington",
+         "price": -156,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Darnell Washington",
+         "price": 120,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jerry Jeudy",
+         "price": 110,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jerry Jeudy",
+         "price": -143,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Roman Wilson",
+         "price": 140,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Roman Wilson",
+         "price": -185,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Raheim Sanders",
+         "price": -156,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Raheim Sanders",
+         "price": 120,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Quinshon Judkins",
+         "price": 144,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Quinshon Judkins",
+         "price": -189,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Germie Bernard",
+         "price": 158,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Germie Bernard",
+         "price": -208,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "KC Concepcion",
+         "price": 120,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "KC Concepcion",
+         "price": -156,
+         "point": 4.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betrivers",
+     "title": "BetRivers",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-01T21:02:42Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Denzel Boston",
+         "price": -152,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Freiermuth",
+         "price": 125,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Harold Fannin Jr.",
+         "price": -121,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Michael Pittman Jr.",
+         "price": 106,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Germie Bernard",
+         "price": 155,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "DK Metcalf",
+         "price": -152,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jaylen Warren",
+         "price": -107,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Quinshon Judkins",
+         "price": 133,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Roman Wilson",
+         "price": 125,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Raheim Sanders",
+         "price": -190,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jerry Jeudy",
+         "price": 114,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Darnell Washington",
+         "price": -182,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "KC Concepcion",
+         "price": -175,
+         "point": 3.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "bovada",
+     "title": "Bovada",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-01T21:02:47Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Darnell Washington",
+         "price": -145,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Darnell Washington",
+         "price": 110,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Denzel Boston",
+         "price": -165,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Denzel Boston",
+         "price": 125,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "DK Metcalf",
+         "price": -150,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "DK Metcalf",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Germie Bernard",
+         "price": 140,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Germie Bernard",
+         "price": -185,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Harold Fannin Jr.",
+         "price": -105,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Harold Fannin Jr.",
+         "price": -125,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Jaylen Warren",
+         "price": -110,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaylen Warren",
+         "price": -120,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jerry Jeudy",
+         "price": 115,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jerry Jeudy",
+         "price": -150,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "KC Concepcion",
+         "price": -165,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "KC Concepcion",
+         "price": 125,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Michael Pittman Jr.",
+         "price": 110,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Michael Pittman Jr.",
+         "price": -145,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Freiermuth",
+         "price": 135,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Pat Freiermuth",
+         "price": -180,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Quinshon Judkins",
+         "price": -190,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Quinshon Judkins",
+         "price": 145,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Raheim Sanders",
+         "price": -165,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Raheim Sanders",
+         "price": 125,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Roman Wilson",
+         "price": 125,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Roman Wilson",
+         "price": -165,
+         "point": 2.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betmgm",
+     "title": "BetMGM",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-01T21:02:05Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Quinshon Judkins",
+         "price": 138,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Quinshon Judkins",
+         "price": -190,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Raheim Sanders",
+         "price": -175,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Raheim Sanders",
+         "price": 130,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Harold Fannin Jr.",
+         "price": -105,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Harold Fannin Jr.",
+         "price": -125,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Denzel Boston",
+         "price": -175,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Denzel Boston",
+         "price": 130,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Jerry Jeudy",
+         "price": 115,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Jerry Jeudy",
+         "price": -155,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "DK Metcalf",
+         "price": -155,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "DK Metcalf",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Michael Pittman Jr.",
+         "price": 100,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Michael Pittman Jr.",
+         "price": -135,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Pat Freiermuth",
+         "price": 125,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Pat Freiermuth",
+         "price": -165,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Roman Wilson",
+         "price": 130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Roman Wilson",
+         "price": -175,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Jaylen Warren",
+         "price": -115,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jaylen Warren",
+         "price": -115,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Darnell Washington",
+         "price": 145,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Darnell Washington",
+         "price": -200,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "KC Concepcion",
+         "price": 125,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "KC Concepcion",
+         "price": -165,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Germie Bernard",
+         "price": 145,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Germie Bernard",
+         "price": -200,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
