@@ -1,0 +1,632 @@
+{
+ "captured_at": "2026-10-04T21:06:12+00:00",
+ "market": "player_receptions",
+ "sport": "americanfootball_nfl",
+ "games_captured": 1,
+ "credits_spent": 1,
+ "credits_remaining": "477",
+ "games": [
+  {
+   "id": "a73a76599a4f3422803e57bd8f61b626",
+   "sport_key": "americanfootball_nfl",
+   "sport_title": "NFL",
+   "commence_time": "2026-10-05T00:20:00Z",
+   "home_team": "Carolina Panthers",
+   "away_team": "Detroit Lions",
+   "bookmakers": [
+    {
+     "key": "draftkings",
+     "title": "DraftKings",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-04T21:05:56Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Amon-Ra St. Brown",
+         "price": 116,
+         "point": 7.5
+        },
+        {
+         "name": "Under",
+         "description": "Amon-Ra St. Brown",
+         "price": -148,
+         "point": 7.5
+        },
+        {
+         "name": "Over",
+         "description": "Tetairoa McMillan",
+         "price": 116,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Tetairoa McMillan",
+         "price": -148,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Jahmyr Gibbs",
+         "price": -127,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Jahmyr Gibbs",
+         "price": -101,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Sam LaPorta",
+         "price": 125,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Sam LaPorta",
+         "price": -160,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Darren Waller",
+         "price": -109,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Darren Waller",
+         "price": -117,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jameson Williams",
+         "price": 100,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jameson Williams",
+         "price": -127,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Chuba Hubbard",
+         "price": -157,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Chuba Hubbard",
+         "price": 123,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Brycen Tremayne",
+         "price": -122,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Brycen Tremayne",
+         "price": -105,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Tommy Tremble",
+         "price": -145,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tommy Tremble",
+         "price": 113,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Isaac TeSlaa",
+         "price": -101,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Isaac TeSlaa",
+         "price": -127,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Brock Wright",
+         "price": -145,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Brock Wright",
+         "price": 113,
+         "point": 0.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "fanduel",
+     "title": "FanDuel",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-04T21:05:54Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Tommy Tremble",
+         "price": -162,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tommy Tremble",
+         "price": 122,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jameson Williams",
+         "price": -102,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jameson Williams",
+         "price": -130,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Brycen Tremayne",
+         "price": -120,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Brycen Tremayne",
+         "price": -110,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Amon-Ra St. Brown",
+         "price": -148,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "Amon-Ra St. Brown",
+         "price": 112,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Chuba Hubbard",
+         "price": -158,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Chuba Hubbard",
+         "price": 118,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Brock Wright",
+         "price": -148,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Brock Wright",
+         "price": 112,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Darren Waller",
+         "price": -122,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Darren Waller",
+         "price": -108,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Sam LaPorta",
+         "price": 106,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Sam LaPorta",
+         "price": -140,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Isaac TeSlaa",
+         "price": 106,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Isaac TeSlaa",
+         "price": -140,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tetairoa McMillan",
+         "price": -172,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Tetairoa McMillan",
+         "price": 128,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Jahmyr Gibbs",
+         "price": -130,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Jahmyr Gibbs",
+         "price": -102,
+         "point": 4.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betonlineag",
+     "title": "BetOnline.ag",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-04T21:05:49Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Sam LaPorta",
+         "price": 120,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Sam LaPorta",
+         "price": -156,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Jahmyr Gibbs",
+         "price": -123,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Jahmyr Gibbs",
+         "price": -105,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Jameson Williams",
+         "price": -103,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jameson Williams",
+         "price": -125,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Amon-Ra St. Brown",
+         "price": -145,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "Amon-Ra St. Brown",
+         "price": 112,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Chuba Hubbard",
+         "price": -152,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Chuba Hubbard",
+         "price": 117,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Isaac TeSlaa",
+         "price": 105,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Isaac TeSlaa",
+         "price": -135,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tommy Tremble",
+         "price": -147,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tommy Tremble",
+         "price": 114,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Darren Waller",
+         "price": -120,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Darren Waller",
+         "price": -108,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Tetairoa McMillan",
+         "price": 117,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Tetairoa McMillan",
+         "price": -152,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Brycen Tremayne",
+         "price": -116,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Brycen Tremayne",
+         "price": -111,
+         "point": 2.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betrivers",
+     "title": "BetRivers",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-04T21:05:26Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Jameson Williams",
+         "price": -108,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jahmyr Gibbs",
+         "price": -113,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Isaac TeSlaa",
+         "price": -114,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Amon-Ra St. Brown",
+         "price": -157,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Sam LaPorta",
+         "price": 102,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Darren Waller",
+         "price": -110,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Chuba Hubbard",
+         "price": -152,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Tommy Tremble",
+         "price": -150,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tetairoa McMillan",
+         "price": 108,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Brock Wright",
+         "price": -152,
+         "point": 0.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betmgm",
+     "title": "BetMGM",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-04T21:05:36Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Isaac TeSlaa",
+         "price": -111,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Isaac TeSlaa",
+         "price": -118,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Amon-Ra St. Brown",
+         "price": -150,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "Amon-Ra St. Brown",
+         "price": 110,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Sam LaPorta",
+         "price": 100,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Sam LaPorta",
+         "price": -135,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Chuba Hubbard",
+         "price": -165,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Chuba Hubbard",
+         "price": 125,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Jahmyr Gibbs",
+         "price": -120,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Jahmyr Gibbs",
+         "price": -110,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Darren Waller",
+         "price": 100,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Darren Waller",
+         "price": -135,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Tommy Tremble",
+         "price": -140,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tommy Tremble",
+         "price": 105,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tetairoa McMillan",
+         "price": 120,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Tetairoa McMillan",
+         "price": -160,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Brock Wright",
+         "price": -150,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Brock Wright",
+         "price": 110,
+         "point": 0.5
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
