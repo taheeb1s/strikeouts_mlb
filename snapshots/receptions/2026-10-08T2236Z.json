@@ -1,0 +1,956 @@
+{
+ "captured_at": "2026-10-08T22:36:33+00:00",
+ "market": "player_receptions",
+ "sport": "americanfootball_nfl",
+ "games_captured": 1,
+ "credits_spent": 1,
+ "credits_remaining": "466",
+ "games": [
+  {
+   "id": "259b5df9aa0d10257f56de78523495e0",
+   "sport_key": "americanfootball_nfl",
+   "sport_title": "NFL",
+   "commence_time": "2026-10-09T00:15:00Z",
+   "home_team": "Dallas Cowboys",
+   "away_team": "Tampa Bay Buccaneers",
+   "bookmakers": [
+    {
+     "key": "draftkings",
+     "title": "DraftKings",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-08T22:35:39Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -112,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "CeeDee Lamb",
+         "price": -114,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": -137,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "George Pickens",
+         "price": 107,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Chris Godwin",
+         "price": -142,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Chris Godwin",
+         "price": 112,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Cade Otton",
+         "price": -103,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Cade Otton",
+         "price": -123,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Emeka Egbuka",
+         "price": 113,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Emeka Egbuka",
+         "price": -144,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": 114,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Ferguson",
+         "price": -145,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": 128,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Ryan Flournoy",
+         "price": -164,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": -123,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Javonte Williams",
+         "price": -103,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Bucky Irving",
+         "price": 132,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Bucky Irving",
+         "price": -168,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Kenny Gainwell",
+         "price": -181,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kenny Gainwell",
+         "price": 141,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Ted Hurst III",
+         "price": -102,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Ted Hurst III",
+         "price": -124,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tez Johnson",
+         "price": 131,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tez Johnson",
+         "price": -167,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Brevyn Spann-Ford",
+         "price": -130,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Brevyn Spann-Ford",
+         "price": 102,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "KaVontae Turpin",
+         "price": -109,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "KaVontae Turpin",
+         "price": -117,
+         "point": 0.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "fanduel",
+     "title": "FanDuel",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-08T22:36:16Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Bucky Irving",
+         "price": 118,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Bucky Irving",
+         "price": -158,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Tez Johnson",
+         "price": 144,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tez Johnson",
+         "price": -194,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Emeka Egbuka",
+         "price": -198,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Emeka Egbuka",
+         "price": 146,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Kenny Gainwell",
+         "price": -172,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kenny Gainwell",
+         "price": 128,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": -130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Javonte Williams",
+         "price": -102,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "KaVontae Turpin",
+         "price": -108,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "KaVontae Turpin",
+         "price": -122,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -102,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "CeeDee Lamb",
+         "price": -130,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": 102,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Ferguson",
+         "price": -136,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": 112,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Ryan Flournoy",
+         "price": -148,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Ted Hurst III",
+         "price": -102,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Ted Hurst III",
+         "price": -130,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Cade Otton",
+         "price": 102,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Cade Otton",
+         "price": -136,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": -122,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "George Pickens",
+         "price": -106,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Chris Godwin",
+         "price": -138,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Chris Godwin",
+         "price": 104,
+         "point": 3.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betonlineag",
+     "title": "BetOnline.ag",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-08T22:36:16Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Chris Godwin",
+         "price": -149,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Chris Godwin",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Cade Otton",
+         "price": -114,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Cade Otton",
+         "price": -114,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -120,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "CeeDee Lamb",
+         "price": -108,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": 109,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Ferguson",
+         "price": -141,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Bucky Irving",
+         "price": 128,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Bucky Irving",
+         "price": -167,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": 117,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Ryan Flournoy",
+         "price": -152,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Kenny Gainwell",
+         "price": -164,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kenny Gainwell",
+         "price": 125,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": -135,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "George Pickens",
+         "price": 105,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": -135,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Javonte Williams",
+         "price": 105,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Ted Hurst III",
+         "price": -105,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Ted Hurst III",
+         "price": -123,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tez Johnson",
+         "price": 120,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tez Johnson",
+         "price": -156,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Emeka Egbuka",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Emeka Egbuka",
+         "price": -149,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "KaVontae Turpin",
+         "price": -109,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "KaVontae Turpin",
+         "price": -119,
+         "point": 0.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betrivers",
+     "title": "BetRivers",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-08T22:36:15Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Kenny Gainwell",
+         "price": -177,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": 120,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": -124,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": -117,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Emeka Egbuka",
+         "price": 128,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Chris Godwin",
+         "price": -134,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Cade Otton",
+         "price": -109,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": 100,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -103,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Bucky Irving",
+         "price": 138,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Tez Johnson",
+         "price": 145,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Ted Hurst III",
+         "price": -112,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betmgm",
+     "title": "BetMGM",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-08T22:35:36Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": 100,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Ferguson",
+         "price": -135,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -105,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "CeeDee Lamb",
+         "price": -125,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": -135,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "George Pickens",
+         "price": 100,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": -130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Javonte Williams",
+         "price": -105,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Bucky Irving",
+         "price": 125,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Bucky Irving",
+         "price": -165,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Ted Hurst III",
+         "price": 100,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Ted Hurst III",
+         "price": -135,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tez Johnson",
+         "price": 120,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tez Johnson",
+         "price": -160,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Chris Godwin",
+         "price": -150,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Chris Godwin",
+         "price": 110,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Cade Otton",
+         "price": -115,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Cade Otton",
+         "price": -115,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Emeka Egbuka",
+         "price": 135,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Emeka Egbuka",
+         "price": -185,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": 110,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Ryan Flournoy",
+         "price": -150,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Kenny Gainwell",
+         "price": -175,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kenny Gainwell",
+         "price": 130,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "bovada",
+     "title": "Bovada",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-08T22:35:00Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Brevyn Spann-Ford",
+         "price": -130,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Brevyn Spann-Ford",
+         "price": 100,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Bucky Irving",
+         "price": 130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Bucky Irving",
+         "price": -170,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Cade Otton",
+         "price": -105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Cade Otton",
+         "price": -125,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -115,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "CeeDee Lamb",
+         "price": -115,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Chris Godwin",
+         "price": -145,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Chris Godwin",
+         "price": 110,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Emeka Egbuka",
+         "price": 110,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Emeka Egbuka",
+         "price": -145,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": -135,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "George Pickens",
+         "price": 105,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": 115,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Ferguson",
+         "price": -150,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": -125,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Javonte Williams",
+         "price": -105,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "KaVontae Turpin",
+         "price": -110,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "KaVontae Turpin",
+         "price": -120,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Kenny Gainwell",
+         "price": -185,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Kenny Gainwell",
+         "price": 140,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": 130,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Ryan Flournoy",
+         "price": -170,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Ted Hurst III",
+         "price": -105,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Ted Hurst III",
+         "price": -125,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Tez Johnson",
+         "price": 130,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tez Johnson",
+         "price": -170,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
