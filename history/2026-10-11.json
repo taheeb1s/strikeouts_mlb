@@ -1,0 +1,143 @@
+{
+ "date": "2026-10-11",
+ "generated_at": "2026-10-11T15:16:28+00:00",
+ "league_k_pct": 0.2214,
+ "sample": false,
+ "starters": [
+  {
+   "pitcher": "Tarik Skubal",
+   "pitcher_id": 669373,
+   "team": "LAD",
+   "opponent": "MIL",
+   "home": false,
+   "venue": "American Family Field",
+   "game_time": "8:00 PM ET",
+   "start_iso": "2026-10-12T00:00:00Z",
+   "proj_k": 7.08,
+   "proj_bf": 24.7,
+   "naive_k": 7.15,
+   "k_rate": 0.2869,
+   "pitcher_k_pct": 0.2891,
+   "opp_k_pct": 0.2196,
+   "batters_faced_ytd": 620,
+   "starts_ytd": 26,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00026,
+    0.00282,
+    0.01257,
+    0.03764,
+    0.07638,
+    0.1254,
+    0.16087,
+    0.1707,
+    0.15147,
+    0.11399,
+    0.07271,
+    0.04132,
+    0.02009,
+    0.00881,
+    0.00348,
+    0.00112,
+    0.00028
+   ],
+   "market": {
+    "line": 7.5,
+    "books": 5,
+    "books_other_lines": 1,
+    "consensus_over": 0.446,
+    "book_spread": 0.0179,
+    "avg_vig": 0.0668,
+    "best_over": {
+     "price": 115,
+     "book": "BetOnline.ag"
+    },
+    "best_under": {
+     "price": -137,
+     "book": "DraftKings"
+    },
+    "featured": {
+     "book": "DraftKings",
+     "over_price": 107,
+     "under_price": -137
+    },
+    "threshold": 8,
+    "model_over": 0.4133,
+    "model_line": 6.5,
+    "edge": -0.0327,
+    "ev_over": -0.1115,
+    "ev_under": 0.015,
+    "best_side": "Under",
+    "best_ev": 0.015
+   }
+  },
+  {
+   "pitcher": "Jacob Misiorowski",
+   "pitcher_id": 694819,
+   "team": "MIL",
+   "opponent": "LAD",
+   "home": true,
+   "venue": "American Family Field",
+   "game_time": "8:00 PM ET",
+   "start_iso": "2026-10-12T00:00:00Z",
+   "proj_k": 6.98,
+   "proj_bf": 20.9,
+   "naive_k": 8.4,
+   "k_rate": 0.3347,
+   "pitcher_k_pct": 0.3583,
+   "opp_k_pct": 0.2039,
+   "batters_faced_ytd": 665,
+   "starts_ytd": 30,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00092,
+    0.00615,
+    0.02172,
+    0.05063,
+    0.08902,
+    0.12721,
+    0.14953,
+    0.15168,
+    0.13351,
+    0.10457,
+    0.07158,
+    0.04494,
+    0.02562,
+    0.01286,
+    0.0059,
+    0.00252,
+    0.00102
+   ],
+   "market": {
+    "line": 7.5,
+    "books": 6,
+    "books_other_lines": 0,
+    "consensus_over": 0.451,
+    "book_spread": 0.0159,
+    "avg_vig": 0.068,
+    "best_over": {
+     "price": 110,
+     "book": "FanDuel"
+    },
+    "best_under": {
+     "price": -136,
+     "book": "DraftKings"
+    },
+    "featured": {
+     "book": "DraftKings",
+     "over_price": 107,
+     "under_price": -136
+    },
+    "threshold": 8,
+    "model_over": 0.4025,
+    "model_line": 6.5,
+    "edge": -0.0485,
+    "ev_over": -0.1547,
+    "ev_under": 0.0368,
+    "best_side": "Under",
+    "best_ev": 0.0368
+   }
+  }
+ ],
+ "odds_books": "all US books"
+}
