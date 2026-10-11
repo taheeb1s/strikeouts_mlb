@@ -69,6 +69,16 @@
   "kickoff": "2026-09-27T17:00:00Z",
   "matchup": "Seattle Seahawks at Washington Commanders"
  },
+ "2caea57b1e5cfbba1334cfbfd46f6771": {
+  "captured_at": "2026-10-11T16:01:20+00:00",
+  "kickoff": "2026-10-11T17:00:00Z",
+  "matchup": "Chicago Bears at Green Bay Packers"
+ },
+ "2cda9bf0fbe35a2735f0dd8aaafe9eff": {
+  "captured_at": "2026-10-11T16:01:21+00:00",
+  "kickoff": "2026-10-11T17:00:00Z",
+  "matchup": "Minnesota Vikings at New Orleans Saints"
+ },
  "2e523fcb0497aa689473e290eb2b97de": {
   "captured_at": "2026-09-27T17:02:28+00:00",
   "kickoff": "2026-09-27T20:25:00Z",
@@ -98,6 +108,11 @@
   "captured_at": "2026-09-13T20:27:05+00:00",
   "kickoff": "2026-09-14T00:20:00Z",
   "matchup": "Dallas Cowboys at New York Giants"
+ },
+ "448d7cf18c6db4c811ed82ded1b72867": {
+  "captured_at": "2026-10-11T16:01:20+00:00",
+  "kickoff": "2026-10-11T17:00:00Z",
+  "matchup": "Indianapolis Colts at Pittsburgh Steelers"
  },
  "47dc7baa254659f3beb2ed2b38c207b6": {
   "captured_at": "2026-09-28T21:03:29+00:00",
@@ -153,6 +168,11 @@
   "captured_at": "2026-09-20T17:02:20+00:00",
   "kickoff": "2026-09-20T20:25:00Z",
   "matchup": "Miami Dolphins at San Francisco 49ers"
+ },
+ "6b024bad1abb54f597225e4ab9b39d89": {
+  "captured_at": "2026-10-11T16:01:21+00:00",
+  "kickoff": "2026-10-11T17:00:00Z",
+  "matchup": "Las Vegas Raiders at New England Patriots"
  },
  "71123be049587b6facce3a20c53e5d09": {
   "captured_at": "2026-09-27T13:02:44+00:00",
@@ -219,6 +239,11 @@
   "kickoff": "2026-09-27T20:05:00Z",
   "matchup": "Arizona Cardinals at San Francisco 49ers"
  },
+ "9db4ed15fe34fca1fb62f040cd244591": {
+  "captured_at": "2026-10-11T16:01:20+00:00",
+  "kickoff": "2026-10-11T17:00:00Z",
+  "matchup": "Cleveland Browns at New York Jets"
+ },
  "a73a76599a4f3422803e57bd8f61b626": {
   "captured_at": "2026-10-04T21:06:12+00:00",
   "kickoff": "2026-10-05T00:20:00Z",
@@ -259,6 +284,11 @@
   "kickoff": "2026-10-04T20:05:00Z",
   "matchup": "Miami Dolphins at Minnesota Vikings"
  },
+ "c4647ca1201e6768501877267ca8251b": {
+  "captured_at": "2026-10-11T16:01:20+00:00",
+  "kickoff": "2026-10-11T17:00:00Z",
+  "matchup": "Cincinnati Bengals at Miami Dolphins"
+ },
  "c5d95f48a16849ab6bebc68fbbfcb74a": {
   "captured_at": "2026-09-13T17:02:26+00:00",
   "kickoff": "2026-09-13T20:25:00Z",
@@ -273,6 +303,11 @@
   "captured_at": "2026-09-13T17:02:26+00:00",
   "kickoff": "2026-09-13T20:25:00Z",
   "matchup": "Green Bay Packers at Minnesota Vikings"
+ },
+ "cc52bba56e74f5cddbe9011046181c3d": {
+  "captured_at": "2026-10-11T16:01:20+00:00",
+  "kickoff": "2026-10-11T17:00:00Z",
+  "matchup": "Houston Texans at Tennessee Titans"
  },
  "d55cb69fed50a09170560b5b75d8de86": {
   "captured_at": "2026-10-01T21:02:59+00:00",
@@ -318,6 +353,11 @@
   "captured_at": "2026-09-20T13:02:15+00:00",
   "kickoff": "2026-09-20T17:00:00Z",
   "matchup": "Philadelphia Eagles at Tennessee Titans"
+ },
+ "fbffd0b7722fd81d68d5d62472dc80e8": {
+  "captured_at": "2026-10-11T16:01:21+00:00",
+  "kickoff": "2026-10-11T17:00:00Z",
+  "matchup": "New York Giants at Washington Commanders"
  },
  "fc362aff0d889ec52d358307a70c32ed": {
   "captured_at": "2026-09-13T14:18:44+00:00",
