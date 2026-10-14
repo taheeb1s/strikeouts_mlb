@@ -1,0 +1,143 @@
+{
+ "date": "2026-10-14",
+ "generated_at": "2026-10-14T18:15:44+00:00",
+ "league_k_pct": 0.2214,
+ "sample": false,
+ "starters": [
+  {
+   "pitcher": "Blake Snell",
+   "pitcher_id": 605483,
+   "team": "LAD",
+   "opponent": "MIL",
+   "home": true,
+   "venue": "UNIQLO Field at Dodger Stadium",
+   "game_time": "8:00 PM ET",
+   "start_iso": "2026-10-15T00:00:00Z",
+   "proj_k": 5.41,
+   "proj_bf": 19.3,
+   "naive_k": 6.11,
+   "k_rate": 0.2804,
+   "pitcher_k_pct": 0.2826,
+   "opp_k_pct": 0.2196,
+   "batters_faced_ytd": 173,
+   "starts_ytd": 9,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.01412,
+    0.04313,
+    0.08001,
+    0.11845,
+    0.14208,
+    0.14678,
+    0.13347,
+    0.10972,
+    0.08106,
+    0.05582,
+    0.03456,
+    0.01977,
+    0.01087,
+    0.00573,
+    0.00274,
+    0.00108,
+    0.00041
+   ],
+   "market": {
+    "line": 6.5,
+    "books": 6,
+    "books_other_lines": 0,
+    "consensus_over": 0.4508,
+    "book_spread": 0.0257,
+    "avg_vig": 0.0668,
+    "best_over": {
+     "price": 115,
+     "book": "BetMGM"
+    },
+    "best_under": {
+     "price": -135,
+     "book": "Bovada"
+    },
+    "featured": {
+     "book": "DraftKings",
+     "over_price": 109,
+     "under_price": -139
+    },
+    "threshold": 7,
+    "model_over": 0.3218,
+    "model_line": 5.5,
+    "edge": -0.129,
+    "ev_over": -0.3082,
+    "ev_under": 0.1806,
+    "best_side": "Under",
+    "best_ev": 0.1806
+   }
+  },
+  {
+   "pitcher": "Robert Gasser",
+   "pitcher_id": 688107,
+   "team": "MIL",
+   "opponent": "LAD",
+   "home": false,
+   "venue": "UNIQLO Field at Dodger Stadium",
+   "game_time": "8:00 PM ET",
+   "start_iso": "2026-10-15T00:00:00Z",
+   "proj_k": 4.5,
+   "proj_bf": 22.0,
+   "naive_k": 4.85,
+   "k_rate": 0.2047,
+   "pitcher_k_pct": 0.2223,
+   "opp_k_pct": 0.2039,
+   "batters_faced_ytd": 463,
+   "starts_ytd": 20,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00858,
+    0.04256,
+    0.10469,
+    0.17011,
+    0.2005,
+    0.18154,
+    0.13437,
+    0.08322,
+    0.04347,
+    0.01939,
+    0.00775,
+    0.00264,
+    0.00085,
+    0.00024,
+    6e-05,
+    2e-05,
+    0.0
+   ],
+   "market": {
+    "line": 3.5,
+    "books": 6,
+    "books_other_lines": 0,
+    "consensus_over": 0.4673,
+    "book_spread": 0.0164,
+    "avg_vig": 0.0673,
+    "best_over": {
+     "price": 105,
+     "book": "BetMGM"
+    },
+    "best_under": {
+     "price": -128,
+     "book": "FanDuel"
+    },
+    "featured": {
+     "book": "DraftKings",
+     "over_price": 102,
+     "under_price": -130
+    },
+    "threshold": 4,
+    "model_over": 0.6741,
+    "model_line": 4.5,
+    "edge": 0.2068,
+    "ev_over": 0.3818,
+    "ev_under": -0.4194,
+    "best_side": "Over",
+    "best_ev": 0.3818
+   }
+  }
+ ],
+ "odds_books": "all US books"
+}
