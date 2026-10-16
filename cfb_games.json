@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-10-15T12:15:19+00:00",
+ "generated_at": "2026-10-16T12:49:16+00:00",
  "backtest": {
-  "games": 7133,
-  "accuracy": 0.7055,
+  "games": 7136,
+  "accuracy": 0.7053,
   "home_baseline": 0.5838,
   "margin_mae": 13.56,
   "seasons": "2017-2026"
@@ -50,51 +50,6 @@
   "North Texas": 1617.6
  },
  "games": [
-  {
-   "season": 2026,
-   "week": 7,
-   "kickoff": "2026-10-15T23:30:00.000Z",
-   "home": "UAB",
-   "away": "East Carolina",
-   "home_conf": "American Athletic",
-   "away_conf": "American Athletic",
-   "p_home": 0.335,
-   "pred_margin": -5.41,
-   "score_home": 24.6,
-   "score_away": 30.1,
-   "pick": "East Carolina",
-   "confidence": 0.665
-  },
-  {
-   "season": 2026,
-   "week": 7,
-   "kickoff": "2026-10-15T23:30:00.000Z",
-   "home": "Old Dominion",
-   "away": "Georgia Southern",
-   "home_conf": "Sun Belt",
-   "away_conf": "Sun Belt",
-   "p_home": 0.6001,
-   "pred_margin": 3.21,
-   "score_home": 29.0,
-   "score_away": 25.7,
-   "pick": "Old Dominion",
-   "confidence": 0.6001
-  },
-  {
-   "season": 2026,
-   "week": 7,
-   "kickoff": "2026-10-16T00:00:00.000Z",
-   "home": "Texas State",
-   "away": "Colorado State",
-   "home_conf": "Pac-12",
-   "away_conf": "Pac-12",
-   "p_home": 0.8542,
-   "pred_margin": 13.96,
-   "score_home": 34.3,
-   "score_away": 20.4,
-   "pick": "Texas State",
-   "confidence": 0.8542
-  },
   {
    "season": 2026,
    "week": 7,
@@ -973,12 +928,12 @@
    "away": "East Carolina",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.6311,
-   "pred_margin": 4.24,
-   "score_home": 29.5,
-   "score_away": 25.2,
+   "p_home": 0.7153,
+   "pred_margin": 7.27,
+   "score_home": 31.0,
+   "score_away": 23.7,
    "pick": "Memphis",
-   "confidence": 0.6311
+   "confidence": 0.7153
   },
   {
    "season": 2026,
@@ -1006,7 +961,7 @@
    "p_home": 0.8315,
    "pred_margin": 12.6,
    "score_home": 33.7,
-   "score_away": 21.0,
+   "score_away": 21.1,
    "pick": "UConn",
    "confidence": 0.8315
   },
@@ -1381,7 +1336,7 @@
    "p_home": 0.813,
    "pred_margin": 11.6,
    "score_home": 33.2,
-   "score_away": 21.5,
+   "score_away": 21.6,
    "pick": "Alabama",
    "confidence": 0.813
   },
@@ -1558,12 +1513,12 @@
    "away": "Old Dominion",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.5857,
-   "pred_margin": 2.73,
-   "score_home": 28.7,
-   "score_away": 26.0,
+   "p_home": 0.6521,
+   "pred_margin": 4.96,
+   "score_home": 29.8,
+   "score_away": 24.9,
    "pick": "Louisiana Tech",
-   "confidence": 0.5857
+   "confidence": 0.6521
   },
   {
    "season": 2026,
@@ -1588,12 +1543,12 @@
    "away": "San Diego State",
    "home_conf": "Pac-12",
    "away_conf": "Pac-12",
-   "p_home": 0.4121,
-   "pred_margin": -2.8,
-   "score_home": 25.9,
-   "score_away": 28.8,
+   "p_home": 0.3886,
+   "pred_margin": -3.58,
+   "score_home": 25.6,
+   "score_away": 29.1,
    "pick": "San Diego State",
-   "confidence": 0.5879
+   "confidence": 0.6114
   },
   {
    "season": 2026,
@@ -1678,12 +1633,12 @@
    "away": "Utah State",
    "home_conf": "Pac-12",
    "away_conf": "Pac-12",
-   "p_home": 0.7311,
-   "pred_margin": 7.9,
-   "score_home": 31.3,
-   "score_away": 23.4,
+   "p_home": 0.7499,
+   "pred_margin": 8.67,
+   "score_home": 31.7,
+   "score_away": 23.0,
    "pick": "Texas State",
-   "confidence": 0.7311
+   "confidence": 0.7499
   },
   {
    "season": 2026,
@@ -2293,12 +2248,12 @@
    "away": "Temple",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.7911,
-   "pred_margin": 10.52,
-   "score_home": 32.6,
-   "score_away": 22.1,
+   "p_home": 0.7206,
+   "pred_margin": 7.48,
+   "score_home": 31.1,
+   "score_away": 23.6,
    "pick": "East Carolina",
-   "confidence": 0.7911
+   "confidence": 0.7206
   },
   {
    "season": 2026,
@@ -2308,12 +2263,12 @@
    "away": "UAB",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.8026,
-   "pred_margin": 11.08,
-   "score_home": 32.9,
-   "score_away": 21.8,
+   "p_home": 0.7346,
+   "pred_margin": 8.04,
+   "score_home": 31.4,
+   "score_away": 23.3,
    "pick": "South Florida",
-   "confidence": 0.8026
+   "confidence": 0.7346
   },
   {
    "season": 2026,
@@ -2338,12 +2293,12 @@
    "away": "App State",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.6353,
-   "pred_margin": 4.38,
-   "score_home": 29.5,
-   "score_away": 25.2,
+   "p_home": 0.6979,
+   "pred_margin": 6.61,
+   "score_home": 30.7,
+   "score_away": 24.0,
    "pick": "Georgia Southern",
-   "confidence": 0.6353
+   "confidence": 0.6979
   },
   {
    "season": 2026,
@@ -2383,12 +2338,12 @@
    "away": "Marshall",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.6099,
-   "pred_margin": 3.53,
-   "score_home": 29.1,
-   "score_away": 25.6,
+   "p_home": 0.5411,
+   "pred_margin": 1.3,
+   "score_home": 28.0,
+   "score_away": 26.7,
    "pick": "Old Dominion",
-   "confidence": 0.6099
+   "confidence": 0.5411
   },
   {
    "season": 2026,
@@ -2473,12 +2428,12 @@
    "away": "Colorado State",
    "home_conf": "Pac-12",
    "away_conf": "Pac-12",
-   "p_home": 0.7419,
-   "pred_margin": 8.34,
-   "score_home": 31.5,
-   "score_away": 23.2,
+   "p_home": 0.7602,
+   "pred_margin": 9.11,
+   "score_home": 31.9,
+   "score_away": 22.8,
    "pick": "Utah State",
-   "confidence": 0.7419
+   "confidence": 0.7602
   },
   {
    "season": 2026,
@@ -2533,12 +2488,12 @@
    "away": "Texas State",
    "home_conf": "Pac-12",
    "away_conf": "Pac-12",
-   "p_home": 0.8053,
-   "pred_margin": 11.21,
-   "score_home": 33.0,
-   "score_away": 21.7,
+   "p_home": 0.7896,
+   "pred_margin": 10.44,
+   "score_home": 32.6,
+   "score_away": 22.1,
    "pick": "Boise State",
-   "confidence": 0.8053
+   "confidence": 0.7896
   },
   {
    "season": 2026,
@@ -2551,7 +2506,7 @@
    "p_home": 0.9361,
    "pred_margin": 21.2,
    "score_home": 38.0,
-   "score_away": 16.7,
+   "score_away": 16.8,
    "pick": "UNLV",
    "confidence": 0.9361
   },
@@ -2683,12 +2638,12 @@
    "away": "South Florida",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.5365,
-   "pred_margin": 1.16,
-   "score_home": 27.9,
-   "score_away": 26.8,
-   "pick": "East Carolina",
-   "confidence": 0.5365
+   "p_home": 0.4407,
+   "pred_margin": -1.88,
+   "score_home": 26.4,
+   "score_away": 28.3,
+   "pick": "South Florida",
+   "confidence": 0.5593
   },
   {
    "season": 2026,
@@ -3075,7 +3030,7 @@
    "away_conf": "Big Ten",
    "p_home": 0.7434,
    "pred_margin": 8.4,
-   "score_home": 31.5,
+   "score_home": 31.6,
    "score_away": 23.2,
    "pick": "Ohio State",
    "confidence": 0.7434
@@ -3133,12 +3088,12 @@
    "away": "Charlotte",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.8351,
-   "pred_margin": 12.81,
-   "score_home": 33.8,
-   "score_away": 20.9,
+   "p_home": 0.8815,
+   "pred_margin": 15.84,
+   "score_home": 35.3,
+   "score_away": 19.4,
    "pick": "UAB",
-   "confidence": 0.8351
+   "confidence": 0.8815
   },
   {
    "season": 2026,
@@ -3223,12 +3178,12 @@
    "away": "Old Dominion",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.4523,
-   "pred_margin": -1.51,
-   "score_home": 26.6,
-   "score_away": 28.1,
-   "pick": "Old Dominion",
-   "confidence": 0.5477
+   "p_home": 0.5228,
+   "pred_margin": 0.72,
+   "score_home": 27.7,
+   "score_away": 27.0,
+   "pick": "Coastal Carolina",
+   "confidence": 0.5228
   },
   {
    "season": 2026,
@@ -3238,12 +3193,12 @@
    "away": "Marshall",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.5814,
-   "pred_margin": 2.6,
-   "score_home": 28.6,
-   "score_away": 26.1,
+   "p_home": 0.6482,
+   "pred_margin": 4.82,
+   "score_home": 29.8,
+   "score_away": 24.9,
    "pick": "Georgia Southern",
-   "confidence": 0.5814
+   "confidence": 0.6482
   },
   {
    "season": 2026,
@@ -3388,12 +3343,12 @@
    "away": "Boise State",
    "home_conf": "Pac-12",
    "away_conf": "Pac-12",
-   "p_home": 0.0891,
-   "pred_margin": -18.36,
-   "score_home": 18.2,
-   "score_away": 36.5,
+   "p_home": 0.0815,
+   "pred_margin": -19.13,
+   "score_home": 17.8,
+   "score_away": 36.9,
    "pick": "Boise State",
-   "confidence": 0.9109
+   "confidence": 0.9185
   },
   {
    "season": 2026,
@@ -3463,12 +3418,12 @@
    "away": "Texas State",
    "home_conf": "Pac-12",
    "away_conf": "Pac-12",
-   "p_home": 0.5216,
-   "pred_margin": 0.68,
-   "score_home": 27.7,
-   "score_away": 27.0,
-   "pick": "Oregon State",
-   "confidence": 0.5216
+   "p_home": 0.4972,
+   "pred_margin": -0.09,
+   "score_home": 27.3,
+   "score_away": 27.4,
+   "pick": "Texas State",
+   "confidence": 0.5028
   },
   {
    "season": 2026,
@@ -3945,7 +3900,7 @@
    "away_conf": "ACC",
    "p_home": 0.6867,
    "pred_margin": 6.2,
-   "score_home": 30.4,
+   "score_home": 30.5,
    "score_away": 24.3,
    "pick": "Virginia Tech",
    "confidence": 0.6867
@@ -4108,12 +4063,12 @@
    "away": "East Carolina",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.1171,
-   "pred_margin": -15.95,
-   "score_home": 19.4,
-   "score_away": 35.3,
+   "p_home": 0.1631,
+   "pred_margin": -12.91,
+   "score_home": 20.9,
+   "score_away": 33.8,
    "pick": "East Carolina",
-   "confidence": 0.8829
+   "confidence": 0.8369
   },
   {
    "season": 2026,
@@ -4168,12 +4123,12 @@
    "away": "UAB",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.5541,
-   "pred_margin": 1.72,
-   "score_home": 28.2,
-   "score_away": 26.5,
-   "pick": "Temple",
-   "confidence": 0.5541
+   "p_home": 0.4583,
+   "pred_margin": -1.32,
+   "score_home": 26.7,
+   "score_away": 28.0,
+   "pick": "UAB",
+   "confidence": 0.5417
   },
   {
    "season": 2026,
@@ -4243,12 +4198,12 @@
    "away": "Georgia Southern",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.6055,
-   "pred_margin": 3.38,
-   "score_home": 29.0,
-   "score_away": 25.7,
+   "p_home": 0.5365,
+   "pred_margin": 1.16,
+   "score_home": 27.9,
+   "score_away": 26.8,
    "pick": "Georgia State",
-   "confidence": 0.6055
+   "confidence": 0.5365
   },
   {
    "season": 2026,
@@ -4393,12 +4348,12 @@
    "away": "Fresno State",
    "home_conf": "Pac-12",
    "away_conf": "Pac-12",
-   "p_home": 0.4978,
-   "pred_margin": -0.07,
-   "score_home": 27.3,
-   "score_away": 27.4,
-   "pick": "Fresno State",
-   "confidence": 0.5022
+   "p_home": 0.5222,
+   "pred_margin": 0.7,
+   "score_home": 27.7,
+   "score_away": 27.0,
+   "pick": "Texas State",
+   "confidence": 0.5222
   },
   {
    "season": 2026,
@@ -4468,12 +4423,12 @@
    "away": "Colorado State",
    "home_conf": "Pac-12",
    "away_conf": "Pac-12",
-   "p_home": 0.726,
-   "pred_margin": 7.69,
-   "score_home": 31.2,
-   "score_away": 23.5,
+   "p_home": 0.745,
+   "pred_margin": 8.47,
+   "score_home": 31.6,
+   "score_away": 23.1,
    "pick": "Washington State",
-   "confidence": 0.726
+   "confidence": 0.745
   },
   {
    "season": 2026,
@@ -5128,12 +5083,12 @@
    "away": "UTSA",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.2495,
-   "pred_margin": -8.7,
-   "score_home": 23.0,
-   "score_away": 31.7,
+   "p_home": 0.3281,
+   "pred_margin": -5.66,
+   "score_home": 24.5,
+   "score_away": 30.2,
    "pick": "UTSA",
-   "confidence": 0.7505
+   "confidence": 0.6719
   },
   {
    "season": 2026,
@@ -5203,12 +5158,12 @@
    "away": "Georgia Southern",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.6155,
-   "pred_margin": 3.71,
-   "score_home": 29.2,
-   "score_away": 25.5,
+   "p_home": 0.5469,
+   "pred_margin": 1.49,
+   "score_home": 28.1,
+   "score_away": 26.6,
    "pick": "Troy",
-   "confidence": 0.6155
+   "confidence": 0.5469
   },
   {
    "season": 2026,
@@ -5248,12 +5203,12 @@
    "away": "East Carolina",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.5632,
-   "pred_margin": 2.01,
-   "score_home": 28.4,
-   "score_away": 26.3,
+   "p_home": 0.6544,
+   "pred_margin": 5.04,
+   "score_home": 29.9,
+   "score_away": 24.8,
    "pick": "Army",
-   "confidence": 0.5632
+   "confidence": 0.6544
   },
   {
    "season": 2026,
@@ -5353,12 +5308,12 @@
    "away": "Old Dominion",
    "home_conf": "FBS Independents",
    "away_conf": "Sun Belt",
-   "p_home": 0.6661,
-   "pred_margin": 5.45,
-   "score_home": 30.1,
-   "score_away": 24.6,
+   "p_home": 0.7257,
+   "pred_margin": 7.68,
+   "score_home": 31.2,
+   "score_away": 23.5,
    "pick": "UConn",
-   "confidence": 0.6661
+   "confidence": 0.7257
   },
   {
    "season": 2026,
@@ -5383,12 +5338,12 @@
    "away": "Washington State",
    "home_conf": "Pac-12",
    "away_conf": "Pac-12",
-   "p_home": 0.7468,
-   "pred_margin": 8.54,
-   "score_home": 31.6,
-   "score_away": 23.1,
+   "p_home": 0.7649,
+   "pred_margin": 9.31,
+   "score_home": 32.0,
+   "score_away": 22.7,
    "pick": "Texas State",
-   "confidence": 0.7468
+   "confidence": 0.7649
   },
   {
    "season": 2026,
@@ -5428,12 +5383,12 @@
    "away": "Colorado State",
    "home_conf": "Pac-12",
    "away_conf": "Pac-12",
-   "p_home": 0.8875,
-   "pred_margin": 16.31,
-   "score_home": 35.5,
-   "score_away": 19.2,
+   "p_home": 0.8969,
+   "pred_margin": 17.08,
+   "score_home": 35.9,
+   "score_away": 18.8,
    "pick": "Fresno State",
-   "confidence": 0.8875
+   "confidence": 0.8969
   },
   {
    "season": 2026,
@@ -5533,12 +5488,12 @@
    "away": "Florida Atlantic",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.6662,
-   "pred_margin": 5.46,
-   "score_home": 30.1,
-   "score_away": 24.6,
+   "p_home": 0.576,
+   "pred_margin": 2.42,
+   "score_home": 28.6,
+   "score_away": 26.1,
    "pick": "East Carolina",
-   "confidence": 0.6662
+   "confidence": 0.576
   },
   {
    "season": 2026,
@@ -6178,12 +6133,12 @@
    "away": "UAB",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.8244,
-   "pred_margin": 12.21,
-   "score_home": 33.5,
-   "score_away": 21.2,
+   "p_home": 0.7617,
+   "pred_margin": 9.17,
+   "score_home": 31.9,
+   "score_away": 22.8,
    "pick": "North Texas",
-   "confidence": 0.8244
+   "confidence": 0.7617
   },
   {
    "season": 2026,
@@ -6223,12 +6178,12 @@
    "away": "Louisiana Tech",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.5278,
-   "pred_margin": 0.88,
-   "score_home": 27.8,
-   "score_away": 26.9,
+   "p_home": 0.5971,
+   "pred_margin": 3.11,
+   "score_home": 28.9,
+   "score_away": 25.8,
    "pick": "Georgia Southern",
-   "confidence": 0.5278
+   "confidence": 0.5971
   },
   {
    "season": 2026,
@@ -6268,12 +6223,12 @@
    "away": "Southern Miss",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.7717,
-   "pred_margin": 9.62,
-   "score_home": 32.2,
-   "score_away": 22.5,
+   "p_home": 0.7182,
+   "pred_margin": 7.39,
+   "score_home": 31.0,
+   "score_away": 23.7,
    "pick": "Old Dominion",
-   "confidence": 0.7717
+   "confidence": 0.7182
   },
   {
    "season": 2026,
