@@ -64,6 +64,11 @@
   "kickoff": "2026-09-20T20:05:00Z",
   "matchup": "Jacksonville Jaguars at Denver Broncos"
  },
+ "20fefae8c296247460ba5773caa42218": {
+  "captured_at": "2026-10-18T18:20:38+00:00",
+  "kickoff": "2026-10-18T20:25:00Z",
+  "matchup": "Los Angeles Chargers at Kansas City Chiefs"
+ },
  "2143ade9684fd876b68a4e8cbf451f05": {
   "captured_at": "2026-09-20T13:02:14+00:00",
   "kickoff": "2026-09-20T17:00:00Z",
@@ -114,6 +119,11 @@
   "kickoff": "2026-09-20T17:00:00Z",
   "matchup": "Cincinnati Bengals at Houston Texans"
  },
+ "3729ac6d2a66b642850caf2044cdc658": {
+  "captured_at": "2026-10-18T18:20:38+00:00",
+  "kickoff": "2026-10-18T20:05:00Z",
+  "matchup": "Arizona Cardinals at Los Angeles Rams"
+ },
  "3bfd8bfb4b8e9a365a0877879b73b16b": {
   "captured_at": "2026-09-27T21:02:51+00:00",
   "kickoff": "2026-09-28T00:20:00Z",
@@ -128,6 +138,11 @@
   "captured_at": "2026-10-11T16:01:20+00:00",
   "kickoff": "2026-10-11T17:00:00Z",
   "matchup": "Indianapolis Colts at Pittsburgh Steelers"
+ },
+ "45b2690b350ed45145c7a716b18e8e66": {
+  "captured_at": "2026-10-18T18:20:38+00:00",
+  "kickoff": "2026-10-18T20:25:00Z",
+  "matchup": "Buffalo Bills at Las Vegas Raiders"
  },
  "47dc7baa254659f3beb2ed2b38c207b6": {
   "captured_at": "2026-09-28T21:03:29+00:00",
