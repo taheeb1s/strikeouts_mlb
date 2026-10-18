@@ -1,0 +1,143 @@
+{
+ "date": "2026-10-18",
+ "generated_at": "2026-10-18T17:43:32+00:00",
+ "league_k_pct": 0.2214,
+ "sample": false,
+ "starters": [
+  {
+   "pitcher": "Drew Rasmussen",
+   "pitcher_id": 656876,
+   "team": "TB",
+   "opponent": "CLE",
+   "home": false,
+   "venue": "Progressive Field",
+   "game_time": "5:08 PM ET",
+   "start_iso": "2026-10-18T21:08:00Z",
+   "proj_k": 5.46,
+   "proj_bf": 22.8,
+   "naive_k": 5.8,
+   "k_rate": 0.24,
+   "pitcher_k_pct": 0.2551,
+   "opp_k_pct": 0.2078,
+   "batters_faced_ytd": 669,
+   "starts_ytd": 30,
+   "lineup_confirmed": true,
+   "pmf": [
+    0.00246,
+    0.01599,
+    0.05083,
+    0.1072,
+    0.16325,
+    0.18798,
+    0.17428,
+    0.13337,
+    0.08421,
+    0.04585,
+    0.02164,
+    0.00856,
+    0.00308,
+    0.00097,
+    0.00023,
+    7e-05,
+    2e-05
+   ],
+   "market": {
+    "line": 5.5,
+    "books": 6,
+    "books_other_lines": 0,
+    "consensus_over": 0.4386,
+    "book_spread": 0.0304,
+    "avg_vig": 0.0669,
+    "best_over": {
+     "price": 120,
+     "book": "BetMGM"
+    },
+    "best_under": {
+     "price": -137,
+     "book": "DraftKings"
+    },
+    "featured": {
+     "book": "DraftKings",
+     "over_price": 107,
+     "under_price": -137
+    },
+    "threshold": 6,
+    "model_over": 0.4723,
+    "model_line": 5.5,
+    "edge": 0.0337,
+    "ev_over": 0.039,
+    "ev_under": -0.0871,
+    "best_side": "Over",
+    "best_ev": 0.039
+   }
+  },
+  {
+   "pitcher": "Parker Messick",
+   "pitcher_id": 800048,
+   "team": "CLE",
+   "opponent": "TB",
+   "home": true,
+   "venue": "Progressive Field",
+   "game_time": "5:08 PM ET",
+   "start_iso": "2026-10-18T21:08:00Z",
+   "proj_k": 4.97,
+   "proj_bf": 23.0,
+   "naive_k": 6.03,
+   "k_rate": 0.2165,
+   "pitcher_k_pct": 0.254,
+   "opp_k_pct": 0.1875,
+   "batters_faced_ytd": 747,
+   "starts_ytd": 32,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.00511,
+    0.02899,
+    0.07891,
+    0.14128,
+    0.18092,
+    0.18688,
+    0.15327,
+    0.10675,
+    0.06239,
+    0.03225,
+    0.01422,
+    0.0059,
+    0.00215,
+    0.00071,
+    0.00019,
+    5e-05,
+    2e-05
+   ],
+   "market": {
+    "line": 4.5,
+    "books": 6,
+    "books_other_lines": 0,
+    "consensus_over": 0.534,
+    "book_spread": 0.0225,
+    "avg_vig": 0.0659,
+    "best_over": {
+     "price": -125,
+     "book": "BetMGM"
+    },
+    "best_under": {
+     "price": 106,
+     "book": "FanDuel"
+    },
+    "featured": {
+     "book": "DraftKings",
+     "over_price": -130,
+     "under_price": 102
+    },
+    "threshold": 5,
+    "model_over": 0.5648,
+    "model_line": 4.5,
+    "edge": 0.0308,
+    "ev_over": 0.0166,
+    "ev_under": -0.1034,
+    "best_side": "Over",
+    "best_ev": 0.0166
+   }
+  }
+ ],
+ "odds_books": "all US books"
+}
