@@ -149,6 +149,11 @@
   "kickoff": "2026-09-14T00:20:00Z",
   "matchup": "Dallas Cowboys at New York Giants"
  },
+ "436119bb3ccdaa6ed7808aa3ebd82b76": {
+  "captured_at": "2026-10-25T17:57:11+00:00",
+  "kickoff": "2026-10-25T20:05:00Z",
+  "matchup": "Denver Broncos at Arizona Cardinals"
+ },
  "448d7cf18c6db4c811ed82ded1b72867": {
   "captured_at": "2026-10-11T16:01:20+00:00",
   "kickoff": "2026-10-11T17:00:00Z",
@@ -454,6 +459,11 @@
   "kickoff": "2026-10-18T17:00:00Z",
   "matchup": "Baltimore Ravens at Cleveland Browns"
  },
+ "e8e5715eefb6a9ce64765e9ddf49c0cc": {
+  "captured_at": "2026-10-25T17:57:11+00:00",
+  "kickoff": "2026-10-25T20:25:00Z",
+  "matchup": "Green Bay Packers at Detroit Lions"
+ },
  "ed6d24ff979f9c71979fead577b0b3f7": {
   "captured_at": "2026-09-13T14:18:44+00:00",
   "kickoff": "2026-09-13T17:00:00Z",
@@ -478,6 +488,11 @@
   "captured_at": "2026-10-25T14:39:17+00:00",
   "kickoff": "2026-10-25T17:00:00Z",
   "matchup": "Indianapolis Colts at Minnesota Vikings"
+ },
+ "f7679cf18454e4d88a8f2b990c3f08ac": {
+  "captured_at": "2026-10-25T17:57:11+00:00",
+  "kickoff": "2026-10-25T20:25:00Z",
+  "matchup": "Los Angeles Rams at Las Vegas Raiders"
  },
  "f8e7f43f73aa983c5c99c189587f0118": {
   "captured_at": "2026-10-11T20:40:37+00:00",
