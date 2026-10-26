@@ -1,0 +1,788 @@
+{
+ "captured_at": "2026-10-26T22:01:52+00:00",
+ "market": "player_receptions",
+ "sport": "americanfootball_nfl",
+ "games_captured": 1,
+ "credits_spent": 1,
+ "credits_remaining": "410",
+ "games": [
+  {
+   "id": "4853610e63c246f2027a6a248e642c9a",
+   "sport_key": "americanfootball_nfl",
+   "sport_title": "NFL",
+   "commence_time": "2026-10-27T00:15:00Z",
+   "home_team": "Philadelphia Eagles",
+   "away_team": "Dallas Cowboys",
+   "bookmakers": [
+    {
+     "key": "draftkings",
+     "title": "DraftKings",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-26T22:01:43Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -129,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "CeeDee Lamb",
+         "price": 101,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Dallas Goedert",
+         "price": 111,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Dallas Goedert",
+         "price": -142,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": -139,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "George Pickens",
+         "price": 109,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": 111,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Makai Lemon",
+         "price": -142,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": -103,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Ryan Flournoy",
+         "price": -123,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Darius Cooper",
+         "price": 122,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Darius Cooper",
+         "price": -156,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": -119,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Saquon Barkley",
+         "price": -107,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": -110,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Ferguson",
+         "price": -115,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": 116,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Javonte Williams",
+         "price": -148,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Brevyn Spann-Ford",
+         "price": 118,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Brevyn Spann-Ford",
+         "price": -151,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "fanduel",
+     "title": "FanDuel",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-26T22:00:54Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": 106,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Javonte Williams",
+         "price": -140,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Brevyn Spann-Ford",
+         "price": 122,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Brevyn Spann-Ford",
+         "price": -162,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": -154,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "George Pickens",
+         "price": 116,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Dallas Goedert",
+         "price": 102,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Dallas Goedert",
+         "price": -136,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": -102,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Ryan Flournoy",
+         "price": -130,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Darius Cooper",
+         "price": 108,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Darius Cooper",
+         "price": -144,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -136,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "CeeDee Lamb",
+         "price": 102,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Elijah Moore",
+         "price": -102,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Elijah Moore",
+         "price": -130,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": -108,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Saquon Barkley",
+         "price": -122,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": -188,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Makai Lemon",
+         "price": 140,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": -122,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Ferguson",
+         "price": -108,
+         "point": 2.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betonlineag",
+     "title": "BetOnline.ag",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-26T21:59:37Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": 110,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Javonte Williams",
+         "price": -143,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": -105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Ryan Flournoy",
+         "price": -123,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": -114,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Ferguson",
+         "price": -114,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": -152,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "George Pickens",
+         "price": 116,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -135,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "CeeDee Lamb",
+         "price": 105,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": -106,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Saquon Barkley",
+         "price": -122,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Dallas Goedert",
+         "price": 105,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Dallas Goedert",
+         "price": -135,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Darius Cooper",
+         "price": 110,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Darius Cooper",
+         "price": -143,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": -179,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Makai Lemon",
+         "price": 136,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Hollywood Brown",
+         "price": 152,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Hollywood Brown",
+         "price": -200,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Brevyn Spann-Ford",
+         "price": 105,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Brevyn Spann-Ford",
+         "price": -135,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betrivers",
+     "title": "BetRivers",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-26T22:00:48Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Darius Cooper",
+         "price": 112,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Dallas Goedert",
+         "price": 105,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -143,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": -110,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Brevyn Spann-Ford",
+         "price": 106,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": -109,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": 105,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": -150,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": -115,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": 116,
+         "point": 4.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betmgm",
+     "title": "BetMGM",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-26T22:01:36Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": 115,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Javonte Williams",
+         "price": -155,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": 130,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "George Pickens",
+         "price": -175,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": -105,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Ferguson",
+         "price": -130,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Dallas Goedert",
+         "price": -160,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Dallas Goedert",
+         "price": 120,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": 100,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Ryan Flournoy",
+         "price": -135,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": -111,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Saquon Barkley",
+         "price": -120,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Darius Cooper",
+         "price": 105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Darius Cooper",
+         "price": -140,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": 110,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Makai Lemon",
+         "price": -150,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -135,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "CeeDee Lamb",
+         "price": 100,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Hollywood Brown",
+         "price": 140,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Hollywood Brown",
+         "price": -190,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Brevyn Spann-Ford",
+         "price": 100,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Brevyn Spann-Ford",
+         "price": -135,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "bovada",
+     "title": "Bovada",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-10-26T22:00:34Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Brevyn Spann-Ford",
+         "price": 105,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Brevyn Spann-Ford",
+         "price": -135,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "CeeDee Lamb",
+         "price": -130,
+         "point": 6.5
+        },
+        {
+         "name": "Under",
+         "description": "CeeDee Lamb",
+         "price": 100,
+         "point": 6.5
+        },
+        {
+         "name": "Over",
+         "description": "Dallas Goedert",
+         "price": 110,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Dallas Goedert",
+         "price": -145,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Darius Cooper",
+         "price": 120,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Darius Cooper",
+         "price": -160,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "George Pickens",
+         "price": -145,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "George Pickens",
+         "price": 110,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Jake Ferguson",
+         "price": -110,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Jake Ferguson",
+         "price": -120,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Javonte Williams",
+         "price": 115,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Javonte Williams",
+         "price": -150,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Makai Lemon",
+         "price": 120,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Makai Lemon",
+         "price": -160,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Ryan Flournoy",
+         "price": -105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Ryan Flournoy",
+         "price": -125,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Saquon Barkley",
+         "price": -120,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Saquon Barkley",
+         "price": -110,
+         "point": 2.5
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
