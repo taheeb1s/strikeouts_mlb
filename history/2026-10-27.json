@@ -1,0 +1,76 @@
+{
+ "date": "2026-10-27",
+ "generated_at": "2026-10-27T17:16:20+00:00",
+ "league_k_pct": 0.2214,
+ "sample": false,
+ "starters": [
+  {
+   "pitcher": "Griffin Jax",
+   "pitcher_id": 643377,
+   "team": "TB",
+   "opponent": "MIL",
+   "home": true,
+   "venue": "Tropicana Field",
+   "game_time": "8:00 PM ET",
+   "start_iso": "2026-10-28T00:00:00Z",
+   "proj_k": 4.48,
+   "proj_bf": 18.3,
+   "naive_k": 4.61,
+   "k_rate": 0.2452,
+   "pitcher_k_pct": 0.2471,
+   "opp_k_pct": 0.2196,
+   "batters_faced_ytd": 459,
+   "starts_ytd": 23,
+   "lineup_confirmed": false,
+   "pmf": [
+    0.011,
+    0.04949,
+    0.11181,
+    0.16767,
+    0.19295,
+    0.17325,
+    0.13019,
+    0.08216,
+    0.04498,
+    0.02179,
+    0.00947,
+    0.00346,
+    0.0013,
+    0.00032,
+    0.00012,
+    3e-05,
+    1e-05
+   ],
+   "market": {
+    "line": 3.5,
+    "books": 6,
+    "books_other_lines": 0,
+    "consensus_over": 0.511,
+    "book_spread": 0.0328,
+    "avg_vig": 0.0667,
+    "best_over": {
+     "price": -107,
+     "book": "DraftKings"
+    },
+    "best_under": {
+     "price": -104,
+     "book": "FanDuel"
+    },
+    "featured": {
+     "book": "DraftKings",
+     "over_price": -107,
+     "under_price": -119
+    },
+    "threshold": 4,
+    "model_over": 0.66,
+    "model_line": 4.5,
+    "edge": 0.149,
+    "ev_over": 0.2769,
+    "ev_under": -0.3331,
+    "best_side": "Over",
+    "best_ev": 0.2769
+   }
+  }
+ ],
+ "odds_books": "all US books"
+}
