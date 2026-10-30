@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T21:57:35+00:00",
+ "generated_at": "2026-10-30T22:49:21+00:00",
  "backtest": {
   "games": 1527,
   "accuracy": 0.6326,
@@ -1303,7 +1303,7 @@
    "pred_total": 43.0,
    "pick": "NE",
    "confidence": 0.6485,
-   "vegas_spread": 2.5,
+   "vegas_spread": 3.0,
    "elo_home": 1596.5,
    "elo_away": 1538.1
   },
