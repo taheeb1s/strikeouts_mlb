@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -673,6 +674,36 @@
   .gm-row .cf { font-weight: 700; }
   .gm-row .vg { color: var(--ink-soft); font-size: 0.85rem; }
   .gm-row .vg.split { color: var(--pencil); font-weight: 600; }
+  .res-tab { display: flex; gap: 0.4rem; align-items: baseline;
+             margin: 0.8rem 0 0.2rem; font-size: 0.85rem; color: var(--ink-soft); }
+  .res-tab button {
+    font: inherit; font-weight: 500; color: var(--ink-soft); background: none;
+    border: 0; border-bottom: 2px solid transparent; padding: 0.15rem 0.1rem;
+    cursor: pointer;
+  }
+  .res-tab button:hover { color: var(--ink); }
+  .res-tab button[aria-pressed="true"] {
+    color: var(--ink); font-weight: 600; border-bottom-color: var(--pencil); }
+  .cal-tab { margin: 0.8rem 0 1.1rem; }
+  .cal-tab .r {
+    display: grid; grid-template-columns: 5.4rem 4rem 4.6rem 5rem;
+    gap: 0 0.7rem; padding: 0.35rem 0; border-bottom: 1px solid var(--rule);
+    font-size: 0.88rem;
+  }
+  .cal-tab .r.h { font-size: 0.72rem; color: var(--ink-soft);
+                  border-bottom: 1px solid var(--ink); }
+  .cal-tab .r span:not(:first-child) { text-align: right; }
+  .cal-tab .off { color: var(--pencil); font-weight: 600; }
+  .pk-row {
+    display: grid; grid-template-columns: 2.4rem minmax(0,1fr) 5rem 3.2rem 4rem;
+    gap: 0 0.7rem; align-items: baseline; padding: 0.4rem 0;
+    border-bottom: 1px solid var(--rule); font-size: 0.88rem;
+  }
+  .pk-row .wk { color: var(--ink-soft); font-size: 0.78rem; }
+  .pk-row .n { text-align: right; font-variant-numeric: tabular-nums; }
+  .pk-row .ok { text-align: right; font-weight: 700; font-size: 0.76rem; }
+  .pk-row .ok.y { color: var(--bar); }
+  .pk-row .ok.n { color: var(--pencil); }
   .gm-row .sc { text-align: right; font-weight: 700; font-size: 1rem;
                 letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
   .gm-row .sc small { font-weight: 500; font-size: 0.72rem;
@@ -1313,6 +1344,7 @@ const SAMPLE = {
 const MAX_K = 16;
 let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
               cfb: null, cfbConf: "", league: "nfl", nflWeek: null, recProj: null,
+              pickTab: "upcoming",
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
@@ -2118,6 +2150,60 @@ function cfbView() {
       as "by about this much" rather than a scoreline.</p>`;
 }
 
+function pickResults(src, label) {
+  const r = src && src.results;
+  if (!r || !r.graded) {
+    return `<div class="empty"><h2>Nothing graded yet</h2>
+      <p>Picks get scored once games have been played.</p></div>`;
+  }
+  const edge = (r.win_pct - r.home_baseline) * 100;
+
+  return `
+    <div class="rec">
+      <span><span class="big">${r.won}&ndash;${r.lost}</span>
+        <span class="lbl">this season</span></span>
+      <span><span class="pctg">${(r.win_pct * 100).toFixed(1)}%</span>
+        <span class="lbl">of picks right</span></span>
+      <span class="split">home-team baseline <b>${(r.home_baseline * 100).toFixed(1)}%</b><br>
+        margin error <b>${r.margin_mae}</b> points</span>
+    </div>
+    <p class="cal-key">${edge > 0
+      ? `Running <b>${edge.toFixed(1)} points</b> ahead of simply picking the
+         home team every week, across ${r.graded} games.`
+      : `Behind the home-team baseline by ${(-edge).toFixed(1)} points. That's
+         the number this has to clear to be worth anything.`}</p>
+
+    ${r.bands && r.bands.length ? `
+      <div class="cal-tab">
+        <div class="r h"><span>Confidence</span><span>Games</span>
+          <span>It said</span><span>Happened</span></div>
+        ${r.bands.map(b => {
+          const off = Math.abs(b.said - b.happened) > 0.1;
+          return `<div class="r">
+            <span>${b.band}</span>
+            <span class="n">${b.won}&ndash;${b.n - b.won}</span>
+            <span class="n">${Math.round(b.said * 100)}%</span>
+            <span class="n ${off ? "off" : ""}">${Math.round(b.happened * 100)}%</span>
+          </div>`;
+        }).join("")}
+      </div>
+      <p class="cal-key">Those last two columns should match. Where they
+        don't, the model's confidence is lying — red marks a gap over
+        10 points.</p>` : ""}
+
+    <div class="gm-head" style="grid-template-columns:2.4rem minmax(0,1fr) 5rem 3.2rem 4rem">
+      <span>Wk</span><span>Game</span><span>Pick</span><span>Pred</span><span>Result</span>
+    </div>
+    ${r.recent.map(g => `<div class="pk-row">
+      <span class="wk">${g.week}</span>
+      <span class="mu2">${g.away} at ${g.home}</span>
+      <span>${g.pick}</span>
+      <span class="n">${g.pred_margin > 0 ? "+" : ""}${g.pred_margin}</span>
+      <span class="ok ${g.won ? "y" : "n"}">${g.margin > 0 ? "+" : ""}${g.margin}
+        ${g.won ? "✓" : "✗"}</span>
+    </div>`).join("")}`;
+}
+
 function gamesView() {
   const d = state.games;
   if (!d || !d.games || !d.games.length) {
@@ -2698,8 +2784,20 @@ function render() {
         <span aria-hidden="true">·</span>
         <button data-league="cfb" aria-pressed="${state.league === "cfb"}">college</button>
       </div>`;
-    document.getElementById("body").innerHTML = viewBar + leagueBar + searchBar
-      + (state.league === "cfb" ? cfbView() : gamesView());
+    const src = state.league === "cfb" ? state.cfb : state.games;
+    const gr = src && src.results ? src.results.graded : 0;
+    const resBar = `<div class="res-tab">
+        <button data-ptab="upcoming" aria-pressed="${state.pickTab === "upcoming"}">this week</button>
+        <span aria-hidden="true">·</span>
+        <button data-ptab="results" aria-pressed="${state.pickTab === "results"}">record${
+          gr ? ` (${gr})` : ""}</button>
+      </div>`;
+    document.getElementById("body").innerHTML = viewBar + leagueBar + resBar
+      + (state.pickTab === "results"
+         ? pickResults(src, state.league)
+         : searchBar + (state.league === "cfb" ? cfbView() : gamesView()));
+    document.querySelectorAll(".res-tab button").forEach(b =>
+      b.onclick = () => { state.pickTab = b.dataset.ptab; render(); });
     document.querySelectorAll(".nfl-views button").forEach(b =>
       b.onclick = () => { state.league = b.dataset.league; render(); });
     wire();
