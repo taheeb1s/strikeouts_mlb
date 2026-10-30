@@ -56,7 +56,14 @@ jobs:
         run: |
           # These pull a season of nflverse data, so once a day is plenty.
           # 12:00 UTC is well after Monday night football finishes.
-          if [ "$(date -u +%H)" = "12" ] || [ "$FORCE" = "true" ]; then
+          # Was pinned to exactly 12:00 UTC, and GitHub's best-effort
+          # scheduler skipped it three days running. A window plus a
+          # marker file means a missed hour just runs at the next one.
+          H=$(date -u +%H); TODAY=$(date -u +%F)
+          LAST=$(cat .last_daily 2>/dev/null || echo "")
+          if { [ "$H" -ge 12 ] && [ "$H" -le 17 ] && [ "$LAST" != "$TODAY" ]; } \
+             || [ "$FORCE" = "true" ]; then
+            echo "$TODAY" > .last_daily
             echo "go=yes" >> "$GITHUB_OUTPUT"
           else
             echo "go=no" >> "$GITHUB_OUTPUT"
@@ -101,7 +108,7 @@ jobs:
           # fails. The MLB workflow shares this branch, so the pull is needed.
           git pull --rebase --autostash origin main || true
 
-          for f in receptions.json receptions_score.json nfl_games.json \
+          for f in receptions.json receptions_score.json nfl_games.json .last_daily \
                    cfb_games.json receptions_proj.json nfl_weeks.json; do
             [ -f "$f" ] && git add "$f"
           done
