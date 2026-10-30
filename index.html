@@ -2167,6 +2167,31 @@ function pickResults(src, label) {
       <span class="split">home-team baseline <b>${(r.home_baseline * 100).toFixed(1)}%</b><br>
         margin error <b>${r.margin_mae}</b> points</span>
     </div>
+    ${(() => {
+      const a = r.ats, t = r.totals;
+      if (!a || !a.graded) return "";
+      const row = (lab, x, note) => {
+        const p = x.win_pct * 100;
+        const cls = p >= 52.4 ? "ok y" : "ok n";
+        return `<div class="r">
+          <span>${lab}</span>
+          <span class="n">${x.won}&ndash;${x.lost}${x.push ? ` (${x.push}p)` : ""}</span>
+          <span class="n ${cls}">${p.toFixed(1)}%</span>
+          <span class="n" style="text-align:right;color:var(--ink-soft);font-size:0.8rem">${note}</span>
+        </div>`;
+      };
+      return `<div class="cal-tab">
+        <div class="r h"><span>Market</span><span>Record</span>
+          <span>Hit</span><span>Avg gap from line</span></div>
+        ${row("Spread", a, a.avg_disagreement + " pts")}
+        ${t && t.graded ? row("Total", t, t.avg_disagreement + " pts") : ""}
+      </div>
+      <p class="cal-key">Break-even against a standard price is
+        <b>52.4%</b>. Picking winners and beating a spread are different
+        jobs — the spread already knows who is better, so covering it means
+        beating the market's own estimate of by how much.</p>`;
+    })()}
+
     <p class="cal-key">${edge > 0
       ? `Running <b>${edge.toFixed(1)} points</b> ahead of simply picking the
          home team every week, across ${r.graded} games.`
