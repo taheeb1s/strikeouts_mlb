@@ -34,6 +34,12 @@ CARRYOVER = 0.75
 # isn't balanced on a knife edge, which is reassuring.
 PTS_PER_ELO = 22.0
 MARGIN_SD = 17.5        # college margins scatter far wider than the NFL's
+LG_PTS = 27.5           # FBS average points per team per game
+OD_K = 0.10             # how fast scoring ratings chase recent form
+TOTAL_TRUST = 0.7       # how far to trust them over a flat average
+# Tuned: totals land at 12.91 points of error against 13.55 for a flat
+# league average. Scoring ratings earn far more here than in the NFL,
+# where trusting them fully was actually worse than ignoring them.
 
 
 def win_prob(diff):
@@ -60,12 +66,19 @@ def load(seasons):
     return d.sort_values(["season", "week", "start_date"]).reset_index(drop=True)
 
 
-def run(games, k=K, home=HOME_EDGE, carry=CARRYOVER, ppe=PTS_PER_ELO):
+def run(games, k=K, home=HOME_EDGE, carry=CARRYOVER, ppe=PTS_PER_ELO,
+        od_k=OD_K, trust=TOTAL_TRUST):
     elo, rows, prev = {}, [], None
+    # Opponent-adjusted scoring: what a team puts up and gives up relative
+    # to average. Matters more here than in the NFL - an option offence and
+    # an air-raid are barely the same sport.
+    off, dfn = {}, {}
 
     for _, g in games.iterrows():
         if g.season != prev:
             elo = {t: START + carry * (r - START) for t, r in elo.items()}
+            off = {t: carry * v for t, v in off.items()}
+            dfn = {t: carry * v for t, v in dfn.items()}
             prev = g.season
 
         h, a = g.home_team, g.away_team
@@ -74,8 +87,13 @@ def run(games, k=K, home=HOME_EDGE, carry=CARRYOVER, ppe=PTS_PER_ELO):
         eh = elo.setdefault(h, START) if h_fbs else FCS_RATING
         ea = elo.setdefault(a, START) if a_fbs else FCS_RATING
 
+        oh, dh = off.setdefault(h, 0.0), dfn.setdefault(h, 0.0)
+        oa, da = off.setdefault(a, 0.0), dfn.setdefault(a, 0.0)
+
         diff = eh - ea + home
         p_home = win_prob(diff)
+        raw_total = (2 * LG_PTS + oh + da + oa + dh)
+        pred_total = trust * raw_total + (1 - trust) * 2 * LG_PTS
 
         played = pd.notna(g.home_points) and pd.notna(g.away_points)
         if played:
@@ -84,6 +102,7 @@ def run(games, k=K, home=HOME_EDGE, carry=CARRYOVER, ppe=PTS_PER_ELO):
                 "season": int(g.season), "week": int(g.week),
                 "home": h, "away": a, "both_fbs": bool(h_fbs and a_fbs),
                 "p_home": p_home, "pred_margin": diff / ppe,
+                "pred_total": pred_total,
                 "margin": margin, "home_won": int(margin > 0),
                 "total": g.home_points + g.away_points,
             })
@@ -96,7 +115,15 @@ def run(games, k=K, home=HOME_EDGE, carry=CARRYOVER, ppe=PTS_PER_ELO):
             if a_fbs:
                 elo[a] = ea - shift
 
-    return pd.DataFrame(rows), elo
+            # Move scoring ratings toward what happened, opponent removed.
+            if h_fbs:
+                off[h] = oh + od_k * ((g.home_points - da - LG_PTS) - oh)
+                dfn[h] = dh + od_k * ((g.away_points - oa - LG_PTS) - dh)
+            if a_fbs:
+                off[a] = oa + od_k * ((g.away_points - dh - LG_PTS) - oa)
+                dfn[a] = da + od_k * ((g.home_points - oh - LG_PTS) - da)
+
+    return pd.DataFrame(rows), elo, off, dfn
 
 
 def season_results(df, season, fbs_only=False):
@@ -174,7 +201,7 @@ def main():
         for k in [28, 36, 44, 52]:
             for home in [50, 62, 74]:
                 for carry in [0.5, 0.62, 0.75]:
-                    df, _ = run(games, k, home, carry)
+                    df, _, _, _ = run(games, k, home, carry)
                     r = evaluate(df, first)
                     if r and (best is None or r["logloss"] < best[0]["logloss"]):
                         best = (r, k, home, carry)
@@ -184,7 +211,7 @@ def main():
         print(f"\nBest: K={k}, HOME_EDGE={home}, CARRYOVER={carry}")
         return
 
-    df, final = run(games)
+    df, final, off, dfn = run(games)
     r = evaluate(df, first)
     if not r:
         print("Nothing to score.")
@@ -195,6 +222,14 @@ def main():
     print(f"  Always the home team   {r['home_base']:.3f}")
     print(f"  Log loss               {r['logloss']:.4f}")
     print(f"  Margin error           {r['mae']:.2f} points")
+    dd = df[(df.season >= first) & df.both_fbs & (df.margin != 0)]
+    flat = dd.total.mean()
+    t_model = float(np.abs(dd.pred_total - dd.total).mean())
+    t_flat = float(np.abs(flat - dd.total).mean())
+    g = np.abs(flat - dd.total) - np.abs(dd.pred_total - dd.total)
+    se = g.std() / np.sqrt(len(g))
+    print(f"  Game total error       {t_model:.2f}   flat average {t_flat:.2f}"
+          f"   ({abs(g.mean()/se):.1f} se better)")
 
     d = df[(df.season >= first) & df.both_fbs & (df.margin != 0)]
     correct = ((d.p_home > 0.5) == (d.home_won == 1)).astype(float)
@@ -221,6 +256,9 @@ def main():
         diff = eh - ea + HOME_EDGE
         p = win_prob(diff)
         m = diff / PTS_PER_ELO
+        raw = (2 * LG_PTS + off.get(g.home_team, 0.0) + dfn.get(g.away_team, 0.0)
+               + off.get(g.away_team, 0.0) + dfn.get(g.home_team, 0.0))
+        tot = TOTAL_TRUST * raw + (1 - TOTAL_TRUST) * 2 * LG_PTS
         nxt.append({
             "season": int(g.season), "week": int(g.week),
             "kickoff": str(g.get("start_date", "")),
@@ -229,8 +267,9 @@ def main():
             "away_conf": g.get("away_conference"),
             "p_home": round(float(p), 4),
             "pred_margin": round(float(m), 2),
-            "score_home": round((avg_total + m) / 2, 1),
-            "score_away": round((avg_total - m) / 2, 1),
+            "score_home": round((tot + m) / 2, 1),
+            "score_away": round((tot - m) / 2, 1),
+            "pred_total": round(float(tot), 1),
             "pick": g.home_team if p >= 0.5 else g.away_team,
             "confidence": round(float(max(p, 1 - p)), 4),
         })
