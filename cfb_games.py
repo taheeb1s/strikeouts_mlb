@@ -99,6 +99,49 @@ def run(games, k=K, home=HOME_EDGE, carry=CARRYOVER, ppe=PTS_PER_ELO):
     return pd.DataFrame(rows), elo
 
 
+def season_results(df, season, fbs_only=False):
+    """Every pick this season, graded. Both models walk forward, so each of
+    these was predicted using only what was known before kickoff."""
+    d = df[(df.season == season) & (df.margin != 0)]
+    if fbs_only:
+        d = d[d.both_fbs]
+    if not len(d):
+        return {"graded": 0}
+    picked_home = d.p_home > 0.5
+    right = (picked_home == (d.home_won == 1))
+    conf = d.p_home.where(picked_home, 1 - d.p_home)
+
+    bands = []
+    for lo, hi, label in [(0.5, 0.6, "50-60%"), (0.6, 0.7, "60-70%"),
+                          (0.7, 0.8, "70-80%"), (0.8, 0.9, "80-90%"),
+                          (0.9, 1.01, "over 90%")]:
+        m = (conf >= lo) & (conf < hi)
+        if m.sum() < 3:
+            continue
+        bands.append({"band": label, "n": int(m.sum()),
+                      "won": int(right[m].sum()),
+                      "said": round(float(conf[m].mean()), 3),
+                      "happened": round(float(right[m].mean()), 3)})
+
+    return {
+        "graded": int(len(d)),
+        "won": int(right.sum()), "lost": int((~right).sum()),
+        "win_pct": round(float(right.mean()), 4),
+        "home_baseline": round(float((d.home_won == 1).mean()), 4),
+        "margin_mae": round(float(np.abs(d.pred_margin - d.margin).mean()), 2),
+        "bands": bands,
+        "recent": [
+            {"week": int(r.week), "away": r.away, "home": r.home,
+             "pick": r.home if r.p_home > 0.5 else r.away,
+             "conf": round(float(max(r.p_home, 1 - r.p_home)), 3),
+             "pred_margin": round(float(r.pred_margin), 1),
+             "margin": int(r.margin),
+             "won": bool((r.p_home > 0.5) == (r.margin > 0))}
+            for _, r in d.sort_values("week", ascending=False).head(80).iterrows()
+        ],
+    }
+
+
 def evaluate(df, first_scored):
     d = df[(df.season >= first_scored) & df.both_fbs & (df.margin != 0)]
     if not len(d):
@@ -212,7 +255,8 @@ def main():
                          "seasons": f"{first}-{args.seasons[-1]}"},
             "ratings": {t: round(float(v), 1) for t, v in
                         sorted(final.items(), key=lambda x: -x[1])[:40]},
-            "games": nxt,
+            "results": season_results(df, args.seasons[-1], fbs_only=True),
+"games": nxt,
         }, open("cfb_games.json", "w"), indent=1)
         print("\n  Wrote cfb_games.json")
 
