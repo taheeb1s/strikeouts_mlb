@@ -23,7 +23,9 @@ survived.
 """
 
 import argparse
+import glob
 import json
+import os
 import sys
 from datetime import datetime, timezone
 
@@ -109,7 +111,17 @@ def main():
     ap.add_argument("--season", type=int, default=datetime.now().year)
     ap.add_argument("--train", type=int, nargs="+", default=[2023, 2024, 2025])
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--grade", action="store_true",
+                    help="score past weeks instead of projecting")
     args = ap.parse_args()
+
+    if args.grade:
+        card = grade(args.season)
+        if args.json:
+            card["generated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            json.dump(card, open("receptions_grade.json", "w"), indent=1)
+            print("\n  Wrote receptions_grade.json")
+        return 0
 
     train_seasons = [s for s in args.train if s < args.season]
     if not train_seasons:
@@ -199,8 +211,91 @@ def main():
             ],
         }
         json.dump(out, open("receptions_proj.json", "w"), indent=1)
+        # Archive each week before it gets overwritten, so the projections
+        # can be graded later against what actually happened.
+        os.makedirs("proj_history", exist_ok=True)
+        json.dump(out, open(f"proj_history/rec_{args.season}_wk{target_week}.json",
+                            "w"), indent=1)
         print(f"\n  Wrote receptions_proj.json ({len(P)} players)")
+        print(f"  Archived proj_history/rec_{args.season}_wk{target_week}.json")
     return 0
+
+
+def grade(season):
+    """Score archived projections against what players actually caught."""
+    files = sorted(glob.glob(f"proj_history/rec_{season}_wk*.json"))
+    if not files:
+        print("No archived projections yet - they accumulate weekly.")
+        return {"graded": 0}
+
+    d = load([season])
+    actual = {}
+    for _, r in d.iterrows():
+        actual[(norm_name(r.player_display_name), int(r.week))] = int(r.receptions)
+
+    rows = []
+    for f in files:
+        try:
+            snap = json.load(open(f))
+        except Exception:
+            continue
+        wk = snap.get("week")
+        for p in snap.get("players", []):
+            got = actual.get((norm_name(p["player"]), wk))
+            if got is None:
+                continue
+            rows.append({"week": wk, "player": p["player"], "pos": p.get("pos"),
+                         "proj": p["proj"], "naive": p["season_avg"],
+                         "actual": got})
+    if not rows:
+        print("Nothing could be matched to a played game yet.")
+        return {"graded": 0}
+
+    r = pd.DataFrame(rows)
+    a = r.actual.values
+    pm = float(np.abs(np.round(r.proj.values) - a).mean())
+    nm = float(np.abs(np.round(r.naive.values) - a).mean())
+    diff = np.abs(np.round(r.naive.values) - a) - np.abs(np.round(r.proj.values) - a)
+    se = float(diff.std() / np.sqrt(len(diff))) if len(diff) > 1 else 0
+
+    print(f"\n{len(r)} projections graded, weeks "
+          f"{sorted(r.week.unique())}\n")
+    print(f"  model        {pm:.3f}")
+    print(f"  season avg   {nm:.3f}")
+    print(f"  gap          {nm - pm:+.3f}" + (f"  ({abs((nm-pm)/se):.1f} se)" if se else ""))
+    print(f"  market, measured on 2025 data: 1.430")
+
+    by_pos = []
+    for p in ["WR", "TE", "RB"]:
+        s_ = r[r.pos == p]
+        if len(s_) < 20:
+            continue
+        by_pos.append({"pos": p, "n": int(len(s_)),
+                       "model": round(float(np.abs(np.round(s_.proj.values)-s_.actual.values).mean()), 3),
+                       "naive": round(float(np.abs(np.round(s_.naive.values)-s_.actual.values).mean()), 3)})
+
+    return {
+        "graded": int(len(r)), "weeks": sorted(int(w) for w in r.week.unique()),
+        "model_mae": round(pm, 3), "naive_mae": round(nm, 3),
+        "gap": round(nm - pm, 3),
+        "se": round(abs((nm - pm) / se), 1) if se else None,
+        "market_mae": 1.43,
+        "by_pos": by_pos,
+        "recent": sorted(
+            [{"week": int(x.week), "player": x.player, "pos": x.pos,
+              "proj": round(float(x.proj), 1), "actual": int(x.actual),
+              "err": round(float(x.proj - x.actual), 1)}
+             for _, x in r.iterrows()],
+            key=lambda z: (-z["week"], z["player"]))[:200],
+    }
+
+
+def norm_name(s):
+    if not isinstance(s, str):
+        return ""
+    s = s.lower().replace(".", "").replace("'", "").replace("-", " ")
+    return " ".join(w for w in s.split()
+                    if w not in ("jr", "sr", "ii", "iii", "iv"))
 
 
 if __name__ == "__main__":
