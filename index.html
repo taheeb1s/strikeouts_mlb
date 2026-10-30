@@ -1344,7 +1344,7 @@ const SAMPLE = {
 const MAX_K = 16;
 let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
               cfb: null, cfbConf: "", league: "nfl", nflWeek: null, recProj: null,
-              pickTab: "upcoming",
+              pickTab: "upcoming", td: null, recGrade: null, tdSort: "any",
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
@@ -2150,6 +2150,107 @@ function cfbView() {
       as "by about this much" rather than a scoreline.</p>`;
 }
 
+function tdView() {
+  const d = state.td;
+  if (!d || !d.players || !d.players.length) {
+    return `<div class="empty"><h2>No touchdown model yet</h2>
+      <p>Rebuilt weekly from red-zone usage. Needs four games of
+      current-season form before it will guess.</p></div>`;
+  }
+  const q = state.q.toLowerCase();
+  const key = state.tdSort === "first" ? "p_first"
+            : state.tdSort === "two" ? "p_two" : "p_any";
+  const rows = d.players
+    .filter(p => !q || p.player.toLowerCase().includes(q)
+              || p.team.toLowerCase().includes(q)
+              || p.opponent.toLowerCase().includes(q))
+    .sort((a, b) => b[key] - a[key]).slice(0, 60);
+  const hn = d.honesty || {};
+
+  return `
+    <dl class="totals">
+      <div class="t"><dt>Brier score</dt><dd>${hn.brier}
+        <small>lower is better</small></dd></div>
+      <div class="t"><dt>Own TD rate</dt><dd>${hn.brier_own_rate}</dd></div>
+      <div class="t"><dt>League base rate</dt><dd>${hn.brier_base_rate}</dd></div>
+      <div class="t"><dt>Week</dt><dd>${d.week}</dd></div>
+    </dl>
+    <p class="caption" style="max-width:62ch">Built from opportunity near the
+      goal line, which is far steadier week to week than touchdowns
+      themselves. On a clean 2025 test it beat both a player's own touchdown
+      rate and the league average, and the probabilities are calibrated —
+      when it says 25%, it happens about 28% of the time.
+      <b>No touchdown odds are collected</b>, so nothing here is compared to
+      a market.</p>
+    <div class="controls">
+      <span>Sort by</span>
+      <button data-td="any" aria-pressed="${state.tdSort === "any"}">anytime</button>
+      <span aria-hidden="true">·</span>
+      <button data-td="two" aria-pressed="${state.tdSort === "two"}">two or more</button>
+      <span aria-hidden="true">·</span>
+      <button data-td="first" aria-pressed="${state.tdSort === "first"}">first scorer</button>
+    </div>
+    <div class="gm-head" style="grid-template-columns:minmax(0,1fr) 3rem 3.6rem 3.4rem 3.8rem 4.4rem">
+      <span>Player</span><span>Pos</span><span>Anytime</span><span>2+</span>
+      <span>First</span><span>Inside 5/gm</span>
+    </div>
+    ${rows.map(p => `<div class="gm-row"
+        style="grid-template-columns:minmax(0,1fr) 3rem 3.6rem 3.4rem 3.8rem 4.4rem">
+      <span class="mu2">${p.player}<br>
+        <span class="vg">${p.team} vs ${p.opponent}</span></span>
+      <span class="n">${p.pos}</span>
+      <span class="n cf">${Math.round(p.p_any * 100)}%</span>
+      <span class="n">${Math.round(p.p_two * 100)}%</span>
+      <span class="n">${(p.p_first * 100).toFixed(1)}%</span>
+      <span class="n">${p.i5pg.toFixed(1)}</span>
+    </div>`).join("")}
+    <p class="cal-key">First-scorer odds treat each player as a Poisson
+      arrival: his share of the game's expected touchdowns, times the chance
+      the game produces one at all. They sum to under 100% per game because
+      some games open with a field goal.</p>`;
+}
+
+function recGradeView() {
+  const g = state.recGrade;
+  if (!g || !g.graded) {
+    return `<div class="projnote">Projections get graded once results are
+      published. Nothing scored yet.</div>`;
+  }
+  const beat = g.gap > 0;
+  return `
+    <div class="rec">
+      <span><span class="big">${g.model_mae}</span>
+        <span class="lbl">model error</span></span>
+      <span><span class="pctg">${g.naive_mae}</span>
+        <span class="lbl">season average</span></span>
+      <span class="split">${g.graded} projections, weeks ${g.weeks.join(", ")}<br>
+        the books, measured on 2025: <b>${g.market_mae}</b></span>
+    </div>
+    <p class="cal-key">${beat
+      ? `Ahead of a plain season average by <b>${g.gap}</b> receptions`
+        + (g.se ? ` (${g.se} standard errors)` : "") + "."
+      : `Behind a plain season average by ${(-g.gap).toFixed(3)}.`}
+      Either way it sits behind the market, which is the honest comparison.</p>
+    ${g.by_pos && g.by_pos.length ? `<div class="cal-tab">
+      <div class="r h"><span>Position</span><span>Graded</span>
+        <span>Model</span><span>Average</span></div>
+      ${g.by_pos.map(p => `<div class="r"><span>${p.pos}</span>
+        <span class="n">${p.n}</span><span class="n">${p.model}</span>
+        <span class="n">${p.naive}</span></div>`).join("")}
+    </div>` : ""}
+    <div class="gm-head" style="grid-template-columns:2.4rem minmax(0,1fr) 3rem 3rem 3.4rem">
+      <span>Wk</span><span>Player</span><span>Proj</span><span>Got</span><span>Miss</span>
+    </div>
+    ${g.recent.map(x => `<div class="pk-row"
+        style="grid-template-columns:2.4rem minmax(0,1fr) 3rem 3rem 3.4rem">
+      <span class="wk">${x.week}</span>
+      <span class="mu2">${x.player}</span>
+      <span class="n">${x.proj}</span>
+      <span class="n act">${x.actual}</span>
+      <span class="n ${Math.abs(x.err) >= 2 ? "off" : ""}">${x.err > 0 ? "+" : ""}${x.err}</span>
+    </div>`).join("")}`;
+}
+
 function pickResults(src, label) {
   const r = src && src.results;
   if (!r || !r.graded) {
@@ -2748,6 +2849,8 @@ function render() {
       <span aria-hidden="true">·</span>
       <button data-view="picks" aria-pressed="${state.view === "picks"}">game picks</button>
       <span aria-hidden="true">·</span>
+      <button data-view="td" aria-pressed="${state.view === "td"}">touchdowns</button>
+      <span aria-hidden="true">·</span>
       <button data-view="results" aria-pressed="${state.view === "results"}">past results</button>
     </div>`;
 
@@ -2801,6 +2904,19 @@ function render() {
     return;
   }
 
+  if (state.view === "td") {
+    document.getElementById("body").innerHTML = viewBar + searchBar + tdView();
+    wire();
+    document.querySelectorAll(".controls button[data-td]").forEach(b =>
+      b.onclick = () => { state.tdSort = b.dataset.td; render(); });
+    document.getElementById("card").innerHTML = "";
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML =
+      `Touchdown model. Rebuilt weekly from goal-line opportunity; no odds
+       collected, so nothing here is measured against a market.`;
+    return;
+  }
+
   if (state.view === "picks") {
     const nGm = state.games && state.games.games ? state.games.games.length : 0;
     const nCf = state.cfb && state.cfb.games ? state.cfb.games.length : 0;
@@ -2843,11 +2959,15 @@ function render() {
     const nflBar = `<div class="nfl-views">
         <button data-nfltab="lines" aria-pressed="${state.nflTab === "lines"}">current lines</button>
         <span aria-hidden="true">·</span>
-        <button data-nfltab="graded" aria-pressed="${state.nflTab === "graded"}">graded${
+        <button data-nfltab="graded" aria-pressed="${state.nflTab === "graded"}">lines graded${
           nScored ? ` (${nScored})` : ""}</button>
+        <span aria-hidden="true">·</span>
+        <button data-nfltab="projgrade" aria-pressed="${state.nflTab === "projgrade"}">model graded${
+          state.recGrade && state.recGrade.graded ? ` (${state.recGrade.graded})` : ""}</button>
       </div>`;
     document.getElementById("body").innerHTML = viewBar + nflBar + searchBar
-      + (state.nflTab === "graded" ? nflGraded() : nflView());
+      + (state.nflTab === "graded" ? nflGraded()
+         : state.nflTab === "projgrade" ? recGradeView() : nflView());
     document.querySelectorAll(".nfl-views button").forEach(b =>
       b.onclick = () => { state.nflTab = b.dataset.nfltab; render(); });
     const ws = document.getElementById("wsel");
@@ -2966,9 +3086,14 @@ Promise.all([
     .then(r => r.ok ? r.json() : null).catch(() => null),
   fetch("receptions_proj.json", { cache: "no-store" })
     .then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([c, n, rs, gm, cf, rp]) => {
+  fetch("td_model.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+  fetch("receptions_grade.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n, rs, gm, cf, rp, td, rg]) => {
   state.card = c; state.nfl = n; state.nflScore = rs;
   state.games = gm; state.cfb = cf; state.recProj = rp;
+  state.td = td; state.recGrade = rg;
 })
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
