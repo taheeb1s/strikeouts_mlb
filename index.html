@@ -1345,6 +1345,7 @@ const MAX_K = 16;
 let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
               cfb: null, cfbConf: "", league: "nfl", nflWeek: null, recProj: null,
               pickTab: "upcoming", td: null, recGrade: null, tdSort: "any",
+              tdGrade: null, tdTab: "week",
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
@@ -2150,6 +2151,72 @@ function cfbView() {
       as "by about this much" rather than a scoreline.</p>`;
 }
 
+function tdGradeView() {
+  const g = state.tdGrade;
+  if (!g || !g.graded) {
+    return `<div class="empty"><h2>Nothing graded yet</h2>
+      <p>Each week's probabilities are archived, then scored once the games
+      are played.</p></div>`;
+  }
+  const better = g.brier < g.brier_base;
+  const row = (lab, m, b) => `<div class="r">
+      <span>${lab}</span><span class="n">${m.toFixed(4)}</span>
+      <span class="n">${b.toFixed(4)}</span>
+      <span class="n ${m < b ? "ok y" : "ok n"}">${m < b ? "better" : "worse"}</span>
+    </div>`;
+
+  return `
+    <div class="rec">
+      <span><span class="big">${g.brier}</span>
+        <span class="lbl">Brier, anytime</span></span>
+      <span><span class="pctg">${g.brier_base}</span>
+        <span class="lbl">guessing the base rate</span></span>
+      <span class="split">${g.graded} predictions, weeks ${g.weeks.join(", ")}<br>
+        ${(g.base_rate * 100).toFixed(1)}% of them scored</span>
+    </div>
+    <p class="cal-key">Brier measures squared error on a probability — lower
+      is better, and beating the base rate means the model is distinguishing
+      between players rather than guessing the average.
+      ${better ? "It is." : "It isn't, on this sample."}</p>
+
+    <div class="cal-tab">
+      <div class="r h"><span>Market</span><span>Model</span>
+        <span>Base rate</span><span></span></div>
+      ${row("Anytime", g.brier, g.brier_base)}
+      ${row("Two or more", g.brier_two, g.brier_two_base)}
+      ${g.brier_first ? row("First scorer", g.brier_first, g.brier_first_base) : ""}
+    </div>
+
+    ${g.bands && g.bands.length ? `
+      <div class="cal-tab">
+        <div class="r h"><span>It said</span><span>Players</span>
+          <span>Said</span><span>Happened</span></div>
+        ${g.bands.map(b => {
+          const off = Math.abs(b.said - b.happened) > 0.08;
+          return `<div class="r"><span>${b.band}</span>
+            <span class="n">${b.n}</span>
+            <span class="n">${Math.round(b.said * 100)}%</span>
+            <span class="n ${off ? "off" : ""}">${Math.round(b.happened * 100)}%</span>
+          </div>`;
+        }).join("")}
+      </div>
+      <p class="cal-key">This is the table that matters for a probability
+        model. A player given 30% is <b>supposed</b> to fail seven times in
+        ten — what counts is whether the two columns line up.</p>` : ""}
+
+    <div class="gm-head" style="grid-template-columns:2.4rem minmax(0,1fr) 3.6rem 2.8rem 3.4rem">
+      <span>Wk</span><span>Player</span><span>Said</span><span>TDs</span><span>First?</span>
+    </div>
+    ${g.recent.map(x => `<div class="pk-row"
+        style="grid-template-columns:2.4rem minmax(0,1fr) 3.6rem 2.8rem 3.4rem">
+      <span class="wk">${x.week}</span>
+      <span class="mu2">${x.player}</span>
+      <span class="n">${Math.round(x.p_any * 100)}%</span>
+      <span class="n act">${x.tds}</span>
+      <span class="ok ${x.first ? "y" : ""}">${x.first ? "first" : ""}</span>
+    </div>`).join("")}`;
+}
+
 function tdView() {
   const d = state.td;
   if (!d || !d.players || !d.players.length) {
@@ -2905,7 +2972,17 @@ function render() {
   }
 
   if (state.view === "td") {
-    document.getElementById("body").innerHTML = viewBar + searchBar + tdView();
+    const ng = state.tdGrade && state.tdGrade.graded;
+    const tdBar = `<div class="nfl-views">
+        <button data-tdtab="week" aria-pressed="${state.tdTab === "week"}">this week</button>
+        <span aria-hidden="true">·</span>
+        <button data-tdtab="graded" aria-pressed="${state.tdTab === "graded"}">graded${
+          ng ? ` (${ng})` : ""}</button>
+      </div>`;
+    document.getElementById("body").innerHTML = viewBar + tdBar
+      + (state.tdTab === "graded" ? tdGradeView() : searchBar + tdView());
+    document.querySelectorAll(".nfl-views button").forEach(b =>
+      b.onclick = () => { state.tdTab = b.dataset.tdtab; render(); });
     wire();
     document.querySelectorAll(".controls button[data-td]").forEach(b =>
       b.onclick = () => { state.tdSort = b.dataset.td; render(); });
@@ -3090,10 +3167,12 @@ Promise.all([
     .then(r => r.ok ? r.json() : null).catch(() => null),
   fetch("receptions_grade.json", { cache: "no-store" })
     .then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([c, n, rs, gm, cf, rp, td, rg]) => {
+  fetch("td_grade.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n, rs, gm, cf, rp, td, rg, tg]) => {
   state.card = c; state.nfl = n; state.nflScore = rs;
   state.games = gm; state.cfb = cf; state.recProj = rp;
-  state.td = td; state.recGrade = rg;
+  state.td = td; state.recGrade = rg; state.tdGrade = tg;
 })
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
