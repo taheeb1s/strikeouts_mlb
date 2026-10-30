@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-30T22:49:21+00:00",
+ "generated_at": "2026-10-30T23:02:00+00:00",
  "backtest": {
   "games": 1527,
   "accuracy": 0.6326,
@@ -45,6 +45,40 @@
   "graded": 107,
   "won": 64,
   "lost": 43,
+  "ats": {
+   "graded": 101,
+   "won": 47,
+   "lost": 54,
+   "push": 6,
+   "win_pct": 0.4653,
+   "avg_disagreement": 2.67,
+   "bands": [
+    {
+     "band": "under 2",
+     "n": 49,
+     "won": 23
+    },
+    {
+     "band": "2 to 4",
+     "n": 27,
+     "won": 14
+    },
+    {
+     "band": "4 to 7",
+     "n": 23,
+     "won": 10
+    }
+   ]
+  },
+  "totals": {
+   "graded": 107,
+   "won": 51,
+   "lost": 56,
+   "push": 0,
+   "win_pct": 0.4766,
+   "over_rate": 0.514,
+   "avg_disagreement": 2.58
+  },
   "win_pct": 0.5981,
   "home_baseline": 0.4953,
   "margin_mae": 9.94,
