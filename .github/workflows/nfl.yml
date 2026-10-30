@@ -90,6 +90,8 @@ jobs:
           python3 nfl_games.py --json || echo "(NFL game model unavailable)"
           python3 cfb_games.py --json || echo "(college model unavailable)"
           python3 rec_model.py --json || echo "(too early for reception projections)"
+          python3 rec_model.py --grade --json || echo "(nothing to grade yet)"
+          python3 td_model.py --json || echo "(touchdown model unavailable)"
 
       - name: Grade captured lines
         if: steps.sc.outputs.go == 'yes'
@@ -109,10 +111,12 @@ jobs:
           git pull --rebase --autostash origin main || true
 
           for f in receptions.json receptions_score.json nfl_games.json .last_daily \
-                   cfb_games.json receptions_proj.json nfl_weeks.json; do
+                   cfb_games.json receptions_proj.json nfl_weeks.json \
+                   receptions_grade.json td_model.json; do
             [ -f "$f" ] && git add "$f"
           done
           [ -d snapshots ] && git add snapshots/
+          [ -d proj_history ] && git add proj_history/
 
           if git diff --staged --quiet; then
             echo "Nothing new to publish."
