@@ -20,7 +20,9 @@ game's expected touchdowns, times the chance anyone scores at all.
 """
 
 import argparse
+import glob
 import json
+import os
 import sys
 from datetime import datetime, timezone
 
@@ -190,7 +192,17 @@ def main():
     ap.add_argument("--train", type=int, nargs="+", default=[2023, 2024, 2025])
     ap.add_argument("--backtest", action="store_true")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--grade", action="store_true",
+                    help="score archived predictions instead of making new ones")
     args = ap.parse_args()
+
+    if args.grade:
+        card = grade(args.season)
+        if args.json:
+            card["generated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+            json.dump(card, open("td_grade.json", "w"), indent=1)
+            print("\n  Wrote td_grade.json")
+        return 0
 
     if args.backtest:
         d = load(sorted(set(args.train + [args.season])))
@@ -291,8 +303,128 @@ def main():
             ],
         }
         json.dump(out, open("td_model.json", "w"), indent=1)
+        # Archive before next week overwrites it, so these can be graded.
+        os.makedirs("proj_history", exist_ok=True)
+        json.dump(out, open(f"proj_history/td_{args.season}_wk{target}.json",
+                            "w"), indent=1)
         print(f"\n  Wrote td_model.json ({len(P)} players)")
+        print(f"  Archived proj_history/td_{args.season}_wk{target}.json")
     return 0
+
+
+def norm_name(s):
+    if not isinstance(s, str):
+        return ""
+    s = s.lower().replace(".", "").replace("'", "").replace("-", " ")
+    return " ".join(w for w in s.split()
+                    if w not in ("jr", "sr", "ii", "iii", "iv"))
+
+
+def grade(season):
+    """Score archived touchdown probabilities against what happened.
+
+    Brier and calibration are the right measures here, not a win-loss
+    record. A model that says 30% and is right three times in ten is
+    working perfectly, even though it 'lost' seven of them.
+    """
+    files = sorted(glob.glob(f"proj_history/td_{season}_wk*.json"))
+    if not files:
+        print("No archived touchdown predictions yet.")
+        return {"graded": 0}
+
+    d = load([season])
+    actual, first_of = {}, {}
+    for _, r in d.iterrows():
+        actual[(norm_name(r.player_display_name), int(r.week))] = int(r.tds)
+
+    # who actually scored each game's opening touchdown
+    pbp = (nfl.load_pbp(seasons=[season])
+           .select(["season", "week", "season_type", "game_id", "play_id",
+                    "touchdown", "td_player_name"]).to_pandas())
+    pbp = pbp[(pbp.season_type == "REG") & (pbp.touchdown == 1)
+              & pbp.td_player_name.notna()]
+    for gid, grp in pbp.sort_values("play_id").groupby("game_id"):
+        r0 = grp.iloc[0]
+        first_of[(gid, int(r0.week))] = norm_name(r0.td_player_name)
+    first_by_week = {}
+    for (gid, wk), name in first_of.items():
+        first_by_week.setdefault(wk, set()).add(name)
+
+    rows = []
+    for f in files:
+        try:
+            snap = json.load(open(f))
+        except Exception:
+            continue
+        wk = snap.get("week")
+        firsts = first_by_week.get(wk, set())
+        for p in snap.get("players", []):
+            key = norm_name(p["player"])
+            got = actual.get((key, wk))
+            if got is None:
+                continue
+            rows.append({"week": wk, "player": p["player"], "pos": p.get("pos"),
+                         "p_any": p["p_any"], "p_two": p["p_two"],
+                         "p_first": p["p_first"], "tds": got,
+                         "scored": int(got > 0), "two": int(got >= 2),
+                         "was_first": int(key in firsts)})
+    if not rows:
+        print("Nothing could be matched to a played game yet.")
+        return {"graded": 0}
+
+    r = pd.DataFrame(rows)
+    def brier(p, y):
+        return float(((np.asarray(p) - np.asarray(y)) ** 2).mean())
+
+    base = r.scored.mean()
+    out = {
+        "graded": int(len(r)), "weeks": sorted(int(w) for w in r.week.unique()),
+        "base_rate": round(float(base), 4),
+        "brier": round(brier(r.p_any, r.scored), 4),
+        "brier_base": round(brier(np.full(len(r), base), r.scored), 4),
+        "brier_two": round(brier(r.p_two, r.two), 4),
+        "brier_two_base": round(brier(np.full(len(r), r.two.mean()), r.two), 4),
+        "brier_first": round(brier(r.p_first, r.was_first), 4),
+        "brier_first_base": round(brier(np.full(len(r), r.was_first.mean()),
+                                        r.was_first), 4),
+    }
+
+    bands = []
+    for lo, hi, lab in [(0, .1, "under 10%"), (.1, .2, "10-20%"),
+                        (.2, .3, "20-30%"), (.3, .45, "30-45%"),
+                        (.45, 1.01, "over 45%")]:
+        m = (r.p_any >= lo) & (r.p_any < hi)
+        if m.sum() >= 10:
+            bands.append({"band": lab, "n": int(m.sum()),
+                          "said": round(float(r.p_any[m].mean()), 3),
+                          "happened": round(float(r.scored[m].mean()), 3)})
+    out["bands"] = bands
+
+    # how often the model's top first-scorer pick actually opened the scoring
+    tops = []
+    for wk, grp in r.groupby("week"):
+        top = grp.sort_values("p_first", ascending=False).head(10)
+        tops.append({"week": int(wk), "hit": int(top.was_first.sum()),
+                     "of": int(len(top))})
+    out["first_top10"] = tops
+    out["recent"] = sorted(
+        [{"week": int(x.week), "player": x.player,
+          "p_any": round(float(x.p_any), 3), "tds": int(x.tds),
+          "first": bool(x.was_first)} for _, x in r.iterrows()],
+        key=lambda z: (-z["week"], -z["p_any"]))[:200]
+
+    print(f"\n{len(r)} predictions graded, weeks {out['weeks']}")
+    print(f"  base rate {base:.1%} scored\n")
+    print(f"  {'':22} {'model':>7} {'base rate':>10}")
+    print(f"  {'anytime (brier)':22} {out['brier']:>7.4f} {out['brier_base']:>10.4f}")
+    print(f"  {'two or more':22} {out['brier_two']:>7.4f} {out['brier_two_base']:>10.4f}")
+    print(f"  {'first scorer':22} {out['brier_first']:>7.4f} {out['brier_first_base']:>10.4f}")
+    if bands:
+        print("\n  calibration")
+        for b in bands:
+            print(f"    {b['band']:11} said {b['said']:.0%}  happened "
+                  f"{b['happened']:.0%}   n={b['n']}")
+    return out
 
 
 if __name__ == "__main__":
