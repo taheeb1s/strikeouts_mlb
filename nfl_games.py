@@ -121,6 +121,8 @@ def run(games):
             "total": g.home_score + g.away_score,
             "margin": margin, "home_won": int(margin > 0),
             "spread_line": g.get("spread_line", np.nan),
+            "total_line": g.get("total_line", np.nan),
+            "total": (g.home_score + g.away_score),
             "elo_h": eh, "elo_a": ea,
         })
 
@@ -166,9 +168,53 @@ def season_results(df, season, fbs_only=False):
                       "said": round(float(conf[m].mean()), 3),
                       "happened": round(float(right[m].mean()), 3)})
 
+    # --- against the spread and against the total
+    ats = {"graded": 0}
+    sp = d.dropna(subset=["spread_line"])
+    if len(sp):
+        # spread_line is the home side: positive means home favoured by it.
+        likes_home = sp.pred_margin > sp.spread_line
+        home_cover = sp.margin > sp.spread_line
+        push = sp.margin == sp.spread_line
+        live = ~push
+        hit = (likes_home == home_cover)[live]
+        ats = {"graded": int(live.sum()), "won": int(hit.sum()),
+               "lost": int((~hit).sum()), "push": int(push.sum()),
+               "win_pct": round(float(hit.mean()), 4) if live.sum() else None,
+               "avg_disagreement": round(
+                   float(np.abs(sp.pred_margin - sp.spread_line).mean()), 2)}
+        # does a bigger gap from the line do better?
+        gap = np.abs(sp.pred_margin - sp.spread_line)[live]
+        # NOT `bands` - that name already holds the calibration bands
+        # computed above, and reusing it silently overwrote them.
+        ats_bands = []
+        for lo, hi, lab in [(0, 2, "under 2"), (2, 4, "2 to 4"),
+                            (4, 7, "4 to 7"), (7, 99, "over 7")]:
+            m = (gap >= lo) & (gap < hi)
+            if m.sum() >= 3:
+                ats_bands.append({"band": lab, "n": int(m.sum()),
+                                  "won": int(hit[m].sum())})
+        ats["bands"] = ats_bands
+
+    tot = {"graded": 0}
+    tl = d.dropna(subset=["total_line", "pred_total"])
+    if len(tl):
+        likes_over = tl.pred_total > tl.total_line
+        went_over = tl.total > tl.total_line
+        push = tl.total == tl.total_line
+        live = ~push
+        hit = (likes_over == went_over)[live]
+        tot = {"graded": int(live.sum()), "won": int(hit.sum()),
+               "lost": int((~hit).sum()), "push": int(push.sum()),
+               "win_pct": round(float(hit.mean()), 4) if live.sum() else None,
+               "over_rate": round(float(likes_over[live].mean()), 4),
+               "avg_disagreement": round(
+                   float(np.abs(tl.pred_total - tl.total_line).mean()), 2)}
+
     return {
         "graded": int(len(d)),
         "won": int(right.sum()), "lost": int((~right).sum()),
+        "ats": ats, "totals": tot,
         "win_pct": round(float(right.mean()), 4),
         "home_baseline": round(float((d.home_won == 1).mean()), 4),
         "margin_mae": round(float(np.abs(d.pred_margin - d.margin).mean()), 2),
