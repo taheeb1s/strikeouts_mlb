@@ -92,6 +92,7 @@ jobs:
           python3 rec_model.py --json || echo "(too early for reception projections)"
           python3 rec_model.py --grade --json || echo "(nothing to grade yet)"
           python3 td_model.py --json || echo "(touchdown model unavailable)"
+          python3 td_model.py --grade --json || echo "(nothing to grade yet)"
 
       - name: Grade captured lines
         if: steps.sc.outputs.go == 'yes'
@@ -112,7 +113,7 @@ jobs:
 
           for f in receptions.json receptions_score.json nfl_games.json .last_daily \
                    cfb_games.json receptions_proj.json nfl_weeks.json \
-                   receptions_grade.json td_model.json; do
+                   receptions_grade.json td_model.json td_grade.json; do
             [ -f "$f" ] && git add "$f"
           done
           [ -d snapshots ] && git add snapshots/
