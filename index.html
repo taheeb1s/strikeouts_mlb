@@ -1346,6 +1346,7 @@ let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
               cfb: null, cfbConf: "", league: "nfl", nflWeek: null, recProj: null,
               pickTab: "upcoming", td: null, recGrade: null, tdSort: "any",
               tdGrade: null, tdTab: "week",
+              nba: null, nbaGrade: null, nbaSort: "pra", nbaTab: "slate",
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
@@ -2151,6 +2152,103 @@ function cfbView() {
       as "by about this much" rather than a scoreline.</p>`;
 }
 
+const NBA_MARKETS = [["pra","PRA"],["points","PTS"],["rebounds","REB"],
+                     ["assists","AST"],["threes","3PM"]];
+
+function nbaView() {
+  const d = state.nba;
+  if (!d || !d.players || !d.players.length) {
+    return `<div class="empty"><h2>No slate loaded</h2>
+      <p>Rebuilt each morning for that evening's games.</p></div>`;
+  }
+  const q = state.q.toLowerCase();
+  const rows = d.players
+    .filter(p => !q || p.player.toLowerCase().includes(q)
+              || (p.team || "").toLowerCase().includes(q)
+              || (p.opponent || "").toLowerCase().includes(q))
+    .sort((a, b) => b[state.nbaSort] - a[state.nbaSort]).slice(0, 80);
+  const hn = d.honesty || {};
+  const mae = hn.mae || {}, nv = hn.mae_naive || {};
+
+  return `
+    <dl class="totals">
+      <div class="t"><dt>Slate</dt><dd>${d.date}
+        <small>${d.players.length} players</small></dd></div>
+      <div class="t"><dt>PRA error</dt><dd>${mae.pra}
+        <small>vs ${nv.pra} season avg</small></dd></div>
+      <div class="t"><dt>Points error</dt><dd>${mae.points}
+        <small>vs ${nv.points}</small></dd></div>
+    </dl>
+    <p class="caption" style="max-width:62ch">Per-minute production times
+      projected minutes, adjusted for pace, rest and opponent. Basketball
+      gives far more events per game than football, so more of the signal
+      survives — every market here beat a season average by more than ten
+      standard errors on 41,753 player-games.
+      <b>No NBA odds are collected</b>, so nothing is measured against a
+      market.</p>
+    <div class="controls">
+      <span>Sort by</span>
+      ${NBA_MARKETS.map(([k, l], i) => `${i ? '<span aria-hidden="true">·</span>' : ""}
+        <button data-nba="${k}" aria-pressed="${state.nbaSort === k}">${l}</button>`).join("")}
+    </div>
+    <div class="gm-head" style="grid-template-columns:minmax(0,1fr) 3.2rem repeat(5,3rem)">
+      <span>Player</span><span>Min</span>
+      ${NBA_MARKETS.map(([, l]) => `<span>${l}</span>`).join("")}
+    </div>
+    ${rows.map(p => `<div class="gm-row"
+        style="grid-template-columns:minmax(0,1fr) 3.2rem repeat(5,3rem)">
+      <span class="mu2">${p.player}<br>
+        <span class="vg">${p.team} ${p.home ? "vs" : "at"} ${p.opponent}</span></span>
+      <span class="n">${p.minutes}</span>
+      ${NBA_MARKETS.map(([k]) => `<span class="n ${k === state.nbaSort ? "cf" : ""}"
+        >${p[k].toFixed(1)}</span>`).join("")}
+    </div>`).join("")}
+    <p class="cal-key">Minutes are the projection's weakest link — a blowout
+      or a late scratch moves everything. Early in a season the rates are
+      blended with last year's, weighted by games played, fading to nothing
+      by midwinter.</p>`;
+}
+
+function nbaGradeView() {
+  const g = state.nbaGrade;
+  if (!g || !g.graded) {
+    return `<div class="empty"><h2>Nothing graded yet</h2>
+      <p>Each night's projections are archived and scored once the box
+      scores land.</p></div>`;
+  }
+  const m = g.markets || {};
+  return `
+    <div class="rec">
+      <span><span class="big">${g.graded}</span>
+        <span class="lbl">projections graded</span></span>
+      <span class="split">${g.dates.length} night${g.dates.length === 1 ? "" : "s"}<br>
+        ${g.dates[0]} to ${g.dates[g.dates.length - 1]}</span>
+    </div>
+    <div class="cal-tab">
+      <div class="r h"><span>Market</span><span>Error</span>
+        <span>Average</span><span>Bias</span></div>
+      ${NBA_MARKETS.map(([k, l]) => m[k] ? `<div class="r">
+        <span>${l}</span><span class="n">${m[k].mae}</span>
+        <span class="n">${m[k].actual_mean}</span>
+        <span class="n ${Math.abs(m[k].bias) > 0.5 ? "off" : ""}"
+          >${m[k].bias > 0 ? "+" : ""}${m[k].bias}</span>
+      </div>` : "").join("")}
+    </div>
+    <p class="cal-key">Bias is the average miss with its sign — positive
+      means projecting high. Random error mostly can't be fixed; a steady
+      bias can.</p>
+    <div class="gm-head" style="grid-template-columns:5.4rem minmax(0,1fr) repeat(2,4.2rem)">
+      <span>Date</span><span>Player</span><span>PRA proj</span><span>Actual</span>
+    </div>
+    ${g.recent.slice(0, 120).map(x => `<div class="pk-row"
+        style="grid-template-columns:5.4rem minmax(0,1fr) repeat(2,4.2rem)">
+      <span class="wk">${x.date.slice(5)}</span>
+      <span class="mu2">${x.player}</span>
+      <span class="n">${x.pra[0]}</span>
+      <span class="n act">${x.pra[1]}</span>
+    </div>`).join("")}`;
+}
+
 function tdGradeView() {
   const g = state.tdGrade;
   if (!g || !g.graded) {
@@ -2934,6 +3032,8 @@ function render() {
       <span aria-hidden="true">·</span>
       <button data-view="td" aria-pressed="${state.view === "td"}">touchdowns</button>
       <span aria-hidden="true">·</span>
+      <button data-view="nba" aria-pressed="${state.view === "nba"}">NBA</button>
+      <span aria-hidden="true">·</span>
       <button data-view="results" aria-pressed="${state.view === "results"}">past results</button>
     </div>`;
 
@@ -2984,6 +3084,29 @@ function render() {
     document.getElementById("card").innerHTML = scorecard();
     document.getElementById("calc").innerHTML = "";
     document.getElementById("footer").innerHTML = "";
+    return;
+  }
+
+  if (state.view === "nba") {
+    const ng = state.nbaGrade && state.nbaGrade.graded;
+    const bar = `<div class="nfl-views">
+        <button data-nbatab="slate" aria-pressed="${state.nbaTab === "slate"}">tonight</button>
+        <span aria-hidden="true">·</span>
+        <button data-nbatab="graded" aria-pressed="${state.nbaTab === "graded"}">graded${
+          ng ? ` (${ng})` : ""}</button>
+      </div>`;
+    document.getElementById("body").innerHTML = viewBar + bar
+      + (state.nbaTab === "graded" ? nbaGradeView() : searchBar + nbaView());
+    document.querySelectorAll(".nfl-views button").forEach(b =>
+      b.onclick = () => { state.nbaTab = b.dataset.nbatab; render(); });
+    document.querySelectorAll(".controls button[data-nba]").forEach(b =>
+      b.onclick = () => { state.nbaSort = b.dataset.nba; render(); });
+    wire();
+    document.getElementById("card").innerHTML = "";
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML =
+      `NBA projections. Rebuilt each morning; no odds collected, so nothing
+       here is measured against a market.`;
     return;
   }
 
@@ -3185,10 +3308,15 @@ Promise.all([
     .then(r => r.ok ? r.json() : null).catch(() => null),
   fetch("td_grade.json", { cache: "no-store" })
     .then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([c, n, rs, gm, cf, rp, td, rg, tg]) => {
+  fetch("nba_model.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+  fetch("nba_grade.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n, rs, gm, cf, rp, td, rg, tg, nb, ng]) => {
   state.card = c; state.nfl = n; state.nflScore = rs;
   state.games = gm; state.cfb = cf; state.recProj = rp;
   state.td = td; state.recGrade = rg; state.tdGrade = tg;
+  state.nba = nb; state.nbaGrade = ng;
 })
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
