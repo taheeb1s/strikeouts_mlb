@@ -120,6 +120,8 @@ jobs:
           python3 nba_model.py --json \
             || echo "::warning::nba_model.py failed"
           python3 nba_model.py --grade --json || echo "(no NBA results yet)"
+          python3 nhl_model.py --json || echo "::warning::nhl_model.py failed"
+          python3 nhl_model.py --grade --json || echo "(no NHL results yet)"
 
       - name: Grade captured lines
         if: steps.sc.outputs.go == 'yes'
@@ -141,7 +143,8 @@ jobs:
           for f in receptions.json receptions_score.json nfl_games.json .last_daily \
                    cfb_games.json receptions_proj.json nfl_weeks.json \
                    receptions_grade.json td_model.json td_grade.json \
-                   nba_model.json nba_grade.json; do
+                   nba_model.json nba_grade.json \
+                   nhl_model.json nhl_grade.json; do
             [ -f "$f" ] && git add "$f"
           done
           [ -d snapshots ] && git add snapshots/
