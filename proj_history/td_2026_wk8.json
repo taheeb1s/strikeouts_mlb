@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-31T00:14:44+00:00",
+ "generated_at": "2026-10-31T13:49:10+00:00",
  "season": 2026,
  "week": 8,
  "trained_on": [
@@ -16,6 +16,7 @@
  "players": [
   {
    "player": "Javonte Williams",
+   "player_id": "00-0036997",
    "team": "DAL",
    "opponent": "ARI",
    "game": "ARI@DAL",
@@ -29,6 +30,7 @@
   },
   {
    "player": "James Cook",
+   "player_id": "00-0037248",
    "team": "BUF",
    "opponent": "BAL",
    "game": "BAL@BUF",
@@ -42,6 +44,7 @@
   },
   {
    "player": "Jahmyr Gibbs",
+   "player_id": "00-0039139",
    "team": "DET",
    "opponent": "MIN",
    "game": "MIN@DET",
@@ -55,6 +58,7 @@
   },
   {
    "player": "CeeDee Lamb",
+   "player_id": "00-0036358",
    "team": "DAL",
    "opponent": "ARI",
    "game": "ARI@DAL",
@@ -68,6 +72,7 @@
   },
   {
    "player": "Kenneth Walker III",
+   "player_id": "00-0038134",
    "team": "KC",
    "opponent": "DEN",
    "game": "KC@DEN",
@@ -81,6 +86,7 @@
   },
   {
    "player": "Kyren Williams",
+   "player_id": "00-0037840",
    "team": "LA",
    "opponent": "LAC",
    "game": "LAC@LA",
@@ -94,6 +100,7 @@
   },
   {
    "player": "Derrick Henry",
+   "player_id": "00-0032764",
    "team": "BAL",
    "opponent": "BUF",
    "game": "BAL@BUF",
@@ -107,6 +114,7 @@
   },
   {
    "player": "Bucky Irving",
+   "player_id": "00-0039361",
    "team": "TB",
    "opponent": "ATL",
    "game": "ATL@TB",
@@ -120,6 +128,7 @@
   },
   {
    "player": "Bhayshul Tuten",
+   "player_id": "00-0040719",
    "team": "JAX",
    "opponent": "IND",
    "game": "IND@JAX",
@@ -133,6 +142,7 @@
   },
   {
    "player": "Kyle Monangai",
+   "player_id": "00-0040236",
    "team": "CHI",
    "opponent": "SEA",
    "game": "CHI@SEA",
@@ -146,6 +156,7 @@
   },
   {
    "player": "Amon-Ra St. Brown",
+   "player_id": "00-0036963",
    "team": "DET",
    "opponent": "MIN",
    "game": "MIN@DET",
@@ -159,6 +170,7 @@
   },
   {
    "player": "Trey McBride",
+   "player_id": "00-0037744",
    "team": "ARI",
    "opponent": "DAL",
    "game": "ARI@DAL",
@@ -172,6 +184,7 @@
   },
   {
    "player": "Jaxon Smith-Njigba",
+   "player_id": "00-0038543",
    "team": "SEA",
    "opponent": "CHI",
    "game": "CHI@SEA",
@@ -185,6 +198,7 @@
   },
   {
    "player": "Ollie Gordon II",
+   "player_id": "00-0040198",
    "team": "MIA",
    "opponent": "NE",
    "game": "NE@MIA",
@@ -198,6 +212,7 @@
   },
   {
    "player": "Ashton Jeanty",
+   "player_id": "00-0040122",
    "team": "LV",
    "opponent": "NYJ",
    "game": "LV@NYJ",
@@ -211,6 +226,7 @@
   },
   {
    "player": "George Pickens",
+   "player_id": "00-0037247",
    "team": "DAL",
    "opponent": "ARI",
    "game": "ARI@DAL",
@@ -224,6 +240,7 @@
   },
   {
    "player": "D'Andre Swift",
+   "player_id": "00-0036275",
    "team": "CHI",
    "opponent": "SEA",
    "game": "CHI@SEA",
@@ -237,6 +254,7 @@
   },
   {
    "player": "Emanuel Wilson",
+   "player_id": "00-0038797",
    "team": "SEA",
    "opponent": "CHI",
    "game": "CHI@SEA",
@@ -250,6 +268,7 @@
   },
   {
    "player": "Tony Pollard",
+   "player_id": "00-0035261",
    "team": "TEN",
    "opponent": "CIN",
    "game": "TEN@CIN",
@@ -263,6 +282,7 @@
   },
   {
    "player": "Chase Brown",
+   "player_id": "00-0038597",
    "team": "CIN",
    "opponent": "TEN",
    "game": "TEN@CIN",
@@ -276,6 +296,7 @@
   },
   {
    "player": "Puka Nacua",
+   "player_id": "00-0039075",
    "team": "LA",
    "opponent": "LAC",
    "game": "LAC@LA",
@@ -289,6 +310,7 @@
   },
   {
    "player": "Braelon Allen",
+   "player_id": "00-0039794",
    "team": "NYJ",
    "opponent": "LV",
    "game": "LV@NYJ",
@@ -302,6 +324,7 @@
   },
   {
    "player": "Quinshon Judkins",
+   "player_id": "00-0040784",
    "team": "CLE",
    "opponent": "PIT",
    "game": "CLE@PIT",
@@ -315,6 +338,7 @@
   },
   {
    "player": "Zay Flowers",
+   "player_id": "00-0039064",
    "team": "BAL",
    "opponent": "BUF",
    "game": "BAL@BUF",
@@ -328,6 +352,7 @@
   },
   {
    "player": "Jeremiyah Love",
+   "player_id": "00-0041027",
    "team": "ARI",
    "opponent": "DAL",
    "game": "ARI@DAL",
@@ -341,6 +366,7 @@
   },
   {
    "player": "Bijan Robinson",
+   "player_id": "00-0038542",
    "team": "ATL",
    "opponent": "TB",
    "game": "ATL@TB",
@@ -354,6 +380,7 @@
   },
   {
    "player": "Ja'Marr Chase",
+   "player_id": "00-0036900",
    "team": "CIN",
    "opponent": "TEN",
    "game": "TEN@CIN",
@@ -367,6 +394,7 @@
   },
   {
    "player": "Blake Corum",
+   "player_id": "00-0039738",
    "team": "LA",
    "opponent": "LAC",
    "game": "LAC@LA",
@@ -380,6 +408,7 @@
   },
   {
    "player": "Davante Adams",
+   "player_id": "00-0031381",
    "team": "LA",
    "opponent": "LAC",
    "game": "LAC@LA",
@@ -393,6 +422,7 @@
   },
   {
    "player": "Omarion Hampton",
+   "player_id": "00-0040666",
    "team": "LAC",
    "opponent": "LA",
    "game": "LAC@LA",
@@ -406,6 +436,7 @@
   },
   {
    "player": "J.K. Dobbins",
+   "player_id": "00-0036158",
    "team": "DEN",
    "opponent": "KC",
    "game": "KC@DEN",
@@ -419,6 +450,7 @@
   },
   {
    "player": "Rachaad White",
+   "player_id": "00-0037256",
    "team": "WAS",
    "opponent": "PHI",
    "game": "PHI@WAS",
@@ -432,6 +464,7 @@
   },
   {
    "player": "Jake Ferguson",
+   "player_id": "00-0038041",
    "team": "DAL",
    "opponent": "ARI",
    "game": "ARI@DAL",
@@ -445,6 +478,7 @@
   },
   {
    "player": "Brock Bowers",
+   "player_id": "00-0039338",
    "team": "LV",
    "opponent": "NYJ",
    "game": "LV@NYJ",
@@ -458,6 +492,7 @@
   },
   {
    "player": "Romeo Doubs",
+   "player_id": "00-0037816",
    "team": "NE",
    "opponent": "MIA",
    "game": "NE@MIA",
@@ -471,6 +506,7 @@
   },
   {
    "player": "Jonathan Taylor",
+   "player_id": "00-0036223",
    "team": "IND",
    "opponent": "JAX",
    "game": "IND@JAX",
@@ -484,6 +520,7 @@
   },
   {
    "player": "Rhamondre Stevenson",
+   "player_id": "00-0036875",
    "team": "NE",
    "opponent": "MIA",
    "game": "NE@MIA",
@@ -497,6 +534,7 @@
   },
   {
    "player": "Tee Higgins",
+   "player_id": "00-0036410",
    "team": "CIN",
    "opponent": "TEN",
    "game": "TEN@CIN",
@@ -510,6 +548,7 @@
   },
   {
    "player": "Garrett Wilson",
+   "player_id": "00-0037740",
    "team": "NYJ",
    "opponent": "LV",
    "game": "LV@NYJ",
@@ -523,6 +562,7 @@
   },
   {
    "player": "Aaron Jones",
+   "player_id": "00-0033293",
    "team": "MIN",
    "opponent": "DET",
    "game": "MIN@DET",
@@ -536,6 +576,7 @@
   },
   {
    "player": "DeVonta Smith",
+   "player_id": "00-0036912",
    "team": "PHI",
    "opponent": "WAS",
    "game": "PHI@WAS",
@@ -549,6 +590,7 @@
   },
   {
    "player": "Tre Tucker",
+   "player_id": "00-0038563",
    "team": "LV",
    "opponent": "NYJ",
    "game": "LV@NYJ",
@@ -562,6 +604,7 @@
   },
   {
    "player": "Parker Washington",
+   "player_id": "00-0038606",
    "team": "JAX",
    "opponent": "IND",
    "game": "IND@JAX",
@@ -575,6 +618,7 @@
   },
   {
    "player": "Drake London",
+   "player_id": "00-0037238",
    "team": "ATL",
    "opponent": "TB",
    "game": "ATL@TB",
@@ -588,6 +632,7 @@
   },
   {
    "player": "Jaylen Warren",
+   "player_id": "00-0037228",
    "team": "PIT",
    "opponent": "CLE",
    "game": "CLE@PIT",
@@ -601,6 +646,7 @@
   },
   {
    "player": "Emeka Egbuka",
+   "player_id": "00-0040129",
    "team": "TB",
    "opponent": "ATL",
    "game": "ATL@TB",
@@ -614,6 +660,7 @@
   },
   {
    "player": "Mason Taylor",
+   "player_id": "00-0040736",
    "team": "NYJ",
    "opponent": "LV",
    "game": "LV@NYJ",
@@ -627,6 +674,7 @@
   },
   {
    "player": "Jameson Williams",
+   "player_id": "00-0037240",
    "team": "DET",
    "opponent": "MIN",
    "game": "MIN@DET",
@@ -640,6 +688,7 @@
   },
   {
    "player": "Justin Jefferson",
+   "player_id": "00-0036322",
    "team": "MIN",
    "opponent": "DET",
    "game": "MIN@DET",
@@ -653,6 +702,7 @@
   },
   {
    "player": "Saquon Barkley",
+   "player_id": "00-0034844",
    "team": "PHI",
    "opponent": "WAS",
    "game": "PHI@WAS",
@@ -666,6 +716,7 @@
   },
   {
    "player": "DJ Moore",
+   "player_id": "00-0034827",
    "team": "BUF",
    "opponent": "BAL",
    "game": "BAL@BUF",
@@ -679,6 +730,7 @@
   },
   {
    "player": "DeMario Douglas",
+   "player_id": "00-0038621",
    "team": "NE",
    "opponent": "MIA",
    "game": "NE@MIA",
@@ -692,6 +744,7 @@
   },
   {
    "player": "Stefon Diggs",
+   "player_id": "00-0031588",
    "team": "WAS",
    "opponent": "PHI",
    "game": "PHI@WAS",
@@ -705,6 +758,7 @@
   },
   {
    "player": "Hunter Henry",
+   "player_id": "00-0033090",
    "team": "NE",
    "opponent": "MIA",
    "game": "NE@MIA",
@@ -718,6 +772,7 @@
   },
   {
    "player": "Michael Wilson",
+   "player_id": "00-0038559",
    "team": "ARI",
    "opponent": "DAL",
    "game": "ARI@DAL",
@@ -731,6 +786,7 @@
   },
   {
    "player": "Tyler Allgeier",
+   "player_id": "00-0037263",
    "team": "ARI",
    "opponent": "DAL",
    "game": "ARI@DAL",
@@ -744,6 +800,7 @@
   },
   {
    "player": "Sam LaPorta",
+   "player_id": "00-0039065",
    "team": "DET",
    "opponent": "MIN",
    "game": "MIN@DET",
@@ -757,6 +814,7 @@
   },
   {
    "player": "Mark Andrews",
+   "player_id": "00-0034753",
    "team": "BAL",
    "opponent": "BUF",
    "game": "BAL@BUF",
@@ -770,6 +828,7 @@
   },
   {
    "player": "Tyler Warren",
+   "player_id": "00-0040128",
    "team": "IND",
    "opponent": "JAX",
    "game": "IND@JAX",
@@ -783,6 +842,7 @@
   },
   {
    "player": "DK Metcalf",
+   "player_id": "00-0035640",
    "team": "PIT",
    "opponent": "CLE",
    "game": "CLE@PIT",
@@ -796,6 +856,7 @@
   },
   {
    "player": "Ryan Flournoy",
+   "player_id": "00-0039410",
    "team": "DAL",
    "opponent": "ARI",
    "game": "ARI@DAL",
@@ -809,6 +870,7 @@
   },
   {
    "player": "Tyquan Thornton",
+   "player_id": "00-0038104",
    "team": "KC",
    "opponent": "DEN",
    "game": "KC@DEN",
@@ -822,6 +884,7 @@
   },
   {
    "player": "Tank Bigsby",
+   "player_id": "00-0038555",
    "team": "PHI",
    "opponent": "WAS",
    "game": "PHI@WAS",
@@ -835,6 +898,7 @@
   },
   {
    "player": "Keon Coleman",
+   "player_id": "00-0039901",
    "team": "BUF",
    "opponent": "BAL",
    "game": "BAL@BUF",
@@ -848,6 +912,7 @@
   },
   {
    "player": "Jacory Croskey-Merritt",
+   "player_id": "00-0040242",
    "team": "WAS",
    "opponent": "PHI",
    "game": "PHI@WAS",
@@ -861,6 +926,7 @@
   },
   {
    "player": "Luther Burden III",
+   "player_id": "00-0040735",
    "team": "CHI",
    "opponent": "SEA",
    "game": "CHI@SEA",
@@ -874,6 +940,7 @@
   },
   {
    "player": "Keaton Mitchell",
+   "player_id": "00-0038454",
    "team": "LAC",
    "opponent": "LA",
    "game": "LAC@LA",
@@ -887,6 +954,7 @@
   },
   {
    "player": "Jakobi Meyers",
+   "player_id": "00-0034960",
    "team": "JAX",
    "opponent": "IND",
    "game": "IND@JAX",
@@ -900,6 +968,7 @@
   },
   {
    "player": "Kendrick Bourne",
+   "player_id": "00-0033307",
    "team": "ARI",
    "opponent": "DAL",
    "game": "ARI@DAL",
@@ -913,6 +982,7 @@
   },
   {
    "player": "Dalton Kincaid",
+   "player_id": "00-0038933",
    "team": "BUF",
    "opponent": "BAL",
    "game": "BAL@BUF",
@@ -926,6 +996,7 @@
   },
   {
    "player": "Rico Dowdle",
+   "player_id": "00-0036139",
    "team": "PIT",
    "opponent": "CLE",
    "game": "CLE@PIT",
@@ -939,6 +1010,7 @@
   },
   {
    "player": "Colston Loveland",
+   "player_id": "00-0040126",
    "team": "CHI",
    "opponent": "SEA",
    "game": "CHI@SEA",
@@ -952,6 +1024,7 @@
   },
   {
    "player": "T.J. Hockenson",
+   "player_id": "00-0035229",
    "team": "MIN",
    "opponent": "DET",
    "game": "MIN@DET",
@@ -965,6 +1038,7 @@
   },
   {
    "player": "Pat Freiermuth",
+   "player_id": "00-0036894",
    "team": "PIT",
    "opponent": "CLE",
    "game": "CLE@PIT",
@@ -978,6 +1052,7 @@
   },
   {
    "player": "Brian Robinson",
+   "player_id": "00-0037746",
    "team": "ATL",
    "opponent": "TB",
    "game": "ATL@TB",
@@ -991,6 +1066,7 @@
   },
   {
    "player": "Bam Knight",
+   "player_id": "00-0037157",
    "team": "ARI",
    "opponent": "DAL",
    "game": "ARI@DAL",
@@ -1004,6 +1080,7 @@
   },
   {
    "player": "Eli Raridon",
+   "player_id": "00-0041395",
    "team": "NE",
    "opponent": "MIA",
    "game": "NE@MIA",
@@ -1017,6 +1094,7 @@
   },
   {
    "player": "Wan'Dale Robinson",
+   "player_id": "00-0038117",
    "team": "TEN",
    "opponent": "CIN",
    "game": "TEN@CIN",
@@ -1030,6 +1108,7 @@
   },
   {
    "player": "Keenan Allen",
+   "player_id": "00-0030279",
    "team": "IND",
    "opponent": "JAX",
    "game": "IND@JAX",
@@ -1043,6 +1122,7 @@
   },
   {
    "player": "Travis Kelce",
+   "player_id": "00-0030506",
    "team": "KC",
    "opponent": "DEN",
    "game": "KC@DEN",
@@ -1056,6 +1136,7 @@
   },
   {
    "player": "AJ Barner",
+   "player_id": "00-0039793",
    "team": "SEA",
    "opponent": "CHI",
    "game": "CHI@SEA",
@@ -1069,6 +1150,7 @@
   },
   {
    "player": "Brenton Strange",
+   "player_id": "00-0038935",
    "team": "JAX",
    "opponent": "IND",
    "game": "IND@JAX",
@@ -1082,6 +1164,7 @@
   },
   {
    "player": "Rashid Shaheed",
+   "player_id": "00-0037545",
    "team": "SEA",
    "opponent": "CHI",
    "game": "CHI@SEA",
@@ -1095,6 +1178,7 @@
   },
   {
    "player": "Khalil Shakir",
+   "player_id": "00-0037261",
    "team": "BUF",
    "opponent": "BAL",
    "game": "BAL@BUF",
@@ -1108,6 +1192,7 @@
   },
   {
    "player": "Chris Godwin Jr.",
+   "player_id": "00-0033921",
    "team": "TB",
    "opponent": "ATL",
    "game": "ATL@TB",
@@ -1121,6 +1206,7 @@
   },
   {
    "player": "Carnell Tate",
+   "player_id": "00-0041438",
    "team": "TEN",
    "opponent": "CIN",
    "game": "TEN@CIN",
@@ -1134,6 +1220,7 @@
   },
   {
    "player": "Tre Harris",
+   "player_id": "00-0040727",
    "team": "LAC",
    "opponent": "LA",
    "game": "LAC@LA",
@@ -1147,6 +1234,7 @@
   },
   {
    "player": "Malik Washington",
+   "player_id": "00-0039880",
    "team": "MIA",
    "opponent": "NE",
    "game": "NE@MIA",
@@ -1160,6 +1248,7 @@
   },
   {
    "player": "Denzel Boston",
+   "player_id": "00-0041037",
    "team": "CLE",
    "opponent": "PIT",
    "game": "CLE@PIT",
@@ -1173,6 +1262,7 @@
   },
   {
    "player": "TreVeyon Henderson",
+   "player_id": "00-0040734",
    "team": "NE",
    "opponent": "MIA",
    "game": "NE@MIA",
@@ -1186,6 +1276,7 @@
   },
   {
    "player": "Germie Bernard",
+   "player_id": "00-0041489",
    "team": "PIT",
    "opponent": "CLE",
    "game": "CLE@PIT",
@@ -1199,6 +1290,7 @@
   },
   {
    "player": "Terry McLaurin",
+   "player_id": "00-0035659",
    "team": "WAS",
    "opponent": "PHI",
    "game": "PHI@WAS",
@@ -1212,6 +1304,7 @@
   },
   {
    "player": "Jahan Dotson",
+   "player_id": "00-0037741",
    "team": "ATL",
    "opponent": "TB",
    "game": "ATL@TB",
@@ -1225,6 +1318,7 @@
   },
   {
    "player": "Kyle Pitts",
+   "player_id": "00-0036970",
    "team": "ATL",
    "opponent": "TB",
    "game": "ATL@TB",
@@ -1238,6 +1332,7 @@
   },
   {
    "player": "Kimani Vidal",
+   "player_id": "00-0039391",
    "team": "LAC",
    "opponent": "LA",
    "game": "LAC@LA",
@@ -1251,6 +1346,7 @@
   },
   {
    "player": "Mike Gesicki",
+   "player_id": "00-0034829",
    "team": "CIN",
    "opponent": "TEN",
    "game": "TEN@CIN",
@@ -1264,6 +1360,7 @@
   },
   {
    "player": "Darius Cooper",
+   "player_id": "00-0040024",
    "team": "PHI",
    "opponent": "WAS",
    "game": "PHI@WAS",
@@ -1277,6 +1374,7 @@
   },
   {
    "player": "Rome Odunze",
+   "player_id": "00-0039919",
    "team": "CHI",
    "opponent": "SEA",
    "game": "CHI@SEA",
@@ -1290,6 +1388,7 @@
   },
   {
    "player": "Roman Wilson",
+   "player_id": "00-0039739",
    "team": "PIT",
    "opponent": "CLE",
    "game": "CLE@PIT",
@@ -1303,6 +1402,7 @@
   },
   {
    "player": "Jalen Brooks",
+   "player_id": "00-0038640",
    "team": "ARI",
    "opponent": "DAL",
    "game": "ARI@DAL",
@@ -1316,6 +1416,7 @@
   },
   {
    "player": "KC Concepcion",
+   "player_id": "00-0041547",
    "team": "CLE",
    "opponent": "PIT",
    "game": "CLE@PIT",
@@ -1329,6 +1430,7 @@
   },
   {
    "player": "Samaje Perine",
+   "player_id": "00-0033526",
    "team": "CIN",
    "opponent": "TEN",
    "game": "TEN@CIN",
@@ -1342,6 +1444,7 @@
   },
   {
    "player": "Harold Fannin Jr.",
+   "player_id": "00-0040663",
    "team": "CLE",
    "opponent": "PIT",
    "game": "CLE@PIT",
@@ -1355,6 +1458,7 @@
   },
   {
    "player": "Josh Downs",
+   "player_id": "00-0038997",
    "team": "IND",
    "opponent": "JAX",
    "game": "IND@JAX",
@@ -1368,6 +1472,7 @@
   },
   {
    "player": "RJ Harvey",
+   "player_id": "00-0040730",
    "team": "DEN",
    "opponent": "KC",
    "game": "KC@DEN",
@@ -1381,6 +1486,7 @@
   },
   {
    "player": "Tyler Higbee",
+   "player_id": "00-0033110",
    "team": "LA",
    "opponent": "LAC",
    "game": "LAC@LA",
@@ -1394,6 +1500,7 @@
   },
   {
    "player": "Jaylen Waddle",
+   "player_id": "00-0036613",
    "team": "DEN",
    "opponent": "KC",
    "game": "KC@DEN",
@@ -1407,6 +1514,7 @@
   },
   {
    "player": "Will Shipley",
+   "player_id": "00-0039746",
    "team": "PHI",
    "opponent": "WAS",
    "game": "PHI@WAS",
@@ -1420,6 +1528,7 @@
   },
   {
    "player": "Oronde Gadsden II",
+   "player_id": "00-0040189",
    "team": "LAC",
    "opponent": "LA",
    "game": "LAC@LA",
@@ -1433,6 +1542,7 @@
   },
   {
    "player": "Jalen Nailor",
+   "player_id": "00-0037291",
    "team": "LV",
    "opponent": "NYJ",
    "game": "LV@NYJ",
@@ -1446,6 +1556,7 @@
   },
   {
    "player": "Josh Cuevas",
+   "player_id": "00-0040887",
    "team": "BAL",
    "opponent": "BUF",
    "game": "BAL@BUF",
@@ -1459,6 +1570,7 @@
   },
   {
    "player": "Dontayvion Wicks",
+   "player_id": "00-0038393",
    "team": "PHI",
    "opponent": "WAS",
    "game": "PHI@WAS",
@@ -1472,6 +1584,7 @@
   },
   {
    "player": "Chris Rodriguez Jr.",
+   "player_id": "00-0038611",
    "team": "JAX",
    "opponent": "IND",
    "game": "IND@JAX",
@@ -1485,6 +1598,7 @@
   },
   {
    "player": "Colby Parkinson",
+   "player_id": "00-0036244",
    "team": "LA",
    "opponent": "LAC",
    "game": "LAC@LA",
@@ -1498,6 +1612,7 @@
   },
   {
    "player": "Greg Dulcich",
+   "player_id": "00-0037252",
    "team": "MIA",
    "opponent": "NE",
    "game": "NE@MIA",
@@ -1511,6 +1626,7 @@
   },
   {
    "player": "Treylon Burks",
+   "player_id": "00-0037742",
    "team": "WAS",
    "opponent": "PHI",
    "game": "PHI@WAS",
@@ -1524,6 +1640,7 @@
   },
   {
    "player": "Xavier Worthy",
+   "player_id": "00-0039894",
    "team": "KC",
    "opponent": "DEN",
    "game": "KC@DEN",
@@ -1537,6 +1654,7 @@
   },
   {
    "player": "Mack Hollins",
+   "player_id": "00-0033555",
    "team": "NE",
    "opponent": "MIA",
    "game": "NE@MIA",
@@ -1550,6 +1668,7 @@
   },
   {
    "player": "Tyler Goodson",
+   "player_id": "00-0037120",
    "team": "DAL",
    "opponent": "ARI",
    "game": "ARI@DAL",
@@ -1563,6 +1682,7 @@
   },
   {
    "player": "Michael Mayer",
+   "player_id": "00-0039066",
    "team": "LV",
    "opponent": "NYJ",
    "game": "LV@NYJ",
@@ -1576,6 +1696,7 @@
   },
   {
    "player": "George Holani",
+   "player_id": "00-0039299",
    "team": "SEA",
    "opponent": "CHI",
    "game": "CHI@SEA",
@@ -1589,6 +1710,7 @@
   },
   {
    "player": "Dallas Goedert",
+   "player_id": "00-0034351",
    "team": "PHI",
    "opponent": "WAS",
    "game": "PHI@WAS",
@@ -1602,6 +1724,7 @@
   },
   {
    "player": "Kenny Gainwell",
+   "player_id": "00-0036919",
    "team": "TB",
    "opponent": "ATL",
    "game": "ATL@TB",
@@ -1615,6 +1738,7 @@
   },
   {
    "player": "Kevin Coleman Jr.",
+   "player_id": "00-0041529",
    "team": "MIA",
    "opponent": "NE",
    "game": "NE@MIA",
@@ -1628,6 +1752,7 @@
   },
   {
    "player": "Rashod Bateman",
+   "player_id": "00-0036550",
    "team": "BAL",
    "opponent": "BUF",
    "game": "BAL@BUF",
@@ -1641,6 +1766,7 @@
   },
   {
    "player": "Tanner Hudson",
+   "player_id": "00-0034613",
    "team": "CIN",
    "opponent": "TEN",
    "game": "TEN@CIN",
@@ -1654,6 +1780,7 @@
   },
   {
    "player": "Corey Kiner",
+   "player_id": "00-0040556",
    "team": "NE",
    "opponent": "MIA",
    "game": "NE@MIA",
@@ -1667,6 +1794,7 @@
   },
   {
    "player": "Courtland Sutton",
+   "player_id": "00-0034348",
    "team": "DEN",
    "opponent": "KC",
    "game": "KC@DEN",
@@ -1680,6 +1808,7 @@
   },
   {
    "player": "Roschon Johnson",
+   "player_id": "00-0039021",
    "team": "CHI",
    "opponent": "SEA",
    "game": "CHI@SEA",
@@ -1693,6 +1822,7 @@
   },
   {
    "player": "Cooper Kupp",
+   "player_id": "00-0033908",
    "team": "SEA",
    "opponent": "CHI",
    "game": "CHI@SEA",
@@ -1706,6 +1836,7 @@
   },
   {
    "player": "Brian Thomas Jr.",
+   "player_id": "00-0039893",
    "team": "JAX",
    "opponent": "IND",
    "game": "IND@JAX",
@@ -1719,6 +1850,7 @@
   },
   {
    "player": "Cody White",
+   "player_id": "00-0035891",
    "team": "LV",
    "opponent": "NYJ",
    "game": "LV@NYJ",
@@ -1732,6 +1864,7 @@
   },
   {
    "player": "Darnell Washington",
+   "player_id": "00-0038558",
    "team": "PIT",
    "opponent": "CLE",
    "game": "CLE@PIT",
@@ -1745,6 +1878,7 @@
   },
   {
    "player": "Nate Adkins",
+   "player_id": "00-0038783",
    "team": "DEN",
    "opponent": "KC",
    "game": "KC@DEN",
@@ -1758,6 +1892,7 @@
   },
   {
    "player": "Antonio Williams",
+   "player_id": "00-0041040",
    "team": "WAS",
    "opponent": "PHI",
    "game": "PHI@WAS",
@@ -1771,6 +1906,7 @@
   },
   {
    "player": "Laquon Treadwell",
+   "player_id": "00-0032951",
    "team": "IND",
    "opponent": "JAX",
    "game": "IND@JAX",
@@ -1784,6 +1920,7 @@
   },
   {
    "player": "Davis Allen",
+   "player_id": "00-0039074",
    "team": "LA",
    "opponent": "LAC",
    "game": "LAC@LA",
@@ -1797,6 +1934,7 @@
   },
   {
    "player": "Isaac TeSlaa",
+   "player_id": "00-0040669",
    "team": "DET",
    "opponent": "MIN",
    "game": "MIN@DET",
@@ -1810,6 +1948,7 @@
   },
   {
    "player": "Justice Hill",
+   "player_id": "00-0034975",
    "team": "BAL",
    "opponent": "BUF",
    "game": "BAL@BUF",
@@ -1823,6 +1962,7 @@
   },
   {
    "player": "Kalif Raymond",
+   "player_id": "00-0032464",
    "team": "CHI",
    "opponent": "SEA",
    "game": "CHI@SEA",
@@ -1836,6 +1976,7 @@
   },
   {
    "player": "Josh Cameron",
+   "player_id": "00-0041100",
    "team": "JAX",
    "opponent": "IND",
    "game": "IND@JAX",
@@ -1849,6 +1990,7 @@
   },
   {
    "player": "Josh Palmer",
+   "player_id": "00-0036988",
    "team": "BUF",
    "opponent": "BAL",
    "game": "BAL@BUF",
@@ -1862,6 +2004,7 @@
   },
   {
    "player": "Efton Chism III",
+   "player_id": "00-0040563",
    "team": "NE",
    "opponent": "MIA",
    "game": "NE@MIA",
@@ -1875,6 +2018,7 @@
   },
   {
    "player": "Ladd McConkey",
+   "player_id": "00-0039915",
    "team": "LAC",
    "opponent": "LA",
    "game": "LAC@LA",
@@ -1888,6 +2032,7 @@
   },
   {
    "player": "Kenyon Sadiq",
+   "player_id": "00-0041032",
    "team": "NYJ",
    "opponent": "LV",
    "game": "LV@NYJ",
@@ -1901,6 +2046,7 @@
   },
   {
    "player": "Brevyn Spann-Ford",
+   "player_id": "00-0039530",
    "team": "DAL",
    "opponent": "ARI",
    "game": "ARI@DAL",
@@ -1914,6 +2060,7 @@
   },
   {
    "player": "John Bates",
+   "player_id": "00-0036628",
    "team": "WAS",
    "opponent": "PHI",
    "game": "PHI@WAS",
@@ -1927,6 +2074,7 @@
   },
   {
    "player": "Makai Lemon",
+   "player_id": "00-0040867",
    "team": "PHI",
    "opponent": "WAS",
    "game": "PHI@WAS",
@@ -1940,6 +2088,7 @@
   },
   {
    "player": "Mike Washington Jr.",
+   "player_id": "00-0040878",
    "team": "LV",
    "opponent": "NYJ",
    "game": "LV@NYJ",
@@ -1953,6 +2102,7 @@
   },
   {
    "player": "Ted Hurst III",
+   "player_id": "00-0041048",
    "team": "TB",
    "opponent": "ATL",
    "game": "ATL@TB",
@@ -1966,6 +2116,7 @@
   },
   {
    "player": "Elijah Higgins",
+   "player_id": "00-0039041",
    "team": "ARI",
    "opponent": "DAL",
    "game": "ARI@DAL",
@@ -1979,6 +2130,7 @@
   },
   {
    "player": "Dohnte Meyers",
+   "player_id": "00-0040785",
    "team": "CIN",
    "opponent": "TEN",
    "game": "TEN@CIN",
@@ -1992,6 +2144,7 @@
   },
   {
    "player": "Jordan Addison",
+   "player_id": "00-0038994",
    "team": "MIN",
    "opponent": "DET",
    "game": "MIN@DET",
@@ -2005,6 +2158,7 @@
   },
   {
    "player": "Charlie Kolar",
+   "player_id": "00-0038046",
    "team": "LAC",
    "opponent": "LA",
    "game": "LAC@LA",
@@ -2018,6 +2172,7 @@
   },
   {
    "player": "Cade Otton",
+   "player_id": "00-0038129",
    "team": "TB",
    "opponent": "ATL",
    "game": "ATL@TB",
@@ -2031,6 +2186,7 @@
   },
   {
    "player": "Nate Boerkircher",
+   "player_id": "00-0041503",
    "team": "JAX",
    "opponent": "IND",
    "game": "IND@JAX",
@@ -2044,6 +2200,7 @@
   },
   {
    "player": "Elic Ayomanor",
+   "player_id": "00-0040170",
    "team": "TEN",
    "opponent": "CIN",
    "game": "TEN@CIN",
@@ -2057,6 +2214,7 @@
   },
   {
    "player": "Konata Mumpfield",
+   "player_id": "00-0040590",
    "team": "LA",
    "opponent": "LAC",
    "game": "LAC@LA",
@@ -2070,6 +2228,7 @@
   },
   {
    "player": "Matthew Hibner",
+   "player_id": "00-0040879",
    "team": "BAL",
    "opponent": "BUF",
    "game": "BAL@BUF",
@@ -2083,6 +2242,7 @@
   },
   {
    "player": "Seth McGowan",
+   "player_id": "00-0041125",
    "team": "IND",
    "opponent": "JAX",
    "game": "IND@JAX",
@@ -2096,6 +2256,7 @@
   },
   {
    "player": "Devontez Walker",
+   "player_id": "00-0039792",
    "team": "BAL",
    "opponent": "BUF",
    "game": "BAL@BUF",
@@ -2109,6 +2270,7 @@
   },
   {
    "player": "Chig Okonkwo",
+   "player_id": "00-0037809",
    "team": "WAS",
    "opponent": "PHI",
    "game": "PHI@WAS",
@@ -2122,6 +2284,7 @@
   },
   {
    "player": "Emmett Johnson",
+   "player_id": "00-0041013",
    "team": "KC",
    "opponent": "DEN",
    "game": "KC@DEN",
@@ -2135,6 +2298,7 @@
   },
   {
    "player": "Jalen Royals",
+   "player_id": "00-0040646",
    "team": "KC",
    "opponent": "DEN",
    "game": "KC@DEN",
@@ -2148,6 +2312,7 @@
   },
   {
    "player": "Jaylen Wright",
+   "player_id": "00-0039874",
    "team": "MIA",
    "opponent": "NE",
    "game": "NE@MIA",
@@ -2161,6 +2326,7 @@
   },
   {
    "player": "Quentin Johnston",
+   "player_id": "00-0038544",
    "team": "LAC",
    "opponent": "LA",
    "game": "LAC@LA",
@@ -2174,6 +2340,7 @@
   },
   {
    "player": "Isaiah Davis",
+   "player_id": "00-0039798",
    "team": "NYJ",
    "opponent": "LV",
    "game": "LV@NYJ",
@@ -2187,6 +2354,7 @@
   },
   {
    "player": "Tez Johnson",
+   "player_id": "00-0040237",
    "team": "TB",
    "opponent": "ATL",
    "game": "ATL@TB",
@@ -2200,6 +2368,7 @@
   },
   {
    "player": "Kyle Williams",
+   "player_id": "00-0040131",
    "team": "NE",
    "opponent": "MIA",
    "game": "NE@MIA",
@@ -2213,6 +2382,7 @@
   },
   {
    "player": "KaVontae Turpin",
+   "player_id": "00-0037801",
    "team": "DAL",
    "opponent": "ARI",
    "game": "ARI@DAL",
@@ -2226,6 +2396,7 @@
   },
   {
    "player": "Jerry Jeudy",
+   "player_id": "00-0036407",
    "team": "CLE",
    "opponent": "PIT",
    "game": "CLE@PIT",
@@ -2239,6 +2410,7 @@
   },
   {
    "player": "Jeremy Ruckert",
+   "player_id": "00-0037805",
    "team": "NYJ",
    "opponent": "LV",
    "game": "LV@NYJ",
@@ -2252,6 +2424,7 @@
   },
   {
    "player": "Evan Engram",
+   "player_id": "00-0033881",
    "team": "DEN",
    "opponent": "KC",
    "game": "KC@DEN",
@@ -2265,6 +2438,7 @@
   },
   {
    "player": "Noah Gray",
+   "player_id": "00-0036637",
    "team": "KC",
    "opponent": "DEN",
    "game": "KC@DEN",
@@ -2278,6 +2452,7 @@
   },
   {
    "player": "Dylan Laube",
+   "player_id": "00-0039407",
    "team": "LV",
    "opponent": "NYJ",
    "game": "LV@NYJ",
@@ -2291,6 +2466,7 @@
   },
   {
    "player": "Dawson Knox",
+   "player_id": "00-0035689",
    "team": "BUF",
    "opponent": "BAL",
    "game": "BAL@BUF",
@@ -2304,6 +2480,7 @@
   },
   {
    "player": "Pat Bryant",
+   "player_id": "00-0040134",
    "team": "DEN",
    "opponent": "KC",
    "game": "KC@DEN",
@@ -2317,6 +2494,7 @@
   },
   {
    "player": "Tory Horton",
+   "player_id": "00-0040648",
    "team": "SEA",
    "opponent": "CHI",
    "game": "CHI@SEA",
@@ -2330,6 +2508,7 @@
   },
   {
    "player": "Cole Kmet",
+   "player_id": "00-0036290",
    "team": "CHI",
    "opponent": "SEA",
    "game": "CHI@SEA",
@@ -2343,6 +2522,7 @@
   },
   {
    "player": "LaJohntay Wester",
+   "player_id": "00-0040075",
    "team": "BAL",
    "opponent": "BUF",
    "game": "BAL@BUF",
@@ -2356,6 +2536,7 @@
   },
   {
    "player": "Hunter Luepke",
+   "player_id": "00-0038738",
    "team": "DAL",
    "opponent": "ARI",
    "game": "ARI@DAL",
@@ -2369,6 +2550,7 @@
   },
   {
    "player": "Jelani Woods",
+   "player_id": "00-0037755",
    "team": "NYJ",
    "opponent": "LV",
    "game": "LV@NYJ",
@@ -2382,6 +2564,7 @@
   },
   {
    "player": "Jonathan Mingo",
+   "player_id": "00-0039062",
    "team": "DAL",
    "opponent": "ARI",
    "game": "ARI@DAL",
@@ -2395,6 +2578,7 @@
   },
   {
    "player": "Isaiah Williams",
+   "player_id": "00-0039451",
    "team": "NYJ",
    "opponent": "LV",
    "game": "LV@NYJ",
@@ -2408,6 +2592,7 @@
   },
   {
    "player": "Austin Hooper",
+   "player_id": "00-0032392",
    "team": "ATL",
    "opponent": "TB",
    "game": "ATL@TB",
@@ -2421,6 +2606,7 @@
   },
   {
    "player": "Johnny Mundt",
+   "player_id": "00-0033246",
    "team": "PHI",
    "opponent": "WAS",
    "game": "PHI@WAS",
@@ -2434,6 +2620,7 @@
   },
   {
    "player": "Rasheen Ali",
+   "player_id": "00-0039796",
    "team": "BAL",
    "opponent": "BUF",
    "game": "BAL@BUF",
@@ -2447,6 +2634,7 @@
   },
   {
    "player": "Tyler Badie",
+   "player_id": "00-0037085",
    "team": "DEN",
    "opponent": "KC",
    "game": "KC@DEN",
@@ -2460,6 +2648,7 @@
   },
   {
    "player": "Tyjae Spears",
+   "player_id": "00-0039032",
    "team": "TEN",
    "opponent": "CIN",
    "game": "TEN@CIN",
@@ -2473,6 +2662,7 @@
   },
   {
    "player": "Chris Bell",
+   "player_id": "00-0041525",
    "team": "MIA",
    "opponent": "NE",
    "game": "NE@MIA",
@@ -2486,6 +2676,7 @@
   },
   {
    "player": "Gunnar Helm",
+   "player_id": "00-0040584",
    "team": "TEN",
    "opponent": "CIN",
    "game": "TEN@CIN",
@@ -2499,6 +2690,7 @@
   },
   {
    "player": "Mo Alie-Cox",
+   "player_id": "00-0033217",
    "team": "IND",
    "opponent": "JAX",
    "game": "IND@JAX",
@@ -2512,6 +2704,7 @@
   },
   {
    "player": "Marvin Mims Jr.",
+   "player_id": "00-0038976",
    "team": "DEN",
    "opponent": "KC",
    "game": "KC@DEN",
@@ -2525,6 +2718,7 @@
   },
   {
    "player": "Brock Wright",
+   "player_id": "00-0036754",
    "team": "DET",
    "opponent": "MIN",
    "game": "MIN@DET",
@@ -2538,6 +2732,7 @@
   },
   {
    "player": "Drew Sample",
+   "player_id": "00-0035631",
    "team": "CIN",
    "opponent": "TEN",
    "game": "TEN@CIN",
@@ -2551,6 +2746,7 @@
   },
   {
    "player": "Jauan Jennings",
+   "player_id": "00-0036259",
    "team": "MIN",
    "opponent": "DET",
    "game": "MIN@DET",
@@ -2564,6 +2760,7 @@
   },
   {
    "player": "Troy Franklin",
+   "player_id": "00-0039868",
    "team": "DEN",
    "opponent": "KC",
    "game": "KC@DEN",
@@ -2577,6 +2774,7 @@
   },
   {
    "player": "Tai Felton",
+   "player_id": "00-0040154",
    "team": "MIN",
    "opponent": "DET",
    "game": "MIN@DET",
@@ -2590,6 +2788,7 @@
   },
   {
    "player": "Ty Johnson",
+   "player_id": "00-0035537",
    "team": "BUF",
    "opponent": "BAL",
    "game": "BAL@BUF",
@@ -2603,6 +2802,7 @@
   },
   {
    "player": "Myles Price",
+   "player_id": "00-0040506",
    "team": "MIN",
    "opponent": "DET",
    "game": "MIN@DET",
@@ -2616,6 +2816,7 @@
   },
   {
    "player": "Malik Benson",
+   "player_id": "00-0040894",
    "team": "LV",
    "opponent": "NYJ",
    "game": "LV@NYJ",
@@ -2629,6 +2830,7 @@
   },
   {
    "player": "Jaleel McLaughlin",
+   "player_id": "00-0038794",
    "team": "CLE",
    "opponent": "PIT",
    "game": "CLE@PIT",
@@ -2642,6 +2844,7 @@
   },
   {
    "player": "Zachariah Branch",
+   "player_id": "00-0041044",
    "team": "ATL",
    "opponent": "TB",
    "game": "ATL@TB",
@@ -2655,6 +2858,7 @@
   },
   {
    "player": "Demond Claiborne",
+   "player_id": "00-0041104",
    "team": "MIN",
    "opponent": "DET",
    "game": "MIN@DET",
@@ -2668,6 +2872,7 @@
   },
   {
    "player": "Dyami Brown",
+   "player_id": "00-0036626",
    "team": "WAS",
    "opponent": "PHI",
    "game": "PHI@WAS",
@@ -2681,6 +2886,7 @@
   },
   {
    "player": "Travis Homer",
+   "player_id": "00-0035594",
    "team": "PIT",
    "opponent": "CLE",
    "game": "CLE@PIT",
@@ -2694,6 +2900,7 @@
   },
   {
    "player": "DeeJay Dallas",
+   "player_id": "00-0036425",
    "team": "MIN",
    "opponent": "DET",
    "game": "MIN@DET",
@@ -2707,6 +2914,7 @@
   },
   {
    "player": "LeQuint Allen Jr.",
+   "player_id": "00-0040238",
    "team": "JAX",
    "opponent": "IND",
    "game": "IND@JAX",
@@ -2720,6 +2928,7 @@
   },
   {
    "player": "Sione Vaki",
+   "player_id": "00-0039364",
    "team": "DET",
    "opponent": "MIN",
    "game": "MIN@DET",
@@ -2733,6 +2942,7 @@
   },
   {
    "player": "Calvin Ridley",
+   "player_id": "00-0034837",
    "team": "TEN",
    "opponent": "CIN",
    "game": "TEN@CIN",
@@ -2746,6 +2956,7 @@
   },
   {
    "player": "Ian Thomas",
+   "player_id": "00-0034365",
    "team": "LV",
    "opponent": "NYJ",
    "game": "LV@NYJ",
@@ -2759,6 +2970,7 @@
   },
   {
    "player": "Sam Roush",
+   "player_id": "00-0041558",
    "team": "CHI",
    "opponent": "SEA",
    "game": "CHI@SEA",
@@ -2772,6 +2984,7 @@
   },
   {
    "player": "Blake Whiteheart",
+   "player_id": "00-0038710",
    "team": "CLE",
    "opponent": "PIT",
    "game": "CLE@PIT",
@@ -2785,6 +2998,7 @@
   },
   {
    "player": "Zavion Thomas",
+   "player_id": "00-0041051",
    "team": "CHI",
    "opponent": "SEA",
    "game": "CHI@SEA",
@@ -2798,6 +3012,7 @@
   },
   {
    "player": "Charlie Woerner",
+   "player_id": "00-0036429",
    "team": "ATL",
    "opponent": "TB",
    "game": "ATL@TB",
@@ -2811,6 +3026,7 @@
   },
   {
    "player": "Andrew Ogletree",
+   "player_id": "00-0037292",
    "team": "IND",
    "opponent": "JAX",
    "game": "IND@JAX",
@@ -2824,6 +3040,7 @@
   },
   {
    "player": "Chris Blair",
+   "player_id": "00-0036463",
    "team": "ATL",
    "opponent": "TB",
    "game": "ATL@TB",
@@ -2837,6 +3054,7 @@
   },
   {
    "player": "Eric Saubert",
+   "player_id": "00-0033576",
    "team": "SEA",
    "opponent": "CHI",
    "game": "CHI@SEA",
@@ -2850,6 +3068,7 @@
   },
   {
    "player": "Daniel Bellinger",
+   "player_id": "00-0038115",
    "team": "TEN",
    "opponent": "CIN",
    "game": "TEN@CIN",
@@ -2863,6 +3082,7 @@
   },
   {
    "player": "Olamide Zaccheaus",
+   "player_id": "00-0035208",
    "team": "ATL",
    "opponent": "TB",
    "game": "ATL@TB",
@@ -2876,6 +3096,7 @@
   },
   {
    "player": "Dareke Young",
+   "player_id": "00-0037093",
    "team": "LV",
    "opponent": "NYJ",
    "game": "LV@NYJ",
@@ -2889,6 +3110,7 @@
   },
   {
    "player": "Chimere Dike",
+   "player_id": "00-0040705",
    "team": "TEN",
    "opponent": "CIN",
    "game": "TEN@CIN",
@@ -2902,6 +3124,7 @@
   },
   {
    "player": "Deion Burks",
+   "player_id": "00-0041132",
    "team": "IND",
    "opponent": "JAX",
    "game": "IND@JAX",
@@ -2915,6 +3138,7 @@
   },
   {
    "player": "Will Kacmarek",
+   "player_id": "00-0041524",
    "team": "MIA",
    "opponent": "NE",
    "game": "NE@MIA",
@@ -2928,6 +3152,7 @@
   },
   {
    "player": "Cyrus Allen",
+   "player_id": "00-0040890",
    "team": "KC",
    "opponent": "DEN",
    "game": "KC@DEN",
@@ -2941,6 +3166,7 @@
   },
   {
    "player": "Tahj Brooks",
+   "player_id": "00-0040208",
    "team": "CIN",
    "opponent": "TEN",
    "game": "TEN@CIN",
@@ -2954,6 +3180,7 @@
   },
   {
    "player": "Jahdae Walker",
+   "player_id": "00-0040277",
    "team": "CHI",
    "opponent": "SEA",
    "game": "CHI@SEA",
@@ -2967,6 +3194,7 @@
   },
   {
    "player": "Raheim Sanders",
+   "player_id": "00-0040466",
    "team": "CLE",
    "opponent": "PIT",
    "game": "CLE@PIT",
@@ -2980,6 +3208,7 @@
   },
   {
    "player": "Derius Davis",
+   "player_id": "00-0038573",
    "team": "LAC",
    "opponent": "LA",
    "game": "LAC@LA",
@@ -2993,6 +3222,7 @@
   },
   {
    "player": "Ray Davis",
+   "player_id": "00-0039875",
    "team": "BUF",
    "opponent": "BAL",
    "game": "BAL@BUF",
@@ -3006,6 +3236,7 @@
   },
   {
    "player": "Colson Yankoff",
+   "player_id": "00-0039686",
    "team": "WAS",
    "opponent": "PHI",
    "game": "PHI@WAS",
@@ -3019,6 +3250,7 @@
   },
   {
    "player": "Jordan Whittington",
+   "player_id": "00-0039751",
    "team": "LA",
    "opponent": "LAC",
    "game": "LAC@LA",
@@ -3032,6 +3264,7 @@
   },
   {
    "player": "Hunter Long",
+   "player_id": "00-0037004",
    "team": "ARI",
    "opponent": "DAL",
    "game": "ARI@DAL",
@@ -3045,6 +3278,7 @@
   },
   {
    "player": "Quintin Morris",
+   "player_id": "00-0036590",
    "team": "JAX",
    "opponent": "IND",
    "game": "IND@JAX",
@@ -3058,6 +3292,7 @@
   },
   {
    "player": "Nick Muse",
+   "player_id": "00-0037317",
    "team": "ATL",
    "opponent": "TB",
    "game": "ATL@TB",
@@ -3071,6 +3306,7 @@
   },
   {
    "player": "Jaylin Lane",
+   "player_id": "00-0040164",
    "team": "WAS",
    "opponent": "PHI",
    "game": "PHI@WAS",
@@ -3084,6 +3320,7 @@
   },
   {
    "player": "Britain Covey",
+   "player_id": "00-0037132",
    "team": "PHI",
    "opponent": "WAS",
    "game": "PHI@WAS",
@@ -3097,6 +3334,7 @@
   },
   {
    "player": "Alex Bachman",
+   "player_id": "00-0035602",
    "team": "LA",
    "opponent": "LAC",
    "game": "LAC@LA",
@@ -3110,6 +3348,7 @@
   },
   {
    "player": "Lew Nichols III",
+   "player_id": "00-0038409",
    "team": "PIT",
    "opponent": "CLE",
    "game": "CLE@PIT",
@@ -3123,6 +3362,7 @@
   },
   {
    "player": "Tom Kennedy",
+   "player_id": "00-0035544",
    "team": "DET",
    "opponent": "MIN",
    "game": "MIN@DET",
@@ -3136,6 +3376,7 @@
   },
   {
    "player": "Tay Martin",
+   "player_id": "00-0037524",
    "team": "DET",
    "opponent": "MIN",
    "game": "MIN@DET",
@@ -3149,6 +3390,7 @@
   },
   {
    "player": "Cameron Latu",
+   "player_id": "00-0038564",
    "team": "NE",
    "opponent": "MIA",
    "game": "NE@MIA",
@@ -3162,6 +3404,7 @@
   },
   {
    "player": "Bauer Sharp",
+   "player_id": "00-0041094",
    "team": "TB",
    "opponent": "ATL",
    "game": "ATL@TB",
@@ -3175,6 +3418,7 @@
   },
   {
    "player": "Devin Duvernay",
+   "player_id": "00-0036331",
    "team": "ARI",
    "opponent": "DAL",
    "game": "ARI@DAL",
@@ -3188,6 +3432,7 @@
   },
   {
    "player": "Simi Fehoko",
+   "player_id": "00-0036646",
    "team": "ARI",
    "opponent": "DAL",
    "game": "ARI@DAL",
@@ -3201,6 +3446,7 @@
   },
   {
    "player": "Ameer Abdullah",
+   "player_id": "00-0032104",
    "team": "JAX",
    "opponent": "IND",
    "game": "IND@JAX",
@@ -3214,6 +3460,7 @@
   },
   {
    "player": "Jacob Saylors",
+   "player_id": "00-0038896",
    "team": "DET",
    "opponent": "MIN",
    "game": "MIN@DET",
@@ -3227,6 +3474,7 @@
   },
   {
    "player": "Greg Dortch",
+   "player_id": "00-0035500",
    "team": "BUF",
    "opponent": "BAL",
    "game": "BAL@BUF",
@@ -3240,6 +3488,7 @@
   },
   {
    "player": "Kameron Johnson",
+   "player_id": "00-0039589",
    "team": "TB",
    "opponent": "ATL",
    "game": "ATL@TB",
@@ -3253,6 +3502,7 @@
   },
   {
    "player": "Nikko Remigio",
+   "player_id": "00-0038519",
    "team": "KC",
    "opponent": "DEN",
    "game": "KC@DEN",
@@ -3266,6 +3516,7 @@
   },
   {
    "player": "Kaden Wetjen",
+   "player_id": "00-0041397",
    "team": "PIT",
    "opponent": "CLE",
    "game": "CLE@PIT",
@@ -3279,6 +3530,7 @@
   },
   {
    "player": "Anthony Gould",
+   "player_id": "00-0039816",
    "team": "IND",
    "opponent": "JAX",
    "game": "IND@JAX",
@@ -3292,6 +3544,7 @@
   },
   {
    "player": "Malachi Corley",
+   "player_id": "00-0039920",
    "team": "CLE",
    "opponent": "PIT",
    "game": "CLE@PIT",
@@ -3305,6 +3558,7 @@
   },
   {
    "player": "Brady Russell",
+   "player_id": "00-0038488",
    "team": "SEA",
    "opponent": "CHI",
    "game": "CHI@SEA",
@@ -3318,6 +3572,7 @@
   },
   {
    "player": "Keleki Latu",
+   "player_id": "00-0040363",
    "team": "BUF",
    "opponent": "BAL",
    "game": "BAL@BUF",
@@ -3331,6 +3586,7 @@
   },
   {
    "player": "Julius Chestnut",
+   "player_id": "00-0037594",
    "team": "TEN",
    "opponent": "CIN",
    "game": "TEN@CIN",
