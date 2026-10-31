@@ -53,47 +53,61 @@ def field_position_opportunities(pbp, idcol, flag, prefix):
 
 
 def load(seasons):
-    pbp = (nfl.load_pbp(seasons=seasons)
-           .select(["season", "week", "season_type", "posteam", "defteam",
-                    "yardline_100", "rush_attempt", "pass_attempt",
-                    "rusher_player_id", "receiver_player_id", "touchdown"])
-           .to_pandas())
-    pbp = pbp[pbp.season_type == "REG"]
+    """Build the player-week table one season at a time.
 
-    ru = field_position_opportunities(pbp, "rusher_player_id", "rush_attempt", "ru_")
-    re = field_position_opportunities(pbp, "receiver_player_id", "pass_attempt", "re_")
-    tm = (pbp[pbp.yardline_100 <= 20].groupby(["posteam", "season", "week"])
-          .size().rename("tm_rz").reset_index())
-    opp = (pbp[pbp.touchdown == 1].groupby(["defteam", "season", "week"])
-           .size().rename("opp_td").reset_index()
-           .groupby(["defteam", "season"]).opp_td.mean()
-           .rename("opp_td_avg").reset_index())
+    Loading several seasons of play-by-play at once is the single heaviest
+    thing here and will exhaust a CI runner. Aggregating season by season
+    keeps peak memory to roughly one season's worth.
+    """
+    parts = []
+    for yr in seasons:
+        pbp = (nfl.load_pbp(seasons=[yr])
+               .select(["season", "week", "season_type", "posteam", "defteam",
+                        "yardline_100", "rush_attempt", "pass_attempt",
+                        "rusher_player_id", "receiver_player_id", "touchdown"])
+               .to_pandas())
+        pbp = pbp[pbp.season_type == "REG"]
 
-    st = nfl.load_player_stats(seasons=seasons)
-    d = (st.filter((pl.col("season_type") == "REG") & pl.col("position").is_in(POS))
-         .select(["player_id", "player_display_name", "position", "season",
-                  "week", "team", "opponent_team", "rushing_tds",
-                  "receiving_tds", "carries", "targets"]).to_pandas())
-    for c in ["season", "week", "rushing_tds", "receiving_tds", "carries", "targets"]:
-        d[c] = pd.to_numeric(d[c], errors="coerce").fillna(0)
-    d["tds"] = d.rushing_tds + d.receiving_tds
+        ru = field_position_opportunities(pbp, "rusher_player_id", "rush_attempt", "ru_")
+        re = field_position_opportunities(pbp, "receiver_player_id", "pass_attempt", "re_")
+        tm = (pbp[pbp.yardline_100 <= 20].groupby(["posteam", "season", "week"])
+              .size().rename("tm_rz").reset_index())
+        opp = (pbp[pbp.touchdown == 1].groupby(["defteam", "season", "week"])
+               .size().rename("opp_td").reset_index()
+               .groupby(["defteam", "season"]).opp_td.mean()
+               .rename("opp_td_avg").reset_index())
+        del pbp
 
-    d = d.merge(ru, left_on=["player_id", "season", "week"],
-                right_on=["pid", "season", "week"], how="left")
-    d = d.merge(re, left_on=["player_id", "season", "week"],
-                right_on=["pid", "season", "week"], how="left")
-    d = d.merge(tm, left_on=["team", "season", "week"],
-                right_on=["posteam", "season", "week"], how="left")
-    for c in d.columns:
-        if c.startswith(("ru_", "re_", "tm_")):
+        st = nfl.load_player_stats(seasons=[yr])
+        d = (st.filter((pl.col("season_type") == "REG")
+                       & pl.col("position").is_in(POS))
+             .select(["player_id", "player_display_name", "position", "season",
+                      "week", "team", "opponent_team", "rushing_tds",
+                      "receiving_tds", "carries", "targets"]).to_pandas())
+        for c in ["season", "week", "rushing_tds", "receiving_tds",
+                  "carries", "targets"]:
             d[c] = pd.to_numeric(d[c], errors="coerce").fillna(0)
-    d["i5"] = d.ru_i5 + d.re_i5
-    d["i10"] = d.ru_i10 + d.re_i10
-    d["rz"] = d.ru_rz + d.re_rz
-    d["touch"] = d.carries + d.targets
-    d = d.merge(opp, left_on=["opponent_team", "season"],
-                right_on=["defteam", "season"], how="left")
-    return d.sort_values(["player_id", "season", "week"]).reset_index(drop=True)
+        d["tds"] = d.rushing_tds + d.receiving_tds
+
+        d = d.merge(ru, left_on=["player_id", "season", "week"],
+                    right_on=["pid", "season", "week"], how="left")
+        d = d.merge(re, left_on=["player_id", "season", "week"],
+                    right_on=["pid", "season", "week"], how="left")
+        d = d.merge(tm, left_on=["team", "season", "week"],
+                    right_on=["posteam", "season", "week"], how="left")
+        for c in d.columns:
+            if c.startswith(("ru_", "re_", "tm_")):
+                d[c] = pd.to_numeric(d[c], errors="coerce").fillna(0)
+        d["i5"] = d.ru_i5 + d.re_i5
+        d["i10"] = d.ru_i10 + d.re_i10
+        d["rz"] = d.ru_rz + d.re_rz
+        d["touch"] = d.carries + d.targets
+        d = d.merge(opp, left_on=["opponent_team", "season"],
+                    right_on=["defteam", "season"], how="left")
+        parts.append(d)
+
+    out = pd.concat(parts, ignore_index=True)
+    return out.sort_values(["player_id", "season", "week"]).reset_index(drop=True)
 
 
 def features_from(past, opp_td_avg, pos, games):
@@ -194,6 +208,8 @@ def main():
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--grade", action="store_true",
                     help="score archived predictions instead of making new ones")
+    ap.add_argument("--backfill", action="store_true",
+                    help="replay the model over weeks already played")
     args = ap.parse_args()
 
     if args.grade:
@@ -219,6 +235,10 @@ def main():
     feat = FEATURES + [c for c in tr.columns if c.startswith("p_")]
     m1, m2 = fit(tr, feat)
     print(f"trained on {len(tr)} player-weeks from {train}")
+
+    if args.backfill:
+        print("\nReplaying over weeks already played:")
+        print(f"  {backfill(args.season, m1, m2, feat, d)} week(s) rebuilt")
 
     cur = d[d.season == args.season]
     if cur.empty:
@@ -260,7 +280,8 @@ def main():
         if team not in facing or len(g) < MIN_GAMES:
             continue
         rows.append({
-            "player": g.player_display_name.iloc[-1], "team": team,
+            "player": g.player_display_name.iloc[-1],
+            "player_id": g.player_id.iloc[-1], "team": team,
             "opponent": facing[team], "game": game_of[team],
             **features_from(g, opp_avg.get(facing[team], np.nan),
                             g.position.iloc[-1], len(g)),
@@ -304,7 +325,8 @@ def main():
                          "market - no touchdown odds are collected."),
             },
             "players": [
-                {"player": r.player, "team": r.team, "opponent": r.opponent,
+                {"player": r.player, "player_id": r.player_id,
+                 "team": r.team, "opponent": r.opponent,
                  "game": r.game, "pos": r.pos,
                  "p_any": round(float(r.p_any), 4),
                  "p_two": round(float(r.p_two), 4),
@@ -323,6 +345,68 @@ def main():
         print(f"\n  Wrote td_model.json ({len(P)} players)")
         print(f"  Archived proj_history/td_{args.season}_wk{target}.json")
     return 0
+
+
+def backfill(season, m1, m2, feat, d):
+    """Replay the model over weeks already played, so grading has history.
+
+    Walk-forward, so this reads only prior games - a replay, not hindsight.
+    Marked reconstructed to distinguish it from live predictions.
+    """
+    cur = d[d.season == season]
+    sched = nfl.load_schedules(seasons=[season]).to_pandas()
+    played = sched[sched.home_score.notna()]
+    opp_avg = cur.groupby("opponent_team").opp_td_avg.mean().to_dict()
+    made = 0
+    for wk in sorted(int(w) for w in played.week.unique()):
+        path = f"proj_history/td_{season}_wk{wk}.json"
+        if os.path.exists(path) or wk < FIRST_WEEK:
+            continue
+        games = played[played.week == wk]
+        facing, game_of = {}, {}
+        for _, g in games.iterrows():
+            facing[g.home_team] = g.away_team
+            facing[g.away_team] = g.home_team
+            key = f"{g.away_team}@{g.home_team}"
+            game_of[g.home_team] = key
+            game_of[g.away_team] = key
+        rows = []
+        for _, g in cur[cur.week < wk].groupby("player_id", sort=False):
+            g = g.sort_values("week")
+            team = g.team.iloc[-1]
+            if team not in facing or len(g) < MIN_GAMES:
+                continue
+            rows.append({"player": g.player_display_name.iloc[-1],
+                         "player_id": g.player_id.iloc[-1], "team": team,
+                         "opponent": facing[team], "game": game_of[team],
+                         **features_from(g, opp_avg.get(facing[team], np.nan),
+                                         g.position.iloc[-1], len(g))})
+        if not rows:
+            continue
+        P = dummies(pd.DataFrame(rows), [c for c in feat if c.startswith("p_")])
+        P["p_any"] = m1.predict_proba(P[feat])[:, 1]
+        P["p_two"] = m2.predict_proba(P[feat])[:, 1]
+        P["lam"] = -np.log(np.clip(1 - P.p_any, 1e-6, 1))
+        P["p_first"] = 0.0
+        for _, grp in P.groupby("game"):
+            tot = grp.lam.sum()
+            if tot > 0:
+                P.loc[grp.index, "p_first"] = (grp.lam / tot) * (1 - np.exp(-tot))
+        os.makedirs("proj_history", exist_ok=True)
+        json.dump({"season": season, "week": wk, "reconstructed": True,
+                   "players": [{"player": r.player, "player_id": r.player_id,
+                                "team": r.team,
+                                "opponent": r.opponent, "game": r.game, "pos": r.pos,
+                                "p_any": round(float(r.p_any), 4),
+                                "p_two": round(float(r.p_two), 4),
+                                "p_first": round(float(r.p_first), 4),
+                                "i5pg": round(float(r.i5pg), 2),
+                                "rzpg": round(float(r.rzpg), 2),
+                                "td_rate": round(float(r.td_rate), 3)}
+                               for _, r in P.iterrows()]}, open(path, "w"), indent=1)
+        made += 1
+        print(f"  rebuilt week {wk}: {len(P)} players")
+    return made
 
 
 def norm_name(s):
@@ -351,17 +435,19 @@ def grade(season):
         actual[(norm_name(r.player_display_name), int(r.week))] = int(r.tds)
 
     # who actually scored each game's opening touchdown
+    # Match on player id. The play-by-play name is abbreviated to
+    # "O.Hampton", which never matches a full display name.
     pbp = (nfl.load_pbp(seasons=[season])
            .select(["season", "week", "season_type", "game_id", "play_id",
-                    "touchdown", "td_player_name"]).to_pandas())
+                    "touchdown", "td_player_id"]).to_pandas())  # one season only
     pbp = pbp[(pbp.season_type == "REG") & (pbp.touchdown == 1)
-              & pbp.td_player_name.notna()]
+              & pbp.td_player_id.notna()]
     for gid, grp in pbp.sort_values("play_id").groupby("game_id"):
         r0 = grp.iloc[0]
-        first_of[(gid, int(r0.week))] = norm_name(r0.td_player_name)
+        first_of[(gid, int(r0.week))] = r0.td_player_id
     first_by_week = {}
-    for (gid, wk), name in first_of.items():
-        first_by_week.setdefault(wk, set()).add(name)
+    for (gid, wk), pid in first_of.items():
+        first_by_week.setdefault(wk, set()).add(pid)
 
     rows = []
     for f in files:
@@ -376,11 +462,12 @@ def grade(season):
             got = actual.get((key, wk))
             if got is None:
                 continue
+            pid = p.get("player_id")
             rows.append({"week": wk, "player": p["player"], "pos": p.get("pos"),
                          "p_any": p["p_any"], "p_two": p["p_two"],
                          "p_first": p["p_first"], "tds": got,
                          "scored": int(got > 0), "two": int(got >= 2),
-                         "was_first": int(key in firsts)})
+                         "was_first": int(pid is not None and pid in firsts)})
     if not rows:
         print("Nothing could be matched to a played game yet.")
         return {"graded": 0}
