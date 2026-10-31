@@ -263,6 +263,8 @@ def main():
             "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "season": args.season, "date": str(day.date()),
             "trained_on": args.train,
+            "games": sorted({f"{r.team} vs {r.opponent}"
+                             for _, r in P.iterrows() if r.home}),
             "honesty": {
                 "mae": 0.994, "mae_naive": 1.007,
                 "note": ("Beats a player's season average by 0.012 shots at "
