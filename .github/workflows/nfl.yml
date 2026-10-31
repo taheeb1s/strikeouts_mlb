@@ -89,9 +89,9 @@ jobs:
           pip install nflreadpy sportsdataverse pandas pyarrow scikit-learn
           python3 nfl_games.py --json || echo "(NFL game model unavailable)"
           python3 cfb_games.py --json || echo "(college model unavailable)"
-          python3 rec_model.py --json || echo "(too early for reception projections)"
+          python3 rec_model.py --backfill --json || echo "(too early for reception projections)"
           python3 rec_model.py --grade --json || echo "(nothing to grade yet)"
-          python3 td_model.py --json || echo "(touchdown model unavailable)"
+          python3 td_model.py --backfill --json || echo "(touchdown model unavailable)"
           python3 td_model.py --grade --json || echo "(nothing to grade yet)"
 
       - name: Grade captured lines
