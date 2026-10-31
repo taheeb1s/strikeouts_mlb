@@ -151,11 +151,20 @@ def main():
     if cur.empty:
         print("No games for that season yet.")
         return 1
-    last_played = int(cur[cur.receptions.notna()].week.max())
-    target_week = last_played + 1
-
+    # First week with games still to play, from the schedule. Player stats
+    # alone got this wrong whenever a Thursday game had already been played.
     sched = nfl.load_schedules(seasons=[args.season]).to_pandas()
-    wk = sched[sched.week == target_week]
+    unplayed = sched[sched.home_score.isna()]
+    if unplayed.empty:
+        print("Season complete - nothing left to project.")
+        return 1
+    target_week = int(unplayed.week.min())
+    last_played = target_week - 1
+    cur = cur[cur.week < target_week]
+
+    # Only games still to play, so a finished Thursday game isn't
+    # projected after the result is known.
+    wk = unplayed[unplayed.week == target_week]
     facing = {}
     for _, g in wk.iterrows():
         facing[g.home_team] = g.away_team
