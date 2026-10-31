@@ -282,7 +282,10 @@ def injury_status():
 def next_slate(d, season):
     """Players on teams playing the next day with games on the board."""
     sched = frame(nba.load_nba_schedule(seasons=[season]))
-    sched["d"] = pd.to_datetime(sched.date).dt.tz_localize(None)
+    # Timestamps are UTC, and a 7:30pm Eastern tip is 00:30 UTC the next
+    # day - grouping on the UTC date split each night's slate in two.
+    t = pd.to_datetime(sched.date, utc=True)
+    sched["d"] = t.dt.tz_convert("America/New_York").dt.tz_localize(None)
     todo = sched[~sched.status_type_completed.astype(bool)]
     if todo.empty:
         return None, None
