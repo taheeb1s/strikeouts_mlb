@@ -413,6 +413,8 @@ def main():
             "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "season": args.season, "date": str(day.date()),
             "trained_on": args.train,
+            "games": sorted({f"{r.team} {'vs' if r.home else 'at'} {r.opponent}"
+                             for _, r in P.iterrows() if r.home}),
             "injuries_applied": bool(inj_ok),
             "honesty": {
                 "note": ("Trained on one season, scored on the next, never "
