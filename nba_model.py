@@ -41,7 +41,7 @@ MIN_MINUTES = 30
 PRIOR_WEIGHT = 8       # games before this season outweighs last
 
 BASE_FEATURES = ["m3", "m5", "m10", "m_all", "m_sd", "games", "rest",
-                 "pace", "opp_pace", "opp_allowed"]
+                 "pace", "opp_pace", "opp_allowed", "absent_pra", "absent_min"]
 
 
 def frame(x):
@@ -78,7 +78,57 @@ def load(seasons):
                 on=["opponent_team_id", "season"], how="left")
     d = d.merge(allowed.rename(columns={"team_id": "opponent_team_id"}),
                 on=["opponent_team_id", "season"], how="left")
-    return d.sort_values(["athlete_id", "game_date"]).reset_index(drop=True)
+    d = d.sort_values(["athlete_id", "game_date"]).reset_index(drop=True)
+
+    tbl, _, _, _ = absence_table(d)
+    d["absent_pra"] = [tbl.get((t, g), (np.nan, np.nan))[0]
+                       for t, g in zip(d.team_id, d.game_date)]
+    d["absent_min"] = [tbl.get((t, g), (np.nan, np.nan))[1]
+                       for t, g in zip(d.team_id, d.game_date)]
+    return d
+
+
+def absence_table(d):
+    """For each team-game, how much recent production was sitting out.
+
+    Measured, not assumed: a team missing 35+ PRA sees its remaining players
+    go about 1.4 above their own recent average, while a fully healthy team
+    sees them 1.7 below. Adding this is worth 0.148 on PRA at 13.7 standard
+    errors, and it works mainly through minutes.
+    """
+    d = d.sort_values(["athlete_id", "game_date"])
+    pra5 = d.groupby("athlete_id").pra.transform(
+        lambda s: s.shift().rolling(5, min_periods=1).mean())
+    min5 = d.groupby("athlete_id").minutes.transform(
+        lambda s: s.shift().rolling(5, min_periods=1).mean())
+    last = {}
+    for pid, dt, a, b in zip(d.athlete_id, d.game_date, pra5, min5):
+        if not pd.isna(a):
+            last[(pid, dt)] = (a, b if not pd.isna(b) else 0.0)
+
+    played = d.groupby(["team_id", "game_date"]).athlete_id.apply(set).to_dict()
+    by_team = {}
+    for t, g in sorted({(t, g) for t, g in zip(d.team_id, d.game_date)}):
+        by_team.setdefault(t, []).append(g)
+
+    out = {}
+    for t, dates in by_team.items():
+        for i, g in enumerate(dates):
+            if i < 3:
+                out[(t, g)] = (np.nan, np.nan)
+                continue
+            recent = set()
+            for pg in dates[max(0, i - 3):i]:
+                recent |= played.get((t, pg), set())
+            tp = tm = 0.0
+            for pid in recent - played.get((t, g), set()):
+                vals = [last.get((pid, pg)) for pg in dates[max(0, i - 3):i]
+                        if last.get((pid, pg))]
+                if vals:
+                    tp += vals[-1][0]
+                    tm += vals[-1][1]
+            out[(t, g)] = (tp, tm)
+    return out, last, played, by_team
 
 
 def prior_season_rates(d, season):
@@ -103,6 +153,8 @@ def player_features(past, rest, row, prev_row, n_games):
         "games": n_games, "rest": rest,
         "pace": row.get("pace", np.nan), "opp_pace": row.get("opp_pace", np.nan),
         "opp_allowed": row.get("opp_allowed", np.nan),
+        "absent_pra": row.get("absent_pra", np.nan),
+        "absent_min": row.get("absent_min", np.nan),
     }
     mins = mn.tail(5).mean()
     # how far to trust this season over last
@@ -181,6 +233,52 @@ def backtest(d, train, test, prev_map):
               f"({abs(dd.mean()/se):.1f} se)")
 
 
+OUT_WORDS = ("out", "doubtful", "suspend", "inactive", "not with team")
+
+
+def injury_status():
+    """Who's ruled out tonight, from ESPN.
+
+    Returns {athlete_id: status}. Never raises - the endpoint is live and
+    outside our control, and a projection without injury filtering is far
+    better than no projection at all. Whatever happens gets logged so a
+    silent failure can't masquerade as "nobody is hurt".
+    """
+    try:
+        raw = frame(nba.espn_nba_injuries())
+    except Exception as e:
+        print(f"  injuries: unavailable ({type(e).__name__}) - "
+              f"projecting everyone")
+        return {}, False
+    if raw is None or not len(raw):
+        print("  injuries: endpoint returned nothing - projecting everyone")
+        return {}, False
+
+    cols = {c.lower(): c for c in raw.columns}
+    id_col = next((cols[k] for k in cols
+                   if "athlete" in k and "id" in k), None)
+    st_col = next((cols[k] for k in cols
+                   if k in ("status", "injury_status", "type_description",
+                            "injury_type_description")), None)
+    if id_col is None or st_col is None:
+        print(f"  injuries: unexpected shape {list(raw.columns)[:8]} - "
+              f"projecting everyone")
+        return {}, False
+
+    out = {}
+    for _, r in raw.iterrows():
+        status = str(r[st_col] or "")
+        try:
+            pid = int(r[id_col])
+        except (TypeError, ValueError):
+            continue
+        out[pid] = status
+    ruled_out = {k: v for k, v in out.items()
+                 if any(w in v.lower() for w in OUT_WORDS)}
+    print(f"  injuries: {len(out)} listed, {len(ruled_out)} ruled out")
+    return out, True
+
+
 def next_slate(d, season):
     """Players on teams playing the next day with games on the board."""
     sched = frame(nba.load_nba_schedule(seasons=[season]))
@@ -240,7 +338,32 @@ def main():
         print("No games left on the schedule.")
         return 1
 
+    inj, inj_ok = injury_status()
+
     cur = d[(d.season == args.season) & (d.game_date < day)]
+
+    # Tonight's absences: players who featured in the team's last three
+    # games but are ruled out. With no injury feed, fall back to that team's
+    # recent average rather than assuming everyone is fit - assuming full
+    # health biases every projection high.
+    out_ids = {pid for pid, st in inj.items()
+               if any(w in st.lower() for w in OUT_WORDS)}
+    team_absent = {}
+    for team, tg in cur.groupby("team_id"):
+        recent_dates = sorted(tg.game_date.unique())[-3:]
+        roster = set(tg[tg.game_date.isin(recent_dates)].athlete_id)
+        if inj_ok:
+            tp = tm = 0.0
+            for pid in roster & out_ids:
+                g = tg[tg.athlete_id == pid].sort_values("game_date")
+                tp += float(g.pra.tail(5).mean())
+                tm += float(g.minutes.tail(5).mean())
+        else:
+            recent = tg[tg.game_date.isin(recent_dates)]
+            tp = float(recent.absent_pra.dropna().mean()) if len(recent) else np.nan
+            tm = float(recent.absent_min.dropna().mean()) if len(recent) else np.nan
+        team_absent[team] = (tp, tm)
+
     preds = []
     for pid, g in cur.groupby("athlete_id", sort=False):
         g = g.sort_values("game_date")
@@ -251,16 +374,21 @@ def main():
             continue
         opp_id, opp_name, home = facing[team]
         rest = (day - g.game_date.iloc[-1]).days
+        ab = team_absent.get(team, (np.nan, np.nan))
         row = {"pace": g.pace.iloc[-1],
                "opp_pace": d[d.team_id == opp_id].pace.dropna().mean(),
-               "opp_allowed": d[d.team_id == opp_id].opp_allowed.dropna().mean()}
+               "opp_allowed": d[d.team_id == opp_id].opp_allowed.dropna().mean(),
+               "absent_pra": ab[0], "absent_min": ab[1]}
         f = player_features(g, min(max(rest, 0), 7),
                             row, prev_map.get(pid), len(g))
+        status = inj.get(int(pid), "")
+        if any(w in status.lower() for w in OUT_WORDS):
+            continue                     # ruled out - don't project him
         f.update({"player": g.athlete_display_name.iloc[-1],
                   "athlete_id": int(pid),
                   "team": g.team_display_name.iloc[-1],
                   "opponent": opp_name, "home": bool(home),
-                  "games": len(g)})
+                  "games": len(g), "status": status})
         preds.append(f)
 
     if not preds:
@@ -271,7 +399,8 @@ def main():
         P[c + "_proj"] = models[c].predict(P[feature_list(c)])
 
     P = P.sort_values("pra_proj", ascending=False)
-    print(f"\n{day.date()}: {len(P)} players\n")
+    print(f"\n{day.date()}: {len(P)} players"
+          + ("" if inj_ok else "  (no injury filter - see above)") + "\n")
     print(f"  {'player':22} {'vs':18} {'min':>5} {'pts':>5} {'reb':>5} "
           f"{'ast':>5} {'3s':>5} {'PRA':>5}")
     for _, r in P.head(15).iterrows():
@@ -284,20 +413,26 @@ def main():
             "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "season": args.season, "date": str(day.date()),
             "trained_on": args.train,
+            "injuries_applied": bool(inj_ok),
             "honesty": {
-                "note": ("Measured on 41,753 player-games: every market beats "
-                         "a season average by more than 10 standard errors. "
-                         "No NBA odds are collected, so nothing here is "
-                         "compared to a market."),
-                "mae": {"points": 4.689, "rebounds": 1.939, "assists": 1.297,
-                        "threes": 0.846, "pra": 6.263},
-                "mae_naive": {"points": 4.850, "rebounds": 2.007,
-                              "assists": 1.349, "threes": 0.892, "pra": 6.626},
+                "note": ("Trained on one season, scored on the next, never "
+                         "overlapping: every market beats a season average by "
+                         "18 to 29 standard errors. Accounting for which "
+                         "team-mates are sitting is worth 0.59 on PRA by "
+                         "itself. No NBA odds are collected, so nothing here "
+                         "is compared to a market."),
+                "mae": {"points": 4.648, "rebounds": 1.887, "assists": 1.347,
+                        "threes": 0.858, "pra": 6.097},
+                "mae_naive": {"points": 4.962, "rebounds": 1.985,
+                              "assists": 1.418, "threes": 0.916, "pra": 6.687},
             },
             "players": [
                 {"player": r.player, "athlete_id": int(r.athlete_id),
                  "team": r.team, "opponent": r.opponent, "home": bool(r.home),
                  "games": int(r.games), "minutes": round(float(r.m5), 1),
+                 "status": r.get("status", ""),
+                 "absent_pra": (None if pd.isna(r.absent_pra)
+                                else round(float(r.absent_pra), 1)),
                  **{c: round(float(r[c + "_proj"]), 1) for c in MARKETS}}
                 for _, r in P.iterrows()
             ],
