@@ -1347,6 +1347,7 @@ let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
               pickTab: "upcoming", td: null, recGrade: null, tdSort: "any",
               tdGrade: null, tdTab: "week",
               nba: null, nbaGrade: null, nbaSort: "pra", nbaTab: "slate",
+              kTab: "slate",
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
@@ -3033,8 +3034,6 @@ function render() {
       <button data-view="td" aria-pressed="${state.view === "td"}">touchdowns</button>
       <span aria-hidden="true">·</span>
       <button data-view="nba" aria-pressed="${state.view === "nba"}">NBA</button>
-      <span aria-hidden="true">·</span>
-      <button data-view="results" aria-pressed="${state.view === "results"}">past results</button>
     </div>`;
 
   const searchBar = `
@@ -3067,8 +3066,20 @@ function render() {
     return;
   }
 
-  if (state.view === "results") {
-    document.getElementById("body").innerHTML = viewBar + results();
+  // "results" used to be a top-level tab; keep old links working.
+  if (state.view === "results") { state.view = "slate"; state.kTab = "results"; }
+
+  if (state.view === "slate" && state.kTab === "results") {
+    const nRes = state.card && state.card.results ? state.card.results.length : 0;
+    const kBar = `<div class="nfl-views">
+        <button data-ktab="slate" aria-pressed="false">today's slate</button>
+        <span aria-hidden="true">·</span>
+        <button data-ktab="results" aria-pressed="true">past results${
+          nRes ? ` (${nRes})` : ""}</button>
+      </div>`;
+    document.getElementById("body").innerHTML = viewBar + kBar + results();
+    document.querySelectorAll(".nfl-views button").forEach(b =>
+      b.onclick = () => { state.kTab = b.dataset.ktab; render(); });
     wire();
     document.querySelectorAll(".plink").forEach(el =>
       el.onclick = () => { state.pitcher = el.dataset.pitcher; render(); });
@@ -3201,7 +3212,15 @@ function render() {
     return;
   }
 
-  document.getElementById("body").innerHTML = viewBar + searchBar + `
+  const nRes = state.card && state.card.results ? state.card.results.length : 0;
+  const kBar = `<div class="nfl-views">
+      <button data-ktab="slate" aria-pressed="true">today's slate</button>
+      <span aria-hidden="true">·</span>
+      <button data-ktab="results" aria-pressed="false">past results${
+        nRes ? ` (${nRes})` : ""}</button>
+    </div>`;
+
+  document.getElementById("body").innerHTML = viewBar + kBar + searchBar + `
     <div class="controls">
       <span>Sort by</span>
       <button data-sort="proj" aria-pressed="${state.sort === "proj"}">projection</button>
@@ -3261,6 +3280,8 @@ function render() {
       else state.sort = b.dataset.sort;
       render();
     });
+  document.querySelectorAll(".nfl-views button[data-ktab]").forEach(b =>
+    b.onclick = () => { state.kTab = b.dataset.ktab; render(); });
   document.querySelectorAll(".cmp-row, .mu-side").forEach(el =>
     el.onclick = () => { state.pitcher = el.dataset.pitcher; render(); });
   wire();
