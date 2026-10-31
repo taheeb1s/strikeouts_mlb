@@ -2184,8 +2184,24 @@ function tdGradeView() {
         <span>Base rate</span><span></span></div>
       ${row("Anytime", g.brier, g.brier_base)}
       ${row("Two or more", g.brier_two, g.brier_two_base)}
-      ${g.brier_first ? row("First scorer", g.brier_first, g.brier_first_base) : ""}
     </div>
+    ${(() => {
+      const t = g.first_top10 || [];
+      if (!t.length) return "";
+      const hits = t.reduce((a, x) => a + x.hit, 0);
+      const of = t.reduce((a, x) => a + x.of, 0);
+      // ~14 first scorers among ~200 candidates, so 10 picked at random
+      // should land about 0.7 a week.
+      const chance = 0.07;
+      const rate = hits / of;
+      return `<p class="cal-key">First scorer, its ten most likely each week:
+        <b>${hits} of ${of}</b> (${(rate * 100).toFixed(0)}%). Picking ten at
+        random would hit about ${(chance * 100).toFixed(0)}%, so it is
+        ${rate > chance ? `running <b>${(rate / chance).toFixed(1)}x</b> that`
+          : "not beating chance"}. Brier is left out here on purpose — with
+        one scorer per game among hundreds of candidates, always guessing
+        "almost certainly not" scores beautifully and tells you nothing.</p>`;
+    })()}
 
     ${g.bands && g.bands.length ? `
       <div class="cal-tab">
