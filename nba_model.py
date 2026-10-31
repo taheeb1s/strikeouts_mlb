@@ -122,11 +122,22 @@ def load(seasons):
                 on=["opponent_team_id", "season"], how="left")
     d = d.sort_values(["athlete_id", "game_date"]).reset_index(drop=True)
 
-    # who opened the scoring in each game
-    fm = first_scorers(seasons)
-    d["was_first"] = [1 if fm.get(g) == a else 0
-                      for g, a in zip(d.game_id, d.athlete_id)]
-    d["fga"] = pd.to_numeric(d.get("field_goals_attempted"), errors="coerce")
+    # Who opened the scoring. This is a bonus market - if anything here
+    # fails, the columns are filled with zeros and the main projections
+    # carry on. Losing points and rebounds because a first-basket lookup
+    # broke would be a poor trade.
+    try:
+        fm = first_scorers(seasons)
+        d["was_first"] = [1 if fm.get(g) == a else 0
+                          for g, a in zip(d.game_id, d.athlete_id)]
+    except Exception as e:
+        print(f"  first-scorer lookup failed ({type(e).__name__}: "
+              f"{str(e)[:70]}) - first-point model disabled")
+        d["was_first"] = 0
+    if "field_goals_attempted" in d:
+        d["fga"] = pd.to_numeric(d.field_goals_attempted, errors="coerce").fillna(0)
+    else:
+        d["fga"] = 0.0
     for c, w in [("was_first", 10), ("points", 10), ("points", 5), ("fga", 10)]:
         d[f"{c}_{w}"] = d.groupby("athlete_id")[c].transform(
             lambda s: s.shift().rolling(w, min_periods=1).mean())
@@ -405,7 +416,14 @@ def main():
         print(f"Only {len(tr)} training rows - not enough.")
         return 1
     models = fit_all(tr)
-    fmodel = fit_first(tr)
+    try:
+        fmodel = fit_first(tr) if tr.was_first.sum() >= 50 else None
+        if fmodel is None:
+            print("  too few first-baskets in training - first-point disabled")
+    except Exception as e:
+        print(f"  first-point model failed ({type(e).__name__}: "
+              f"{str(e)[:70]}) - carrying on without it")
+        fmodel = None
     print(f"  fitted on {len(tr)} player-games")
 
     day, facing = next_slate(d, args.season)
@@ -472,7 +490,14 @@ def main():
     P = pd.DataFrame(preds)
     for c in MARKETS:
         P[c + "_proj"] = models[c].predict(P[feature_list(c)])
-    P["p_first"] = fmodel.predict_proba(P[FIRST_FEATURES])[:, 1]
+    if fmodel is not None:
+        try:
+            P["p_first"] = fmodel.predict_proba(P[FIRST_FEATURES])[:, 1]
+        except Exception as e:
+            print(f"  first-point prediction failed ({type(e).__name__})")
+            P["p_first"] = np.nan
+    else:
+        P["p_first"] = np.nan
 
     P = P.sort_values("pra_proj", ascending=False)
     print(f"\n{day.date()}: {len(P)} players"
@@ -512,7 +537,8 @@ def main():
                  "status": r.get("status", ""),
                  "absent_pra": (None if pd.isna(r.absent_pra)
                                 else round(float(r.absent_pra), 1)),
-                 "p_first": round(float(r.p_first), 4),
+                 "p_first": (None if pd.isna(r.p_first)
+                             else round(float(r.p_first), 4)),
                  **{c: round(float(r[c + "_proj"]), 1) for c in MARKETS}}
                 for _, r in P.iterrows()
             ],
