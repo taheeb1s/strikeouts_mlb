@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-31T17:32:55+00:00",
+ "generated_at": "2026-10-31T17:53:34+00:00",
  "season": 2027,
  "date": "2026-10-31",
  "trained_on": [
@@ -21,6 +21,8 @@
  "honesty": {
   "mae": 0.994,
   "mae_naive": 1.007,
+  "goal_brier": 0.118,
+  "goal_brier_base": 0.125,
   "note": "Beats a player's season average by 0.012 shots at 12 standard errors - real, and the smallest edge of any working model here, because shots on goal scatter at 0.97 times their own mean, noisier than anything in the NBA set. No NHL odds collected."
  },
  "players": [
@@ -34,7 +36,9 @@
    "games": 12,
    "toi": 23.2,
    "proj": 3.34,
-   "season_avg": 4.17
+   "season_avg": 4.17,
+   "p_goal": 0.3417,
+   "goals_avg": 0.42
   },
   {
    "player": "B. Hagel",
@@ -46,7 +50,9 @@
    "games": 12,
    "toi": 20.9,
    "proj": 3.23,
-   "season_avg": 4.58
+   "season_avg": 4.58,
+   "p_goal": 0.3549,
+   "goals_avg": 0.67
   },
   {
    "player": "T. Thompson",
@@ -58,7 +64,9 @@
    "games": 13,
    "toi": 18.3,
    "proj": 3.08,
-   "season_avg": 4.23
+   "season_avg": 4.23,
+   "p_goal": 0.3313,
+   "goals_avg": 0.62
   },
   {
    "player": "M. Schaefer",
@@ -70,7 +78,9 @@
    "games": 13,
    "toi": 28.9,
    "proj": 3.03,
-   "season_avg": 3.85
+   "season_avg": 3.85,
+   "p_goal": 0.1645,
+   "goals_avg": 0.31
   },
   {
    "player": "N. MacKinnon",
@@ -82,7 +92,9 @@
    "games": 13,
    "toi": 20.5,
    "proj": 2.96,
-   "season_avg": 4.0
+   "season_avg": 4.0,
+   "p_goal": 0.3358,
+   "goals_avg": 0.62
   },
   {
    "player": "A. Kempe",
@@ -94,7 +106,9 @@
    "games": 12,
    "toi": 20.7,
    "proj": 2.92,
-   "season_avg": 3.42
+   "season_avg": 3.42,
+   "p_goal": 0.3099,
+   "goals_avg": 0.25
   },
   {
    "player": "A. DeBrincat",
@@ -106,7 +120,9 @@
    "games": 13,
    "toi": 19.7,
    "proj": 2.9,
-   "season_avg": 3.69
+   "season_avg": 3.69,
+   "p_goal": 0.3135,
+   "goals_avg": 0.46
   },
   {
    "player": "D. Larkin",
@@ -118,7 +134,9 @@
    "games": 10,
    "toi": 22.1,
    "proj": 2.88,
-   "season_avg": 3.2
+   "season_avg": 3.2,
+   "p_goal": 0.3071,
+   "goals_avg": 0.2
   },
   {
    "player": "L. Draisaitl",
@@ -130,7 +148,9 @@
    "games": 13,
    "toi": 22.8,
    "proj": 2.84,
-   "season_avg": 3.69
+   "season_avg": 3.69,
+   "p_goal": 0.3542,
+   "goals_avg": 0.92
   },
   {
    "player": "J. Guentzel",
@@ -142,7 +162,9 @@
    "games": 12,
    "toi": 20.4,
    "proj": 2.82,
-   "season_avg": 2.92
+   "season_avg": 2.92,
+   "p_goal": 0.3568,
+   "goals_avg": 0.58
   },
   {
    "player": "A. Panarin",
@@ -154,7 +176,9 @@
    "games": 12,
    "toi": 22.4,
    "proj": 2.73,
-   "season_avg": 3.25
+   "season_avg": 3.25,
+   "p_goal": 0.3514,
+   "goals_avg": 0.67
   },
   {
    "player": "J. Robertson",
@@ -166,7 +190,9 @@
    "games": 13,
    "toi": 20.9,
    "proj": 2.72,
-   "season_avg": 3.31
+   "season_avg": 3.31,
+   "p_goal": 0.3132,
+   "goals_avg": 0.38
   },
   {
    "player": "C. Caufield",
@@ -178,7 +204,9 @@
    "games": 13,
    "toi": 17.3,
    "proj": 2.7,
-   "season_avg": 3.23
+   "season_avg": 3.23,
+   "p_goal": 0.3153,
+   "goals_avg": 0.62
   },
   {
    "player": "D. Pastrnak",
@@ -190,7 +218,9 @@
    "games": 14,
    "toi": 20.6,
    "proj": 2.68,
-   "season_avg": 3.29
+   "season_avg": 3.29,
+   "p_goal": 0.3306,
+   "goals_avg": 0.5
   },
   {
    "player": "B. Horvat",
@@ -202,7 +232,9 @@
    "games": 13,
    "toi": 21.9,
    "proj": 2.65,
-   "season_avg": 3.15
+   "season_avg": 3.15,
+   "p_goal": 0.3465,
+   "goals_avg": 0.54
   },
   {
    "player": "Q. Byfield",
@@ -214,7 +246,9 @@
    "games": 10,
    "toi": 16.5,
    "proj": 2.61,
-   "season_avg": 2.7
+   "season_avg": 2.7,
+   "p_goal": 0.2541,
+   "goals_avg": 0.2
   },
   {
    "player": "L. Raymond",
@@ -226,7 +260,9 @@
    "games": 13,
    "toi": 20.5,
    "proj": 2.61,
-   "season_avg": 3.0
+   "season_avg": 3.0,
+   "p_goal": 0.2866,
+   "goals_avg": 0.31
   },
   {
    "player": "W. Nylander",
@@ -238,7 +274,9 @@
    "games": 15,
    "toi": 19.1,
    "proj": 2.59,
-   "season_avg": 2.93
+   "season_avg": 2.93,
+   "p_goal": 0.3264,
+   "goals_avg": 0.6
   },
   {
    "player": "M. McTavish",
@@ -250,7 +288,9 @@
    "games": 13,
    "toi": 15.8,
    "proj": 2.58,
-   "season_avg": 3.15
+   "season_avg": 3.15,
+   "p_goal": 0.311,
+   "goals_avg": 0.46
   },
   {
    "player": "A. Matthews",
@@ -262,7 +302,9 @@
    "games": 15,
    "toi": 18.5,
    "proj": 2.56,
-   "season_avg": 2.93
+   "season_avg": 2.93,
+   "p_goal": 0.3227,
+   "goals_avg": 0.67
   },
   {
    "player": "V. Arvidsson",
@@ -274,7 +316,9 @@
    "games": 13,
    "toi": 18.1,
    "proj": 2.55,
-   "season_avg": 2.85
+   "season_avg": 2.85,
+   "p_goal": 0.3259,
+   "goals_avg": 0.62
   },
   {
    "player": "A. Fantilli",
@@ -286,7 +330,9 @@
    "games": 11,
    "toi": 21.0,
    "proj": 2.53,
-   "season_avg": 3.0
+   "season_avg": 3.0,
+   "p_goal": 0.3191,
+   "goals_avg": 0.36
   },
   {
    "player": "C. Makar",
@@ -298,7 +344,9 @@
    "games": 12,
    "toi": 23.3,
    "proj": 2.52,
-   "season_avg": 2.83
+   "season_avg": 2.83,
+   "p_goal": 0.1644,
+   "goals_avg": 0.25
   },
   {
    "player": "N. Kucherov",
@@ -310,7 +358,9 @@
    "games": 12,
    "toi": 19.2,
    "proj": 2.52,
-   "season_avg": 2.83
+   "season_avg": 2.83,
+   "p_goal": 0.2782,
+   "goals_avg": 0.33
   },
   {
    "player": "J. Quinn",
@@ -322,7 +372,9 @@
    "games": 13,
    "toi": 19.5,
    "proj": 2.52,
-   "season_avg": 2.92
+   "season_avg": 2.92,
+   "p_goal": 0.3238,
+   "goals_avg": 0.54
   },
   {
    "player": "N. Suzuki",
@@ -334,7 +386,9 @@
    "games": 9,
    "toi": 22.4,
    "proj": 2.51,
-   "season_avg": 2.89
+   "season_avg": 2.89,
+   "p_goal": 0.3419,
+   "goals_avg": 0.56
   },
   {
    "player": "A. Laferriere",
@@ -346,7 +400,9 @@
    "games": 12,
    "toi": 21.0,
    "proj": 2.51,
-   "season_avg": 2.5
+   "season_avg": 2.5,
+   "p_goal": 0.2639,
+   "goals_avg": 0.17
   },
   {
    "player": "Z. Werenski",
@@ -358,7 +414,9 @@
    "games": 11,
    "toi": 28.2,
    "proj": 2.5,
-   "season_avg": 2.64
+   "season_avg": 2.64,
+   "p_goal": 0.1303,
+   "goals_avg": 0.0
   },
   {
    "player": "W. Smith",
@@ -370,7 +428,9 @@
    "games": 14,
    "toi": 18.0,
    "proj": 2.43,
-   "season_avg": 2.71
+   "season_avg": 2.71,
+   "p_goal": 0.3196,
+   "goals_avg": 0.43
   },
   {
    "player": "W. Johnston",
@@ -382,7 +442,9 @@
    "games": 11,
    "toi": 20.7,
    "proj": 2.4,
-   "season_avg": 2.64
+   "season_avg": 2.64,
+   "p_goal": 0.2817,
+   "goals_avg": 0.27
   },
   {
    "player": "R. Josi",
@@ -394,7 +456,9 @@
    "games": 13,
    "toi": 24.7,
    "proj": 2.39,
-   "season_avg": 2.69
+   "season_avg": 2.69,
+   "p_goal": 0.15,
+   "goals_avg": 0.08
   },
   {
    "player": "R. Dahlin",
@@ -406,7 +470,9 @@
    "games": 10,
    "toi": 23.0,
    "proj": 2.37,
-   "season_avg": 3.1
+   "season_avg": 3.1,
+   "p_goal": 0.1585,
+   "goals_avg": 0.2
   },
   {
    "player": "E. Bouchard",
@@ -418,7 +484,9 @@
    "games": 13,
    "toi": 27.7,
    "proj": 2.36,
-   "season_avg": 3.0
+   "season_avg": 3.0,
+   "p_goal": 0.1758,
+   "goals_avg": 0.54
   },
   {
    "player": "F. Forsberg",
@@ -430,7 +498,9 @@
    "games": 13,
    "toi": 20.0,
    "proj": 2.35,
-   "season_avg": 2.69
+   "season_avg": 2.69,
+   "p_goal": 0.3271,
+   "goals_avg": 0.38
   },
   {
    "player": "R. Rakell",
@@ -442,7 +512,9 @@
    "games": 13,
    "toi": 19.2,
    "proj": 2.32,
-   "season_avg": 2.54
+   "season_avg": 2.54,
+   "p_goal": 0.2518,
+   "goals_avg": 0.23
   },
   {
    "player": "M. Gridin",
@@ -454,7 +526,9 @@
    "games": 13,
    "toi": 17.6,
    "proj": 2.27,
-   "season_avg": 2.38
+   "season_avg": 2.38,
+   "p_goal": 0.2571,
+   "goals_avg": 0.38
   },
   {
    "player": "J. Roslovic",
@@ -466,7 +540,9 @@
    "games": 15,
    "toi": 16.7,
    "proj": 2.25,
-   "season_avg": 2.53
+   "season_avg": 2.53,
+   "p_goal": 0.2904,
+   "goals_avg": 0.4
   },
   {
    "player": "C. McDavid",
@@ -478,7 +554,9 @@
    "games": 13,
    "toi": 23.7,
    "proj": 2.25,
-   "season_avg": 2.54
+   "season_avg": 2.54,
+   "p_goal": 0.3368,
+   "goals_avg": 0.62
   },
   {
    "player": "M. Backlund",
@@ -490,7 +568,9 @@
    "games": 11,
    "toi": 17.4,
    "proj": 2.24,
-   "season_avg": 2.55
+   "season_avg": 2.55,
+   "p_goal": 0.2211,
+   "goals_avg": 0.18
   },
   {
    "player": "B. Kindel",
@@ -502,7 +582,9 @@
    "games": 10,
    "toi": 16.6,
    "proj": 2.23,
-   "season_avg": 2.5
+   "season_avg": 2.5,
+   "p_goal": 0.2569,
+   "goals_avg": 0.3
   },
   {
    "player": "C. Bedard",
@@ -514,7 +596,9 @@
    "games": 7,
    "toi": 20.3,
    "proj": 2.21,
-   "season_avg": 2.57
+   "season_avg": 2.57,
+   "p_goal": 0.3226,
+   "goals_avg": 0.43
   },
   {
    "player": "J. Slafkovsk\u00fd",
@@ -526,7 +610,9 @@
    "games": 13,
    "toi": 17.1,
    "proj": 2.21,
-   "season_avg": 2.46
+   "season_avg": 2.46,
+   "p_goal": 0.2079,
+   "goals_avg": 0.15
   },
   {
    "player": "J. Carlson",
@@ -538,7 +624,9 @@
    "games": 12,
    "toi": 17.9,
    "proj": 2.15,
-   "season_avg": 2.58
+   "season_avg": 2.58,
+   "p_goal": 0.16,
+   "goals_avg": 0.33
   },
   {
    "player": "Z. Benson",
@@ -550,7 +638,9 @@
    "games": 13,
    "toi": 19.7,
    "proj": 2.11,
-   "season_avg": 2.31
+   "season_avg": 2.31,
+   "p_goal": 0.2207,
+   "goals_avg": 0.15
   },
   {
    "player": "E. Finnie",
@@ -562,7 +652,9 @@
    "games": 13,
    "toi": 19.1,
    "proj": 2.06,
-   "season_avg": 2.15
+   "season_avg": 2.15,
+   "p_goal": 0.2598,
+   "goals_avg": 0.38
   },
   {
    "player": "M. Coronato",
@@ -574,7 +666,9 @@
    "games": 13,
    "toi": 16.6,
    "proj": 2.05,
-   "season_avg": 2.31
+   "season_avg": 2.31,
+   "p_goal": 0.2301,
+   "goals_avg": 0.23
   },
   {
    "player": "K. Marchenko",
@@ -586,7 +680,9 @@
    "games": 14,
    "toi": 15.6,
    "proj": 2.04,
-   "season_avg": 2.5
+   "season_avg": 2.5,
+   "p_goal": 0.213,
+   "goals_avg": 0.43
   },
   {
    "player": "J. Farabee",
@@ -598,7 +694,9 @@
    "games": 13,
    "toi": 18.8,
    "proj": 2.03,
-   "season_avg": 2.31
+   "season_avg": 2.31,
+   "p_goal": 0.2429,
+   "goals_avg": 0.31
   },
   {
    "player": "N. Kadri",
@@ -610,7 +708,9 @@
    "games": 13,
    "toi": 17.9,
    "proj": 2.02,
-   "season_avg": 2.54
+   "season_avg": 2.54,
+   "p_goal": 0.1952,
+   "goals_avg": 0.15
   },
   {
    "player": "N. Ostlund",
@@ -622,7 +722,9 @@
    "games": 13,
    "toi": 19.2,
    "proj": 2.02,
-   "season_avg": 2.31
+   "season_avg": 2.31,
+   "p_goal": 0.2544,
+   "goals_avg": 0.31
   },
   {
    "player": "B. Point",
@@ -634,7 +736,9 @@
    "games": 12,
    "toi": 18.7,
    "proj": 2.0,
-   "season_avg": 2.08
+   "season_avg": 2.08,
+   "p_goal": 0.2378,
+   "goals_avg": 0.25
   },
   {
    "player": "V. Podkolzin",
@@ -646,7 +750,9 @@
    "games": 13,
    "toi": 18.4,
    "proj": 2.0,
-   "season_avg": 2.23
+   "season_avg": 2.23,
+   "p_goal": 0.2545,
+   "goals_avg": 0.62
   },
   {
    "player": "J. Snuggerud",
@@ -658,7 +764,9 @@
    "games": 13,
    "toi": 17.2,
    "proj": 2.0,
-   "season_avg": 2.23
+   "season_avg": 2.23,
+   "p_goal": 0.2366,
+   "goals_avg": 0.54
   },
   {
    "player": "J. Tavares",
@@ -670,7 +778,9 @@
    "games": 7,
    "toi": 16.4,
    "proj": 1.98,
-   "season_avg": 2.43
+   "season_avg": 2.43,
+   "p_goal": 0.2092,
+   "goals_avg": 0.29
   },
   {
    "player": "D. Batherson",
@@ -682,7 +792,9 @@
    "games": 14,
    "toi": 17.4,
    "proj": 1.97,
-   "season_avg": 2.29
+   "season_avg": 2.29,
+   "p_goal": 0.2762,
+   "goals_avg": 0.57
   },
   {
    "player": "M. Rantanen",
@@ -694,7 +806,9 @@
    "games": 13,
    "toi": 20.4,
    "proj": 1.96,
-   "season_avg": 1.92
+   "season_avg": 1.92,
+   "p_goal": 0.2632,
+   "goals_avg": 0.46
   },
   {
    "player": "R. Strome",
@@ -706,7 +820,9 @@
    "games": 13,
    "toi": 15.2,
    "proj": 1.96,
-   "season_avg": 2.46
+   "season_avg": 2.46,
+   "p_goal": 0.1985,
+   "goals_avg": 0.23
   },
   {
    "player": "K. Johnson",
@@ -718,7 +834,9 @@
    "games": 11,
    "toi": 17.9,
    "proj": 1.96,
-   "season_avg": 2.18
+   "season_avg": 2.18,
+   "p_goal": 0.2873,
+   "goals_avg": 0.64
   },
   {
    "player": "D. Holloway",
@@ -730,7 +848,9 @@
    "games": 13,
    "toi": 17.4,
    "proj": 1.95,
-   "season_avg": 2.15
+   "season_avg": 2.15,
+   "p_goal": 0.242,
+   "goals_avg": 0.23
   },
   {
    "player": "E. Cowan",
@@ -742,7 +862,9 @@
    "games": 15,
    "toi": 16.1,
    "proj": 1.94,
-   "season_avg": 2.13
+   "season_avg": 2.13,
+   "p_goal": 0.2557,
+   "goals_avg": 0.4
   },
   {
    "player": "T. Seguin",
@@ -754,7 +876,9 @@
    "games": 13,
    "toi": 15.5,
    "proj": 1.94,
-   "season_avg": 2.31
+   "season_avg": 2.31,
+   "p_goal": 0.1957,
+   "goals_avg": 0.23
   },
   {
    "player": "J. DeBrusk",
@@ -766,7 +890,9 @@
    "games": 13,
    "toi": 16.7,
    "proj": 1.93,
-   "season_avg": 2.15
+   "season_avg": 2.15,
+   "p_goal": 0.2272,
+   "goals_avg": 0.23
   },
   {
    "player": "F. Minten",
@@ -778,7 +904,9 @@
    "games": 14,
    "toi": 16.5,
    "proj": 1.92,
-   "season_avg": 2.29
+   "season_avg": 2.29,
+   "p_goal": 0.2538,
+   "goals_avg": 0.36
   },
   {
    "player": "P. Broberg",
@@ -790,7 +918,9 @@
    "games": 13,
    "toi": 24.6,
    "proj": 1.92,
-   "season_avg": 2.31
+   "season_avg": 2.31,
+   "p_goal": 0.1519,
+   "goals_avg": 0.23
   },
   {
    "player": "M. Necas",
@@ -802,7 +932,9 @@
    "games": 13,
    "toi": 18.4,
    "proj": 1.92,
-   "season_avg": 2.15
+   "season_avg": 2.15,
+   "p_goal": 0.2702,
+   "goals_avg": 0.46
   },
   {
    "player": "M. Brandsegg-Nyg\u00e5rd",
@@ -814,7 +946,9 @@
    "games": 13,
    "toi": 15.9,
    "proj": 1.88,
-   "season_avg": 2.15
+   "season_avg": 2.15,
+   "p_goal": 0.1646,
+   "goals_avg": 0.15
   },
   {
    "player": "O. Zellweger",
@@ -826,7 +960,9 @@
    "games": 12,
    "toi": 20.1,
    "proj": 1.86,
-   "season_avg": 2.25
+   "season_avg": 2.25,
+   "p_goal": 0.1443,
+   "goals_avg": 0.25
   },
   {
    "player": "E. Malkin",
@@ -838,7 +974,9 @@
    "games": 12,
    "toi": 15.1,
    "proj": 1.85,
-   "season_avg": 2.17
+   "season_avg": 2.17,
+   "p_goal": 0.2262,
+   "goals_avg": 0.5
   },
   {
    "player": "J. Marchessault",
@@ -850,7 +988,9 @@
    "games": 13,
    "toi": 16.8,
    "proj": 1.84,
-   "season_avg": 2.08
+   "season_avg": 2.08,
+   "p_goal": 0.2094,
+   "goals_avg": 0.15
   },
   {
    "player": "S. Holmstrom",
@@ -862,7 +1002,9 @@
    "games": 13,
    "toi": 21.1,
    "proj": 1.84,
-   "season_avg": 1.69
+   "season_avg": 1.69,
+   "p_goal": 0.256,
+   "goals_avg": 0.31
   },
   {
    "player": "S. Stamkos",
@@ -874,7 +1016,9 @@
    "games": 13,
    "toi": 18.4,
    "proj": 1.83,
-   "season_avg": 2.08
+   "season_avg": 2.08,
+   "p_goal": 0.2895,
+   "goals_avg": 0.54
   },
   {
    "player": "B. Nelson",
@@ -886,7 +1030,9 @@
    "games": 13,
    "toi": 17.6,
    "proj": 1.82,
-   "season_avg": 1.85
+   "season_avg": 1.85,
+   "p_goal": 0.2255,
+   "goals_avg": 0.23
   },
   {
    "player": "A. Lehkonen",
@@ -898,7 +1044,9 @@
    "games": 13,
    "toi": 18.4,
    "proj": 1.82,
-   "season_avg": 1.85
+   "season_avg": 1.85,
+   "p_goal": 0.2558,
+   "goals_avg": 0.77
   },
   {
    "player": "T. St\u00fctzle",
@@ -910,7 +1058,9 @@
    "games": 14,
    "toi": 21.7,
    "proj": 1.82,
-   "season_avg": 1.86
+   "season_avg": 1.86,
+   "p_goal": 0.2816,
+   "goals_avg": 0.57
   },
   {
    "player": "R. O'Reilly",
@@ -922,7 +1072,9 @@
    "games": 13,
    "toi": 20.6,
    "proj": 1.82,
-   "season_avg": 2.08
+   "season_avg": 2.08,
+   "p_goal": 0.287,
+   "goals_avg": 0.54
   },
   {
    "player": "S. Pinto",
@@ -934,7 +1086,9 @@
    "games": 14,
    "toi": 21.2,
    "proj": 1.8,
-   "season_avg": 2.0
+   "season_avg": 2.0,
+   "p_goal": 0.2562,
+   "goals_avg": 0.29
   },
   {
    "player": "J. Peterka",
@@ -946,7 +1100,9 @@
    "games": 14,
    "toi": 18.5,
    "proj": 1.8,
-   "season_avg": 1.86
+   "season_avg": 1.86,
+   "p_goal": 0.2355,
+   "goals_avg": 0.29
   },
   {
    "player": "J. Anderson",
@@ -958,7 +1114,9 @@
    "games": 13,
    "toi": 15.4,
    "proj": 1.79,
-   "season_avg": 2.15
+   "season_avg": 2.15,
+   "p_goal": 0.1978,
+   "goals_avg": 0.31
   },
   {
    "player": "T. Moore",
@@ -970,7 +1128,9 @@
    "games": 12,
    "toi": 16.0,
    "proj": 1.79,
-   "season_avg": 1.92
+   "season_avg": 1.92,
+   "p_goal": 0.1943,
+   "goals_avg": 0.17
   },
   {
    "player": "D. Cozens",
@@ -982,7 +1142,9 @@
    "games": 14,
    "toi": 17.6,
    "proj": 1.78,
-   "season_avg": 2.07
+   "season_avg": 2.07,
+   "p_goal": 0.2345,
+   "goals_avg": 0.21
   },
   {
    "player": "R. Kantserov",
@@ -994,7 +1156,9 @@
    "games": 13,
    "toi": 18.6,
    "proj": 1.78,
-   "season_avg": 1.77
+   "season_avg": 1.77,
+   "p_goal": 0.2547,
+   "goals_avg": 0.38
   },
   {
    "player": "M. Heiskanen",
@@ -1006,7 +1170,9 @@
    "games": 13,
    "toi": 27.2,
    "proj": 1.78,
-   "season_avg": 1.92
+   "season_avg": 1.92,
+   "p_goal": 0.123,
+   "goals_avg": 0.23
   },
   {
    "player": "C. Coyle",
@@ -1018,7 +1184,9 @@
    "games": 11,
    "toi": 20.0,
    "proj": 1.78,
-   "season_avg": 1.82
+   "season_avg": 1.82,
+   "p_goal": 0.1918,
+   "goals_avg": 0.09
   },
   {
    "player": "T. Hughes",
@@ -1030,7 +1198,9 @@
    "games": 13,
    "toi": 15.2,
    "proj": 1.77,
-   "season_avg": 2.15
+   "season_avg": 2.15,
+   "p_goal": 0.1798,
+   "goals_avg": 0.15
   },
   {
    "player": "D. Raddysh",
@@ -1042,7 +1212,9 @@
    "games": 15,
    "toi": 23.0,
    "proj": 1.77,
-   "season_avg": 2.2
+   "season_avg": 2.2,
+   "p_goal": 0.1255,
+   "goals_avg": 0.0
   },
   {
    "player": "F. Chytil",
@@ -1054,7 +1226,9 @@
    "games": 7,
    "toi": 20.0,
    "proj": 1.77,
-   "season_avg": 1.86
+   "season_avg": 1.86,
+   "p_goal": 0.2281,
+   "goals_avg": 0.0
   },
   {
    "player": "N. Dobson",
@@ -1066,7 +1240,9 @@
    "games": 13,
    "toi": 20.2,
    "proj": 1.77,
-   "season_avg": 2.31
+   "season_avg": 2.31,
+   "p_goal": 0.096,
+   "goals_avg": 0.0
   },
   {
    "player": "T. Harley",
@@ -1078,7 +1254,9 @@
    "games": 13,
    "toi": 26.5,
    "proj": 1.75,
-   "season_avg": 1.77
+   "season_avg": 1.77,
+   "p_goal": 0.1103,
+   "goals_avg": 0.0
   },
   {
    "player": "K. Sherwood",
@@ -1090,7 +1268,9 @@
    "games": 14,
    "toi": 16.8,
    "proj": 1.75,
-   "season_avg": 1.93
+   "season_avg": 1.93,
+   "p_goal": 0.1801,
+   "goals_avg": 0.14
   },
   {
    "player": "K. Palmieri",
@@ -1102,7 +1282,9 @@
    "games": 13,
    "toi": 18.1,
    "proj": 1.72,
-   "season_avg": 2.0
+   "season_avg": 2.0,
+   "p_goal": 0.2099,
+   "goals_avg": 0.23
   },
   {
    "player": "P. Kane",
@@ -1114,7 +1296,9 @@
    "games": 13,
    "toi": 17.9,
    "proj": 1.71,
-   "season_avg": 1.77
+   "season_avg": 1.77,
+   "p_goal": 0.1733,
+   "goals_avg": 0.08
   },
   {
    "player": "S. Crosby",
@@ -1126,7 +1310,9 @@
    "games": 13,
    "toi": 18.5,
    "proj": 1.7,
-   "season_avg": 1.92
+   "season_avg": 1.92,
+   "p_goal": 0.2071,
+   "goals_avg": 0.23
   },
   {
    "player": "L. Hutson",
@@ -1138,7 +1324,9 @@
    "games": 13,
    "toi": 22.6,
    "proj": 1.68,
-   "season_avg": 1.85
+   "season_avg": 1.85,
+   "p_goal": 0.1186,
+   "goals_avg": 0.23
   },
   {
    "player": "R. Hintz",
@@ -1150,7 +1338,9 @@
    "games": 13,
    "toi": 16.4,
    "proj": 1.68,
-   "season_avg": 2.0
+   "season_avg": 2.0,
+   "p_goal": 0.2163,
+   "goals_avg": 0.38
   },
   {
    "player": "A. Hyry",
@@ -1162,7 +1352,9 @@
    "games": 13,
    "toi": 15.6,
    "proj": 1.68,
-   "season_avg": 1.69
+   "season_avg": 1.69,
+   "p_goal": 0.1668,
+   "goals_avg": 0.23
   },
   {
    "player": "A. Copp",
@@ -1174,7 +1366,9 @@
    "games": 13,
    "toi": 16.3,
    "proj": 1.67,
-   "season_avg": 1.77
+   "season_avg": 1.77,
+   "p_goal": 0.1844,
+   "goals_avg": 0.15
   },
   {
    "player": "M. Seider",
@@ -1186,7 +1380,9 @@
    "games": 13,
    "toi": 26.2,
    "proj": 1.66,
-   "season_avg": 2.0
+   "season_avg": 2.0,
+   "p_goal": 0.1073,
+   "goals_avg": 0.0
   },
   {
    "player": "F. Zetterlund",
@@ -1198,7 +1394,9 @@
    "games": 14,
    "toi": 14.9,
    "proj": 1.66,
-   "season_avg": 2.0
+   "season_avg": 2.0,
+   "p_goal": 0.1757,
+   "goals_avg": 0.07
   },
   {
    "player": "T. Chabot",
@@ -1210,7 +1408,9 @@
    "games": 10,
    "toi": 23.0,
    "proj": 1.65,
-   "season_avg": 2.1
+   "season_avg": 2.1,
+   "p_goal": 0.0948,
+   "goals_avg": 0.1
   },
   {
    "player": "P. Zacha",
@@ -1222,7 +1422,9 @@
    "games": 13,
    "toi": 19.8,
    "proj": 1.65,
-   "season_avg": 1.62
+   "season_avg": 1.62,
+   "p_goal": 0.2105,
+   "goals_avg": 0.23
   },
   {
    "player": "L. Karlsson",
@@ -1234,7 +1436,9 @@
    "games": 15,
    "toi": 15.1,
    "proj": 1.65,
-   "season_avg": 1.87
+   "season_avg": 1.87,
+   "p_goal": 0.1658,
+   "goals_avg": 0.2
   },
   {
    "player": "B. Schenn",
@@ -1246,7 +1450,9 @@
    "games": 13,
    "toi": 16.6,
    "proj": 1.64,
-   "season_avg": 1.92
+   "season_avg": 1.92,
+   "p_goal": 0.2387,
+   "goals_avg": 0.31
   },
   {
    "player": "M. Olivier",
@@ -1258,7 +1464,9 @@
    "games": 11,
    "toi": 17.0,
    "proj": 1.64,
-   "season_avg": 1.73
+   "season_avg": 1.73,
+   "p_goal": 0.1674,
+   "goals_avg": 0.18
   },
   {
    "player": "M. Bourque",
@@ -1270,7 +1478,9 @@
    "games": 9,
    "toi": 16.4,
    "proj": 1.62,
-   "season_avg": 1.78
+   "season_avg": 1.78,
+   "p_goal": 0.1599,
+   "goals_avg": 0.0
   },
   {
    "player": "D. Nurse",
@@ -1282,7 +1492,9 @@
    "games": 13,
    "toi": 21.8,
    "proj": 1.62,
-   "season_avg": 1.92
+   "season_avg": 1.92,
+   "p_goal": 0.0821,
+   "goals_avg": 0.08
   },
   {
    "player": "E. Heineman",
@@ -1294,7 +1506,9 @@
    "games": 13,
    "toi": 16.3,
    "proj": 1.62,
-   "season_avg": 1.62
+   "season_avg": 1.62,
+   "p_goal": 0.1936,
+   "goals_avg": 0.15
   },
   {
    "player": "M. Marchment",
@@ -1306,7 +1520,9 @@
    "games": 14,
    "toi": 15.9,
    "proj": 1.62,
-   "season_avg": 1.86
+   "season_avg": 1.86,
+   "p_goal": 0.2215,
+   "goals_avg": 0.29
   },
   {
    "player": "E. Lindholm",
@@ -1318,7 +1534,9 @@
    "games": 14,
    "toi": 17.3,
    "proj": 1.61,
-   "season_avg": 1.71
+   "season_avg": 1.71,
+   "p_goal": 0.2343,
+   "goals_avg": 0.29
   },
   {
    "player": "N. Robertson",
@@ -1330,7 +1548,9 @@
    "games": 13,
    "toi": 14.1,
    "proj": 1.61,
-   "season_avg": 2.15
+   "season_avg": 2.15,
+   "p_goal": 0.2104,
+   "goals_avg": 0.46
   },
   {
    "player": "J. Sanderson",
@@ -1342,7 +1562,9 @@
    "games": 6,
    "toi": 25.6,
    "proj": 1.59,
-   "season_avg": 2.17
+   "season_avg": 2.17,
+   "p_goal": 0.1328,
+   "goals_avg": 0.17
   },
   {
    "player": "Z. Hyman",
@@ -1354,7 +1576,9 @@
    "games": 6,
    "toi": 17.4,
    "proj": 1.59,
-   "season_avg": 2.0
+   "season_avg": 2.0,
+   "p_goal": 0.1848,
+   "goals_avg": 0.17
   },
   {
    "player": "J. Compher",
@@ -1366,7 +1590,9 @@
    "games": 6,
    "toi": 14.2,
    "proj": 1.59,
-   "season_avg": 1.5
+   "season_avg": 1.5,
+   "p_goal": 0.1444,
+   "goals_avg": 0.0
   },
   {
    "player": "D. Mateychuk",
@@ -1378,7 +1604,9 @@
    "games": 11,
    "toi": 21.6,
    "proj": 1.59,
-   "season_avg": 2.09
+   "season_avg": 2.09,
+   "p_goal": 0.1657,
+   "goals_avg": 0.36
   },
   {
    "player": "M. Frost",
@@ -1390,7 +1618,9 @@
    "games": 13,
    "toi": 14.4,
    "proj": 1.57,
-   "season_avg": 1.92
+   "season_avg": 1.92,
+   "p_goal": 0.1569,
+   "goals_avg": 0.31
   },
   {
    "player": "J. Neighbours",
@@ -1402,7 +1632,9 @@
    "games": 13,
    "toi": 15.5,
    "proj": 1.57,
-   "season_avg": 1.85
+   "season_avg": 1.85,
+   "p_goal": 0.169,
+   "goals_avg": 0.31
   },
   {
    "player": "C. McMichael",
@@ -1414,7 +1646,9 @@
    "games": 13,
    "toi": 15.1,
    "proj": 1.56,
-   "season_avg": 1.62
+   "season_avg": 1.62,
+   "p_goal": 0.1544,
+   "goals_avg": 0.15
   },
   {
    "player": "M. Knies",
@@ -1426,7 +1660,9 @@
    "games": 11,
    "toi": 18.2,
    "proj": 1.55,
-   "season_avg": 1.64
+   "season_avg": 1.64,
+   "p_goal": 0.1824,
+   "goals_avg": 0.18
   },
   {
    "player": "G. McKenna",
@@ -1438,7 +1674,9 @@
    "games": 15,
    "toi": 13.1,
    "proj": 1.53,
-   "season_avg": 1.73
+   "season_avg": 1.73,
+   "p_goal": 0.1549,
+   "goals_avg": 0.33
   },
   {
    "player": "P. Danault",
@@ -1450,7 +1688,9 @@
    "games": 13,
    "toi": 18.3,
    "proj": 1.53,
-   "season_avg": 1.54
+   "season_avg": 1.54,
+   "p_goal": 0.169,
+   "goals_avg": 0.08
   },
   {
    "player": "A. Edstrom",
@@ -1462,7 +1702,9 @@
    "games": 13,
    "toi": 16.2,
    "proj": 1.51,
-   "season_avg": 1.62
+   "season_avg": 1.62,
+   "p_goal": 0.1936,
+   "goals_avg": 0.31
   },
   {
    "player": "C. Dach",
@@ -1474,7 +1716,9 @@
    "games": 9,
    "toi": 13.7,
    "proj": 1.51,
-   "season_avg": 1.78
+   "season_avg": 1.78,
+   "p_goal": 0.147,
+   "goals_avg": 0.11
   },
   {
    "player": "A. Wennberg",
@@ -1486,7 +1730,9 @@
    "games": 9,
    "toi": 20.4,
    "proj": 1.5,
-   "season_avg": 1.56
+   "season_avg": 1.56,
+   "p_goal": 0.2008,
+   "goals_avg": 0.0
   },
   {
    "player": "E. Haula",
@@ -1498,7 +1744,9 @@
    "games": 12,
    "toi": 15.7,
    "proj": 1.5,
-   "season_avg": 1.83
+   "season_avg": 1.83,
+   "p_goal": 0.164,
+   "goals_avg": 0.17
   },
   {
    "player": "A. Suniev",
@@ -1510,7 +1758,9 @@
    "games": 10,
    "toi": 12.7,
    "proj": 1.5,
-   "season_avg": 1.8
+   "season_avg": 1.8,
+   "p_goal": 0.1458,
+   "goals_avg": 0.4
   },
   {
    "player": "D. Toews",
@@ -1522,7 +1772,9 @@
    "games": 13,
    "toi": 19.9,
    "proj": 1.49,
-   "season_avg": 1.62
+   "season_avg": 1.62,
+   "p_goal": 0.1326,
+   "goals_avg": 0.31
   },
   {
    "player": "J. Hagens",
@@ -1534,7 +1786,9 @@
    "games": 14,
    "toi": 14.0,
    "proj": 1.49,
-   "season_avg": 1.93
+   "season_avg": 1.93,
+   "p_goal": 0.1557,
+   "goals_avg": 0.36
   },
   {
    "player": "C. McAvoy",
@@ -1546,7 +1800,9 @@
    "games": 8,
    "toi": 24.3,
    "proj": 1.49,
-   "season_avg": 1.75
+   "season_avg": 1.75,
+   "p_goal": 0.1185,
+   "goals_avg": 0.12
   },
   {
    "player": "P. Buchnevich",
@@ -1558,7 +1814,9 @@
    "games": 12,
    "toi": 18.0,
    "proj": 1.49,
-   "season_avg": 1.58
+   "season_avg": 1.58,
+   "p_goal": 0.1743,
+   "goals_avg": 0.17
   },
   {
    "player": "Z. Bolduc",
@@ -1570,7 +1828,9 @@
    "games": 13,
    "toi": 13.5,
    "proj": 1.49,
-   "season_avg": 1.69
+   "season_avg": 1.69,
+   "p_goal": 0.1603,
+   "goals_avg": 0.38
   },
   {
    "player": "J. Lekkerim\u00e4ki",
@@ -1582,7 +1842,9 @@
    "games": 15,
    "toi": 16.6,
    "proj": 1.48,
-   "season_avg": 1.6
+   "season_avg": 1.6,
+   "p_goal": 0.1961,
+   "goals_avg": 0.4
   },
   {
    "player": "E. Chinakhov",
@@ -1594,7 +1856,9 @@
    "games": 9,
    "toi": 15.7,
    "proj": 1.48,
-   "season_avg": 1.56
+   "season_avg": 1.56,
+   "p_goal": 0.1653,
+   "goals_avg": 0.22
   },
   {
    "player": "E. Pettersson",
@@ -1606,7 +1870,9 @@
    "games": 15,
    "toi": 21.1,
    "proj": 1.48,
-   "season_avg": 1.53
+   "season_avg": 1.53,
+   "p_goal": 0.235,
+   "goals_avg": 0.27
   },
   {
    "player": "B. Boeser",
@@ -1618,7 +1884,9 @@
    "games": 15,
    "toi": 18.3,
    "proj": 1.47,
-   "season_avg": 1.53
+   "season_avg": 1.53,
+   "p_goal": 0.2295,
+   "goals_avg": 0.27
   },
   {
    "player": "M. Matheson",
@@ -1630,7 +1898,9 @@
    "games": 8,
    "toi": 23.2,
    "proj": 1.47,
-   "season_avg": 1.75
+   "season_avg": 1.75,
+   "p_goal": 0.1113,
+   "goals_avg": 0.12
   },
   {
    "player": "J. Schwartz",
@@ -1642,7 +1912,9 @@
    "games": 13,
    "toi": 14.8,
    "proj": 1.46,
-   "season_avg": 1.69
+   "season_avg": 1.69,
+   "p_goal": 0.1572,
+   "goals_avg": 0.31
   },
   {
    "player": "K. Kapanen",
@@ -1654,7 +1926,9 @@
    "games": 13,
    "toi": 18.4,
    "proj": 1.44,
-   "season_avg": 1.46
+   "season_avg": 1.46,
+   "p_goal": 0.2234,
+   "goals_avg": 0.31
   },
   {
    "player": "Y. Sharangovich",
@@ -1666,7 +1940,9 @@
    "games": 13,
    "toi": 15.3,
    "proj": 1.44,
-   "season_avg": 1.54
+   "season_avg": 1.54,
+   "p_goal": 0.1584,
+   "goals_avg": 0.15
   },
   {
    "player": "T. Toffoli",
@@ -1678,7 +1954,9 @@
    "games": 14,
    "toi": 12.5,
    "proj": 1.43,
-   "season_avg": 2.0
+   "season_avg": 2.0,
+   "p_goal": 0.1352,
+   "goals_avg": 0.29
   },
   {
    "player": "C. Dewar",
@@ -1690,7 +1968,9 @@
    "games": 13,
    "toi": 13.8,
    "proj": 1.43,
-   "season_avg": 1.69
+   "season_avg": 1.69,
+   "p_goal": 0.1468,
+   "goals_avg": 0.15
   },
   {
    "player": "P. Holmberg",
@@ -1702,7 +1982,9 @@
    "games": 12,
    "toi": 14.3,
    "proj": 1.43,
-   "season_avg": 1.67
+   "season_avg": 1.67,
+   "p_goal": 0.1616,
+   "goals_avg": 0.33
   },
   {
    "player": "Z. Parekh",
@@ -1714,7 +1996,9 @@
    "games": 13,
    "toi": 17.1,
    "proj": 1.41,
-   "season_avg": 1.92
+   "season_avg": 1.92,
+   "p_goal": 0.0648,
+   "goals_avg": 0.08
   },
   {
    "player": "T. Novak",
@@ -1726,7 +2010,9 @@
    "games": 13,
    "toi": 15.8,
    "proj": 1.41,
-   "season_avg": 1.46
+   "season_avg": 1.46,
+   "p_goal": 0.1612,
+   "goals_avg": 0.23
   },
   {
    "player": "K. Letang",
@@ -1738,7 +2024,9 @@
    "games": 13,
    "toi": 20.9,
    "proj": 1.4,
-   "season_avg": 1.92
+   "season_avg": 1.92,
+   "p_goal": 0.0685,
+   "goals_avg": 0.0
   },
   {
    "player": "C. Sillinger",
@@ -1750,7 +2038,9 @@
    "games": 11,
    "toi": 14.9,
    "proj": 1.39,
-   "season_avg": 1.55
+   "season_avg": 1.55,
+   "p_goal": 0.1561,
+   "goals_avg": 0.27
   },
   {
    "player": "O. Power",
@@ -1762,7 +2052,9 @@
    "games": 13,
    "toi": 26.5,
    "proj": 1.39,
-   "season_avg": 1.38
+   "season_avg": 1.38,
+   "p_goal": 0.085,
+   "goals_avg": 0.15
   },
   {
    "player": "I. Stenberg",
@@ -1774,7 +2066,9 @@
    "games": 14,
    "toi": 17.4,
    "proj": 1.38,
-   "season_avg": 1.36
+   "season_avg": 1.36,
+   "p_goal": 0.1849,
+   "goals_avg": 0.21
   },
   {
    "player": "M. Pospisil",
@@ -1786,7 +2080,9 @@
    "games": 13,
    "toi": 14.5,
    "proj": 1.38,
-   "season_avg": 1.69
+   "season_avg": 1.69,
+   "p_goal": 0.1443,
+   "goals_avg": 0.15
   },
   {
    "player": "V. Nichushkin",
@@ -1798,7 +2094,9 @@
    "games": 11,
    "toi": 16.2,
    "proj": 1.38,
-   "season_avg": 1.27
+   "season_avg": 1.27,
+   "p_goal": 0.1441,
+   "goals_avg": 0.09
   },
   {
    "player": "O. Kapanen",
@@ -1810,7 +2108,9 @@
    "games": 6,
    "toi": 13.5,
    "proj": 1.37,
-   "season_avg": 1.33
+   "season_avg": 1.33,
+   "p_goal": 0.1216,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Berggren",
@@ -1822,7 +2122,9 @@
    "games": 13,
    "toi": 14.3,
    "proj": 1.37,
-   "season_avg": 1.46
+   "season_avg": 1.46,
+   "p_goal": 0.144,
+   "goals_avg": 0.15
   },
   {
    "player": "A. Cirelli",
@@ -1834,7 +2136,9 @@
    "games": 12,
    "toi": 16.7,
    "proj": 1.37,
-   "season_avg": 1.42
+   "season_avg": 1.42,
+   "p_goal": 0.217,
+   "goals_avg": 0.33
   },
   {
    "player": "F. Nazar",
@@ -1846,7 +2150,9 @@
    "games": 11,
    "toi": 16.3,
    "proj": 1.37,
-   "season_avg": 1.55
+   "season_avg": 1.55,
+   "p_goal": 0.1914,
+   "goals_avg": 0.27
   },
   {
    "player": "M. Maccelli",
@@ -1858,7 +2164,9 @@
    "games": 8,
    "toi": 13.9,
    "proj": 1.36,
-   "season_avg": 1.62
+   "season_avg": 1.62,
+   "p_goal": 0.1488,
+   "goals_avg": 0.25
   },
   {
    "player": "J. Doan",
@@ -1870,7 +2178,9 @@
    "games": 13,
    "toi": 14.2,
    "proj": 1.36,
-   "season_avg": 1.54
+   "season_avg": 1.54,
+   "p_goal": 0.144,
+   "goals_avg": 0.15
   },
   {
    "player": "M. Rasmussen",
@@ -1882,7 +2192,9 @@
    "games": 13,
    "toi": 15.9,
    "proj": 1.35,
-   "season_avg": 1.46
+   "season_avg": 1.46,
+   "p_goal": 0.1544,
+   "goals_avg": 0.08
   },
   {
    "player": "B. Rust",
@@ -1894,7 +2206,9 @@
    "games": 7,
    "toi": 16.8,
    "proj": 1.34,
-   "season_avg": 1.29
+   "season_avg": 1.29,
+   "p_goal": 0.1933,
+   "goals_avg": 0.43
   },
   {
    "player": "M. Crozier",
@@ -1906,7 +2220,9 @@
    "games": 6,
    "toi": 17.1,
    "proj": 1.34,
-   "season_avg": 1.83
+   "season_avg": 1.83,
+   "p_goal": 0.0605,
+   "goals_avg": 0.0
   },
   {
    "player": "C. D'Astous",
@@ -1918,7 +2234,9 @@
    "games": 11,
    "toi": 18.1,
    "proj": 1.34,
-   "season_avg": 1.64
+   "season_avg": 1.64,
+   "p_goal": 0.0878,
+   "goals_avg": 0.18
   },
   {
    "player": "A. Frondell",
@@ -1930,7 +2248,9 @@
    "games": 13,
    "toi": 14.2,
    "proj": 1.34,
-   "season_avg": 1.54
+   "season_avg": 1.54,
+   "p_goal": 0.1512,
+   "goals_avg": 0.08
   },
   {
    "player": "E. Karlsson",
@@ -1942,7 +2262,9 @@
    "games": 13,
    "toi": 24.3,
    "proj": 1.34,
-   "season_avg": 1.62
+   "season_avg": 1.62,
+   "p_goal": 0.113,
+   "goals_avg": 0.15
   },
   {
    "player": "C. Graf",
@@ -1954,7 +2276,9 @@
    "games": 14,
    "toi": 16.9,
    "proj": 1.33,
-   "season_avg": 1.36
+   "season_avg": 1.36,
+   "p_goal": 0.1484,
+   "goals_avg": 0.14
   },
   {
    "player": "S. Laughton",
@@ -1966,7 +2290,9 @@
    "games": 12,
    "toi": 15.1,
    "proj": 1.33,
-   "season_avg": 1.5
+   "season_avg": 1.5,
+   "p_goal": 0.1384,
+   "goals_avg": 0.17
   },
   {
    "player": "C. Giroux",
@@ -1978,7 +2304,9 @@
    "games": 14,
    "toi": 16.4,
    "proj": 1.32,
-   "season_avg": 1.29
+   "season_avg": 1.29,
+   "p_goal": 0.148,
+   "goals_avg": 0.14
   },
   {
    "player": "J. Armia",
@@ -1990,7 +2318,9 @@
    "games": 12,
    "toi": 14.2,
    "proj": 1.32,
-   "season_avg": 1.5
+   "season_avg": 1.5,
+   "p_goal": 0.1454,
+   "goals_avg": 0.17
   },
   {
    "player": "A. Duclair",
@@ -2002,7 +2332,9 @@
    "games": 13,
    "toi": 14.7,
    "proj": 1.29,
-   "season_avg": 1.31
+   "season_avg": 1.31,
+   "p_goal": 0.1386,
+   "goals_avg": 0.23
   },
   {
    "player": "R. Colton",
@@ -2014,7 +2346,9 @@
    "games": 13,
    "toi": 14.3,
    "proj": 1.27,
-   "season_avg": 1.38
+   "season_avg": 1.38,
+   "p_goal": 0.1393,
+   "goals_avg": 0.15
   },
   {
    "player": "V. Eklund",
@@ -2026,7 +2360,9 @@
    "games": 13,
    "toi": 14.4,
    "proj": 1.27,
-   "season_avg": 1.38
+   "season_avg": 1.38,
+   "p_goal": 0.1471,
+   "goals_avg": 0.23
   },
   {
    "player": "R. Greig",
@@ -2038,7 +2374,9 @@
    "games": 12,
    "toi": 18.1,
    "proj": 1.27,
-   "season_avg": 1.33
+   "season_avg": 1.33,
+   "p_goal": 0.138,
+   "goals_avg": 0.08
   },
   {
    "player": "B. Clarke",
@@ -2050,7 +2388,9 @@
    "games": 12,
    "toi": 18.8,
    "proj": 1.27,
-   "season_avg": 1.75
+   "season_avg": 1.75,
+   "p_goal": 0.0831,
+   "goals_avg": 0.25
   },
   {
    "player": "C. Mittelstadt",
@@ -2062,7 +2402,9 @@
    "games": 14,
    "toi": 14.9,
    "proj": 1.27,
-   "season_avg": 1.36
+   "season_avg": 1.36,
+   "p_goal": 0.1534,
+   "goals_avg": 0.29
   },
   {
    "player": "M. Rossi",
@@ -2074,7 +2416,9 @@
    "games": 13,
    "toi": 13.5,
    "proj": 1.24,
-   "season_avg": 1.38
+   "season_avg": 1.38,
+   "p_goal": 0.1399,
+   "goals_avg": 0.23
   },
   {
    "player": "A. Kaskimaki",
@@ -2086,7 +2430,9 @@
    "games": 5,
    "toi": 12.0,
    "proj": 1.24,
-   "season_avg": 1.2
+   "season_avg": 1.2,
+   "p_goal": 0.0988,
+   "goals_avg": 0.0
   },
   {
    "player": "I. Mikheyev",
@@ -2098,7 +2444,9 @@
    "games": 12,
    "toi": 15.3,
    "proj": 1.24,
-   "season_avg": 1.25
+   "season_avg": 1.25,
+   "p_goal": 0.1283,
+   "goals_avg": 0.17
   },
   {
    "player": "A. Klapka",
@@ -2110,7 +2458,9 @@
    "games": 13,
    "toi": 12.7,
    "proj": 1.24,
-   "season_avg": 1.38
+   "season_avg": 1.38,
+   "p_goal": 0.1199,
+   "goals_avg": 0.15
   },
   {
    "player": "J. Drury",
@@ -2122,7 +2472,9 @@
    "games": 13,
    "toi": 18.0,
    "proj": 1.23,
-   "season_avg": 1.23
+   "season_avg": 1.23,
+   "p_goal": 0.1488,
+   "goals_avg": 0.15
   },
   {
    "player": "O. Moore",
@@ -2134,7 +2486,9 @@
    "games": 12,
    "toi": 11.8,
    "proj": 1.22,
-   "season_avg": 1.58
+   "season_avg": 1.58,
+   "p_goal": 0.118,
+   "goals_avg": 0.17
   },
   {
    "player": "T. Bertuzzi",
@@ -2146,7 +2500,9 @@
    "games": 13,
    "toi": 17.2,
    "proj": 1.2,
-   "season_avg": 1.15
+   "season_avg": 1.15,
+   "p_goal": 0.1475,
+   "goals_avg": 0.15
   },
   {
    "player": "D. O'Connor",
@@ -2158,7 +2514,9 @@
    "games": 15,
    "toi": 16.5,
    "proj": 1.2,
-   "season_avg": 1.2
+   "season_avg": 1.2,
+   "p_goal": 0.1403,
+   "goals_avg": 0.13
   },
   {
    "player": "N. Lardis",
@@ -2170,7 +2528,9 @@
    "games": 6,
    "toi": 10.8,
    "proj": 1.2,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0954,
+   "goals_avg": 0.0
   },
   {
    "player": "M. Samuelsson",
@@ -2182,7 +2542,9 @@
    "games": 13,
    "toi": 25.0,
    "proj": 1.2,
-   "season_avg": 1.54
+   "season_avg": 1.54,
+   "p_goal": 0.0992,
+   "goals_avg": 0.15
   },
   {
    "player": "A. Texier",
@@ -2194,7 +2556,9 @@
    "games": 13,
    "toi": 13.1,
    "proj": 1.19,
-   "season_avg": 1.23
+   "season_avg": 1.23,
+   "p_goal": 0.1187,
+   "goals_avg": 0.08
   },
   {
    "player": "S. Monahan",
@@ -2206,7 +2570,9 @@
    "games": 11,
    "toi": 16.3,
    "proj": 1.19,
-   "season_avg": 1.18
+   "season_avg": 1.18,
+   "p_goal": 0.1381,
+   "goals_avg": 0.09
   },
   {
    "player": "J. Greenway",
@@ -2218,7 +2584,9 @@
    "games": 13,
    "toi": 13.2,
    "proj": 1.19,
-   "season_avg": 1.31
+   "season_avg": 1.31,
+   "p_goal": 0.1248,
+   "goals_avg": 0.08
   },
   {
    "player": "C. Garland",
@@ -2230,7 +2598,9 @@
    "games": 11,
    "toi": 13.4,
    "proj": 1.18,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.1085,
+   "goals_avg": 0.0
   },
   {
    "player": "V. Koivunen",
@@ -2242,7 +2612,9 @@
    "games": 11,
    "toi": 14.6,
    "proj": 1.18,
-   "season_avg": 1.09
+   "season_avg": 1.09,
+   "p_goal": 0.1344,
+   "goals_avg": 0.18
   },
   {
    "player": "L. Ohgren",
@@ -2254,7 +2626,9 @@
    "games": 14,
    "toi": 12.9,
    "proj": 1.18,
-   "season_avg": 1.29
+   "season_avg": 1.29,
+   "p_goal": 0.1329,
+   "goals_avg": 0.29
   },
   {
    "player": "F. Hronek",
@@ -2266,7 +2640,9 @@
    "games": 15,
    "toi": 26.3,
    "proj": 1.17,
-   "season_avg": 1.13
+   "season_avg": 1.13,
+   "p_goal": 0.0743,
+   "goals_avg": 0.07
   },
   {
    "player": "R. Thomas",
@@ -2278,7 +2654,9 @@
    "games": 13,
    "toi": 19.6,
    "proj": 1.17,
-   "season_avg": 1.08
+   "season_avg": 1.08,
+   "p_goal": 0.1464,
+   "goals_avg": 0.15
   },
   {
    "player": "Z. Girgensons",
@@ -2290,7 +2668,9 @@
    "games": 11,
    "toi": 13.6,
    "proj": 1.17,
-   "season_avg": 1.27
+   "season_avg": 1.27,
+   "p_goal": 0.1202,
+   "goals_avg": 0.09
   },
   {
    "player": "S. Steel",
@@ -2302,7 +2682,9 @@
    "games": 11,
    "toi": 15.8,
    "proj": 1.16,
-   "season_avg": 1.18
+   "season_avg": 1.18,
+   "p_goal": 0.1203,
+   "goals_avg": 0.09
   },
   {
    "player": "J. Pageau",
@@ -2314,7 +2696,9 @@
    "games": 13,
    "toi": 16.0,
    "proj": 1.16,
-   "season_avg": 1.23
+   "season_avg": 1.23,
+   "p_goal": 0.1416,
+   "goals_avg": 0.08
   },
   {
    "player": "J. Hryckowian",
@@ -2326,7 +2710,9 @@
    "games": 13,
    "toi": 14.4,
    "proj": 1.15,
-   "season_avg": 1.15
+   "season_avg": 1.15,
+   "p_goal": 0.1177,
+   "goals_avg": 0.15
   },
   {
    "player": "A. Newhook",
@@ -2338,7 +2724,9 @@
    "games": 13,
    "toi": 16.6,
    "proj": 1.15,
-   "season_avg": 1.08
+   "season_avg": 1.08,
+   "p_goal": 0.1758,
+   "goals_avg": 0.23
   },
   {
    "player": "J. Kiviranta",
@@ -2350,7 +2738,9 @@
    "games": 9,
    "toi": 12.1,
    "proj": 1.15,
-   "season_avg": 1.33
+   "season_avg": 1.33,
+   "p_goal": 0.1234,
+   "goals_avg": 0.11
   },
   {
    "player": "M. Geekie",
@@ -2362,7 +2752,9 @@
    "games": 14,
    "toi": 15.9,
    "proj": 1.15,
-   "season_avg": 1.21
+   "season_avg": 1.21,
+   "p_goal": 0.1429,
+   "goals_avg": 0.07
   },
   {
    "player": "J. Norris",
@@ -2374,7 +2766,9 @@
    "games": 13,
    "toi": 15.0,
    "proj": 1.15,
-   "season_avg": 1.15
+   "season_avg": 1.15,
+   "p_goal": 0.1152,
+   "goals_avg": 0.15
   },
   {
    "player": "S. Nemec",
@@ -2386,7 +2780,9 @@
    "games": 13,
    "toi": 22.1,
    "proj": 1.15,
-   "season_avg": 1.54
+   "season_avg": 1.54,
+   "p_goal": 0.0636,
+   "goals_avg": 0.0
   },
   {
    "player": "M. Amadio",
@@ -2398,7 +2794,9 @@
    "games": 14,
    "toi": 15.7,
    "proj": 1.15,
-   "season_avg": 1.07
+   "season_avg": 1.07,
+   "p_goal": 0.157,
+   "goals_avg": 0.21
   },
   {
    "player": "M. Wood",
@@ -2410,7 +2808,9 @@
    "games": 13,
    "toi": 12.3,
    "proj": 1.14,
-   "season_avg": 1.46
+   "season_avg": 1.46,
+   "p_goal": 0.1238,
+   "goals_avg": 0.08
   },
   {
    "player": "D. Dvorsky",
@@ -2422,7 +2822,9 @@
    "games": 13,
    "toi": 12.1,
    "proj": 1.14,
-   "season_avg": 1.46
+   "season_avg": 1.46,
+   "p_goal": 0.1202,
+   "goals_avg": 0.15
   },
   {
    "player": "D. Carlile",
@@ -2434,7 +2836,9 @@
    "games": 13,
    "toi": 19.6,
    "proj": 1.14,
-   "season_avg": 1.54
+   "season_avg": 1.54,
+   "p_goal": 0.0943,
+   "goals_avg": 0.23
   },
   {
    "player": "J.Kulich",
@@ -2446,7 +2850,9 @@
    "games": 8,
    "toi": 13.8,
    "proj": 1.13,
-   "season_avg": 1.12
+   "season_avg": 1.12,
+   "p_goal": 0.1153,
+   "goals_avg": 0.12
   },
   {
    "player": "C. Parayko",
@@ -2458,7 +2864,9 @@
    "games": 13,
    "toi": 20.0,
    "proj": 1.13,
-   "season_avg": 1.46
+   "season_avg": 1.46,
+   "p_goal": 0.0611,
+   "goals_avg": 0.0
   },
   {
    "player": "C. Smith",
@@ -2470,7 +2878,9 @@
    "games": 13,
    "toi": 12.7,
    "proj": 1.12,
-   "season_avg": 1.23
+   "season_avg": 1.23,
+   "p_goal": 0.123,
+   "goals_avg": 0.08
   },
   {
    "player": "M. Zuccarello",
@@ -2482,7 +2892,9 @@
    "games": 6,
    "toi": 16.1,
    "proj": 1.12,
-   "season_avg": 0.67
+   "season_avg": 0.67,
+   "p_goal": 0.1332,
+   "goals_avg": 0.0
   },
   {
    "player": "W. Foegele",
@@ -2494,7 +2906,9 @@
    "games": 13,
    "toi": 13.0,
    "proj": 1.12,
-   "season_avg": 1.08
+   "season_avg": 1.08,
+   "p_goal": 0.1081,
+   "goals_avg": 0.08
   },
   {
    "player": "K. Guhle",
@@ -2506,7 +2920,9 @@
    "games": 9,
    "toi": 23.5,
    "proj": 1.12,
-   "season_avg": 1.33
+   "season_avg": 1.33,
+   "p_goal": 0.0895,
+   "goals_avg": 0.22
   },
   {
    "player": "R. Donato",
@@ -2518,7 +2934,9 @@
    "games": 13,
    "toi": 12.9,
    "proj": 1.12,
-   "season_avg": 1.15
+   "season_avg": 1.15,
+   "p_goal": 0.1113,
+   "goals_avg": 0.15
   },
   {
    "player": "G. Landeskog",
@@ -2530,7 +2948,9 @@
    "games": 13,
    "toi": 14.2,
    "proj": 1.12,
-   "season_avg": 1.23
+   "season_avg": 1.23,
+   "p_goal": 0.1445,
+   "goals_avg": 0.38
   },
   {
    "player": "R. Schaefer",
@@ -2542,7 +2962,9 @@
    "games": 6,
    "toi": 10.5,
    "proj": 1.11,
-   "season_avg": 0.83
+   "season_avg": 0.83,
+   "p_goal": 0.0926,
+   "goals_avg": 0.0
   },
   {
    "player": "C. Perry",
@@ -2554,7 +2976,9 @@
    "games": 10,
    "toi": 12.4,
    "proj": 1.11,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.1024,
+   "goals_avg": 0.0
   },
   {
    "player": "N. Roy",
@@ -2566,7 +2990,9 @@
    "games": 7,
    "toi": 11.3,
    "proj": 1.11,
-   "season_avg": 1.43
+   "season_avg": 1.43,
+   "p_goal": 0.1265,
+   "goals_avg": 0.29
   },
   {
    "player": "R. McLeod",
@@ -2578,7 +3004,9 @@
    "games": 13,
    "toi": 14.4,
    "proj": 1.1,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.1069,
+   "goals_avg": 0.08
   },
   {
    "player": "G. Goncalves",
@@ -2590,7 +3018,9 @@
    "games": 11,
    "toi": 15.8,
    "proj": 1.09,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.1296,
+   "goals_avg": 0.0
   },
   {
    "player": "V. Lettieri",
@@ -2602,7 +3032,9 @@
    "games": 6,
    "toi": 10.2,
    "proj": 1.09,
-   "season_avg": 1.17
+   "season_avg": 1.17,
+   "p_goal": 0.1324,
+   "goals_avg": 0.17
   },
   {
    "player": "S. Halliday",
@@ -2614,7 +3046,9 @@
    "games": 14,
    "toi": 12.0,
    "proj": 1.09,
-   "season_avg": 1.43
+   "season_avg": 1.43,
+   "p_goal": 0.1191,
+   "goals_avg": 0.21
   },
   {
    "player": "B. Byram",
@@ -2626,7 +3060,9 @@
    "games": 6,
    "toi": 24.6,
    "proj": 1.09,
-   "season_avg": 0.83
+   "season_avg": 0.83,
+   "p_goal": 0.0408,
+   "goals_avg": 0.0
   },
   {
    "player": "P. Kelly",
@@ -2638,7 +3074,9 @@
    "games": 13,
    "toi": 13.9,
    "proj": 1.09,
-   "season_avg": 1.15
+   "season_avg": 1.15,
+   "p_goal": 0.1132,
+   "goals_avg": 0.15
   },
   {
    "player": "A. Levshunov",
@@ -2650,7 +3088,9 @@
    "games": 13,
    "toi": 21.0,
    "proj": 1.08,
-   "season_avg": 1.38
+   "season_avg": 1.38,
+   "p_goal": 0.0691,
+   "goals_avg": 0.08
   },
   {
    "player": "E. Soderblom",
@@ -2662,7 +3102,9 @@
    "games": 6,
    "toi": 11.2,
    "proj": 1.08,
-   "season_avg": 0.83
+   "season_avg": 0.83,
+   "p_goal": 0.0797,
+   "goals_avg": 0.0
   },
   {
    "player": "H. Lapierre",
@@ -2674,7 +3116,9 @@
    "games": 9,
    "toi": 12.9,
    "proj": 1.08,
-   "season_avg": 1.11
+   "season_avg": 1.11,
+   "p_goal": 0.1218,
+   "goals_avg": 0.22
   },
   {
    "player": "M. Misa",
@@ -2686,7 +3130,9 @@
    "games": 14,
    "toi": 13.9,
    "proj": 1.08,
-   "season_avg": 1.07
+   "season_avg": 1.07,
+   "p_goal": 0.1167,
+   "goals_avg": 0.14
   },
   {
    "player": "P. Suter",
@@ -2698,7 +3144,9 @@
    "games": 13,
    "toi": 12.8,
    "proj": 1.07,
-   "season_avg": 1.23
+   "season_avg": 1.23,
+   "p_goal": 0.121,
+   "goals_avg": 0.23
   },
   {
    "player": "M. Jones",
@@ -2710,7 +3158,9 @@
    "games": 6,
    "toi": 9.6,
    "proj": 1.07,
-   "season_avg": 0.83
+   "season_avg": 0.83,
+   "p_goal": 0.0827,
+   "goals_avg": 0.0
   },
   {
    "player": "M. Joseph",
@@ -2722,7 +3172,9 @@
    "games": 13,
    "toi": 12.3,
    "proj": 1.07,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.1349,
+   "goals_avg": 0.23
   },
   {
    "player": "A. Pelech",
@@ -2734,7 +3186,9 @@
    "games": 13,
    "toi": 20.7,
    "proj": 1.06,
-   "season_avg": 1.31
+   "season_avg": 1.31,
+   "p_goal": 0.0641,
+   "goals_avg": 0.08
   },
   {
    "player": "J. Barron",
@@ -2746,7 +3200,9 @@
    "games": 10,
    "toi": 16.9,
    "proj": 1.06,
-   "season_avg": 1.5
+   "season_avg": 1.5,
+   "p_goal": 0.0635,
+   "goals_avg": 0.1
   },
   {
    "player": "C. Sissons",
@@ -2758,7 +3214,9 @@
    "games": 15,
    "toi": 14.7,
    "proj": 1.06,
-   "season_avg": 1.07
+   "season_avg": 1.07,
+   "p_goal": 0.1221,
+   "goals_avg": 0.13
   },
   {
    "player": "T. Blueger",
@@ -2770,7 +3228,9 @@
    "games": 15,
    "toi": 14.7,
    "proj": 1.06,
-   "season_avg": 1.07
+   "season_avg": 1.07,
+   "p_goal": 0.0975,
+   "goals_avg": 0.07
   },
   {
    "player": "C. Yakemchuk",
@@ -2782,7 +3242,9 @@
    "games": 13,
    "toi": 18.1,
    "proj": 1.06,
-   "season_avg": 1.54
+   "season_avg": 1.54,
+   "p_goal": 0.0642,
+   "goals_avg": 0.08
   },
   {
    "player": "S. Girard",
@@ -2794,7 +3256,9 @@
    "games": 10,
    "toi": 18.1,
    "proj": 1.06,
-   "season_avg": 1.4
+   "season_avg": 1.4,
+   "p_goal": 0.0599,
+   "goals_avg": 0.1
   },
   {
    "player": "A. Jiricek",
@@ -2806,7 +3270,9 @@
    "games": 13,
    "toi": 15.8,
    "proj": 1.05,
-   "season_avg": 1.46
+   "season_avg": 1.46,
+   "p_goal": 0.0624,
+   "goals_avg": 0.08
   },
   {
    "player": "T. Kleven",
@@ -2818,7 +3284,9 @@
    "games": 14,
    "toi": 19.2,
    "proj": 1.05,
-   "season_avg": 1.36
+   "season_avg": 1.36,
+   "p_goal": 0.0552,
+   "goals_avg": 0.14
   },
   {
    "player": "H. Lindholm",
@@ -2830,7 +3298,9 @@
    "games": 14,
    "toi": 21.0,
    "proj": 1.05,
-   "season_avg": 1.29
+   "season_avg": 1.29,
+   "p_goal": 0.0658,
+   "goals_avg": 0.07
   },
   {
    "player": "I. Chernyshov",
@@ -2842,7 +3312,9 @@
    "games": 11,
    "toi": 12.6,
    "proj": 1.04,
-   "season_avg": 1.09
+   "season_avg": 1.09,
+   "p_goal": 0.1181,
+   "goals_avg": 0.18
   },
   {
    "player": "J. Faulk",
@@ -2854,7 +3326,9 @@
    "games": 13,
    "toi": 20.4,
    "proj": 1.04,
-   "season_avg": 1.38
+   "season_avg": 1.38,
+   "p_goal": 0.0773,
+   "goals_avg": 0.15
   },
   {
    "player": "J. Benn",
@@ -2866,7 +3340,9 @@
    "games": 13,
    "toi": 12.1,
    "proj": 1.04,
-   "season_avg": 1.31
+   "season_avg": 1.31,
+   "p_goal": 0.1193,
+   "goals_avg": 0.15
   },
   {
    "player": "J. Trouba",
@@ -2878,7 +3354,9 @@
    "games": 14,
    "toi": 23.8,
    "proj": 1.04,
-   "season_avg": 1.21
+   "season_avg": 1.21,
+   "p_goal": 0.0626,
+   "goals_avg": 0.14
   },
   {
    "player": "R. Greene",
@@ -2890,7 +3368,9 @@
    "games": 13,
    "toi": 13.7,
    "proj": 1.03,
-   "season_avg": 0.85
+   "season_avg": 0.85,
+   "p_goal": 0.1041,
+   "goals_avg": 0.08
   },
   {
    "player": "C. Geekie",
@@ -2902,7 +3382,9 @@
    "games": 12,
    "toi": 12.0,
    "proj": 1.03,
-   "season_avg": 1.33
+   "season_avg": 1.33,
+   "p_goal": 0.1204,
+   "goals_avg": 0.25
   },
   {
    "player": "A. Kuzmenko",
@@ -2914,7 +3396,9 @@
    "games": 9,
    "toi": 14.1,
    "proj": 1.03,
-   "season_avg": 0.89
+   "season_avg": 0.89,
+   "p_goal": 0.0966,
+   "goals_avg": 0.0
   },
   {
    "player": "B. Duhaime",
@@ -2926,7 +3410,9 @@
    "games": 15,
    "toi": 13.2,
    "proj": 1.02,
-   "season_avg": 0.87
+   "season_avg": 0.87,
+   "p_goal": 0.09,
+   "goals_avg": 0.07
   },
   {
    "player": "R. Lomberg",
@@ -2938,7 +3424,9 @@
    "games": 11,
    "toi": 9.1,
    "proj": 1.02,
-   "season_avg": 1.45
+   "season_avg": 1.45,
+   "p_goal": 0.1369,
+   "goals_avg": 0.0
   },
   {
    "player": "D. Severson",
@@ -2950,7 +3438,9 @@
    "games": 9,
    "toi": 23.0,
    "proj": 1.02,
-   "season_avg": 0.67
+   "season_avg": 0.67,
+   "p_goal": 0.0406,
+   "goals_avg": 0.11
   },
   {
    "player": "J. Evans",
@@ -2962,7 +3452,9 @@
    "games": 13,
    "toi": 16.3,
    "proj": 1.02,
-   "season_avg": 0.85
+   "season_avg": 0.85,
+   "p_goal": 0.133,
+   "goals_avg": 0.15
   },
   {
    "player": "T. Teravainen",
@@ -2974,7 +3466,9 @@
    "games": 11,
    "toi": 16.5,
    "proj": 1.01,
-   "season_avg": 0.91
+   "season_avg": 0.91,
+   "p_goal": 0.1457,
+   "goals_avg": 0.18
   },
   {
    "player": "B. Burns",
@@ -2986,7 +3480,9 @@
    "games": 13,
    "toi": 16.1,
    "proj": 1.0,
-   "season_avg": 1.46
+   "season_avg": 1.46,
+   "p_goal": 0.056,
+   "goals_avg": 0.0
   },
   {
    "player": "B. Lizotte",
@@ -2998,7 +3494,9 @@
    "games": 13,
    "toi": 13.9,
    "proj": 1.0,
-   "season_avg": 1.08
+   "season_avg": 1.08,
+   "p_goal": 0.1014,
+   "goals_avg": 0.0
   },
   {
    "player": "M. Khusnutdinov",
@@ -3010,7 +3508,9 @@
    "games": 14,
    "toi": 14.2,
    "proj": 1.0,
-   "season_avg": 0.93
+   "season_avg": 0.93,
+   "p_goal": 0.1291,
+   "goals_avg": 0.21
   },
   {
    "player": "M. Poitras",
@@ -3022,7 +3522,9 @@
    "games": 11,
    "toi": 9.4,
    "proj": 1.0,
-   "season_avg": 1.36
+   "season_avg": 1.36,
+   "p_goal": 0.1536,
+   "goals_avg": 0.36
   },
   {
    "player": "T. Stecher",
@@ -3034,7 +3536,9 @@
    "games": 15,
    "toi": 23.0,
    "proj": 1.0,
-   "season_avg": 1.13
+   "season_avg": 1.13,
+   "p_goal": 0.0815,
+   "goals_avg": 0.13
   },
   {
    "player": "O. Palat",
@@ -3046,7 +3550,9 @@
    "games": 13,
    "toi": 15.1,
    "proj": 0.99,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.1207,
+   "goals_avg": 0.15
   },
   {
    "player": "B. Goodrow",
@@ -3058,7 +3564,9 @@
    "games": 14,
    "toi": 11.8,
    "proj": 0.99,
-   "season_avg": 0.86
+   "season_avg": 0.86,
+   "p_goal": 0.086,
+   "goals_avg": 0.0
   },
   {
    "player": "A. Formenton",
@@ -3070,7 +3578,9 @@
    "games": 13,
    "toi": 12.1,
    "proj": 0.99,
-   "season_avg": 1.08
+   "season_avg": 1.08,
+   "p_goal": 0.1143,
+   "goals_avg": 0.15
   },
   {
    "player": "M. Kastelic",
@@ -3082,7 +3592,9 @@
    "games": 14,
    "toi": 11.0,
    "proj": 0.98,
-   "season_avg": 1.21
+   "season_avg": 1.21,
+   "p_goal": 0.0968,
+   "goals_avg": 0.14
   },
   {
    "player": "N. Paul",
@@ -3094,7 +3606,9 @@
    "games": 15,
    "toi": 16.8,
    "proj": 0.98,
-   "season_avg": 0.93
+   "season_avg": 0.93,
+   "p_goal": 0.1409,
+   "goals_avg": 0.13
   },
   {
    "player": "A. Kerfoot",
@@ -3106,7 +3620,9 @@
    "games": 13,
    "toi": 16.1,
    "proj": 0.97,
-   "season_avg": 0.92
+   "season_avg": 0.92,
+   "p_goal": 0.1256,
+   "goals_avg": 0.15
   },
   {
    "player": "C. Mazur",
@@ -3118,7 +3634,9 @@
    "games": 7,
    "toi": 8.9,
    "proj": 0.97,
-   "season_avg": 1.29
+   "season_avg": 1.29,
+   "p_goal": 0.1235,
+   "goals_avg": 0.0
   },
   {
    "player": "K. Helenius",
@@ -3130,7 +3648,9 @@
    "games": 11,
    "toi": 11.5,
    "proj": 0.97,
-   "season_avg": 1.09
+   "season_avg": 1.09,
+   "p_goal": 0.0945,
+   "goals_avg": 0.09
   },
   {
    "player": "L. Cagnoni",
@@ -3142,7 +3662,9 @@
    "games": 9,
    "toi": 15.9,
    "proj": 0.96,
-   "season_avg": 1.44
+   "season_avg": 1.44,
+   "p_goal": 0.062,
+   "goals_avg": 0.11
   },
   {
    "player": "D. Doughty",
@@ -3154,7 +3676,9 @@
    "games": 11,
    "toi": 22.2,
    "proj": 0.95,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0536,
+   "goals_avg": 0.09
   },
   {
    "player": "M. Sasson",
@@ -3166,7 +3690,9 @@
    "games": 15,
    "toi": 11.7,
    "proj": 0.95,
-   "season_avg": 1.07
+   "season_avg": 1.07,
+   "p_goal": 0.1285,
+   "goals_avg": 0.27
   },
   {
    "player": "N. Hoglander",
@@ -3178,7 +3704,9 @@
    "games": 13,
    "toi": 9.8,
    "proj": 0.95,
-   "season_avg": 1.23
+   "season_avg": 1.23,
+   "p_goal": 0.135,
+   "goals_avg": 0.23
   },
   {
    "player": "D. Voronkov",
@@ -3190,7 +3718,9 @@
    "games": 8,
    "toi": 9.7,
    "proj": 0.95,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0842,
+   "goals_avg": 0.0
   },
   {
    "player": "E. Cernak",
@@ -3202,7 +3732,9 @@
    "games": 12,
    "toi": 19.8,
    "proj": 0.95,
-   "season_avg": 1.25
+   "season_avg": 1.25,
+   "p_goal": 0.0409,
+   "goals_avg": 0.0
   },
   {
    "player": "C. Blackwell",
@@ -3214,7 +3746,9 @@
    "games": 11,
    "toi": 10.0,
    "proj": 0.94,
-   "season_avg": 1.18
+   "season_avg": 1.18,
+   "p_goal": 0.1085,
+   "goals_avg": 0.0
   },
   {
    "player": "B. Gallagher",
@@ -3226,7 +3760,9 @@
    "games": 12,
    "toi": 10.1,
    "proj": 0.94,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.097,
+   "goals_avg": 0.0
   },
   {
    "player": "C. Kreider",
@@ -3238,7 +3774,9 @@
    "games": 13,
    "toi": 12.7,
    "proj": 0.94,
-   "season_avg": 0.92
+   "season_avg": 0.92,
+   "p_goal": 0.0954,
+   "goals_avg": 0.08
   },
   {
    "player": "F. Hallander",
@@ -3250,7 +3788,9 @@
    "games": 8,
    "toi": 9.4,
    "proj": 0.94,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0888,
+   "goals_avg": 0.12
   },
   {
    "player": "R. Shea",
@@ -3262,7 +3802,9 @@
    "games": 13,
    "toi": 24.8,
    "proj": 0.94,
-   "season_avg": 0.77
+   "season_avg": 0.77,
+   "p_goal": 0.0478,
+   "goals_avg": 0.08
   },
   {
    "player": "S. Malinski",
@@ -3274,7 +3816,9 @@
    "games": 12,
    "toi": 18.2,
    "proj": 0.94,
-   "season_avg": 1.17
+   "season_avg": 1.17,
+   "p_goal": 0.0463,
+   "goals_avg": 0.0
   },
   {
    "player": "M. Rielly",
@@ -3286,7 +3830,9 @@
    "games": 15,
    "toi": 20.4,
    "proj": 0.93,
-   "season_avg": 1.2
+   "season_avg": 1.2,
+   "p_goal": 0.0513,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Edmundson",
@@ -3298,7 +3844,9 @@
    "games": 12,
    "toi": 18.4,
    "proj": 0.93,
-   "season_avg": 1.17
+   "season_avg": 1.17,
+   "p_goal": 0.0517,
+   "goals_avg": 0.08
   },
   {
    "player": "C. Clifton",
@@ -3310,7 +3858,9 @@
    "games": 7,
    "toi": 19.2,
    "proj": 0.93,
-   "season_avg": 1.14
+   "season_avg": 1.14,
+   "p_goal": 0.0469,
+   "goals_avg": 0.0
   },
   {
    "player": "M. Tsyplakov",
@@ -3322,7 +3872,9 @@
    "games": 7,
    "toi": 11.1,
    "proj": 0.93,
-   "season_avg": 0.71
+   "season_avg": 0.71,
+   "p_goal": 0.0797,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Castagna",
@@ -3334,7 +3886,9 @@
    "games": 10,
    "toi": 14.1,
    "proj": 0.93,
-   "season_avg": 0.8
+   "season_avg": 0.8,
+   "p_goal": 0.0833,
+   "goals_avg": 0.0
   },
   {
    "player": "I. Howard",
@@ -3346,7 +3900,9 @@
    "games": 12,
    "toi": 9.5,
    "proj": 0.92,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0801,
+   "goals_avg": 0.08
   },
   {
    "player": "A. Wilsby",
@@ -3358,7 +3914,9 @@
    "games": 13,
    "toi": 20.3,
    "proj": 0.92,
-   "season_avg": 1.15
+   "season_avg": 1.15,
+   "p_goal": 0.0516,
+   "goals_avg": 0.0
   },
   {
    "player": "A. Lee",
@@ -3370,7 +3928,9 @@
    "games": 10,
    "toi": 11.2,
    "proj": 0.91,
-   "season_avg": 0.8
+   "season_avg": 0.8,
+   "p_goal": 0.0776,
+   "goals_avg": 0.0
   },
   {
    "player": "Z. MacEwen",
@@ -3382,7 +3942,9 @@
    "games": 9,
    "toi": 8.1,
    "proj": 0.91,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0838,
+   "goals_avg": 0.11
   },
   {
    "player": "Z. Ostapchuk",
@@ -3394,7 +3956,9 @@
    "games": 13,
    "toi": 10.3,
    "proj": 0.91,
-   "season_avg": 0.92
+   "season_avg": 0.92,
+   "p_goal": 0.0847,
+   "goals_avg": 0.08
   },
   {
    "player": "D. Heinen",
@@ -3406,7 +3970,9 @@
    "games": 8,
    "toi": 9.9,
    "proj": 0.91,
-   "season_avg": 0.88
+   "season_avg": 0.88,
+   "p_goal": 0.0799,
+   "goals_avg": 0.0
   },
   {
    "player": "J. McCabe",
@@ -3418,7 +3984,9 @@
    "games": 15,
    "toi": 17.7,
    "proj": 0.91,
-   "season_avg": 1.13
+   "season_avg": 1.13,
+   "p_goal": 0.05,
+   "goals_avg": 0.0
   },
   {
    "player": "F. Svechkov",
@@ -3430,7 +3998,9 @@
    "games": 13,
    "toi": 13.3,
    "proj": 0.9,
-   "season_avg": 0.85
+   "season_avg": 0.85,
+   "p_goal": 0.1107,
+   "goals_avg": 0.15
   },
   {
    "player": "C. Fowler",
@@ -3442,7 +4012,9 @@
    "games": 13,
    "toi": 21.2,
    "proj": 0.9,
-   "season_avg": 1.08
+   "season_avg": 1.08,
+   "p_goal": 0.0467,
+   "goals_avg": 0.0
   },
   {
    "player": "Y. Kuznetsov",
@@ -3454,7 +4026,9 @@
    "games": 12,
    "toi": 16.1,
    "proj": 0.9,
-   "season_avg": 1.17
+   "season_avg": 1.17,
+   "p_goal": 0.04,
+   "goals_avg": 0.0
   },
   {
    "player": "T. Dellandrea",
@@ -3466,7 +4040,9 @@
    "games": 7,
    "toi": 12.9,
    "proj": 0.9,
-   "season_avg": 0.71
+   "season_avg": 0.71,
+   "p_goal": 0.0891,
+   "goals_avg": 0.0
   },
   {
    "player": "N. Blankenburg",
@@ -3478,7 +4054,9 @@
    "games": 6,
    "toi": 12.5,
    "proj": 0.9,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0526,
+   "goals_avg": 0.17
   },
   {
    "player": "R. Faksa",
@@ -3490,7 +4068,9 @@
    "games": 10,
    "toi": 10.4,
    "proj": 0.9,
-   "season_avg": 0.9
+   "season_avg": 0.9,
+   "p_goal": 0.0763,
+   "goals_avg": 0.0
   },
   {
    "player": "A. Johansson",
@@ -3502,7 +4082,9 @@
    "games": 11,
    "toi": 14.9,
    "proj": 0.9,
-   "season_avg": 1.27
+   "season_avg": 1.27,
+   "p_goal": 0.0518,
+   "goals_avg": 0.0
   },
   {
    "player": "S. Dries",
@@ -3514,7 +4096,9 @@
    "games": 7,
    "toi": 10.1,
    "proj": 0.89,
-   "season_avg": 0.86
+   "season_avg": 0.86,
+   "p_goal": 0.0765,
+   "goals_avg": 0.0
   },
   {
    "player": "K. Bahl",
@@ -3526,7 +4110,9 @@
    "games": 13,
    "toi": 22.9,
    "proj": 0.89,
-   "season_avg": 0.77
+   "season_avg": 0.77,
+   "p_goal": 0.0375,
+   "goals_avg": 0.08
   },
   {
    "player": "L. Stanley",
@@ -3538,7 +4124,9 @@
    "games": 13,
    "toi": 21.4,
    "proj": 0.89,
-   "season_avg": 0.54
+   "season_avg": 0.54,
+   "p_goal": 0.034,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Viel",
@@ -3550,7 +4138,9 @@
    "games": 9,
    "toi": 10.6,
    "proj": 0.88,
-   "season_avg": 0.78
+   "season_avg": 0.78,
+   "p_goal": 0.0786,
+   "goals_avg": 0.0
   },
   {
    "player": "C. Ritchie",
@@ -3562,7 +4152,9 @@
    "games": 8,
    "toi": 10.6,
    "proj": 0.87,
-   "season_avg": 0.88
+   "season_avg": 0.88,
+   "p_goal": 0.0868,
+   "goals_avg": 0.12
   },
   {
    "player": "M. Ekholm",
@@ -3574,7 +4166,9 @@
    "games": 11,
    "toi": 19.8,
    "proj": 0.87,
-   "season_avg": 1.09
+   "season_avg": 1.09,
+   "p_goal": 0.0635,
+   "goals_avg": 0.18
   },
   {
    "player": "C. Murphy",
@@ -3586,7 +4180,9 @@
    "games": 13,
    "toi": 20.9,
    "proj": 0.87,
-   "season_avg": 1.08
+   "season_avg": 1.08,
+   "p_goal": 0.0465,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Moser",
@@ -3598,7 +4194,9 @@
    "games": 12,
    "toi": 18.2,
    "proj": 0.86,
-   "season_avg": 1.08
+   "season_avg": 1.08,
+   "p_goal": 0.0493,
+   "goals_avg": 0.0
   },
   {
    "player": "A. Carrier",
@@ -3610,7 +4208,9 @@
    "games": 13,
    "toi": 21.9,
    "proj": 0.85,
-   "season_avg": 0.92
+   "season_avg": 0.92,
+   "p_goal": 0.0421,
+   "goals_avg": 0.08
   },
   {
    "player": "S. Helenius",
@@ -3622,7 +4222,9 @@
    "games": 10,
    "toi": 8.5,
    "proj": 0.85,
-   "season_avg": 0.8
+   "season_avg": 0.8,
+   "p_goal": 0.0761,
+   "goals_avg": 0.1
   },
   {
    "player": "Z. Whitecloud",
@@ -3634,7 +4236,9 @@
    "games": 13,
    "toi": 19.6,
    "proj": 0.85,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0392,
+   "goals_avg": 0.0
   },
   {
    "player": "B. Skjei",
@@ -3646,7 +4250,9 @@
    "games": 13,
    "toi": 19.3,
    "proj": 0.85,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0403,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Spence",
@@ -3658,7 +4264,9 @@
    "games": 14,
    "toi": 19.2,
    "proj": 0.85,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0398,
+   "goals_avg": 0.07
   },
   {
    "player": "M. Kesselring",
@@ -3670,7 +4278,9 @@
    "games": 14,
    "toi": 17.8,
    "proj": 0.85,
-   "season_avg": 1.07
+   "season_avg": 1.07,
+   "p_goal": 0.0476,
+   "goals_avg": 0.0
   },
   {
    "player": "T. DeAngelo",
@@ -3682,7 +4292,9 @@
    "games": 13,
    "toi": 17.6,
    "proj": 0.84,
-   "season_avg": 1.08
+   "season_avg": 1.08,
+   "p_goal": 0.0439,
+   "goals_avg": 0.08
   },
   {
    "player": "D. Orlov",
@@ -3694,7 +4306,9 @@
    "games": 14,
    "toi": 18.1,
    "proj": 0.84,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0533,
+   "goals_avg": 0.14
   },
   {
    "player": "B. Kulak",
@@ -3706,7 +4320,9 @@
    "games": 13,
    "toi": 20.5,
    "proj": 0.84,
-   "season_avg": 0.92
+   "season_avg": 0.92,
+   "p_goal": 0.0415,
+   "goals_avg": 0.0
   },
   {
    "player": "T. Willander",
@@ -3718,7 +4334,9 @@
    "games": 15,
    "toi": 19.3,
    "proj": 0.83,
-   "season_avg": 0.8
+   "season_avg": 0.8,
+   "p_goal": 0.0355,
+   "goals_avg": 0.0
   },
   {
    "player": "N. Allan",
@@ -3730,7 +4348,9 @@
    "games": 8,
    "toi": 14.9,
    "proj": 0.82,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0689,
+   "goals_avg": 0.25
   },
   {
    "player": "E. Gustafsson",
@@ -3742,7 +4362,9 @@
    "games": 10,
    "toi": 22.3,
    "proj": 0.82,
-   "season_avg": 0.7
+   "season_avg": 0.7,
+   "p_goal": 0.0383,
+   "goals_avg": 0.1
   },
   {
    "player": "N. Zadorov",
@@ -3754,7 +4376,9 @@
    "games": 13,
    "toi": 19.3,
    "proj": 0.82,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0351,
+   "goals_avg": 0.0
   },
   {
    "player": "K. Korczak",
@@ -3766,7 +4390,9 @@
    "games": 13,
    "toi": 19.4,
    "proj": 0.82,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0359,
+   "goals_avg": 0.0
   },
   {
    "player": "M. Lohrei",
@@ -3778,7 +4404,9 @@
    "games": 14,
    "toi": 17.3,
    "proj": 0.82,
-   "season_avg": 0.93
+   "season_avg": 0.93,
+   "p_goal": 0.0527,
+   "goals_avg": 0.14
   },
   {
    "player": "T. Frederic",
@@ -3790,7 +4418,9 @@
    "games": 12,
    "toi": 8.8,
    "proj": 0.82,
-   "season_avg": 0.83
+   "season_avg": 0.83,
+   "p_goal": 0.0769,
+   "goals_avg": 0.08
   },
   {
    "player": "E. Lilleberg",
@@ -3802,7 +4432,9 @@
    "games": 6,
    "toi": 13.1,
    "proj": 0.81,
-   "season_avg": 0.33
+   "season_avg": 0.33,
+   "p_goal": 0.0312,
+   "goals_avg": 0.0
   },
   {
    "player": "M. Kessel",
@@ -3814,7 +4446,9 @@
    "games": 7,
    "toi": 12.7,
    "proj": 0.81,
-   "season_avg": 1.14
+   "season_avg": 1.14,
+   "p_goal": 0.0441,
+   "goals_avg": 0.0
   },
   {
    "player": "K. Dach",
@@ -3826,7 +4460,9 @@
    "games": 13,
    "toi": 12.3,
    "proj": 0.81,
-   "season_avg": 0.62
+   "season_avg": 0.62,
+   "p_goal": 0.0856,
+   "goals_avg": 0.0
   },
   {
    "player": "A. Zub",
@@ -3838,7 +4474,9 @@
    "games": 7,
    "toi": 18.8,
    "proj": 0.8,
-   "season_avg": 0.86
+   "season_avg": 0.86,
+   "p_goal": 0.035,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Middleton",
@@ -3850,7 +4488,9 @@
    "games": 13,
    "toi": 18.9,
    "proj": 0.8,
-   "season_avg": 1.0
+   "season_avg": 1.0,
+   "p_goal": 0.0397,
+   "goals_avg": 0.08
   },
   {
    "player": "E. Lindell",
@@ -3862,7 +4502,9 @@
    "games": 8,
    "toi": 21.9,
    "proj": 0.8,
-   "season_avg": 0.5
+   "season_avg": 0.5,
+   "p_goal": 0.0338,
+   "goals_avg": 0.0
   },
   {
    "player": "B. Chiarot",
@@ -3874,7 +4516,9 @@
    "games": 13,
    "toi": 21.1,
    "proj": 0.79,
-   "season_avg": 0.69
+   "season_avg": 0.69,
+   "p_goal": 0.0308,
+   "goals_avg": 0.0
   },
   {
    "player": "F. Brunet",
@@ -3886,7 +4530,9 @@
    "games": 10,
    "toi": 15.7,
    "proj": 0.79,
-   "season_avg": 0.8
+   "season_avg": 0.8,
+   "p_goal": 0.038,
+   "goals_avg": 0.1
   },
   {
    "player": "Z. Buium",
@@ -3898,7 +4544,9 @@
    "games": 15,
    "toi": 18.9,
    "proj": 0.79,
-   "season_avg": 0.8
+   "season_avg": 0.8,
+   "p_goal": 0.0346,
+   "goals_avg": 0.0
   },
   {
    "player": "C. Cizikas",
@@ -3910,7 +4558,9 @@
    "games": 13,
    "toi": 10.9,
    "proj": 0.78,
-   "season_avg": 0.77
+   "season_avg": 0.77,
+   "p_goal": 0.0844,
+   "goals_avg": 0.08
   },
   {
    "player": "S. Stastney",
@@ -3922,7 +4572,9 @@
    "games": 8,
    "toi": 19.2,
    "proj": 0.78,
-   "season_avg": 0.88
+   "season_avg": 0.88,
+   "p_goal": 0.0343,
+   "goals_avg": 0.0
   },
   {
    "player": "O. Ekman-Larsson",
@@ -3934,7 +4586,9 @@
    "games": 15,
    "toi": 19.6,
    "proj": 0.78,
-   "season_avg": 0.73
+   "season_avg": 0.73,
+   "p_goal": 0.0304,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Walman",
@@ -3946,7 +4600,9 @@
    "games": 9,
    "toi": 14.7,
    "proj": 0.78,
-   "season_avg": 1.11
+   "season_avg": 1.11,
+   "p_goal": 0.0433,
+   "goals_avg": 0.0
   },
   {
    "player": "P. Cotter",
@@ -3958,7 +4614,9 @@
    "games": 14,
    "toi": 12.7,
    "proj": 0.78,
-   "season_avg": 0.79
+   "season_avg": 0.79,
+   "p_goal": 0.1236,
+   "goals_avg": 0.29
   },
   {
    "player": "A. Vlasic",
@@ -3970,7 +4628,9 @@
    "games": 13,
    "toi": 20.6,
    "proj": 0.78,
-   "season_avg": 0.77
+   "season_avg": 0.77,
+   "p_goal": 0.0327,
+   "goals_avg": 0.0
   },
   {
    "player": "O. Michaels",
@@ -3982,7 +4642,9 @@
    "games": 13,
    "toi": 12.5,
    "proj": 0.77,
-   "season_avg": 0.77
+   "season_avg": 0.77,
+   "p_goal": 0.114,
+   "goals_avg": 0.15
   },
   {
    "player": "S. Rinzel",
@@ -3994,7 +4656,9 @@
    "games": 12,
    "toi": 15.9,
    "proj": 0.77,
-   "season_avg": 1.08
+   "season_avg": 1.08,
+   "p_goal": 0.0439,
+   "goals_avg": 0.08
   },
   {
    "player": "V. Hedman",
@@ -4006,7 +4670,9 @@
    "games": 11,
    "toi": 14.1,
    "proj": 0.76,
-   "season_avg": 1.18
+   "season_avg": 1.18,
+   "p_goal": 0.0687,
+   "goals_avg": 0.18
   },
   {
    "player": "W. Kaiser",
@@ -4018,7 +4684,9 @@
    "games": 13,
    "toi": 19.8,
    "proj": 0.76,
-   "season_avg": 0.77
+   "season_avg": 0.77,
+   "p_goal": 0.0373,
+   "goals_avg": 0.08
   },
   {
    "player": "B. Dumoulin",
@@ -4030,7 +4698,9 @@
    "games": 12,
    "toi": 17.7,
    "proj": 0.76,
-   "season_avg": 0.75
+   "season_avg": 0.75,
+   "p_goal": 0.0355,
+   "goals_avg": 0.08
   },
   {
    "player": "E. Pettersson",
@@ -4042,7 +4712,9 @@
    "games": 15,
    "toi": 19.3,
    "proj": 0.76,
-   "season_avg": 0.87
+   "season_avg": 0.87,
+   "p_goal": 0.0597,
+   "goals_avg": 0.2
   },
   {
    "player": "W. Borgen",
@@ -4054,7 +4726,9 @@
    "games": 14,
    "toi": 18.4,
    "proj": 0.75,
-   "season_avg": 0.71
+   "season_avg": 0.71,
+   "p_goal": 0.0334,
+   "goals_avg": 0.14
   },
   {
    "player": "C. Tanev",
@@ -4066,7 +4740,9 @@
    "games": 6,
    "toi": 16.5,
    "proj": 0.75,
-   "season_avg": 0.17
+   "season_avg": 0.17,
+   "p_goal": 0.031,
+   "goals_avg": 0.0
   },
   {
    "player": "E. Gudbranson",
@@ -4078,7 +4754,9 @@
    "games": 11,
    "toi": 14.8,
    "proj": 0.75,
-   "season_avg": 0.73
+   "season_avg": 0.73,
+   "p_goal": 0.0309,
+   "goals_avg": 0.0
   },
   {
    "player": "N. Cousins",
@@ -4090,7 +4768,9 @@
    "games": 14,
    "toi": 8.2,
    "proj": 0.75,
-   "season_avg": 0.71
+   "season_avg": 0.71,
+   "p_goal": 0.0761,
+   "goals_avg": 0.07
   },
   {
    "player": "T. Jeannot",
@@ -4102,7 +4782,9 @@
    "games": 14,
    "toi": 9.9,
    "proj": 0.75,
-   "season_avg": 0.64
+   "season_avg": 0.64,
+   "p_goal": 0.075,
+   "goals_avg": 0.07
   },
   {
    "player": "T. van Riemsdyk",
@@ -4114,7 +4796,9 @@
    "games": 5,
    "toi": 18.8,
    "proj": 0.74,
-   "season_avg": 0.4
+   "season_avg": 0.4,
+   "p_goal": 0.036,
+   "goals_avg": 0.0
   },
   {
    "player": "S. Dickinson",
@@ -4126,7 +4810,9 @@
    "games": 12,
    "toi": 18.5,
    "proj": 0.74,
-   "season_avg": 0.75
+   "season_avg": 0.75,
+   "p_goal": 0.0309,
+   "goals_avg": 0.0
   },
   {
    "player": "B. Carlo",
@@ -4138,7 +4824,9 @@
    "games": 13,
    "toi": 18.2,
    "proj": 0.73,
-   "season_avg": 0.77
+   "season_avg": 0.77,
+   "p_goal": 0.0301,
+   "goals_avg": 0.0
   },
   {
    "player": "C. Ceci",
@@ -4150,7 +4838,9 @@
    "games": 7,
    "toi": 15.9,
    "proj": 0.72,
-   "season_avg": 0.86
+   "season_avg": 0.86,
+   "p_goal": 0.0311,
+   "goals_avg": 0.0
   },
   {
    "player": "N. Lundkvist",
@@ -4162,7 +4852,9 @@
    "games": 13,
    "toi": 17.3,
    "proj": 0.72,
-   "season_avg": 0.77
+   "season_avg": 0.77,
+   "p_goal": 0.0311,
+   "goals_avg": 0.0
   },
   {
    "player": "N. Danielson",
@@ -4174,7 +4866,9 @@
    "games": 11,
    "toi": 11.8,
    "proj": 0.71,
-   "season_avg": 0.55
+   "season_avg": 0.55,
+   "p_goal": 0.075,
+   "goals_avg": 0.0
   },
   {
    "player": "P. Krebs",
@@ -4186,7 +4880,9 @@
    "games": 13,
    "toi": 11.6,
    "proj": 0.71,
-   "season_avg": 0.54
+   "season_avg": 0.54,
+   "p_goal": 0.0936,
+   "goals_avg": 0.0
   },
   {
    "player": "N. Hague",
@@ -4198,7 +4894,9 @@
    "games": 13,
    "toi": 14.7,
    "proj": 0.71,
-   "season_avg": 0.77
+   "season_avg": 0.77,
+   "p_goal": 0.032,
+   "goals_avg": 0.0
   },
   {
    "player": "A. Engstrom",
@@ -4210,7 +4908,9 @@
    "games": 7,
    "toi": 11.9,
    "proj": 0.7,
-   "season_avg": 0.71
+   "season_avg": 0.71,
+   "p_goal": 0.0318,
+   "goals_avg": 0.0
   },
   {
    "player": "A. Johansson",
@@ -4222,7 +4922,9 @@
    "games": 13,
    "toi": 13.7,
    "proj": 0.7,
-   "season_avg": 0.92
+   "season_avg": 0.92,
+   "p_goal": 0.0479,
+   "goals_avg": 0.08
   },
   {
    "player": "W. Wallinder",
@@ -4234,7 +4936,9 @@
    "games": 8,
    "toi": 15.0,
    "proj": 0.7,
-   "season_avg": 0.88
+   "season_avg": 0.88,
+   "p_goal": 0.0733,
+   "goals_avg": 0.25
   },
   {
    "player": "A. Burakovsky",
@@ -4246,7 +4950,9 @@
    "games": 8,
    "toi": 9.3,
    "proj": 0.69,
-   "season_avg": 0.38
+   "season_avg": 0.38,
+   "p_goal": 0.0632,
+   "goals_avg": 0.0
   },
   {
    "player": "C. Soucy",
@@ -4258,7 +4964,9 @@
    "games": 7,
    "toi": 13.3,
    "proj": 0.69,
-   "season_avg": 0.71
+   "season_avg": 0.71,
+   "p_goal": 0.0316,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Manson",
@@ -4270,7 +4978,9 @@
    "games": 13,
    "toi": 12.8,
    "proj": 0.69,
-   "season_avg": 0.92
+   "season_avg": 0.92,
+   "p_goal": 0.0394,
+   "goals_avg": 0.08
   },
   {
    "player": "B. Malenstyn",
@@ -4282,7 +4992,9 @@
    "games": 13,
    "toi": 12.8,
    "proj": 0.69,
-   "season_avg": 0.46
+   "season_avg": 0.46,
+   "p_goal": 0.0799,
+   "goals_avg": 0.0
   },
   {
    "player": "A. Sandin-Pellikka",
@@ -4294,7 +5006,9 @@
    "games": 7,
    "toi": 11.4,
    "proj": 0.69,
-   "season_avg": 0.86
+   "season_avg": 0.86,
+   "p_goal": 0.0283,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Oleksiak",
@@ -4306,7 +5020,9 @@
    "games": 13,
    "toi": 19.1,
    "proj": 0.68,
-   "season_avg": 0.62
+   "season_avg": 0.62,
+   "p_goal": 0.0484,
+   "goals_avg": 0.15
   },
   {
    "player": "O. B\u00e4ck",
@@ -4318,7 +5034,9 @@
    "games": 7,
    "toi": 11.5,
    "proj": 0.68,
-   "season_avg": 0.57
+   "season_avg": 0.57,
+   "p_goal": 0.0771,
+   "goals_avg": 0.0
   },
   {
    "player": "T. Emberson",
@@ -4330,7 +5048,9 @@
    "games": 11,
    "toi": 12.1,
    "proj": 0.67,
-   "season_avg": 0.73
+   "season_avg": 0.73,
+   "p_goal": 0.0286,
+   "goals_avg": 0.0
   },
   {
    "player": "A. Bains",
@@ -4342,7 +5062,9 @@
    "games": 13,
    "toi": 9.6,
    "proj": 0.67,
-   "season_avg": 0.54
+   "season_avg": 0.54,
+   "p_goal": 0.0582,
+   "goals_avg": 0.08
   },
   {
    "player": "K. Kolesar",
@@ -4354,7 +5076,9 @@
    "games": 13,
    "toi": 10.1,
    "proj": 0.67,
-   "season_avg": 0.31
+   "season_avg": 0.31,
+   "p_goal": 0.0523,
+   "goals_avg": 0.0
   },
   {
    "player": "S. Mukhamadullin",
@@ -4366,7 +5090,9 @@
    "games": 8,
    "toi": 15.9,
    "proj": 0.67,
-   "season_avg": 0.62
+   "season_avg": 0.62,
+   "p_goal": 0.0355,
+   "goals_avg": 0.12
   },
   {
    "player": "L. Bichsel",
@@ -4378,7 +5104,9 @@
    "games": 13,
    "toi": 17.7,
    "proj": 0.66,
-   "season_avg": 0.54
+   "season_avg": 0.54,
+   "p_goal": 0.0311,
+   "goals_avg": 0.0
   },
   {
    "player": "N. Matinpalo",
@@ -4390,7 +5118,9 @@
    "games": 12,
    "toi": 14.2,
    "proj": 0.66,
-   "season_avg": 0.75
+   "season_avg": 0.75,
+   "p_goal": 0.0319,
+   "goals_avg": 0.0
   },
   {
    "player": "I. Cole",
@@ -4402,7 +5132,9 @@
    "games": 13,
    "toi": 19.7,
    "proj": 0.66,
-   "season_avg": 0.46
+   "season_avg": 0.46,
+   "p_goal": 0.0304,
+   "goals_avg": 0.0
   },
   {
    "player": "R. McDonagh",
@@ -4414,7 +5146,9 @@
    "games": 12,
    "toi": 17.1,
    "proj": 0.65,
-   "season_avg": 0.58
+   "season_avg": 0.58,
+   "p_goal": 0.0288,
+   "goals_avg": 0.0
   },
   {
    "player": "M. Anderson",
@@ -4426,7 +5160,9 @@
    "games": 12,
    "toi": 18.3,
    "proj": 0.64,
-   "season_avg": 0.58
+   "season_avg": 0.58,
+   "p_goal": 0.0396,
+   "goals_avg": 0.17
   },
   {
    "player": "N. Perbix",
@@ -4438,7 +5174,9 @@
    "games": 12,
    "toi": 17.6,
    "proj": 0.64,
-   "season_avg": 0.5
+   "season_avg": 0.5,
+   "p_goal": 0.0314,
+   "goals_avg": 0.0
   },
   {
    "player": "R. Pulock",
@@ -4450,7 +5188,9 @@
    "games": 13,
    "toi": 15.2,
    "proj": 0.64,
-   "season_avg": 0.62
+   "season_avg": 0.62,
+   "p_goal": 0.029,
+   "goals_avg": 0.0
   },
   {
    "player": "V. Mancini",
@@ -4462,7 +5202,9 @@
    "games": 6,
    "toi": 11.9,
    "proj": 0.63,
-   "season_avg": 0.33
+   "season_avg": 0.33,
+   "p_goal": 0.0295,
+   "goals_avg": 0.0
   },
   {
    "player": "L. Schenn",
@@ -4474,7 +5216,9 @@
    "games": 9,
    "toi": 14.1,
    "proj": 0.63,
-   "season_avg": 0.67
+   "season_avg": 0.67,
+   "p_goal": 0.0286,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Christiansen",
@@ -4486,7 +5230,9 @@
    "games": 10,
    "toi": 16.2,
    "proj": 0.62,
-   "season_avg": 0.6
+   "season_avg": 0.6,
+   "p_goal": 0.0385,
+   "goals_avg": 0.1
   },
   {
    "player": "L. Crevier",
@@ -4498,7 +5244,9 @@
    "games": 13,
    "toi": 10.8,
    "proj": 0.62,
-   "season_avg": 0.92
+   "season_avg": 0.92,
+   "p_goal": 0.0317,
+   "goals_avg": 0.0
   },
   {
    "player": "D. Hunt",
@@ -4510,7 +5258,9 @@
    "games": 14,
    "toi": 14.1,
    "proj": 0.61,
-   "season_avg": 0.79
+   "season_avg": 0.79,
+   "p_goal": 0.0281,
+   "goals_avg": 0.0
   },
   {
    "player": "T. Myers",
@@ -4522,7 +5272,9 @@
    "games": 13,
    "toi": 17.4,
    "proj": 0.61,
-   "season_avg": 0.54
+   "season_avg": 0.54,
+   "p_goal": 0.0311,
+   "goals_avg": 0.0
   },
   {
    "player": "A. Xhekaj",
@@ -4534,7 +5286,9 @@
    "games": 12,
    "toi": 11.5,
    "proj": 0.57,
-   "season_avg": 0.58
+   "season_avg": 0.58,
+   "p_goal": 0.0318,
+   "goals_avg": 0.0
   },
   {
    "player": "Z. Metsa",
@@ -4546,7 +5300,9 @@
    "games": 11,
    "toi": 12.8,
    "proj": 0.55,
-   "season_avg": 0.45
+   "season_avg": 0.45,
+   "p_goal": 0.0318,
+   "goals_avg": 0.0
   },
   {
    "player": "A. Englund",
@@ -4558,7 +5314,9 @@
    "games": 8,
    "toi": 12.6,
    "proj": 0.53,
-   "season_avg": 0.5
+   "season_avg": 0.5,
+   "p_goal": 0.0278,
+   "goals_avg": 0.0
   },
   {
    "player": "N. Juulsen",
@@ -4570,7 +5328,9 @@
    "games": 8,
    "toi": 9.2,
    "proj": 0.51,
-   "season_avg": 0.5
+   "season_avg": 0.5,
+   "p_goal": 0.0236,
+   "goals_avg": 0.0
   },
   {
    "player": "J. Struble",
@@ -4582,7 +5342,9 @@
    "games": 12,
    "toi": 14.4,
    "proj": 0.5,
-   "season_avg": 0.25
+   "season_avg": 0.25,
+   "p_goal": 0.0333,
+   "goals_avg": 0.08
   }
  ]
 }
