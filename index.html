@@ -1347,7 +1347,7 @@ let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
               pickTab: "upcoming", td: null, recGrade: null, tdSort: "any",
               tdGrade: null, tdTab: "week",
               nba: null, nbaGrade: null, nbaSort: "pra", nbaTab: "slate",
-              kTab: "slate",
+              kTab: "slate", nhl: null, nhlGrade: null, nhlTab: "slate",
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", view: "slate", open: new Set() };
@@ -2155,6 +2155,85 @@ function cfbView() {
 
 const NBA_MARKETS = [["pra","PRA"],["points","PTS"],["rebounds","REB"],
                      ["assists","AST"],["threes","3PM"]];
+
+function nhlView() {
+  const d = state.nhl;
+  if (!d || !d.players || !d.players.length) {
+    return `<div class="empty"><h2>No slate loaded</h2>
+      <p>Rebuilt each morning for that evening's games.</p></div>`;
+  }
+  const q = state.q.toLowerCase();
+  const rows = d.players
+    .filter(p => !q || p.player.toLowerCase().includes(q)
+              || (p.team || "").toLowerCase().includes(q)
+              || (p.opponent || "").toLowerCase().includes(q))
+    .sort((a, b) => b.proj - a.proj).slice(0, 80);
+  const hn = d.honesty || {};
+
+  return `
+    <dl class="totals">
+      <div class="t"><dt>Slate</dt><dd>${d.date}
+        <small>${d.players.length} skaters</small></dd></div>
+      <div class="t"><dt>Model error</dt><dd>${hn.mae}
+        <small>vs ${hn.mae_naive} season avg</small></dd></div>
+    </dl>
+    <p class="caption" style="max-width:62ch">Shot rate per 60 minutes against
+      projected ice time, with recent form, ice-time trend and opponent
+      weighed together. <b>The weakest of the working models here</b> — shots
+      on goal scatter at 0.97 times their own mean, noisier than anything in
+      the NBA set, which caps what any model can do. It beats a season
+      average by 0.012 shots at 12 standard errors. No NHL odds are
+      collected.</p>
+    <div class="gm-head" style="grid-template-columns:minmax(0,1fr) 2.8rem 3.4rem 3.6rem 3.6rem">
+      <span>Skater</span><span>Pos</span><span>TOI</span><span>SOG</span><span>Avg</span>
+    </div>
+    ${rows.map(p => `<div class="gm-row"
+        style="grid-template-columns:minmax(0,1fr) 2.8rem 3.4rem 3.6rem 3.6rem">
+      <span class="mu2">${p.player}<br>
+        <span class="vg">${p.team} ${p.home ? "vs" : "at"} ${p.opponent}</span></span>
+      <span class="n">${p.position}</span>
+      <span class="n">${p.toi}</span>
+      <span class="n cf">${p.proj.toFixed(2)}</span>
+      <span class="n">${p.season_avg.toFixed(2)}</span>
+    </div>`).join("")}
+    <p class="cal-key">The projection is a mean, not a rounded guess — a
+      model trained to minimise absolute error returned whole numbers for
+      nearly everyone, which scores better and tells you nothing about
+      clearing a half-point line.</p>`;
+}
+
+function nhlGradeView() {
+  const g = state.nhlGrade;
+  if (!g || !g.graded) {
+    return `<div class="empty"><h2>Nothing graded yet</h2>
+      <p>Each night's projections are archived and scored once the box
+      scores land.</p></div>`;
+  }
+  return `
+    <div class="rec">
+      <span><span class="big">${g.mae}</span>
+        <span class="lbl">model error</span></span>
+      <span><span class="pctg">${g.naive_mae}</span>
+        <span class="lbl">season average</span></span>
+      <span class="split">${g.graded} projections over
+        ${g.dates.length} night${g.dates.length === 1 ? "" : "s"}<br>
+        bias <b>${g.bias > 0 ? "+" : ""}${g.bias}</b>, actual mean ${g.actual_mean}</span>
+    </div>
+    <p class="cal-key">${g.gap > 0
+      ? `Ahead of a season average by <b>${g.gap}</b> shots`
+        + (g.se ? ` (${g.se} standard errors)` : "") + "."
+      : `Behind a season average by ${(-g.gap).toFixed(3)}.`}</p>
+    <div class="gm-head" style="grid-template-columns:5.4rem minmax(0,1fr) 4rem 4rem">
+      <span>Date</span><span>Skater</span><span>Proj</span><span>Actual</span>
+    </div>
+    ${g.recent.slice(0, 120).map(x => `<div class="pk-row"
+        style="grid-template-columns:5.4rem minmax(0,1fr) 4rem 4rem">
+      <span class="wk">${x.date.slice(5)}</span>
+      <span class="mu2">${x.player}</span>
+      <span class="n">${x.proj}</span>
+      <span class="n act">${x.actual}</span>
+    </div>`).join("")}`;
+}
 
 function nbaView() {
   const d = state.nba;
@@ -3034,6 +3113,8 @@ function render() {
       <button data-view="td" aria-pressed="${state.view === "td"}">touchdowns</button>
       <span aria-hidden="true">·</span>
       <button data-view="nba" aria-pressed="${state.view === "nba"}">NBA</button>
+      <span aria-hidden="true">·</span>
+      <button data-view="nhl" aria-pressed="${state.view === "nhl"}">NHL</button>
     </div>`;
 
   const searchBar = `
@@ -3095,6 +3176,26 @@ function render() {
     document.getElementById("card").innerHTML = scorecard();
     document.getElementById("calc").innerHTML = "";
     document.getElementById("footer").innerHTML = "";
+    return;
+  }
+
+  if (state.view === "nhl") {
+    const ng = state.nhlGrade && state.nhlGrade.graded;
+    const bar = `<div class="nfl-views">
+        <button data-nhltab="slate" aria-pressed="${state.nhlTab === "slate"}">tonight</button>
+        <span aria-hidden="true">·</span>
+        <button data-nhltab="graded" aria-pressed="${state.nhlTab === "graded"}">graded${
+          ng ? ` (${ng})` : ""}</button>
+      </div>`;
+    document.getElementById("body").innerHTML = viewBar + bar
+      + (state.nhlTab === "graded" ? nhlGradeView() : searchBar + nhlView());
+    document.querySelectorAll(".nfl-views button").forEach(b =>
+      b.onclick = () => { state.nhlTab = b.dataset.nhltab; render(); });
+    wire();
+    document.getElementById("card").innerHTML = "";
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML =
+      `NHL shots on goal. Rebuilt each morning; no odds collected.`;
     return;
   }
 
@@ -3333,11 +3434,16 @@ Promise.all([
     .then(r => r.ok ? r.json() : null).catch(() => null),
   fetch("nba_grade.json", { cache: "no-store" })
     .then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([c, n, rs, gm, cf, rp, td, rg, tg, nb, ng]) => {
+  fetch("nhl_model.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+  fetch("nhl_grade.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n, rs, gm, cf, rp, td, rg, tg, nb, ng, hk, hg]) => {
   state.card = c; state.nfl = n; state.nflScore = rs;
   state.games = gm; state.cfb = cf; state.recProj = rp;
   state.td = td; state.recGrade = rg; state.tdGrade = tg;
   state.nba = nb; state.nbaGrade = ng;
+  state.nhl = hk; state.nhlGrade = hg;
 })
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
