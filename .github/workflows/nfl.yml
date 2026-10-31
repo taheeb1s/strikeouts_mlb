@@ -1,4 +1,4 @@
-name: NFL and college
+name: Daily models
 
 # Runs hourly and captures each game once, a few hours before kickoff.
 # A manifest in the repo tracks what's already been done, so most runs
@@ -95,6 +95,9 @@ jobs:
           python3 td_model.py --backfill --json \
             || echo "::warning::td_model.py failed - is it the current version?"
           python3 td_model.py --grade --json || echo "(nothing to grade yet)"
+          python3 nba_model.py --json \
+            || echo "::warning::nba_model.py failed"
+          python3 nba_model.py --grade --json || echo "(no NBA results yet)"
 
       - name: Grade captured lines
         if: steps.sc.outputs.go == 'yes'
@@ -115,7 +118,8 @@ jobs:
 
           for f in receptions.json receptions_score.json nfl_games.json .last_daily \
                    cfb_games.json receptions_proj.json nfl_weeks.json \
-                   receptions_grade.json td_model.json td_grade.json; do
+                   receptions_grade.json td_model.json td_grade.json \
+                   nba_model.json nba_grade.json; do
             [ -f "$f" ] && git add "$f"
           done
           [ -d snapshots ] && git add snapshots/
