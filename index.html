@@ -2173,10 +2173,13 @@ function nhlView() {
   return `
     <dl class="totals">
       <div class="t"><dt>Slate</dt><dd>${d.date}
-        <small>${d.players.length} skaters</small></dd></div>
-      <div class="t"><dt>Model error</dt><dd>${hn.mae}
-        <small>vs ${hn.mae_naive} season avg</small></dd></div>
+        <small>${(d.games || []).length || "?"} game${
+          (d.games || []).length === 1 ? "" : "s"} ·
+          ${d.players.length} skaters</small></dd></div>
+      <div class="t"><dt>Model error</dt><dd>${hn.mae == null ? "—" : hn.mae}
+        <small>vs ${hn.mae_naive == null ? "—" : hn.mae_naive} season avg</small></dd></div>
     </dl>
+    ${(d.games || []).length ? `<p class="cal-key">Tonight: ${d.games.join(" · ")}</p>` : ""}
     <p class="caption" style="max-width:62ch">Shot rate per 60 minutes against
       projected ice time, with recent form, ice-time trend and opponent
       weighed together. <b>The weakest of the working models here</b> — shots
@@ -2248,17 +2251,21 @@ function nbaView() {
               || (p.opponent || "").toLowerCase().includes(q))
     .sort((a, b) => b[state.nbaSort] - a[state.nbaSort]).slice(0, 80);
   const hn = d.honesty || {};
+  const dash = v => (v == null ? "—" : v);
   const mae = hn.mae || {}, nv = hn.mae_naive || {};
 
   return `
     <dl class="totals">
       <div class="t"><dt>Slate</dt><dd>${d.date}
-        <small>${d.players.length} players</small></dd></div>
-      <div class="t"><dt>PRA error</dt><dd>${mae.pra}
-        <small>vs ${nv.pra} season avg</small></dd></div>
-      <div class="t"><dt>Points error</dt><dd>${mae.points}
-        <small>vs ${nv.points}</small></dd></div>
+        <small>${(d.games || []).length || "?"} game${
+          (d.games || []).length === 1 ? "" : "s"} ·
+          ${d.players.length} players</small></dd></div>
+      <div class="t"><dt>PRA error</dt><dd>${dash(mae.pra)}
+        <small>vs ${dash(nv.pra)} season avg</small></dd></div>
+      <div class="t"><dt>Points error</dt><dd>${dash(mae.points)}
+        <small>vs ${dash(nv.points)}</small></dd></div>
     </dl>
+    ${(d.games || []).length ? `<p class="cal-key">Tonight: ${d.games.join(" · ")}</p>` : ""}
     <p class="caption" style="max-width:62ch">Per-minute production times
       projected minutes, adjusted for pace, rest and opponent. Basketball
       gives far more events per game than football, so more of the signal
