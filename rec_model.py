@@ -113,6 +113,8 @@ def main():
     ap.add_argument("--json", action="store_true")
     ap.add_argument("--grade", action="store_true",
                     help="score past weeks instead of projecting")
+    ap.add_argument("--backfill", action="store_true",
+                    help="rebuild archives for weeks already played")
     args = ap.parse_args()
 
     if args.grade:
@@ -145,6 +147,11 @@ def main():
         min_samples_leaf=25, random_state=0)
     model.fit(tr[feat], tr.actual)
     print(f"  fitted on {len(tr)} player-weeks")
+
+    if args.backfill:
+        print("\nRebuilding archives for weeks already played:")
+        n = backfill(args.season, train_seasons, model, feat, d, opp)
+        print(f"  {n} week(s) rebuilt")
 
     # --- project the next unplayed week
     cur = d[d.season == args.season]
@@ -228,6 +235,54 @@ def main():
         print(f"\n  Wrote receptions_proj.json ({len(P)} players)")
         print(f"  Archived proj_history/rec_{args.season}_wk{target_week}.json")
     return 0
+
+
+def backfill(season, train, model, feat, d, opp):
+    """Rebuild what the model would have said for past weeks.
+
+    Legitimate because the model only ever reads prior games - this replays
+    it rather than peeking. Archives are marked reconstructed so they can be
+    told apart from predictions actually made at the time.
+    """
+    cur = d[d.season == season]
+    sched = nfl.load_schedules(seasons=[season]).to_pandas()
+    played = sched[sched.home_score.notna()]
+    made = 0
+    for wk in sorted(int(w) for w in played.week.unique()):
+        path = f"proj_history/rec_{season}_wk{wk}.json"
+        if os.path.exists(path) or wk < FIRST_WEEK:
+            continue
+        games = played[played.week == wk]
+        facing = {}
+        for _, g in games.iterrows():
+            facing[g.home_team] = g.away_team
+            facing[g.away_team] = g.home_team
+        rows = []
+        for _, g in cur[cur.week < wk].groupby("player_display_name", sort=False):
+            g = g.sort_values("week")
+            team = g.team.iloc[-1]
+            if team not in facing or len(g) < MIN_GAMES or g.targets.sum() < MIN_TARGETS:
+                continue
+            o = opp[(opp.opponent_team == facing[team]) & (opp.season == season)
+                    & (opp.week < wk)]
+            rows.append({"player": g.player_display_name.iloc[-1], "team": team,
+                         "opponent": facing[team],
+                         "pos": g.position.iloc[-1], **features_for(g, o)})
+        if not rows:
+            continue
+        P = with_dummies(pd.DataFrame(rows), [c for c in feat if c.startswith("p_")])
+        P["proj"] = model.predict(P[feat])
+        os.makedirs("proj_history", exist_ok=True)
+        json.dump({"season": season, "week": wk, "reconstructed": True,
+                   "players": [{"player": r.player, "team": r.team,
+                                "opponent": r.opponent, "pos": r.pos,
+                                "proj": round(float(r.proj), 2),
+                                "season_avg": round(float(r.naive), 2),
+                                "targets_recent": round(float(r.tgt5), 1)}
+                               for _, r in P.iterrows()]}, open(path, "w"), indent=1)
+        made += 1
+        print(f"  rebuilt week {wk}: {len(P)} players")
+    return made
 
 
 def grade(season):
