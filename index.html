@@ -2263,7 +2263,7 @@ function nbaView() {
     .filter(p => !q || p.player.toLowerCase().includes(q)
               || (p.team || "").toLowerCase().includes(q)
               || (p.opponent || "").toLowerCase().includes(q))
-    .sort((a, b) => b[state.nbaSort] - a[state.nbaSort]).slice(0, 80);
+    .sort((a, b) => (b[state.nbaSort] ?? -1) - (a[state.nbaSort] ?? -1)).slice(0, 80);
   const hn = d.honesty || {};
   const dash = v => (v == null ? "—" : v);
   const mae = hn.mae || {}, nv = hn.mae_naive || {};
@@ -2302,8 +2302,9 @@ function nbaView() {
         <span class="vg">${p.team} ${p.home ? "vs" : "at"} ${p.opponent}</span></span>
       <span class="n">${p.minutes}</span>
       ${NBA_MARKETS.map(([k]) => `<span class="n ${k === state.nbaSort ? "cf" : ""}"
-        >${k === "p_first" ? ((p.p_first ?? 0) * 100).toFixed(1) + "%"
-                           : (p[k] ?? 0).toFixed(1)}</span>`).join("")}
+        >${k === "p_first"
+             ? (p.p_first == null ? "—" : (p.p_first * 100).toFixed(1) + "%")
+             : (p[k] ?? 0).toFixed(1)}</span>`).join("")}
     </div>`).join("")}
     <p class="cal-key">First-point odds are the chance a player scores the
       game's opening basket. Roughly ten starters compete for it, so the base
