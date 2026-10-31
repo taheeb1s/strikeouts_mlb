@@ -224,11 +224,24 @@ def main():
     if cur.empty:
         print("No current-season games yet.")
         return 1
-    last = int(cur.week.max())
-    target = last + 1
 
+    # The target week is the first with games still to play, taken from the
+    # schedule. Using the max week in player stats got this wrong: one
+    # Thursday game makes the current week "exist", and the model skipped
+    # ahead to the next one.
     sched = nfl.load_schedules(seasons=[args.season]).to_pandas()
-    wk = sched[sched.week == target]
+    unplayed = sched[sched.home_score.isna()]
+    if unplayed.empty:
+        print("Season complete - nothing left to predict.")
+        return 1
+    target = int(unplayed.week.min())
+    # and form must come from before that week, not from a game already
+    # played inside it
+    cur = cur[cur.week < target]
+
+    # Only games still to play - a Thursday game already finished
+    # would otherwise get predicted after the fact.
+    wk = unplayed[unplayed.week == target]
     facing, game_of = {}, {}
     for _, g in wk.iterrows():
         facing[g.home_team] = g.away_team
