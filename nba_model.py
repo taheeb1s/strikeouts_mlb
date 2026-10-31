@@ -61,17 +61,32 @@ def first_scorers(seasons):
     out = {}
     for yr in seasons:
         try:
-            pbp = frame(nba.load_nba_pbp(seasons=[yr]))
+            raw = nba.load_nba_pbp(seasons=[yr])
+            # Cut to four columns and scoring plays only BEFORE converting
+            # to pandas. Converting the whole thing first is 640k rows by 68
+            # columns per season and will exhaust a CI runner.
+            if hasattr(raw, "lazy"):
+                import polars as pl
+                sc = (raw.lazy()
+                      .select(["game_id", "period", "sequence_number",
+                               "athlete_id_1", "scoring_play"])
+                      .filter(pl.col("scoring_play") == True)
+                      .filter(pl.col("athlete_id_1").is_not_null())
+                      .collect().to_pandas())
+            else:
+                sc = raw[(raw.scoring_play == True) & raw.athlete_id_1.notna()]
+                sc = sc[["game_id", "period", "sequence_number", "athlete_id_1"]]
+            del raw
         except Exception as e:
-            print(f"  pbp {yr} unavailable ({type(e).__name__})")
+            print(f"  pbp {yr} unavailable ({type(e).__name__}: "
+                  f"{str(e)[:60]}) - first-point model will be flat")
             continue
-        sc = pbp[(pbp.scoring_play == True) & pbp.athlete_id_1.notna()]
-        sc = sc[["game_id", "period", "sequence_number", "athlete_id_1"]]
         sc = sc.sort_values(["game_id", "period", "sequence_number"])
         f = sc.groupby("game_id").head(1)
         out.update(dict(zip(f.game_id,
                             pd.to_numeric(f.athlete_id_1, errors="coerce"))))
-        del pbp
+        del sc
+    print(f"  first scorers identified for {len(out)} games")
     return out
 
 
