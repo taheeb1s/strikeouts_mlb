@@ -162,7 +162,17 @@ def next_slate(season):
     """
     s = frame(nhl.load_nhl_schedule(seasons=[season]))
     date_col = "game_date" if "game_date" in s else "date"
-    s["d"] = pd.to_datetime(s[date_col]).dt.tz_localize(None)
+    # Only convert when the column actually carries a clock time. The NBA
+    # schedule gives real UTC timestamps, so a 7:30pm Eastern tip lands on
+    # tomorrow's UTC date and has to be converted back. This one gives
+    # plain dates at midnight - converting those would shift every game a
+    # day earlier.
+    t = pd.to_datetime(s[date_col], errors="coerce", utc=True)
+    has_time = t.notna().any() and (t.dt.hour.fillna(0) != 0).any()
+    if has_time:
+        s["d"] = t.dt.tz_convert("America/New_York").dt.tz_localize(None)
+    else:
+        s["d"] = pd.to_datetime(s[date_col], errors="coerce").dt.tz_localize(None)
     if "game_state" in s:
         todo = s[~s.game_state.astype(str).str.upper().isin(
             ["OFF", "FINAL", "F", "OVER"])]
