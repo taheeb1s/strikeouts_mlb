@@ -40,12 +40,181 @@
   }
 
   .sheet {
-    max-width: 62rem;
+    max-width: 96rem;
     margin: 0 auto;
-    padding: clamp(1.75rem, 5vw, 3.5rem) var(--gutter) 5rem;
+    padding: clamp(1.4rem, 3.5vw, 2.4rem) var(--gutter) 5rem;
+    display: grid;
+    grid-template-columns: 13.5rem minmax(0, 1fr);
+    gap: 0 clamp(1.6rem, 3.5vw, 3rem);
+    align-items: start;
+  }
+  .rail { position: sticky; top: 1.2rem; }
+  .main { min-width: 0; }
+
+  @media (max-width: 62rem) {
+    .sheet { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .rail { position: static; margin-bottom: 1.2rem; }
   }
 
   /* ---------- masthead ---------- */
+
+  .railhead { padding-bottom: 0.9rem; border-bottom: 2px solid var(--ink); }
+  .railhead h1 {
+    margin: 0; font-size: 1.5rem; font-weight: 700;
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .railhead .date {
+    display: block; margin-top: 0.35rem;
+    font-size: 0.82rem; color: var(--ink-soft); font-weight: 500;
+  }
+
+  .railnav { display: flex; flex-direction: column; margin: 0.9rem 0 0; }
+  .railnav button {
+    font: inherit; font-size: 0.95rem; font-weight: 500;
+    color: var(--ink-soft); background: none; border: 0;
+    border-left: 3px solid transparent;
+    padding: 0.4rem 0 0.4rem 0.6rem; text-align: left; cursor: pointer;
+  }
+  .railnav button:hover { color: var(--ink); }
+  .railnav button[aria-pressed="true"] {
+    color: var(--ink); font-weight: 700; border-left-color: var(--pencil);
+  }
+  .railnav button:focus-visible { outline: 2px solid var(--pencil); outline-offset: -2px; }
+  .railnav .count { color: var(--ink-soft); font-weight: 400; font-size: 0.82rem; }
+
+  /* ---------- sortable tables ---------- */
+  .dt { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .dt thead th {
+    position: sticky; top: 0; z-index: 2;
+    background: var(--paper); text-align: right;
+    font-size: 0.72rem; font-weight: 600; color: var(--ink-soft);
+    padding: 0.5rem 0.55rem; white-space: nowrap;
+    border-bottom: 2px solid var(--ink); cursor: pointer; user-select: none;
+  }
+  .dt thead th:first-child { text-align: left; }
+  .dt thead th:hover { color: var(--ink); }
+  .dt thead th[aria-sort] { color: var(--ink); }
+  .dt thead th[aria-sort]::after {
+    content: "\2191"; margin-left: 0.3em; font-size: 0.8em; opacity: 0.75;
+  }
+  .dt thead th[aria-sort="descending"]::after { content: "\2193"; }
+  .dt tbody td {
+    padding: 0.5rem 0.55rem; text-align: right;
+    border-bottom: 1px solid var(--rule);
+    font-variant-numeric: tabular-nums;
+  }
+  .dt tbody td:first-child {
+    text-align: left; font-weight: 600; letter-spacing: -0.01em;
+  }
+  .dt tbody tr { cursor: pointer; }
+  .dt tbody tr:hover td { background: rgba(51,81,63,0.055); }
+  .dt tbody tr[aria-selected="true"] td {
+    background: var(--paper-warm);
+    box-shadow: inset 3px 0 0 var(--pencil);
+  }
+  .dt .sub { display: block; font-weight: 400; font-size: 0.76rem;
+             color: var(--ink-soft); }
+  .dt .lead { font-weight: 700; }
+  .dt-wrap { overflow-x: auto; }
+  .dt-empty { padding: 2rem 0; color: var(--ink-soft); }
+
+  /* ---------- detail drawer ---------- */
+  .scrim {
+    position: fixed; inset: 0; background: rgba(16,32,28,0.32);
+    opacity: 0; pointer-events: none; transition: opacity 160ms ease; z-index: 40;
+  }
+  .scrim.open { opacity: 1; pointer-events: auto; }
+  .drawer {
+    position: fixed; top: 0; right: 0; bottom: 0; width: min(34rem, 92vw);
+    background: var(--paper); z-index: 50;
+    border-left: 3px solid var(--ink);
+    transform: translateX(102%); transition: transform 190ms ease;
+    overflow-y: auto; padding: 1.3rem clamp(1rem, 3vw, 1.7rem) 3rem;
+    box-shadow: -14px 0 34px rgba(16,32,28,0.1);
+  }
+  .drawer.open { transform: translateX(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .drawer, .scrim { transition: none; }
+  }
+  .drawer-head {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 1rem; padding-bottom: 0.7rem; margin-bottom: 1rem;
+    border-bottom: 2px solid var(--ink);
+  }
+  .drawer-head h2 {
+    margin: 0; font-size: 1.35rem; font-weight: 700; letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .drawer-head .who2 { font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.2rem; }
+  .drawer-close {
+    font: inherit; font-size: 1.4rem; line-height: 1; color: var(--ink-soft);
+    background: none; border: 0; cursor: pointer; padding: 0 0.2rem;
+  }
+  .drawer-close:hover { color: var(--pencil); }
+
+  .kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(6.5rem,1fr));
+        gap: 0.8rem 1rem; margin: 0 0 1.2rem; }
+  .kv dt { font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 0.1rem; }
+  .kv dd { margin: 0; font-size: 1.25rem; font-weight: 700;
+           letter-spacing: -0.025em; font-variant-numeric: tabular-nums; }
+
+  /* ---------- dashboard home ---------- */
+  .home { display: grid; gap: 1rem;
+          grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); }
+  .tile {
+    border-top: 3px solid var(--ink); padding: 0.8rem 0 1rem;
+    display: flex; flex-direction: column; cursor: pointer;
+    background: none; border-left: 0; border-right: 0; border-bottom: 0;
+    text-align: left; font: inherit; color: inherit;
+  }
+  .tile:hover { border-top-color: var(--pencil); }
+  .tile:focus-visible { outline: 2px solid var(--pencil); outline-offset: 3px; }
+  .tile h3 { margin: 0; font-size: 1.05rem; font-weight: 700;
+             letter-spacing: -0.02em; }
+  .tile .live { margin: 0.15rem 0 0.7rem; font-size: 0.82rem; color: var(--ink-soft); }
+  .tile .top { font-size: 0.86rem; }
+  .tile .top div {
+    display: flex; justify-content: space-between; gap: 0.6rem;
+    padding: 0.2rem 0; border-bottom: 1px solid var(--rule);
+  }
+  .tile .top b { font-variant-numeric: tabular-nums; }
+  .tile .verdict {
+    margin-top: auto; padding-top: 0.7rem; font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+  .tile .verdict .good { color: var(--bar); font-weight: 700; }
+  .tile .verdict .bad { color: var(--pencil); font-weight: 700; }
+  .tile .idle { font-size: 0.84rem; color: var(--ink-soft); padding: 0.4rem 0 0; }
+
+  .railgroup { margin-top: 1.3rem; }
+  .railgroup h2 {
+    margin: 0 0 0.3rem; font-size: 0.74rem; font-weight: 600;
+    color: var(--ink-soft); letter-spacing: 0;
+  }
+
+  .onnow { margin: 1.3rem 0 0; }
+  .onnow .cell {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 0.22rem 0; font-size: 0.82rem; color: var(--ink-soft);
+    border-bottom: 1px solid var(--rule);
+  }
+  .onnow .cell b {
+    color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums;
+  }
+  .onnow .none { font-size: 0.8rem; color: var(--ink-soft); }
+
+  @media (max-width: 62rem) {
+    .railnav { flex-direction: row; flex-wrap: wrap; gap: 0 0.9rem; }
+    .railnav button {
+      border-left: 0; border-bottom: 3px solid transparent;
+      padding: 0.35rem 0 0.4rem;
+    }
+    .railnav button[aria-pressed="true"] {
+      border-left-color: transparent; border-bottom-color: var(--pencil);
+    }
+    .onnow { display: flex; flex-wrap: wrap; gap: 0 1.4rem; }
+    .onnow .cell { border-bottom: 0; gap: 0.35rem; }
+  }
 
   .masthead {
     display: flex;
@@ -65,7 +234,7 @@
     line-height: 1.05;
   }
 
-  .masthead .date {
+  .railhead .date {
     display: block;
     font-size: clamp(0.9rem, 2.2vw, 1.05rem);
     font-weight: 500;
@@ -101,12 +270,14 @@
   /* ---------- controls ---------- */
 
   .controls {
-    display: flex;
-    align-items: baseline;
-    gap: 0.4rem;
-    margin: 1.5rem 0 0.35rem;
-    font-size: 0.85rem;
-    color: var(--ink-soft);
+    display: flex; flex-wrap: wrap; align-items: baseline;
+    gap: 0.1rem 0.75rem;
+    margin: 1.2rem 0 0; font-size: 0.85rem; color: var(--ink-soft);
+  }
+  .controls > span[aria-hidden] { display: none; }
+  .controls > span:first-child {
+    flex: 0 0 100%; font-size: 0.74rem; font-weight: 600;
+    color: var(--ink-soft); margin-bottom: 0.15rem;
   }
 
   .controls button {
@@ -456,18 +627,16 @@
   }
 
   /* --- search --- */
-  .search {
-    margin: 1rem 0 0;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
+  .search { margin: 1.3rem 0 0; display: block; }
   .search input {
-    font: inherit; font-size: 0.92rem;
-    padding: 0.4rem 0.6rem; width: 100%; max-width: 22rem;
+    font: inherit; font-size: 0.9rem;
+    padding: 0.4rem 0.55rem; width: 100%;
     border: 1px solid var(--rule); background: var(--paper);
     color: var(--ink); border-radius: 0;
   }
   .search input:focus { outline: 2px solid var(--pencil); outline-offset: -1px; }
-  .search .count { font-size: 0.8rem; color: var(--ink-soft); white-space: nowrap; }
+  .search .count { display: block; margin-top: 0.3rem;
+                   font-size: 0.78rem; color: var(--ink-soft); }
 
   /* --- why line --- */
   .why {
@@ -626,8 +795,11 @@
   }
   .projnote b { color: var(--ink); font-weight: 600; }
 
-  .nfl-views { display: flex; gap: 0.4rem; align-items: baseline;
-               margin: 0.9rem 0 0.3rem; font-size: 0.85rem; color: var(--ink-soft); }
+  .nfl-views {
+    display: flex; flex-direction: column;
+    margin: 1.1rem 0 0; font-size: 0.88rem;
+  }
+  .nfl-views > span[aria-hidden] { display: none; }
   .nfl-views button {
     font: inherit; font-weight: 500; color: var(--ink-soft);
     background: none; border: 0; border-bottom: 2px solid transparent;
@@ -674,16 +846,17 @@
   .gm-row .cf { font-weight: 700; }
   .gm-row .vg { color: var(--ink-soft); font-size: 0.85rem; }
   .gm-row .vg.split { color: var(--pencil); font-weight: 600; }
-  .res-tab { display: flex; gap: 0.4rem; align-items: baseline;
-             margin: 0.8rem 0 0.2rem; font-size: 0.85rem; color: var(--ink-soft); }
+  .res-tab { display: flex; flex-direction: column;
+             margin: 0.9rem 0 0; font-size: 0.88rem; }
+  .res-tab > span[aria-hidden] { display: none; }
   .res-tab button {
     font: inherit; font-weight: 500; color: var(--ink-soft); background: none;
-    border: 0; border-bottom: 2px solid transparent; padding: 0.15rem 0.1rem;
-    cursor: pointer;
+    border: 0; border-left: 3px solid transparent;
+    padding: 0.28rem 0 0.28rem 0.6rem; text-align: left; cursor: pointer;
   }
   .res-tab button:hover { color: var(--ink); }
   .res-tab button[aria-pressed="true"] {
-    color: var(--ink); font-weight: 600; border-bottom-color: var(--pencil); }
+    color: var(--ink); font-weight: 700; border-left-color: var(--bar); }
   .cal-tab { margin: 0.8rem 0 1.1rem; }
   .cal-tab .r {
     display: grid; grid-template-columns: 5.4rem 4rem 4.6rem 5rem;
@@ -837,21 +1010,27 @@
 <body>
 <main class="sheet">
 
-  <div class="masthead">
-    <h1>Prop projections<span class="date" id="date">—</span></h1>
+  <aside class="rail">
+    <div class="railhead">
+      <h1>Prop projections</h1>
+      <span class="date" id="date">—</span>
+    </div>
+    <div id="tabs"></div>
+    <div id="rail"></div>
+    <div id="onnow"></div>
     <div class="meta" id="meta"></div>
+  </aside>
+
+  <div class="main">
+    <div id="notice"></div>
+    <div id="body"></div>
+    <div id="card"></div>
+    <div id="calc"></div>
+    <footer id="footer"></footer>
   </div>
-
-  <div id="notice"></div>
-
-  <div id="body"></div>
-
-  <div id="card"></div>
-
-  <div id="calc"></div>
-
-  <footer id="footer"></footer>
 </main>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="false"></aside>
 
 <script>
 // Sample slate, used when projections.json can't be loaded. Replaced at runtime
@@ -1342,15 +1521,16 @@ const SAMPLE = {
 };
 
 const MAX_K = 16;
-let state = { data: null, card: null, nfl: null, nflScore: null, games: null,
+let state = { view: "home", data: null, card: null, nfl: null, nflScore: null, games: null,
               cfb: null, cfbConf: "", league: "nfl", nflWeek: null, recProj: null,
               pickTab: "upcoming", td: null, recGrade: null, tdSort: "any",
               tdGrade: null, tdTab: "week",
               nba: null, nbaGrade: null, nbaSort: "pra", nbaTab: "slate",
               kTab: "slate", nhl: null, nhlGrade: null, nhlTab: "slate", nhlSort: "proj",
+              tsort: {}, selected: null,
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
-              sort: "proj", view: "slate", open: new Set() };
+              sort: "proj", open: new Set() };
 
 /* ---------- helpers ---------- */
 
@@ -2163,60 +2343,38 @@ function nhlView() {
       <p>Rebuilt each morning for that evening's games.</p></div>`;
   }
   const q = state.q.toLowerCase();
-  const rows = d.players
-    .filter(p => !q || p.player.toLowerCase().includes(q)
-              || (p.team || "").toLowerCase().includes(q)
-              || (p.opponent || "").toLowerCase().includes(q))
-    .sort((a, b) => (b[state.nhlSort] ?? 0) - (a[state.nhlSort] ?? 0)).slice(0, 80);
+  const rows = d.players.filter(p => !q
+    || p.player.toLowerCase().includes(q)
+    || (p.team || "").toLowerCase().includes(q)
+    || (p.opponent || "").toLowerCase().includes(q));
   const hn = d.honesty || {};
-
+  const cols = [
+    { key: "player", label: "Skater", render: p =>
+      `${p.player}<span class="sub">${p.team} ${p.home ? "vs" : "at"} ${p.opponent}</span>` },
+    { key: "position", label: "Pos" },
+    { key: "toi", label: "TOI", render: p => num(p.toi) },
+    { key: "proj", label: "SOG", lead: true, render: p => num(p.proj, 2) },
+    { key: "season_avg", label: "Avg", render: p => num(p.season_avg, 2) },
+    { key: "p_goal", label: "Goal", render: p => pc1(p.p_goal) },
+  ];
   return `
     <dl class="totals">
       <div class="t"><dt>Slate</dt><dd>${d.date}
-        <small>${(d.games || []).length || "?"} game${
-          (d.games || []).length === 1 ? "" : "s"} ·
-          ${d.players.length} skaters</small></dd></div>
-      <div class="t"><dt>Model error</dt><dd>${hn.mae == null ? "—" : hn.mae}
-        <small>vs ${hn.mae_naive == null ? "—" : hn.mae_naive} season avg</small></dd></div>
+        <small>${(d.games || []).length} games · ${d.players.length} skaters</small></dd></div>
+      <div class="t"><dt>Shots error</dt><dd>${hn.mae ?? "—"}
+        <small>vs ${hn.mae_naive ?? "—"} season avg</small></dd></div>
+      <div class="t"><dt>Goal Brier</dt><dd>${hn.goal_brier ?? "—"}
+        <small>vs ${hn.goal_brier_base ?? "—"} base rate</small></dd></div>
     </dl>
-    ${(d.games || []).length ? `<p class="cal-key">Tonight: ${d.games.join(" · ")}</p>` : ""}
+    ${(d.games || []).length
+      ? `<p class="cal-key">Tonight: ${d.games.join(" &middot; ")}</p>` : ""}
     <p class="caption" style="max-width:62ch">Shot rate per 60 minutes against
-      projected ice time, with recent form, ice-time trend and opponent
-      weighed together. <b>The weakest of the working models here</b> — shots
-      on goal scatter at 0.97 times their own mean, noisier than anything in
-      the NBA set, which caps what any model can do. It beats a season
-      average by 0.012 shots at 12 standard errors. No NHL odds are
-      collected.</p>
-    <div class="controls">
-      <span>Sort by</span>
-      <button data-nhl="proj" aria-pressed="${state.nhlSort === "proj"}">shots</button>
-      <span aria-hidden="true">·</span>
-      <button data-nhl="p_goal" aria-pressed="${state.nhlSort === "p_goal"}">goal odds</button>
-    </div>
-    <div class="gm-head" style="grid-template-columns:minmax(0,1fr) 2.8rem 3.2rem 3.4rem 3.4rem 3.6rem">
-      <span>Skater</span><span>Pos</span><span>TOI</span><span>SOG</span>
-      <span>Avg</span><span>Goal</span>
-    </div>
-    ${rows.map(p => `<div class="gm-row"
-        style="grid-template-columns:minmax(0,1fr) 2.8rem 3.2rem 3.4rem 3.4rem 3.6rem">
-      <span class="mu2">${p.player}<br>
-        <span class="vg">${p.team} ${p.home ? "vs" : "at"} ${p.opponent}</span></span>
-      <span class="n">${p.position}</span>
-      <span class="n">${p.toi}</span>
-      <span class="n ${state.nhlSort === "proj" ? "cf" : ""}">${p.proj.toFixed(2)}</span>
-      <span class="n">${p.season_avg.toFixed(2)}</span>
-      <span class="n ${state.nhlSort === "p_goal" ? "cf" : ""}">${
-        p.p_goal == null ? "—" : Math.round(p.p_goal * 100) + "%"}</span>
-    </div>`).join("")}
-    <p class="cal-key">Goal odds are the chance of scoring at least once.
-      Brier ${hn.goal_brier ?? "—"} against ${hn.goal_brier_base ?? "—"} for
-      the base rate, and it is the better-behaved of the two — calibration
-      holds right across the range, where the shot projection is the weakest
-      model on this page.</p>
-    <p class="cal-key">The projection is a mean, not a rounded guess — a
-      model trained to minimise absolute error returned whole numbers for
-      nearly everyone, which scores better and tells you nothing about
-      clearing a half-point line.</p>`;
+      projected ice time. <b>The slimmest edge on this page</b> — shots on
+      goal scatter at 0.97 times their own mean. Goal probability is the
+      better-behaved of the two and is calibrated across its range.</p>
+    ${dataTable("nhl", cols, rows, { defaultKey: "proj",
+      rowId: p => p.player_id, limit: 200,
+      empty: `Nothing matches "${state.q}".` })}`;
 }
 
 function nhlGradeView() {
@@ -2259,62 +2417,41 @@ function nbaView() {
       <p>Rebuilt each morning for that evening's games.</p></div>`;
   }
   const q = state.q.toLowerCase();
-  const rows = d.players
-    .filter(p => !q || p.player.toLowerCase().includes(q)
-              || (p.team || "").toLowerCase().includes(q)
-              || (p.opponent || "").toLowerCase().includes(q))
-    .sort((a, b) => (b[state.nbaSort] ?? -1) - (a[state.nbaSort] ?? -1)).slice(0, 80);
-  const hn = d.honesty || {};
-  const dash = v => (v == null ? "—" : v);
-  const mae = hn.mae || {}, nv = hn.mae_naive || {};
-
+  const rows = d.players.filter(p => !q
+    || p.player.toLowerCase().includes(q)
+    || (p.team || "").toLowerCase().includes(q)
+    || (p.opponent || "").toLowerCase().includes(q));
+  const hn = d.honesty || {}, mae = hn.mae || {}, nv = hn.mae_naive || {};
+  const cols = [
+    { key: "player", label: "Player", render: p =>
+      `${p.player}<span class="sub">${p.team} ${p.home ? "vs" : "at"} ${p.opponent}</span>` },
+    { key: "minutes", label: "Min", render: p => num(p.minutes) },
+    { key: "pra", label: "PRA", lead: true, render: p => num(p.pra) },
+    { key: "points", label: "PTS", render: p => num(p.points) },
+    { key: "rebounds", label: "REB", render: p => num(p.rebounds) },
+    { key: "assists", label: "AST", render: p => num(p.assists) },
+    { key: "threes", label: "3PM", render: p => num(p.threes) },
+    { key: "p_first", label: "1st", render: p =>
+      p.p_first == null ? "—" : (p.p_first * 100).toFixed(1) + "%" },
+  ];
   return `
     <dl class="totals">
       <div class="t"><dt>Slate</dt><dd>${d.date}
-        <small>${(d.games || []).length || "?"} game${
-          (d.games || []).length === 1 ? "" : "s"} ·
-          ${d.players.length} players</small></dd></div>
-      <div class="t"><dt>PRA error</dt><dd>${dash(mae.pra)}
-        <small>vs ${dash(nv.pra)} season avg</small></dd></div>
-      <div class="t"><dt>Points error</dt><dd>${dash(mae.points)}
-        <small>vs ${dash(nv.points)}</small></dd></div>
+        <small>${(d.games || []).length} games · ${d.players.length} players</small></dd></div>
+      <div class="t"><dt>PRA error</dt><dd>${mae.pra ?? "—"}
+        <small>vs ${nv.pra ?? "—"} season avg</small></dd></div>
+      <div class="t"><dt>Points error</dt><dd>${mae.points ?? "—"}
+        <small>vs ${nv.points ?? "—"}</small></dd></div>
     </dl>
-    ${(d.games || []).length ? `<p class="cal-key">Tonight: ${d.games.join(" · ")}</p>` : ""}
+    ${(d.games || []).length
+      ? `<p class="cal-key">Tonight: ${d.games.join(" &middot; ")}</p>` : ""}
     <p class="caption" style="max-width:62ch">Per-minute production times
-      projected minutes, adjusted for pace, rest and opponent. Basketball
-      gives far more events per game than football, so more of the signal
-      survives — every market here beat a season average by more than ten
-      standard errors on 41,753 player-games.
-      <b>No NBA odds are collected</b>, so nothing is measured against a
-      market.</p>
-    <div class="controls">
-      <span>Sort by</span>
-      ${NBA_MARKETS.map(([k, l], i) => `${i ? '<span aria-hidden="true">·</span>' : ""}
-        <button data-nba="${k}" aria-pressed="${state.nbaSort === k}">${l}</button>`).join("")}
-    </div>
-    <div class="gm-head" style="grid-template-columns:minmax(0,1fr) 3.2rem repeat(6,3rem)">
-      <span>Player</span><span>Min</span>
-      ${NBA_MARKETS.map(([, l]) => `<span>${l}</span>`).join("")}
-    </div>
-    ${rows.map(p => `<div class="gm-row"
-        style="grid-template-columns:minmax(0,1fr) 3.2rem repeat(6,3rem)">
-      <span class="mu2">${p.player}<br>
-        <span class="vg">${p.team} ${p.home ? "vs" : "at"} ${p.opponent}</span></span>
-      <span class="n">${p.minutes}</span>
-      ${NBA_MARKETS.map(([k]) => `<span class="n ${k === state.nbaSort ? "cf" : ""}"
-        >${k === "p_first"
-             ? (p.p_first == null ? "—" : (p.p_first * 100).toFixed(1) + "%")
-             : (p[k] ?? 0).toFixed(1)}</span>`).join("")}
-    </div>`).join("")}
-    <p class="cal-key">First-point odds are the chance a player scores the
-      game's opening basket. Roughly ten starters compete for it, so the base
-      rate is about 4% and anything over 12% is a genuine favourite. Brier
-      ${hn.first_brier ?? "—"} against ${hn.first_brier_base ?? "—"} for the
-      base rate, calibrated to about 11% before drifting high.</p>
-    <p class="cal-key">Minutes are the projection's weakest link — a blowout
-      or a late scratch moves everything. Early in a season the rates are
-      blended with last year's, weighted by games played, fading to nothing
-      by midwinter.</p>`;
+      projected minutes, adjusted for pace, rest, opponent and which
+      team-mates are sitting. Click any row for the detail. Click a column
+      heading to sort by it. <b>No NBA odds are collected.</b></p>
+    ${dataTable("nba", cols, rows, { defaultKey: "pra",
+      rowId: p => p.athlete_id, limit: 200,
+      empty: `Nothing matches "${state.q}".` })}`;
 }
 
 function nbaGradeView() {
@@ -2443,60 +2580,39 @@ function tdView() {
   const d = state.td;
   if (!d || !d.players || !d.players.length) {
     return `<div class="empty"><h2>No touchdown model yet</h2>
-      <p>Rebuilt weekly from red-zone usage. Needs four games of
-      current-season form before it will guess.</p></div>`;
+      <p>Rebuilt weekly from red-zone usage.</p></div>`;
   }
   const q = state.q.toLowerCase();
-  const key = state.tdSort === "first" ? "p_first"
-            : state.tdSort === "two" ? "p_two" : "p_any";
-  const rows = d.players
-    .filter(p => !q || p.player.toLowerCase().includes(q)
-              || p.team.toLowerCase().includes(q)
-              || p.opponent.toLowerCase().includes(q))
-    .sort((a, b) => b[key] - a[key]).slice(0, 60);
+  const rows = d.players.filter(p => !q
+    || p.player.toLowerCase().includes(q)
+    || p.team.toLowerCase().includes(q)
+    || p.opponent.toLowerCase().includes(q));
   const hn = d.honesty || {};
-
+  const cols = [
+    { key: "player", label: "Player", render: p =>
+      `${p.player}<span class="sub">${p.team} vs ${p.opponent}</span>` },
+    { key: "pos", label: "Pos" },
+    { key: "p_any", label: "Anytime", lead: true, render: p => pc1(p.p_any) },
+    { key: "p_two", label: "2+", render: p => pc1(p.p_two) },
+    { key: "p_first", label: "First", render: p => (p.p_first * 100).toFixed(1) + "%" },
+    { key: "i5pg", label: "Inside 5", render: p => num(p.i5pg, 2) },
+  ];
   return `
     <dl class="totals">
-      <div class="t"><dt>Brier score</dt><dd>${hn.brier}
-        <small>lower is better</small></dd></div>
-      <div class="t"><dt>Own TD rate</dt><dd>${hn.brier_own_rate}</dd></div>
-      <div class="t"><dt>League base rate</dt><dd>${hn.brier_base_rate}</dd></div>
-      <div class="t"><dt>Week</dt><dd>${d.week}</dd></div>
+      <div class="t"><dt>Week</dt><dd>${d.week}
+        <small>${d.players.length} players</small></dd></div>
+      <div class="t"><dt>Brier</dt><dd>${hn.brier}
+        <small>vs ${hn.brier_base_rate ?? hn.brier_base ?? "—"} base rate</small></dd></div>
+      <div class="t"><dt>Own TD rate</dt><dd>${hn.brier_own_rate ?? "—"}</dd></div>
     </dl>
     <p class="caption" style="max-width:62ch">Built from opportunity near the
-      goal line, which is far steadier week to week than touchdowns
-      themselves. On a clean 2025 test it beat both a player's own touchdown
-      rate and the league average, and the probabilities are calibrated —
-      when it says 25%, it happens about 28% of the time.
-      <b>No touchdown odds are collected</b>, so nothing here is compared to
-      a market.</p>
-    <div class="controls">
-      <span>Sort by</span>
-      <button data-td="any" aria-pressed="${state.tdSort === "any"}">anytime</button>
-      <span aria-hidden="true">·</span>
-      <button data-td="two" aria-pressed="${state.tdSort === "two"}">two or more</button>
-      <span aria-hidden="true">·</span>
-      <button data-td="first" aria-pressed="${state.tdSort === "first"}">first scorer</button>
-    </div>
-    <div class="gm-head" style="grid-template-columns:minmax(0,1fr) 3rem 3.6rem 3.4rem 3.8rem 4.4rem">
-      <span>Player</span><span>Pos</span><span>Anytime</span><span>2+</span>
-      <span>First</span><span>Inside 5/gm</span>
-    </div>
-    ${rows.map(p => `<div class="gm-row"
-        style="grid-template-columns:minmax(0,1fr) 3rem 3.6rem 3.4rem 3.8rem 4.4rem">
-      <span class="mu2">${p.player}<br>
-        <span class="vg">${p.team} vs ${p.opponent}</span></span>
-      <span class="n">${p.pos}</span>
-      <span class="n cf">${Math.round(p.p_any * 100)}%</span>
-      <span class="n">${Math.round(p.p_two * 100)}%</span>
-      <span class="n">${(p.p_first * 100).toFixed(1)}%</span>
-      <span class="n">${p.i5pg.toFixed(1)}</span>
-    </div>`).join("")}
-    <p class="cal-key">First-scorer odds treat each player as a Poisson
-      arrival: his share of the game's expected touchdowns, times the chance
-      the game produces one at all. They sum to under 100% per game because
-      some games open with a field goal.</p>`;
+      goal line, which is far steadier than touchdowns themselves. Beat both
+      a player's own rate and the league average on a clean test, and the
+      probabilities are calibrated — it says 25%, it happens about 28% of the
+      time. <b>No touchdown odds are collected.</b></p>
+    ${dataTable("td", cols, rows, { defaultKey: "p_any",
+      rowId: p => p.player + p.team, limit: 200,
+      empty: `Nothing matches "${state.q}".` })}`;
 }
 
 function recGradeView() {
@@ -3102,8 +3218,422 @@ function runCalc() {
   out.innerHTML = html;
 }
 
+function curWeekCount(src) {
+  if (!src || !src.games || !src.games.length) return null;
+  const wk = Math.min(...src.games.map(g => g.week));
+  return src.games.filter(g => g.week === wk).length;
+}
+
+function onNow() {
+  const cells = [
+    ["Pitchers", state.data ? state.data.starters.length : null],
+    ["Reception lines", state.nfl && state.nfl.totals ? state.nfl.totals.games : null],
+    ["NFL games", curWeekCount(state.games)],
+    ["College games", curWeekCount(state.cfb)],
+    ["NBA games", state.nba ? (state.nba.games || []).length : null],
+    ["NHL games", state.nhl ? (state.nhl.games || []).length : null],
+  ].filter(([, v]) => v);
+  if (!cells.length) {
+    return `<div class="none">Nothing loaded yet.</div>`;
+  }
+  return `<div class="railgroup"><h2>On the board</h2>${
+    cells.map(([l, v]) => `<div class="cell"><span>${l}</span><b>${v}</b></div>`)
+      .join("")}</div>`;
+}
+
+// Chrome goes in the rail, data in the main column. Everything the page
+// used to stack above the rows - tabs, sub-tabs, search, sort - lives here.
+function RAIL(nav, ...extras) {
+  document.getElementById("tabs").innerHTML = nav;
+  document.getElementById("rail").innerHTML = extras.filter(Boolean).join("");
+  document.getElementById("onnow").innerHTML = onNow();
+}
+
+/* ================= drawer contents ================= */
+
+const pc1 = v => (v == null ? "—" : Math.round(v * 100) + "%");
+const num = (v, d) => (v == null ? "—" : Number(v).toFixed(d == null ? 1 : d));
+
+const DRAWERS = {
+  // a pitcher: the distribution is the point, so lead with it
+  pitcher: s => detail(s),
+
+  nba: p => `
+    <dl class="kv">
+      <div><dt>PRA</dt><dd>${num(p.pra)}</dd></div>
+      <div><dt>Points</dt><dd>${num(p.points)}</dd></div>
+      <div><dt>Rebounds</dt><dd>${num(p.rebounds)}</dd></div>
+      <div><dt>Assists</dt><dd>${num(p.assists)}</dd></div>
+      <div><dt>Threes</dt><dd>${num(p.threes)}</dd></div>
+      <div><dt>First point</dt><dd>${p.p_first == null ? "—"
+        : (p.p_first * 100).toFixed(1) + "%"}</dd></div>
+    </dl>
+    <dl class="kv">
+      <div><dt>Minutes</dt><dd>${num(p.minutes)}</dd></div>
+      <div><dt>Games played</dt><dd>${p.games}</dd></div>
+      ${p.absent_pra != null ? `<div><dt>Team-mates out</dt>
+        <dd>${num(p.absent_pra)}<small style="font-size:0.6rem;font-weight:400;
+        color:var(--ink-soft)"> PRA</small></dd></div>` : ""}
+    </dl>
+    <p class="cal-key">Minutes are the weak link — the projection scales
+      directly with them, and a blowout or late scratch moves everything.
+      ${p.absent_pra ? `This team is missing about ${num(p.absent_pra)} PRA
+      of production, which lifts everyone still playing.` : ""}</p>
+    ${p.status ? `<p class="cal-key">Injury note: ${p.status}</p>` : ""}`,
+
+  nhl: p => `
+    <dl class="kv">
+      <div><dt>Shots on goal</dt><dd>${num(p.proj, 2)}</dd></div>
+      <div><dt>Season average</dt><dd>${num(p.season_avg, 2)}</dd></div>
+      <div><dt>Anytime goal</dt><dd>${pc1(p.p_goal)}</dd></div>
+      <div><dt>Ice time</dt><dd>${num(p.toi)}</dd></div>
+    </dl>
+    <p class="cal-key">Goals are the better-behaved of the two here. The
+      shot projection beats a season average by 0.012 at 12 standard
+      errors; the goal probability is calibrated right across its range.</p>`,
+
+  td: p => `
+    <dl class="kv">
+      <div><dt>Anytime</dt><dd>${pc1(p.p_any)}</dd></div>
+      <div><dt>Two or more</dt><dd>${pc1(p.p_two)}</dd></div>
+      <div><dt>First scorer</dt><dd>${(p.p_first * 100).toFixed(1)}%</dd></div>
+    </dl>
+    <dl class="kv">
+      <div><dt>Inside the 5</dt><dd>${num(p.i5pg, 2)}<small
+        style="font-size:0.6rem;font-weight:400;color:var(--ink-soft)">
+        per game</small></dd></div>
+      <div><dt>Red zone</dt><dd>${num(p.rzpg, 2)}</dd></div>
+      <div><dt>TDs per game</dt><dd>${num(p.td_rate, 2)}</dd></div>
+    </dl>
+    <p class="cal-key">Goal-line opportunity is what drives this, not past
+      touchdowns — carries inside the five are far steadier week to week
+      than the scores themselves.</p>`,
+
+  game: g => `
+    <dl class="kv">
+      <div><dt>Pick</dt><dd style="font-size:1.05rem">${g.pick}</dd></div>
+      <div><dt>Win chance</dt><dd>${pc1(g.confidence)}</dd></div>
+      <div><dt>Margin</dt><dd>${g.pred_margin > 0 ? "+" : ""}${num(g.pred_margin)}</dd></div>
+      ${g.score_home != null ? `<div><dt>Score</dt>
+        <dd style="font-size:1.05rem">${Math.round(g.score_away)}&ndash;${
+        Math.round(g.score_home)}</dd></div>` : ""}
+    </dl>
+    ${g.vegas_spread != null ? `<p class="cal-key">Vegas has this at
+      ${g.vegas_spread > 0 ? "+" : ""}${g.vegas_spread.toFixed(1)} from the
+      home side${(g.pred_margin > 0) !== (g.vegas_spread > 0)
+        ? " — <b>they disagree on the winner</b>." : "."}</p>` : ""}
+    <p class="cal-key">The winner and margin come from team ratings built on
+      every game since 2019. ${g.pred_total != null
+        ? `The projected total of ${num(g.pred_total, 0)} is a weaker signal
+           than the margin.` : ""}</p>`,
+
+  reception: p => `
+    <dl class="kv">
+      <div><dt>Line</dt><dd>${p.line}</dd></div>
+      <div><dt>Books say over</dt><dd>${pc1(p.consensus_over)}</dd></div>
+      <div><dt>Books</dt><dd>${p.books}</dd></div>
+    </dl>
+    <dl class="kv">
+      <div><dt>Best over</dt><dd style="font-size:1.05rem">${
+        p.best_over.price > 0 ? "+" : ""}${p.best_over.price}
+        <small style="font-size:0.6rem;font-weight:400;color:var(--ink-soft)">
+        ${p.best_over.book}</small></dd></div>
+      <div><dt>Best under</dt><dd style="font-size:1.05rem">${
+        p.best_under.price > 0 ? "+" : ""}${p.best_under.price}
+        <small style="font-size:0.6rem;font-weight:400;color:var(--ink-soft)">
+        ${p.best_under.book}</small></dd></div>
+    </dl>
+    ${Math.max(p.shop_over, p.shop_under) >= 3 ? `<p class="cal-key">
+      Taking the best price instead of the worst is worth
+      <b>$${Math.max(p.shop_over, p.shop_under).toFixed(0)}</b> per $100 on
+      the ${p.shop_over >= p.shop_under ? "over" : "under"}. That part does
+      not depend on any model being right.</p>` : ""}
+    <p class="cal-key"><b>No pick here.</b> Every figure is the books' own
+      number with their margin removed.</p>`,
+};
+
+/* ================= dashboard home ================= */
+
+function tile(key, title, live, rows, verdict) {
+  return `<button class="tile" data-go="${key}">
+    <h3>${title}</h3>
+    <div class="live">${live}</div>
+    <div class="top">${rows.map(([a, b]) =>
+      `<div><span>${a}</span><b>${b}</b></div>`).join("")}</div>
+    <div class="verdict">${verdict}</div>
+  </button>`;
+}
+
+function idleTile(key, title, why) {
+  return `<button class="tile" data-go="${key}">
+    <h3>${title}</h3><div class="idle">${why}</div></button>`;
+}
+
+function homeView() {
+  const t = [];
+
+  // strikeouts
+  if (state.data && state.data.starters.length) {
+    const top = [...state.data.starters].sort((a, b) => b.proj_k - a.proj_k).slice(0, 3);
+    const c = state.card || {};
+    t.push(tile("slate", "Strikeouts",
+      `${state.data.starters.length} pitchers · ${prettyDate(state.data.date)}`,
+      top.map(s => [s.pitcher, s.proj_k.toFixed(1)]),
+      c.market && c.market.win_rate != null
+        ? `Beat the book on <span class="bad">${Math.round(c.market.win_rate * 100)}%</span>
+           of disagreements`
+        : "Season complete"));
+  } else {
+    t.push(idleTile("slate", "Strikeouts", "No slate — the MLB season is over."));
+  }
+
+  // receptions
+  if (state.nfl && state.nfl.totals && state.nfl.totals.games) {
+    const best = [];
+    (state.nfl.games || []).forEach(g => (g.players || []).forEach(p =>
+      best.push([p.player, Math.max(p.shop_over, p.shop_under)])));
+    best.sort((a, b) => b[1] - a[1]);
+    t.push(tile("nfl", "Reception lines",
+      `${state.nfl.totals.games} games · ${state.nfl.totals.players} players`,
+      best.slice(0, 3).map(([n, v]) => [n, "$" + v.toFixed(0)]),
+      "Biggest price gaps between books, per $100"));
+  } else {
+    t.push(idleTile("nfl", "Reception lines", "Nothing captured yet."));
+  }
+
+  // game picks
+  const gp = state.games && state.games.results;
+  if (state.games && (state.games.games || []).length) {
+    const wk = Math.min(...state.games.games.map(g => g.week));
+    const top = state.games.games.filter(g => g.week === wk)
+      .sort((a, b) => b.confidence - a.confidence).slice(0, 3);
+    t.push(tile("picks", "NFL games", `Week ${wk} · ${
+      state.games.games.filter(g => g.week === wk).length} games`,
+      top.map(g => [g.pick, Math.round(g.confidence * 100) + "%"]),
+      gp && gp.graded
+        ? `<span class="good">${gp.won}&ndash;${gp.lost}</span> this season,
+           baseline ${Math.round(gp.home_baseline * 100)}%`
+        : "Not graded yet"));
+  } else {
+    t.push(idleTile("picks", "NFL games", "No games loaded."));
+  }
+
+  // college
+  const cp = state.cfb && state.cfb.results;
+  if (state.cfb && (state.cfb.games || []).length) {
+    const wk = Math.min(...state.cfb.games.map(g => g.week));
+    const games = state.cfb.games.filter(g => g.week === wk);
+    t.push(tile("picks", "College games", `Week ${wk} · ${games.length} games`,
+      games.sort((a, b) => b.confidence - a.confidence).slice(0, 3)
+        .map(g => [g.pick.slice(0, 20), Math.round(g.confidence * 100) + "%"]),
+      cp && cp.graded
+        ? `<span class="good">${cp.won}&ndash;${cp.lost}</span>, baseline
+           ${Math.round(cp.home_baseline * 100)}%`
+        : "Not graded yet"));
+  }
+
+  // touchdowns
+  if (state.td && (state.td.players || []).length) {
+    const top = [...state.td.players].sort((a, b) => b.p_any - a.p_any).slice(0, 3);
+    const g = state.tdGrade;
+    t.push(tile("td", "Touchdowns", `Week ${state.td.week} · ${
+      state.td.players.length} players`,
+      top.map(p => [p.player, Math.round(p.p_any * 100) + "%"]),
+      g && g.graded
+        ? `Brier <span class="good">${g.brier}</span> vs ${g.brier_base} base rate`
+        : "Beats the base rate on a clean test"));
+  } else {
+    t.push(idleTile("td", "Touchdowns", "Not built yet."));
+  }
+
+  // nba
+  if (state.nba && (state.nba.players || []).length) {
+    const top = [...state.nba.players].sort((a, b) => b.pra - a.pra).slice(0, 3);
+    t.push(tile("nba", "NBA", `${(state.nba.games || []).length} games · ${
+      state.nba.players.length} players`,
+      top.map(p => [p.player, p.pra.toFixed(1) + " PRA"]),
+      `PRA error <span class="good">${(state.nba.honesty.mae || {}).pra}</span>
+       vs ${(state.nba.honesty.mae_naive || {}).pra} season average`));
+  } else {
+    t.push(idleTile("nba", "NBA", "No slate loaded."));
+  }
+
+  // nhl
+  if (state.nhl && (state.nhl.players || []).length) {
+    const top = [...state.nhl.players].sort((a, b) => b.proj - a.proj).slice(0, 3);
+    t.push(tile("nhl", "NHL", `${(state.nhl.games || []).length} games · ${
+      state.nhl.players.length} skaters`,
+      top.map(p => [p.player, p.proj.toFixed(2) + " SOG"]),
+      `Shots error ${state.nhl.honesty.mae} vs ${state.nhl.honesty.mae_naive}
+       — the slimmest edge here`));
+  } else {
+    t.push(idleTile("nhl", "NHL", "No slate loaded."));
+  }
+
+  return `<p class="caption" style="max-width:60ch">What is live right now,
+    and how each model is measuring up. Every one of these is scored against
+    a plain baseline and says so — the ones that do not beat it say that
+    too.</p>
+    <div class="home">${t.join("")}</div>`;
+}
+
+/* ================= interactive shell ================= */
+
+// One table renderer for every sport. Columns declare how to read and
+// format a value; sorting and selection are handled here rather than
+// reimplemented six times.
+function dataTable(id, cols, rows, opts) {
+  opts = opts || {};
+  const s = state.tsort[id] || opts.sort || {};
+  const key = s.key || opts.defaultKey || cols[1].key;
+  const dir = s.dir || opts.defaultDir || "desc";
+  const col = cols.find(c => c.key === key) || cols[1];
+
+  const val = (r, c) => (c.sortValue ? c.sortValue(r) : r[c.key]);
+  const sorted = [...rows].sort((a, b) => {
+    const x = val(a, col), y = val(b, col);
+    if (x == null && y == null) return 0;
+    if (x == null) return 1;
+    if (y == null) return -1;
+    const n = typeof x === "number" && typeof y === "number"
+      ? x - y : String(x).localeCompare(String(y));
+    return dir === "desc" ? -n : n;
+  }).slice(0, opts.limit || 200);
+
+  if (!sorted.length) {
+    return `<p class="dt-empty">${opts.empty || "Nothing to show."}</p>`;
+  }
+
+  return `<div class="dt-wrap"><table class="dt" data-table="${id}">
+    <thead><tr>${cols.map(c => `
+      <th data-col="${c.key}"${c.key === key
+        ? ` aria-sort="${dir === "desc" ? "descending" : "ascending"}"` : ""}
+        title="Sort by ${c.label}">${c.label}</th>`).join("")}</tr></thead>
+    <tbody>${sorted.map(r => {
+      const rid = opts.rowId ? opts.rowId(r) : "";
+      const sel = state.selected && state.selected.id === rid;
+      return `<tr data-row="${rid}"${sel ? ' aria-selected="true"' : ""}>${
+        cols.map(c => `<td${c.lead ? ' class="lead"' : ""}>${
+          c.render ? c.render(r) : (r[c.key] ?? "—")}</td>`).join("")}</tr>`;
+    }).join("")}</tbody>
+  </table></div>`;
+}
+
+function sortClick(id, colKey) {
+  // NOT state.sort - that already belongs to the strikeout slate control.
+  const cur = state.tsort[id] || {};
+  state.tsort[id] = cur.key === colKey
+    ? { key: colKey, dir: cur.dir === "desc" ? "asc" : "desc" }
+    : { key: colKey, dir: "desc" };
+  render();
+}
+
+function wireTable(id, rows, rowId, onPick) {
+  const el = document.querySelector(`table[data-table="${id}"]`);
+  if (!el) return;
+  el.querySelectorAll("thead th").forEach(th =>
+    th.onclick = () => sortClick(id, th.dataset.col));
+  el.querySelectorAll("tbody tr").forEach(tr =>
+    tr.onclick = () => {
+      const r = rows.find(x => String(rowId(x)) === tr.dataset.row);
+      if (r) onPick(r);
+    });
+}
+
+function openDrawer(kind, id, data) {
+  const title = data.player || data.pitcher
+    || (data.away ? `${data.away} at ${data.home}` : "Detail");
+  const sub = kind === "game"
+    ? `Week ${data.week ?? ""}`.trim()
+    : [data.team, data.opponent ? (data.home ? "vs " : "at ") + data.opponent : ""]
+        .filter(Boolean).join(" ");
+  state.selected = { kind, id, data, title, sub };
+  render();
+}
+
+function closeDrawer() { state.selected = null; render(); }
+
+function drawerHTML() {
+  const sel = state.selected;
+  if (!sel) return { open: false, html: "" };
+  const body = DRAWERS[sel.kind] ? DRAWERS[sel.kind](sel.data) : "";
+  return {
+    open: true,
+    html: `<div class="drawer-head">
+        <div><h2>${sel.title || "Detail"}</h2>
+          ${sel.sub ? `<div class="who2">${sel.sub}</div>` : ""}</div>
+        <button class="drawer-close" id="dclose" aria-label="Close">&times;</button>
+      </div>${body}`,
+  };
+}
+
+function mountDrawer() {
+  const { open, html } = drawerHTML();
+  const dr = document.getElementById("drawer");
+  const sc = document.getElementById("scrim");
+  if (!dr) return;
+  dr.innerHTML = html;
+  dr.classList.toggle("open", open);
+  sc.classList.toggle("open", open);
+  sc.onclick = closeDrawer;
+  const x = document.getElementById("dclose");
+  if (x) x.onclick = closeDrawer;
+}
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && state.selected) closeDrawer();
+});
+
 function render() {
+  mountDrawer();
+  // Defined up here: the overview block below needs it, and a const
+  // declared later in the function is in its dead zone until then.
+
+  const nflCount = state.nfl && state.nfl.totals ? state.nfl.totals.players : 0;
+  const viewBar = `
+    <div class="railnav">
+      <button data-view="home" aria-pressed="${state.view === "home"}">Overview</button>
+      <button data-view="slate" aria-pressed="${state.view === "slate"}">strikeouts</button>
+      <button data-view="nfl" aria-pressed="${state.view === "nfl"}">receptions${
+        nflCount ? ` (${nflCount})` : ""}</button>
+      <button data-view="picks" aria-pressed="${state.view === "picks"}">game picks</button>
+      <button data-view="td" aria-pressed="${state.view === "td"}">touchdowns</button>
+      <button data-view="nba" aria-pressed="${state.view === "nba"}">NBA</button>
+      <button data-view="nhl" aria-pressed="${state.view === "nhl"}">NHL</button>
+    </div>`;
+
+  if (state.view === "home") {
+    RAIL(viewBar);
+    document.getElementById("body").innerHTML = homeView();
+    document.getElementById("card").innerHTML = "";
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML = "";
+    document.querySelectorAll(".railnav button").forEach(b =>
+      b.onclick = () => { state.view = b.dataset.view; state.selected = null; render(); });
+    document.querySelectorAll(".tile").forEach(el =>
+      el.onclick = () => { state.view = el.dataset.go; render(); });
+    return;
+  }
+
   const d = state.data;
+  if (!d) {
+    // No slate file - the baseball season is over, or it hasn't built yet.
+    RAIL(viewBar);
+    document.getElementById("body").innerHTML = `<div class="empty">
+      <h2>No strikeout slate</h2>
+      <p>There's no projections file right now — the baseball season is
+      over, or today's build hasn't run. Past results are still here.</p>
+      <p><button class="pback" id="togrades">See past results</button></p>
+    </div>`;
+    document.getElementById("card").innerHTML = "";
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML = "";
+    document.querySelectorAll(".railnav button").forEach(b =>
+      b.onclick = () => { state.view = b.dataset.view; state.selected = null; render(); });
+    const g = document.getElementById("togrades");
+    if (g) g.onclick = () => { state.kTab = "results"; render(); };
+    return;
+  }
   document.getElementById("date").textContent = prettyDate(d.date);
 
   const t = new Date(d.generated_at);
@@ -3127,23 +3657,6 @@ function render() {
       : (a, b) => startMs(a) - startMs(b) || b.proj_k - a.proj_k
   );
 
-  const nflCount = state.nfl && state.nfl.totals ? state.nfl.totals.players : 0;
-  const viewBar = `
-    <div class="views">
-      <span>Showing</span>
-      <button data-view="slate" aria-pressed="${state.view === "slate"}">strikeouts</button>
-      <span aria-hidden="true">·</span>
-      <button data-view="nfl" aria-pressed="${state.view === "nfl"}">receptions${
-        nflCount ? ` (${nflCount})` : ""}</button>
-      <span aria-hidden="true">·</span>
-      <button data-view="picks" aria-pressed="${state.view === "picks"}">game picks</button>
-      <span aria-hidden="true">·</span>
-      <button data-view="td" aria-pressed="${state.view === "td"}">touchdowns</button>
-      <span aria-hidden="true">·</span>
-      <button data-view="nba" aria-pressed="${state.view === "nba"}">NBA</button>
-      <span aria-hidden="true">·</span>
-      <button data-view="nhl" aria-pressed="${state.view === "nhl"}">NHL</button>
-    </div>`;
 
   const searchBar = `
     <div class="search">
@@ -3186,7 +3699,7 @@ function render() {
         <button data-ktab="results" aria-pressed="true">past results${
           nRes ? ` (${nRes})` : ""}</button>
       </div>`;
-    document.getElementById("body").innerHTML = viewBar + kBar + results();
+    RAIL(viewBar, kBar); document.getElementById("body").innerHTML = results();
     document.querySelectorAll(".nfl-views button").forEach(b =>
       b.onclick = () => { state.kTab = b.dataset.ktab; render(); });
     wire();
@@ -3215,8 +3728,12 @@ function render() {
         <button data-nhltab="graded" aria-pressed="${state.nhlTab === "graded"}">graded${
           ng ? ` (${ng})` : ""}</button>
       </div>`;
-    document.getElementById("body").innerHTML = viewBar + bar
-      + (state.nhlTab === "graded" ? nhlGradeView() : searchBar + nhlView());
+    RAIL(viewBar, bar, state.nhlTab === "graded" ? "" : searchBar);
+    document.getElementById("body").innerHTML =
+      state.nhlTab === "graded" ? nhlGradeView() : nhlView();
+    if (state.nhlTab !== "graded" && state.nhl)
+      wireTable("nhl", state.nhl.players, p => p.player_id,
+        p => openDrawer("nhl", p.player_id, p));
     document.querySelectorAll(".nfl-views button").forEach(b =>
       b.onclick = () => { state.nhlTab = b.dataset.nhltab; render(); });
     document.querySelectorAll(".controls button[data-nhl]").forEach(b =>
@@ -3237,8 +3754,12 @@ function render() {
         <button data-nbatab="graded" aria-pressed="${state.nbaTab === "graded"}">graded${
           ng ? ` (${ng})` : ""}</button>
       </div>`;
-    document.getElementById("body").innerHTML = viewBar + bar
-      + (state.nbaTab === "graded" ? nbaGradeView() : searchBar + nbaView());
+    RAIL(viewBar, bar, state.nbaTab === "graded" ? "" : searchBar);
+    document.getElementById("body").innerHTML =
+      state.nbaTab === "graded" ? nbaGradeView() : nbaView();
+    if (state.nbaTab !== "graded" && state.nba)
+      wireTable("nba", state.nba.players, p => p.athlete_id,
+        p => openDrawer("nba", p.athlete_id, p));
     document.querySelectorAll(".nfl-views button").forEach(b =>
       b.onclick = () => { state.nbaTab = b.dataset.nbatab; render(); });
     document.querySelectorAll(".controls button[data-nba]").forEach(b =>
@@ -3260,8 +3781,12 @@ function render() {
         <button data-tdtab="graded" aria-pressed="${state.tdTab === "graded"}">graded${
           ng ? ` (${ng})` : ""}</button>
       </div>`;
-    document.getElementById("body").innerHTML = viewBar + tdBar
-      + (state.tdTab === "graded" ? tdGradeView() : searchBar + tdView());
+    RAIL(viewBar, tdBar, state.tdTab === "graded" ? "" : searchBar);
+    document.getElementById("body").innerHTML =
+      state.tdTab === "graded" ? tdGradeView() : tdView();
+    if (state.tdTab !== "graded" && state.td)
+      wireTable("td", state.td.players, p => p.player + p.team,
+        p => openDrawer("td", p.player + p.team, p));
     document.querySelectorAll(".nfl-views button").forEach(b =>
       b.onclick = () => { state.tdTab = b.dataset.tdtab; render(); });
     wire();
@@ -3291,10 +3816,12 @@ function render() {
         <button data-ptab="results" aria-pressed="${state.pickTab === "results"}">record${
           gr ? ` (${gr})` : ""}</button>
       </div>`;
-    document.getElementById("body").innerHTML = viewBar + leagueBar + resBar
-      + (state.pickTab === "results"
-         ? pickResults(src, state.league)
-         : searchBar + (state.league === "cfb" ? cfbView() : gamesView()));
+    RAIL(viewBar, leagueBar, resBar,
+         state.pickTab === "results" ? "" : searchBar);
+    document.getElementById("body").innerHTML =
+      state.pickTab === "results"
+        ? pickResults(src, state.league)
+        : (state.league === "cfb" ? cfbView() : gamesView());
     document.querySelectorAll(".res-tab button").forEach(b =>
       b.onclick = () => { state.pickTab = b.dataset.ptab; render(); });
     document.querySelectorAll(".nfl-views button").forEach(b =>
@@ -3323,9 +3850,10 @@ function render() {
         <button data-nfltab="projgrade" aria-pressed="${state.nflTab === "projgrade"}">model graded${
           state.recGrade && state.recGrade.graded ? ` (${state.recGrade.graded})` : ""}</button>
       </div>`;
-    document.getElementById("body").innerHTML = viewBar + nflBar + searchBar
-      + (state.nflTab === "graded" ? nflGraded()
-         : state.nflTab === "projgrade" ? recGradeView() : nflView());
+    RAIL(viewBar, nflBar, searchBar);
+    document.getElementById("body").innerHTML =
+      state.nflTab === "graded" ? nflGraded()
+        : state.nflTab === "projgrade" ? recGradeView() : nflView();
     document.querySelectorAll(".nfl-views button").forEach(b =>
       b.onclick = () => { state.nflTab = b.dataset.nfltab; render(); });
     const ws = document.getElementById("wsel");
@@ -3351,7 +3879,7 @@ function render() {
         nRes ? ` (${nRes})` : ""}</button>
     </div>`;
 
-  document.getElementById("body").innerHTML = viewBar + kBar + searchBar + `
+  const slateControls = `
     <div class="controls">
       <span>Sort by</span>
       <button data-sort="proj" aria-pressed="${state.sort === "proj"}">projection</button>
@@ -3363,7 +3891,9 @@ function render() {
       <button data-layout="compact" aria-pressed="${state.layout === "compact"}">table</button>
       <span aria-hidden="true">·</span>
       <button data-layout="matchup" aria-pressed="${state.layout === "matchup"}">matchups</button>
-    </div>
+    </div>`;
+  RAIL(viewBar, kBar, searchBar, slateControls);
+  document.getElementById("body").innerHTML = `
     ${state.layout === "compact" ? compactView(rows)
       : state.layout === "matchup" ? matchupView(rows)
       : `<div class="ledger">
