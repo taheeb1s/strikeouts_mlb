@@ -49,6 +49,28 @@ jobs:
 
       # Scoring pulls a season of nflverse data, so run it once a day rather
       # than on every hourly wake. 12:00 UTC is well after Monday night.
+      - name: Should we refresh NBA?
+        id: nbah
+        env:
+          FORCE: ${{ github.event.inputs.force_daily || 'false' }}
+        run: |
+          # NBA tips off around 00:00 UTC and injury news firms up through
+          # the afternoon, so refresh again at 21:00 and 23:00 UTC - after
+          # the morning build, close enough to tip to catch late scratches.
+          H=$(date -u +%H)
+          if [ "$H" = "21" ] || [ "$H" = "23" ] || [ "$FORCE" = "true" ]; then
+            echo "go=yes" >> "$GITHUB_OUTPUT"
+          else
+            echo "go=no" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Refresh NBA for late scratches
+        if: steps.nbah.outputs.go == 'yes'
+        continue-on-error: true
+        run: |
+          pip install sportsdataverse pandas pyarrow scikit-learn
+          python3 nba_model.py --json || echo "::warning::NBA refresh failed"
+
       - name: Should we run the daily jobs?
         id: sc
         env:
