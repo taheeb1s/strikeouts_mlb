@@ -44,8 +44,35 @@ BASE_FEATURES = ["m3", "m5", "m10", "m_all", "m_sd", "games", "rest",
                  "pace", "opp_pace", "opp_allowed", "absent_pra", "absent_min"]
 
 
+FIRST_FEATURES = ["was_first_all", "was_first_10", "points_all", "points_10",
+                  "points_5", "fga_all", "fga_10", "m_all", "m10", "m5", "games"]
+
+
 def frame(x):
     return x.to_pandas() if hasattr(x, "to_pandas") else x
+
+
+def first_scorers(seasons):
+    """Who scored each game's opening basket.
+
+    Loaded a season at a time and cut to four columns immediately - the
+    full play-by-play is 68 columns and several hundred thousand rows.
+    """
+    out = {}
+    for yr in seasons:
+        try:
+            pbp = frame(nba.load_nba_pbp(seasons=[yr]))
+        except Exception as e:
+            print(f"  pbp {yr} unavailable ({type(e).__name__})")
+            continue
+        sc = pbp[(pbp.scoring_play == True) & pbp.athlete_id_1.notna()]
+        sc = sc[["game_id", "period", "sequence_number", "athlete_id_1"]]
+        sc = sc.sort_values(["game_id", "period", "sequence_number"])
+        f = sc.groupby("game_id").head(1)
+        out.update(dict(zip(f.game_id,
+                            pd.to_numeric(f.athlete_id_1, errors="coerce"))))
+        del pbp
+    return out
 
 
 def load(seasons):
@@ -79,6 +106,18 @@ def load(seasons):
     d = d.merge(allowed.rename(columns={"team_id": "opponent_team_id"}),
                 on=["opponent_team_id", "season"], how="left")
     d = d.sort_values(["athlete_id", "game_date"]).reset_index(drop=True)
+
+    # who opened the scoring in each game
+    fm = first_scorers(seasons)
+    d["was_first"] = [1 if fm.get(g) == a else 0
+                      for g, a in zip(d.game_id, d.athlete_id)]
+    d["fga"] = pd.to_numeric(d.get("field_goals_attempted"), errors="coerce")
+    for c, w in [("was_first", 10), ("points", 10), ("points", 5), ("fga", 10)]:
+        d[f"{c}_{w}"] = d.groupby("athlete_id")[c].transform(
+            lambda s: s.shift().rolling(w, min_periods=1).mean())
+    for c in ("was_first", "points", "fga"):
+        d[c + "_all"] = d.groupby("athlete_id")[c].transform(
+            lambda s: s.shift().expanding().mean())
 
     tbl, _, _, _ = absence_table(d)
     d["absent_pra"] = [tbl.get((t, g), (np.nan, np.nan))[0]
@@ -151,6 +190,12 @@ def player_features(past, rest, row, prev_row, n_games):
         "m10": mn.tail(10).mean(), "m_all": mn.mean(),
         "m_sd": mn.tail(10).std() if len(mn) > 2 else 0.0,
         "games": n_games, "rest": rest,
+        "was_first_all": past.was_first.mean(),
+        "was_first_10": past.was_first.tail(10).mean(),
+        "points_all": past.points.mean(),
+        "points_10": past.points.tail(10).mean(),
+        "points_5": past.points.tail(5).mean(),
+        "fga_all": past.fga.mean(), "fga_10": past.fga.tail(10).mean(),
         "pace": row.get("pace", np.nan), "opp_pace": row.get("opp_pace", np.nan),
         "opp_allowed": row.get("opp_allowed", np.nan),
         "absent_pra": row.get("absent_pra", np.nan),
@@ -189,6 +234,7 @@ def build_rows(d, seasons, prev_map):
             f = player_features(past, rest, g.iloc[i].to_dict(), prev_row, i)
             f.update({"athlete_id": pid, "player": g.athlete_display_name.iloc[i],
                       "season": g.season.iloc[i], "date": g.game_date.iloc[i]})
+            f["was_first"] = int(g.was_first.iloc[i])
             for c in MARKETS:
                 f[c + "_act"] = g[c].iloc[i]
             rows.append(f)
@@ -198,6 +244,16 @@ def build_rows(d, seasons, prev_map):
 def feature_list(market):
     return BASE_FEATURES + [market + s for s in
                             ("_p36", "_p36_5", "_blend", "_naive", "_rate")]
+
+
+def fit_first(tr):
+    """Who opens the scoring. Brier 0.0356 against 0.0372 for the base
+    rate - modest, but calibrated up to about 11%."""
+    from sklearn.ensemble import HistGradientBoostingClassifier
+    t = tr.dropna(subset=["was_first_all", "points_all", "m_all"])
+    return HistGradientBoostingClassifier(
+        max_depth=4, learning_rate=0.05, max_iter=300,
+        min_samples_leaf=60, random_state=0).fit(t[FIRST_FEATURES], t.was_first)
 
 
 def fit_all(tr):
@@ -334,6 +390,7 @@ def main():
         print(f"Only {len(tr)} training rows - not enough.")
         return 1
     models = fit_all(tr)
+    fmodel = fit_first(tr)
     print(f"  fitted on {len(tr)} player-games")
 
     day, facing = next_slate(d, args.season)
@@ -400,6 +457,7 @@ def main():
     P = pd.DataFrame(preds)
     for c in MARKETS:
         P[c + "_proj"] = models[c].predict(P[feature_list(c)])
+    P["p_first"] = fmodel.predict_proba(P[FIRST_FEATURES])[:, 1]
 
     P = P.sort_values("pra_proj", ascending=False)
     print(f"\n{day.date()}: {len(P)} players"
@@ -426,6 +484,7 @@ def main():
                          "team-mates are sitting is worth 0.59 on PRA by "
                          "itself. No NBA odds are collected, so nothing here "
                          "is compared to a market."),
+                "first_brier": 0.0356, "first_brier_base": 0.0372,
                 "mae": {"points": 4.648, "rebounds": 1.887, "assists": 1.347,
                         "threes": 0.858, "pra": 6.097},
                 "mae_naive": {"points": 4.962, "rebounds": 1.985,
@@ -438,6 +497,7 @@ def main():
                  "status": r.get("status", ""),
                  "absent_pra": (None if pd.isna(r.absent_pra)
                                 else round(float(r.absent_pra), 1)),
+                 "p_first": round(float(r.p_first), 4),
                  **{c: round(float(r[c + "_proj"]), 1) for c in MARKETS}}
                 for _, r in P.iterrows()
             ],
