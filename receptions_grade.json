@@ -1,4 +1,1523 @@
 {
- "graded": 0,
- "generated_at": "2026-10-31T00:14:33+00:00"
+ "graded": 186,
+ "weeks": [
+  6,
+  7
+ ],
+ "model_mae": 1.651,
+ "naive_mae": 1.677,
+ "gap": 0.027,
+ "se": 0.5,
+ "market_mae": 1.43,
+ "by_pos": [
+  {
+   "pos": "WR",
+   "n": 108,
+   "model": 1.593,
+   "naive": 1.454
+  },
+  {
+   "pos": "TE",
+   "n": 47,
+   "model": 1.915,
+   "naive": 2.085
+  },
+  {
+   "pos": "RB",
+   "n": 31,
+   "model": 1.452,
+   "naive": 1.839
+  }
+ ],
+ "recent": [
+  {
+   "week": 7,
+   "player": "AJ Barner",
+   "pos": "TE",
+   "proj": 2.9,
+   "actual": 4,
+   "err": -1.1
+  },
+  {
+   "week": 7,
+   "player": "Aaron Jones",
+   "pos": "RB",
+   "proj": 1.9,
+   "actual": 1,
+   "err": 0.9
+  },
+  {
+   "week": 7,
+   "player": "Alvin Kamara",
+   "pos": "RB",
+   "proj": 2.6,
+   "actual": 7,
+   "err": -4.4
+  },
+  {
+   "week": 7,
+   "player": "Amon-Ra St. Brown",
+   "pos": "WR",
+   "proj": 5.2,
+   "actual": 9,
+   "err": -3.8
+  },
+  {
+   "week": 7,
+   "player": "Ashton Jeanty",
+   "pos": "RB",
+   "proj": 3.3,
+   "actual": 8,
+   "err": -4.7
+  },
+  {
+   "week": 7,
+   "player": "Bijan Robinson",
+   "pos": "RB",
+   "proj": 3.8,
+   "actual": 5,
+   "err": -1.2
+  },
+  {
+   "week": 7,
+   "player": "Bryce Lance",
+   "pos": "WR",
+   "proj": 1.0,
+   "actual": 2,
+   "err": -1.0
+  },
+  {
+   "week": 7,
+   "player": "Bucky Irving",
+   "pos": "RB",
+   "proj": 2.3,
+   "actual": 1,
+   "err": 1.3
+  },
+  {
+   "week": 7,
+   "player": "Cade Otton",
+   "pos": "TE",
+   "proj": 2.9,
+   "actual": 0,
+   "err": 2.9
+  },
+  {
+   "week": 7,
+   "player": "Carnell Tate",
+   "pos": "WR",
+   "proj": 4.3,
+   "actual": 5,
+   "err": -0.7
+  },
+  {
+   "week": 7,
+   "player": "CeeDee Lamb",
+   "pos": "WR",
+   "proj": 5.7,
+   "actual": 5,
+   "err": 0.7
+  },
+  {
+   "week": 7,
+   "player": "Chase Brown",
+   "pos": "RB",
+   "proj": 4.0,
+   "actual": 4,
+   "err": -0.0
+  },
+  {
+   "week": 7,
+   "player": "Chris Bell",
+   "pos": "WR",
+   "proj": 0.6,
+   "actual": 3,
+   "err": -2.4
+  },
+  {
+   "week": 7,
+   "player": "Chris Godwin Jr.",
+   "pos": "WR",
+   "proj": 3.8,
+   "actual": 4,
+   "err": -0.2
+  },
+  {
+   "week": 7,
+   "player": "Chris Olave",
+   "pos": "WR",
+   "proj": 5.2,
+   "actual": 6,
+   "err": -0.8
+  },
+  {
+   "week": 7,
+   "player": "Christian McCaffrey",
+   "pos": "RB",
+   "proj": 4.5,
+   "actual": 6,
+   "err": -1.5
+  },
+  {
+   "week": 7,
+   "player": "Christian Watson",
+   "pos": "WR",
+   "proj": 4.0,
+   "actual": 5,
+   "err": -1.0
+  },
+  {
+   "week": 7,
+   "player": "Cody White",
+   "pos": "WR",
+   "proj": 1.3,
+   "actual": 1,
+   "err": 0.3
+  },
+  {
+   "week": 7,
+   "player": "Colston Loveland",
+   "pos": "TE",
+   "proj": 3.0,
+   "actual": 7,
+   "err": -4.0
+  },
+  {
+   "week": 7,
+   "player": "Cooper Kupp",
+   "pos": "WR",
+   "proj": 2.8,
+   "actual": 2,
+   "err": 0.8
+  },
+  {
+   "week": 7,
+   "player": "Courtland Sutton",
+   "pos": "WR",
+   "proj": 2.5,
+   "actual": 3,
+   "err": -0.5
+  },
+  {
+   "week": 7,
+   "player": "D'Andre Swift",
+   "pos": "RB",
+   "proj": 2.6,
+   "actual": 4,
+   "err": -1.4
+  },
+  {
+   "week": 7,
+   "player": "DK Metcalf",
+   "pos": "WR",
+   "proj": 4.4,
+   "actual": 2,
+   "err": 2.4
+  },
+  {
+   "week": 7,
+   "player": "Dalton Schultz",
+   "pos": "TE",
+   "proj": 4.4,
+   "actual": 5,
+   "err": -0.6
+  },
+  {
+   "week": 7,
+   "player": "Darius Cooper",
+   "pos": "WR",
+   "proj": 1.7,
+   "actual": 1,
+   "err": 0.7
+  },
+  {
+   "week": 7,
+   "player": "Darnell Mooney",
+   "pos": "WR",
+   "proj": 1.6,
+   "actual": 1,
+   "err": 0.6
+  },
+  {
+   "week": 7,
+   "player": "Darnell Washington",
+   "pos": "TE",
+   "proj": 2.9,
+   "actual": 1,
+   "err": 1.9
+  },
+  {
+   "week": 7,
+   "player": "Darren Waller",
+   "pos": "TE",
+   "proj": 3.2,
+   "actual": 1,
+   "err": 2.2
+  },
+  {
+   "week": 7,
+   "player": "DeMario Douglas",
+   "pos": "WR",
+   "proj": 2.6,
+   "actual": 3,
+   "err": -0.4
+  },
+  {
+   "week": 7,
+   "player": "Denzel Boston",
+   "pos": "WR",
+   "proj": 3.2,
+   "actual": 3,
+   "err": 0.2
+  },
+  {
+   "week": 7,
+   "player": "Devaughn Vele",
+   "pos": "WR",
+   "proj": 3.9,
+   "actual": 5,
+   "err": -1.1
+  },
+  {
+   "week": 7,
+   "player": "Dohnte Meyers",
+   "pos": "WR",
+   "proj": 2.9,
+   "actual": 0,
+   "err": 2.9
+  },
+  {
+   "week": 7,
+   "player": "Drake London",
+   "pos": "WR",
+   "proj": 4.9,
+   "actual": 7,
+   "err": -2.1
+  },
+  {
+   "week": 7,
+   "player": "Evan Engram",
+   "pos": "TE",
+   "proj": 2.2,
+   "actual": 1,
+   "err": 1.2
+  },
+  {
+   "week": 7,
+   "player": "Garrett Wilson",
+   "pos": "WR",
+   "proj": 5.1,
+   "actual": 2,
+   "err": 3.1
+  },
+  {
+   "week": 7,
+   "player": "George Kittle",
+   "pos": "TE",
+   "proj": 4.3,
+   "actual": 8,
+   "err": -3.7
+  },
+  {
+   "week": 7,
+   "player": "George Pickens",
+   "pos": "WR",
+   "proj": 4.8,
+   "actual": 4,
+   "err": 0.8
+  },
+  {
+   "week": 7,
+   "player": "Germie Bernard",
+   "pos": "WR",
+   "proj": 4.4,
+   "actual": 3,
+   "err": 1.4
+  },
+  {
+   "week": 7,
+   "player": "Harold Fannin Jr.",
+   "pos": "TE",
+   "proj": 3.3,
+   "actual": 6,
+   "err": -2.7
+  },
+  {
+   "week": 7,
+   "player": "Hunter Henry",
+   "pos": "TE",
+   "proj": 2.7,
+   "actual": 7,
+   "err": -4.3
+  },
+  {
+   "week": 7,
+   "player": "Isaac TeSlaa",
+   "pos": "WR",
+   "proj": 2.3,
+   "actual": 1,
+   "err": 1.3
+  },
+  {
+   "week": 7,
+   "player": "Isaiah Likely",
+   "pos": "TE",
+   "proj": 5.7,
+   "actual": 2,
+   "err": 3.7
+  },
+  {
+   "week": 7,
+   "player": "Ja'Marr Chase",
+   "pos": "WR",
+   "proj": 4.8,
+   "actual": 5,
+   "err": -0.2
+  },
+  {
+   "week": 7,
+   "player": "Jahan Dotson",
+   "pos": "WR",
+   "proj": 2.0,
+   "actual": 1,
+   "err": 1.0
+  },
+  {
+   "week": 7,
+   "player": "Jahmyr Gibbs",
+   "pos": "RB",
+   "proj": 4.7,
+   "actual": 5,
+   "err": -0.3
+  },
+  {
+   "week": 7,
+   "player": "Jake Ferguson",
+   "pos": "TE",
+   "proj": 2.5,
+   "actual": 0,
+   "err": 2.5
+  },
+  {
+   "week": 7,
+   "player": "Jameson Williams",
+   "pos": "WR",
+   "proj": 2.9,
+   "actual": 5,
+   "err": -2.1
+  },
+  {
+   "week": 7,
+   "player": "Javonte Williams",
+   "pos": "RB",
+   "proj": 2.2,
+   "actual": 0,
+   "err": 2.2
+  },
+  {
+   "week": 7,
+   "player": "Jaxon Smith-Njigba",
+   "pos": "WR",
+   "proj": 6.1,
+   "actual": 9,
+   "err": -2.9
+  },
+  {
+   "week": 7,
+   "player": "Jaylen Waddle",
+   "pos": "WR",
+   "proj": 3.3,
+   "actual": 4,
+   "err": -0.7
+  },
+  {
+   "week": 7,
+   "player": "Jaylen Warren",
+   "pos": "RB",
+   "proj": 2.9,
+   "actual": 3,
+   "err": -0.1
+  },
+  {
+   "week": 7,
+   "player": "Jaylin Noel",
+   "pos": "WR",
+   "proj": 2.6,
+   "actual": 2,
+   "err": 0.6
+  },
+  {
+   "week": 7,
+   "player": "Jerry Jeudy",
+   "pos": "WR",
+   "proj": 2.5,
+   "actual": 4,
+   "err": -1.5
+  },
+  {
+   "week": 7,
+   "player": "Jonathan Taylor",
+   "pos": "RB",
+   "proj": 2.0,
+   "actual": 2,
+   "err": 0.0
+  },
+  {
+   "week": 7,
+   "player": "Josh Downs",
+   "pos": "WR",
+   "proj": 3.3,
+   "actual": 2,
+   "err": 1.3
+  },
+  {
+   "week": 7,
+   "player": "Juwan Johnson",
+   "pos": "TE",
+   "proj": 3.2,
+   "actual": 1,
+   "err": 2.2
+  },
+  {
+   "week": 7,
+   "player": "KC Concepcion",
+   "pos": "WR",
+   "proj": 3.1,
+   "actual": 8,
+   "err": -4.9
+  },
+  {
+   "week": 7,
+   "player": "Kalif Raymond",
+   "pos": "WR",
+   "proj": 4.2,
+   "actual": 0,
+   "err": 4.2
+  },
+  {
+   "week": 7,
+   "player": "Kayshon Boutte",
+   "pos": "WR",
+   "proj": 2.3,
+   "actual": 1,
+   "err": 1.3
+  },
+  {
+   "week": 7,
+   "player": "Keenan Allen",
+   "pos": "WR",
+   "proj": 3.9,
+   "actual": 3,
+   "err": 0.9
+  },
+  {
+   "week": 7,
+   "player": "Kendrick Bourne",
+   "pos": "WR",
+   "proj": 4.4,
+   "actual": 3,
+   "err": 1.4
+  },
+  {
+   "week": 7,
+   "player": "Kenneth Walker III",
+   "pos": "RB",
+   "proj": 2.0,
+   "actual": 4,
+   "err": -2.0
+  },
+  {
+   "week": 7,
+   "player": "Kenny Gainwell",
+   "pos": "RB",
+   "proj": 1.9,
+   "actual": 0,
+   "err": 1.9
+  },
+  {
+   "week": 7,
+   "player": "Kenyon Sadiq",
+   "pos": "TE",
+   "proj": 2.9,
+   "actual": 1,
+   "err": 1.9
+  },
+  {
+   "week": 7,
+   "player": "Konata Mumpfield",
+   "pos": "WR",
+   "proj": 1.7,
+   "actual": 1,
+   "err": 0.7
+  },
+  {
+   "week": 7,
+   "player": "Kyle Pitts",
+   "pos": "TE",
+   "proj": 3.1,
+   "actual": 5,
+   "err": -1.9
+  },
+  {
+   "week": 7,
+   "player": "Kyren Williams",
+   "pos": "RB",
+   "proj": 4.0,
+   "actual": 2,
+   "err": 2.0
+  },
+  {
+   "week": 7,
+   "player": "Laquon Treadwell",
+   "pos": "WR",
+   "proj": 2.5,
+   "actual": 2,
+   "err": 0.5
+  },
+  {
+   "week": 7,
+   "player": "Luther Burden III",
+   "pos": "WR",
+   "proj": 4.4,
+   "actual": 4,
+   "err": 0.4
+  },
+  {
+   "week": 7,
+   "player": "Makai Lemon",
+   "pos": "WR",
+   "proj": 3.0,
+   "actual": 7,
+   "err": -4.0
+  },
+  {
+   "week": 7,
+   "player": "Malachi Fields",
+   "pos": "WR",
+   "proj": 2.1,
+   "actual": 4,
+   "err": -1.9
+  },
+  {
+   "week": 7,
+   "player": "Malik Nabers",
+   "pos": "WR",
+   "proj": 5.4,
+   "actual": 7,
+   "err": -1.6
+  },
+  {
+   "week": 7,
+   "player": "Malik Washington",
+   "pos": "WR",
+   "proj": 4.6,
+   "actual": 3,
+   "err": 1.6
+  },
+  {
+   "week": 7,
+   "player": "Mark Andrews",
+   "pos": "TE",
+   "proj": 3.3,
+   "actual": 3,
+   "err": 0.3
+  },
+  {
+   "week": 7,
+   "player": "Marvin Harrison Jr.",
+   "pos": "WR",
+   "proj": 1.6,
+   "actual": 1,
+   "err": 0.6
+  },
+  {
+   "week": 7,
+   "player": "Matthew Golden",
+   "pos": "WR",
+   "proj": 4.3,
+   "actual": 6,
+   "err": -1.7
+  },
+  {
+   "week": 7,
+   "player": "Michael Mayer",
+   "pos": "TE",
+   "proj": 4.2,
+   "actual": 3,
+   "err": 1.2
+  },
+  {
+   "week": 7,
+   "player": "Michael Wilson",
+   "pos": "WR",
+   "proj": 4.8,
+   "actual": 4,
+   "err": 0.8
+  },
+  {
+   "week": 7,
+   "player": "Pat Freiermuth",
+   "pos": "TE",
+   "proj": 3.0,
+   "actual": 2,
+   "err": 1.0
+  },
+  {
+   "week": 7,
+   "player": "Quinshon Judkins",
+   "pos": "RB",
+   "proj": 2.8,
+   "actual": 1,
+   "err": 1.8
+  },
+  {
+   "week": 7,
+   "player": "RJ Harvey",
+   "pos": "RB",
+   "proj": 4.0,
+   "actual": 2,
+   "err": 2.0
+  },
+  {
+   "week": 7,
+   "player": "Rashid Shaheed",
+   "pos": "WR",
+   "proj": 2.1,
+   "actual": 2,
+   "err": 0.1
+  },
+  {
+   "week": 7,
+   "player": "Rashod Bateman",
+   "pos": "WR",
+   "proj": 1.9,
+   "actual": 2,
+   "err": -0.1
+  },
+  {
+   "week": 7,
+   "player": "Rhamondre Stevenson",
+   "pos": "RB",
+   "proj": 1.6,
+   "actual": 5,
+   "err": -3.4
+  },
+  {
+   "week": 7,
+   "player": "Rome Odunze",
+   "pos": "WR",
+   "proj": 3.2,
+   "actual": 4,
+   "err": -0.8
+  },
+  {
+   "week": 7,
+   "player": "Ryan Flournoy",
+   "pos": "WR",
+   "proj": 3.2,
+   "actual": 4,
+   "err": -0.8
+  },
+  {
+   "week": 7,
+   "player": "Sam LaPorta",
+   "pos": "TE",
+   "proj": 4.8,
+   "actual": 1,
+   "err": 3.8
+  },
+  {
+   "week": 7,
+   "player": "T.J. Hockenson",
+   "pos": "TE",
+   "proj": 4.2,
+   "actual": 4,
+   "err": 0.2
+  },
+  {
+   "week": 7,
+   "player": "Ted Hurst III",
+   "pos": "WR",
+   "proj": 2.0,
+   "actual": 0,
+   "err": 2.0
+  },
+  {
+   "week": 7,
+   "player": "Tee Higgins",
+   "pos": "WR",
+   "proj": 4.7,
+   "actual": 6,
+   "err": -1.3
+  },
+  {
+   "week": 7,
+   "player": "Tetairoa McMillan",
+   "pos": "WR",
+   "proj": 5.4,
+   "actual": 4,
+   "err": 1.4
+  },
+  {
+   "week": 7,
+   "player": "Tommy Tremble",
+   "pos": "TE",
+   "proj": 2.8,
+   "actual": 1,
+   "err": 1.8
+  },
+  {
+   "week": 7,
+   "player": "Travis Kelce",
+   "pos": "TE",
+   "proj": 3.3,
+   "actual": 4,
+   "err": -0.7
+  },
+  {
+   "week": 7,
+   "player": "Tre Tucker",
+   "pos": "WR",
+   "proj": 2.8,
+   "actual": 5,
+   "err": -2.2
+  },
+  {
+   "week": 7,
+   "player": "Trey McBride",
+   "pos": "TE",
+   "proj": 6.8,
+   "actual": 10,
+   "err": -3.2
+  },
+  {
+   "week": 7,
+   "player": "Tucker Kraft",
+   "pos": "TE",
+   "proj": 3.5,
+   "actual": 4,
+   "err": -0.5
+  },
+  {
+   "week": 7,
+   "player": "Tyler Higbee",
+   "pos": "TE",
+   "proj": 4.2,
+   "actual": 2,
+   "err": 2.2
+  },
+  {
+   "week": 7,
+   "player": "Wan'Dale Robinson",
+   "pos": "WR",
+   "proj": 3.4,
+   "actual": 4,
+   "err": -0.6
+  },
+  {
+   "week": 7,
+   "player": "Woody Marks",
+   "pos": "RB",
+   "proj": 1.7,
+   "actual": 1,
+   "err": 0.7
+  },
+  {
+   "week": 7,
+   "player": "Xavier Hutchinson",
+   "pos": "WR",
+   "proj": 2.8,
+   "actual": 3,
+   "err": -0.2
+  },
+  {
+   "week": 7,
+   "player": "Xavier Worthy",
+   "pos": "WR",
+   "proj": 3.2,
+   "actual": 3,
+   "err": 0.2
+  },
+  {
+   "week": 7,
+   "player": "Zay Flowers",
+   "pos": "WR",
+   "proj": 6.7,
+   "actual": 8,
+   "err": -1.3
+  },
+  {
+   "week": 6,
+   "player": "AJ Barner",
+   "pos": "TE",
+   "proj": 2.5,
+   "actual": 3,
+   "err": -0.5
+  },
+  {
+   "week": 6,
+   "player": "Antonio Williams",
+   "pos": "WR",
+   "proj": 2.8,
+   "actual": 3,
+   "err": -0.2
+  },
+  {
+   "week": 6,
+   "player": "Ashton Jeanty",
+   "pos": "RB",
+   "proj": 4.4,
+   "actual": 4,
+   "err": 0.4
+  },
+  {
+   "week": 6,
+   "player": "Bijan Robinson",
+   "pos": "RB",
+   "proj": 3.6,
+   "actual": 2,
+   "err": 1.6
+  },
+  {
+   "week": 6,
+   "player": "Brenton Strange",
+   "pos": "TE",
+   "proj": 3.8,
+   "actual": 5,
+   "err": -1.2
+  },
+  {
+   "week": 6,
+   "player": "Brian Thomas Jr.",
+   "pos": "WR",
+   "proj": 1.6,
+   "actual": 0,
+   "err": 1.6
+  },
+  {
+   "week": 6,
+   "player": "Bryce Lance",
+   "pos": "WR",
+   "proj": 1.0,
+   "actual": 2,
+   "err": -1.0
+  },
+  {
+   "week": 6,
+   "player": "Bucky Irving",
+   "pos": "RB",
+   "proj": 2.1,
+   "actual": 2,
+   "err": 0.1
+  },
+  {
+   "week": 6,
+   "player": "Cade Otton",
+   "pos": "TE",
+   "proj": 3.2,
+   "actual": 1,
+   "err": 2.2
+  },
+  {
+   "week": 6,
+   "player": "Carnell Tate",
+   "pos": "WR",
+   "proj": 4.2,
+   "actual": 6,
+   "err": -1.8
+  },
+  {
+   "week": 6,
+   "player": "CeeDee Lamb",
+   "pos": "WR",
+   "proj": 7.2,
+   "actual": 9,
+   "err": -1.8
+  },
+  {
+   "week": 6,
+   "player": "Chris Godwin Jr.",
+   "pos": "WR",
+   "proj": 2.7,
+   "actual": 4,
+   "err": -1.3
+  },
+  {
+   "week": 6,
+   "player": "Chris Olave",
+   "pos": "WR",
+   "proj": 6.9,
+   "actual": 4,
+   "err": 2.9
+  },
+  {
+   "week": 6,
+   "player": "Christian McCaffrey",
+   "pos": "RB",
+   "proj": 3.3,
+   "actual": 9,
+   "err": -5.7
+  },
+  {
+   "week": 6,
+   "player": "Christian Watson",
+   "pos": "WR",
+   "proj": 3.8,
+   "actual": 3,
+   "err": 0.8
+  },
+  {
+   "week": 6,
+   "player": "Colston Loveland",
+   "pos": "TE",
+   "proj": 3.1,
+   "actual": 6,
+   "err": -2.9
+  },
+  {
+   "week": 6,
+   "player": "Cooper Kupp",
+   "pos": "WR",
+   "proj": 1.7,
+   "actual": 5,
+   "err": -3.3
+  },
+  {
+   "week": 6,
+   "player": "Courtland Sutton",
+   "pos": "WR",
+   "proj": 2.4,
+   "actual": 2,
+   "err": 0.4
+  },
+  {
+   "week": 6,
+   "player": "D'Andre Swift",
+   "pos": "RB",
+   "proj": 2.5,
+   "actual": 4,
+   "err": -1.5
+  },
+  {
+   "week": 6,
+   "player": "DK Metcalf",
+   "pos": "WR",
+   "proj": 3.1,
+   "actual": 11,
+   "err": -7.9
+  },
+  {
+   "week": 6,
+   "player": "Dalton Kincaid",
+   "pos": "TE",
+   "proj": 3.0,
+   "actual": 7,
+   "err": -4.0
+  },
+  {
+   "week": 6,
+   "player": "Dalton Schultz",
+   "pos": "TE",
+   "proj": 4.7,
+   "actual": 4,
+   "err": 0.7
+  },
+  {
+   "week": 6,
+   "player": "Darnell Mooney",
+   "pos": "WR",
+   "proj": 1.6,
+   "actual": 0,
+   "err": 1.6
+  },
+  {
+   "week": 6,
+   "player": "Darnell Washington",
+   "pos": "TE",
+   "proj": 2.4,
+   "actual": 4,
+   "err": -1.6
+  },
+  {
+   "week": 6,
+   "player": "Davante Adams",
+   "pos": "WR",
+   "proj": 4.2,
+   "actual": 3,
+   "err": 1.2
+  },
+  {
+   "week": 6,
+   "player": "DeMario Douglas",
+   "pos": "WR",
+   "proj": 2.7,
+   "actual": 7,
+   "err": -4.3
+  },
+  {
+   "week": 6,
+   "player": "Denzel Boston",
+   "pos": "WR",
+   "proj": 3.2,
+   "actual": 1,
+   "err": 2.2
+  },
+  {
+   "week": 6,
+   "player": "Devaughn Vele",
+   "pos": "WR",
+   "proj": 4.2,
+   "actual": 3,
+   "err": 1.2
+  },
+  {
+   "week": 6,
+   "player": "Dontayvion Wicks",
+   "pos": "WR",
+   "proj": 3.5,
+   "actual": 2,
+   "err": 1.5
+  },
+  {
+   "week": 6,
+   "player": "Drake London",
+   "pos": "WR",
+   "proj": 4.8,
+   "actual": 4,
+   "err": 0.8
+  },
+  {
+   "week": 6,
+   "player": "Dyami Brown",
+   "pos": "WR",
+   "proj": 1.5,
+   "actual": 1,
+   "err": 0.5
+  },
+  {
+   "week": 6,
+   "player": "Emeka Egbuka",
+   "pos": "WR",
+   "proj": 3.2,
+   "actual": 7,
+   "err": -3.8
+  },
+  {
+   "week": 6,
+   "player": "Evan Engram",
+   "pos": "TE",
+   "proj": 2.3,
+   "actual": 2,
+   "err": 0.3
+  },
+  {
+   "week": 6,
+   "player": "Garrett Wilson",
+   "pos": "WR",
+   "proj": 6.5,
+   "actual": 4,
+   "err": 2.5
+  },
+  {
+   "week": 6,
+   "player": "George Kittle",
+   "pos": "TE",
+   "proj": 3.9,
+   "actual": 5,
+   "err": -1.1
+  },
+  {
+   "week": 6,
+   "player": "George Pickens",
+   "pos": "WR",
+   "proj": 4.5,
+   "actual": 6,
+   "err": -1.5
+  },
+  {
+   "week": 6,
+   "player": "Harold Fannin Jr.",
+   "pos": "TE",
+   "proj": 3.4,
+   "actual": 1,
+   "err": 2.4
+  },
+  {
+   "week": 6,
+   "player": "Hunter Henry",
+   "pos": "TE",
+   "proj": 2.8,
+   "actual": 4,
+   "err": -1.2
+  },
+  {
+   "week": 6,
+   "player": "Isaiah Likely",
+   "pos": "TE",
+   "proj": 5.8,
+   "actual": 6,
+   "err": -0.2
+  },
+  {
+   "week": 6,
+   "player": "Jahan Dotson",
+   "pos": "WR",
+   "proj": 1.0,
+   "actual": 3,
+   "err": -2.0
+  },
+  {
+   "week": 6,
+   "player": "Jake Ferguson",
+   "pos": "TE",
+   "proj": 3.2,
+   "actual": 2,
+   "err": 1.2
+  },
+  {
+   "week": 6,
+   "player": "Jakobi Meyers",
+   "pos": "WR",
+   "proj": 2.8,
+   "actual": 5,
+   "err": -2.2
+  },
+  {
+   "week": 6,
+   "player": "Javonte Williams",
+   "pos": "RB",
+   "proj": 2.5,
+   "actual": 2,
+   "err": 0.5
+  },
+  {
+   "week": 6,
+   "player": "Jaxon Smith-Njigba",
+   "pos": "WR",
+   "proj": 6.6,
+   "actual": 12,
+   "err": -5.4
+  },
+  {
+   "week": 6,
+   "player": "Jaylen Waddle",
+   "pos": "WR",
+   "proj": 3.3,
+   "actual": 4,
+   "err": -0.7
+  },
+  {
+   "week": 6,
+   "player": "Jaylen Warren",
+   "pos": "RB",
+   "proj": 2.8,
+   "actual": 2,
+   "err": 0.8
+  },
+  {
+   "week": 6,
+   "player": "Jaylin Noel",
+   "pos": "WR",
+   "proj": 2.6,
+   "actual": 4,
+   "err": -1.4
+  },
+  {
+   "week": 6,
+   "player": "Jonathan Taylor",
+   "pos": "RB",
+   "proj": 2.4,
+   "actual": 2,
+   "err": 0.4
+  },
+  {
+   "week": 6,
+   "player": "Josh Downs",
+   "pos": "WR",
+   "proj": 3.2,
+   "actual": 4,
+   "err": -0.8
+  },
+  {
+   "week": 6,
+   "player": "Juwan Johnson",
+   "pos": "TE",
+   "proj": 4.3,
+   "actual": 0,
+   "err": 4.3
+  },
+  {
+   "week": 6,
+   "player": "KC Concepcion",
+   "pos": "WR",
+   "proj": 3.3,
+   "actual": 4,
+   "err": -0.7
+  },
+  {
+   "week": 6,
+   "player": "Kalif Raymond",
+   "pos": "WR",
+   "proj": 5.3,
+   "actual": 2,
+   "err": 3.3
+  },
+  {
+   "week": 6,
+   "player": "Kayshon Boutte",
+   "pos": "WR",
+   "proj": 2.0,
+   "actual": 2,
+   "err": -0.0
+  },
+  {
+   "week": 6,
+   "player": "Kenny Gainwell",
+   "pos": "RB",
+   "proj": 1.9,
+   "actual": 1,
+   "err": 0.9
+  },
+  {
+   "week": 6,
+   "player": "Kenyon Sadiq",
+   "pos": "TE",
+   "proj": 3.2,
+   "actual": 1,
+   "err": 2.2
+  },
+  {
+   "week": 6,
+   "player": "Keon Coleman",
+   "pos": "WR",
+   "proj": 2.5,
+   "actual": 4,
+   "err": -1.5
+  },
+  {
+   "week": 6,
+   "player": "Khalil Shakir",
+   "pos": "WR",
+   "proj": 3.1,
+   "actual": 4,
+   "err": -0.9
+  },
+  {
+   "week": 6,
+   "player": "Kyle Pitts",
+   "pos": "TE",
+   "proj": 2.0,
+   "actual": 5,
+   "err": -3.0
+  },
+  {
+   "week": 6,
+   "player": "Kyren Williams",
+   "pos": "RB",
+   "proj": 3.5,
+   "actual": 3,
+   "err": 0.5
+  },
+  {
+   "week": 6,
+   "player": "Laquon Treadwell",
+   "pos": "WR",
+   "proj": 2.3,
+   "actual": 2,
+   "err": 0.3
+  },
+  {
+   "week": 6,
+   "player": "Luther Burden III",
+   "pos": "WR",
+   "proj": 4.1,
+   "actual": 8,
+   "err": -3.9
+  },
+  {
+   "week": 6,
+   "player": "Makai Lemon",
+   "pos": "WR",
+   "proj": 3.3,
+   "actual": 3,
+   "err": 0.3
+  },
+  {
+   "week": 6,
+   "player": "Malachi Fields",
+   "pos": "WR",
+   "proj": 1.7,
+   "actual": 2,
+   "err": -0.3
+  },
+  {
+   "week": 6,
+   "player": "Malik Nabers",
+   "pos": "WR",
+   "proj": 6.2,
+   "actual": 12,
+   "err": -5.8
+  },
+  {
+   "week": 6,
+   "player": "Mark Andrews",
+   "pos": "TE",
+   "proj": 4.3,
+   "actual": 1,
+   "err": 3.3
+  },
+  {
+   "week": 6,
+   "player": "Matthew Golden",
+   "pos": "WR",
+   "proj": 4.2,
+   "actual": 6,
+   "err": -1.8
+  },
+  {
+   "week": 6,
+   "player": "Michael Mayer",
+   "pos": "TE",
+   "proj": 3.5,
+   "actual": 7,
+   "err": -3.5
+  },
+  {
+   "week": 6,
+   "player": "Michael Wilson",
+   "pos": "WR",
+   "proj": 6.6,
+   "actual": 4,
+   "err": 2.6
+  },
+  {
+   "week": 6,
+   "player": "Mike Evans",
+   "pos": "WR",
+   "proj": 4.7,
+   "actual": 3,
+   "err": 1.7
+  },
+  {
+   "week": 6,
+   "player": "Oronde Gadsden II",
+   "pos": "TE",
+   "proj": 2.2,
+   "actual": 3,
+   "err": -0.8
+  },
+  {
+   "week": 6,
+   "player": "Parker Washington",
+   "pos": "WR",
+   "proj": 4.0,
+   "actual": 4,
+   "err": 0.0
+  },
+  {
+   "week": 6,
+   "player": "Pat Freiermuth",
+   "pos": "TE",
+   "proj": 3.1,
+   "actual": 2,
+   "err": 1.1
+  },
+  {
+   "week": 6,
+   "player": "Rashid Shaheed",
+   "pos": "WR",
+   "proj": 2.4,
+   "actual": 5,
+   "err": -2.6
+  },
+  {
+   "week": 6,
+   "player": "Rashod Bateman",
+   "pos": "WR",
+   "proj": 2.6,
+   "actual": 0,
+   "err": 2.6
+  },
+  {
+   "week": 6,
+   "player": "Rhamondre Stevenson",
+   "pos": "RB",
+   "proj": 2.4,
+   "actual": 0,
+   "err": 2.4
+  },
+  {
+   "week": 6,
+   "player": "Rome Odunze",
+   "pos": "WR",
+   "proj": 3.4,
+   "actual": 3,
+   "err": 0.4
+  },
+  {
+   "week": 6,
+   "player": "Romeo Doubs",
+   "pos": "WR",
+   "proj": 2.8,
+   "actual": 1,
+   "err": 1.8
+  },
+  {
+   "week": 6,
+   "player": "Ryan Flournoy",
+   "pos": "WR",
+   "proj": 2.8,
+   "actual": 7,
+   "err": -4.2
+  },
+  {
+   "week": 6,
+   "player": "Tre Tucker",
+   "pos": "WR",
+   "proj": 3.3,
+   "actual": 5,
+   "err": -1.7
+  },
+  {
+   "week": 6,
+   "player": "Trey McBride",
+   "pos": "TE",
+   "proj": 7.3,
+   "actual": 7,
+   "err": 0.3
+  },
+  {
+   "week": 6,
+   "player": "Tucker Kraft",
+   "pos": "TE",
+   "proj": 3.7,
+   "actual": 5,
+   "err": -1.3
+  },
+  {
+   "week": 6,
+   "player": "Tyjae Spears",
+   "pos": "RB",
+   "proj": 2.4,
+   "actual": 1,
+   "err": 1.4
+  },
+  {
+   "week": 6,
+   "player": "Wan'Dale Robinson",
+   "pos": "WR",
+   "proj": 4.2,
+   "actual": 3,
+   "err": 1.2
+  },
+  {
+   "week": 6,
+   "player": "Xavier Hutchinson",
+   "pos": "WR",
+   "proj": 3.1,
+   "actual": 2,
+   "err": 1.1
+  }
+ ],
+ "generated_at": "2026-10-31T01:42:33+00:00"
 }

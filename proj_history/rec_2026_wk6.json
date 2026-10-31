@@ -1,0 +1,808 @@
+{
+ "season": 2026,
+ "week": 6,
+ "reconstructed": true,
+ "players": [
+  {
+   "player": "AJ Barner",
+   "team": "SEA",
+   "opponent": "DEN",
+   "pos": "TE",
+   "proj": 2.51,
+   "season_avg": 2.4,
+   "targets_recent": 4.0
+  },
+  {
+   "player": "Antonio Williams",
+   "team": "WAS",
+   "opponent": "SF",
+   "pos": "WR",
+   "proj": 2.79,
+   "season_avg": 3.0,
+   "targets_recent": 4.4
+  },
+  {
+   "player": "Ashton Jeanty",
+   "team": "LV",
+   "opponent": "BUF",
+   "pos": "RB",
+   "proj": 4.38,
+   "season_avg": 4.4,
+   "targets_recent": 6.0
+  },
+  {
+   "player": "Bijan Robinson",
+   "team": "ATL",
+   "opponent": "CHI",
+   "pos": "RB",
+   "proj": 3.61,
+   "season_avg": 3.6,
+   "targets_recent": 5.0
+  },
+  {
+   "player": "Brenton Strange",
+   "team": "JAX",
+   "opponent": "HOU",
+   "pos": "TE",
+   "proj": 3.81,
+   "season_avg": 4.2,
+   "targets_recent": 5.2
+  },
+  {
+   "player": "Brian Thomas Jr.",
+   "team": "JAX",
+   "opponent": "HOU",
+   "pos": "WR",
+   "proj": 1.56,
+   "season_avg": 1.8,
+   "targets_recent": 3.4
+  },
+  {
+   "player": "Bryce Lance",
+   "team": "NO",
+   "opponent": "NYG",
+   "pos": "WR",
+   "proj": 0.96,
+   "season_avg": 1.0,
+   "targets_recent": 3.2
+  },
+  {
+   "player": "Bucky Irving",
+   "team": "TB",
+   "opponent": "PIT",
+   "pos": "RB",
+   "proj": 2.07,
+   "season_avg": 3.0,
+   "targets_recent": 3.6
+  },
+  {
+   "player": "Cade Otton",
+   "team": "TB",
+   "opponent": "PIT",
+   "pos": "TE",
+   "proj": 3.23,
+   "season_avg": 3.6,
+   "targets_recent": 5.4
+  },
+  {
+   "player": "Carnell Tate",
+   "team": "TEN",
+   "opponent": "IND",
+   "pos": "WR",
+   "proj": 4.16,
+   "season_avg": 4.6,
+   "targets_recent": 7.4
+  },
+  {
+   "player": "CeeDee Lamb",
+   "team": "DAL",
+   "opponent": "GB",
+   "pos": "WR",
+   "proj": 7.25,
+   "season_avg": 7.8,
+   "targets_recent": 10.2
+  },
+  {
+   "player": "Chris Godwin Jr.",
+   "team": "TB",
+   "opponent": "PIT",
+   "pos": "WR",
+   "proj": 2.66,
+   "season_avg": 3.8,
+   "targets_recent": 4.2
+  },
+  {
+   "player": "Chris Olave",
+   "team": "NO",
+   "opponent": "NYG",
+   "pos": "WR",
+   "proj": 6.87,
+   "season_avg": 7.8,
+   "targets_recent": 10.8
+  },
+  {
+   "player": "Christian McCaffrey",
+   "team": "SF",
+   "opponent": "WAS",
+   "pos": "RB",
+   "proj": 3.28,
+   "season_avg": 3.8,
+   "targets_recent": 5.0
+  },
+  {
+   "player": "Christian Watson",
+   "team": "GB",
+   "opponent": "DAL",
+   "pos": "WR",
+   "proj": 3.79,
+   "season_avg": 5.2,
+   "targets_recent": 8.0
+  },
+  {
+   "player": "Colston Loveland",
+   "team": "CHI",
+   "opponent": "ATL",
+   "pos": "TE",
+   "proj": 3.06,
+   "season_avg": 2.6,
+   "targets_recent": 4.6
+  },
+  {
+   "player": "Cooper Kupp",
+   "team": "SEA",
+   "opponent": "DEN",
+   "pos": "WR",
+   "proj": 1.74,
+   "season_avg": 2.2,
+   "targets_recent": 3.0
+  },
+  {
+   "player": "Courtland Sutton",
+   "team": "DEN",
+   "opponent": "SEA",
+   "pos": "WR",
+   "proj": 2.42,
+   "season_avg": 2.2,
+   "targets_recent": 5.0
+  },
+  {
+   "player": "D'Andre Swift",
+   "team": "CHI",
+   "opponent": "ATL",
+   "pos": "RB",
+   "proj": 2.51,
+   "season_avg": 2.8,
+   "targets_recent": 3.2
+  },
+  {
+   "player": "DK Metcalf",
+   "team": "PIT",
+   "opponent": "TB",
+   "pos": "WR",
+   "proj": 3.12,
+   "season_avg": 3.8,
+   "targets_recent": 7.4
+  },
+  {
+   "player": "Dalton Kincaid",
+   "team": "BUF",
+   "opponent": "LV",
+   "pos": "TE",
+   "proj": 2.97,
+   "season_avg": 3.2,
+   "targets_recent": 4.2
+  },
+  {
+   "player": "Dalton Schultz",
+   "team": "HOU",
+   "opponent": "JAX",
+   "pos": "TE",
+   "proj": 4.66,
+   "season_avg": 4.8,
+   "targets_recent": 6.2
+  },
+  {
+   "player": "Darnell Mooney",
+   "team": "NYG",
+   "opponent": "NO",
+   "pos": "WR",
+   "proj": 1.64,
+   "season_avg": 1.6,
+   "targets_recent": 3.4
+  },
+  {
+   "player": "Darnell Washington",
+   "team": "PIT",
+   "opponent": "TB",
+   "pos": "TE",
+   "proj": 2.36,
+   "season_avg": 2.2,
+   "targets_recent": 3.2
+  },
+  {
+   "player": "Davante Adams",
+   "team": "LA",
+   "opponent": "ARI",
+   "pos": "WR",
+   "proj": 4.17,
+   "season_avg": 5.4,
+   "targets_recent": 9.0
+  },
+  {
+   "player": "DeMario Douglas",
+   "team": "NE",
+   "opponent": "NYJ",
+   "pos": "WR",
+   "proj": 2.69,
+   "season_avg": 2.6,
+   "targets_recent": 4.4
+  },
+  {
+   "player": "Deebo Samuel Sr.",
+   "team": "SF",
+   "opponent": "WAS",
+   "pos": "WR",
+   "proj": 2.6,
+   "season_avg": 3.2,
+   "targets_recent": 4.0
+  },
+  {
+   "player": "Denzel Boston",
+   "team": "CLE",
+   "opponent": "BAL",
+   "pos": "WR",
+   "proj": 3.2,
+   "season_avg": 3.2,
+   "targets_recent": 5.8
+  },
+  {
+   "player": "Devaughn Vele",
+   "team": "NO",
+   "opponent": "NYG",
+   "pos": "WR",
+   "proj": 4.19,
+   "season_avg": 5.0,
+   "targets_recent": 7.4
+  },
+  {
+   "player": "Dontayvion Wicks",
+   "team": "PHI",
+   "opponent": "CAR",
+   "pos": "WR",
+   "proj": 3.48,
+   "season_avg": 3.4,
+   "targets_recent": 5.6
+  },
+  {
+   "player": "Drake London",
+   "team": "ATL",
+   "opponent": "CHI",
+   "pos": "WR",
+   "proj": 4.78,
+   "season_avg": 5.4,
+   "targets_recent": 7.2
+  },
+  {
+   "player": "Dyami Brown",
+   "team": "WAS",
+   "opponent": "SF",
+   "pos": "WR",
+   "proj": 1.53,
+   "season_avg": 1.6,
+   "targets_recent": 3.0
+  },
+  {
+   "player": "Emeka Egbuka",
+   "team": "TB",
+   "opponent": "PIT",
+   "pos": "WR",
+   "proj": 3.22,
+   "season_avg": 4.2,
+   "targets_recent": 6.6
+  },
+  {
+   "player": "Evan Engram",
+   "team": "DEN",
+   "opponent": "SEA",
+   "pos": "TE",
+   "proj": 2.28,
+   "season_avg": 2.0,
+   "targets_recent": 3.4
+  },
+  {
+   "player": "Garrett Wilson",
+   "team": "NYJ",
+   "opponent": "NE",
+   "pos": "WR",
+   "proj": 6.54,
+   "season_avg": 6.2,
+   "targets_recent": 8.4
+  },
+  {
+   "player": "George Kittle",
+   "team": "SF",
+   "opponent": "WAS",
+   "pos": "TE",
+   "proj": 3.92,
+   "season_avg": 4.2,
+   "targets_recent": 5.6
+  },
+  {
+   "player": "George Pickens",
+   "team": "DAL",
+   "opponent": "GB",
+   "pos": "WR",
+   "proj": 4.45,
+   "season_avg": 5.4,
+   "targets_recent": 8.2
+  },
+  {
+   "player": "Harold Fannin Jr.",
+   "team": "CLE",
+   "opponent": "BAL",
+   "pos": "TE",
+   "proj": 3.43,
+   "season_avg": 3.6,
+   "targets_recent": 5.4
+  },
+  {
+   "player": "Hunter Henry",
+   "team": "NE",
+   "opponent": "NYJ",
+   "pos": "TE",
+   "proj": 2.79,
+   "season_avg": 3.0,
+   "targets_recent": 3.8
+  },
+  {
+   "player": "Isaiah Likely",
+   "team": "NYG",
+   "opponent": "NO",
+   "pos": "TE",
+   "proj": 5.76,
+   "season_avg": 6.6,
+   "targets_recent": 9.6
+  },
+  {
+   "player": "Jahan Dotson",
+   "team": "ATL",
+   "opponent": "CHI",
+   "pos": "WR",
+   "proj": 1.02,
+   "season_avg": 1.6,
+   "targets_recent": 3.4
+  },
+  {
+   "player": "Jake Ferguson",
+   "team": "DAL",
+   "opponent": "GB",
+   "pos": "TE",
+   "proj": 3.25,
+   "season_avg": 3.0,
+   "targets_recent": 4.2
+  },
+  {
+   "player": "Jakobi Meyers",
+   "team": "JAX",
+   "opponent": "HOU",
+   "pos": "WR",
+   "proj": 2.78,
+   "season_avg": 3.0,
+   "targets_recent": 3.6
+  },
+  {
+   "player": "Javonte Williams",
+   "team": "DAL",
+   "opponent": "GB",
+   "pos": "RB",
+   "proj": 2.51,
+   "season_avg": 3.4,
+   "targets_recent": 4.0
+  },
+  {
+   "player": "Jaxon Smith-Njigba",
+   "team": "SEA",
+   "opponent": "DEN",
+   "pos": "WR",
+   "proj": 6.56,
+   "season_avg": 7.4,
+   "targets_recent": 10.0
+  },
+  {
+   "player": "Jaylen Waddle",
+   "team": "DEN",
+   "opponent": "SEA",
+   "pos": "WR",
+   "proj": 3.28,
+   "season_avg": 3.6,
+   "targets_recent": 6.2
+  },
+  {
+   "player": "Jaylen Warren",
+   "team": "PIT",
+   "opponent": "TB",
+   "pos": "RB",
+   "proj": 2.84,
+   "season_avg": 3.8,
+   "targets_recent": 5.2
+  },
+  {
+   "player": "Jaylin Noel",
+   "team": "HOU",
+   "opponent": "JAX",
+   "pos": "WR",
+   "proj": 2.61,
+   "season_avg": 2.6,
+   "targets_recent": 3.4
+  },
+  {
+   "player": "Jonathan Taylor",
+   "team": "IND",
+   "opponent": "TEN",
+   "pos": "RB",
+   "proj": 2.41,
+   "season_avg": 2.6,
+   "targets_recent": 3.8
+  },
+  {
+   "player": "Josh Downs",
+   "team": "IND",
+   "opponent": "TEN",
+   "pos": "WR",
+   "proj": 3.24,
+   "season_avg": 4.0,
+   "targets_recent": 6.8
+  },
+  {
+   "player": "Juwan Johnson",
+   "team": "NO",
+   "opponent": "NYG",
+   "pos": "TE",
+   "proj": 4.35,
+   "season_avg": 5.0,
+   "targets_recent": 6.4
+  },
+  {
+   "player": "KC Concepcion",
+   "team": "CLE",
+   "opponent": "BAL",
+   "pos": "WR",
+   "proj": 3.31,
+   "season_avg": 3.6,
+   "targets_recent": 5.8
+  },
+  {
+   "player": "Kalif Raymond",
+   "team": "CHI",
+   "opponent": "ATL",
+   "pos": "WR",
+   "proj": 5.34,
+   "season_avg": 4.8,
+   "targets_recent": 5.4
+  },
+  {
+   "player": "Kayshon Boutte",
+   "team": "HOU",
+   "opponent": "JAX",
+   "pos": "WR",
+   "proj": 1.97,
+   "season_avg": 2.4,
+   "targets_recent": 3.6
+  },
+  {
+   "player": "Kenny Gainwell",
+   "team": "TB",
+   "opponent": "PIT",
+   "pos": "RB",
+   "proj": 1.88,
+   "season_avg": 2.2,
+   "targets_recent": 3.2
+  },
+  {
+   "player": "Kenyon Sadiq",
+   "team": "NYJ",
+   "opponent": "NE",
+   "pos": "TE",
+   "proj": 3.22,
+   "season_avg": 2.8,
+   "targets_recent": 4.2
+  },
+  {
+   "player": "Keon Coleman",
+   "team": "BUF",
+   "opponent": "LV",
+   "pos": "WR",
+   "proj": 2.54,
+   "season_avg": 3.0,
+   "targets_recent": 3.6
+  },
+  {
+   "player": "Khalil Shakir",
+   "team": "BUF",
+   "opponent": "LV",
+   "pos": "WR",
+   "proj": 3.12,
+   "season_avg": 3.6,
+   "targets_recent": 5.2
+  },
+  {
+   "player": "Kyle Pitts",
+   "team": "ATL",
+   "opponent": "CHI",
+   "pos": "TE",
+   "proj": 1.97,
+   "season_avg": 2.0,
+   "targets_recent": 3.0
+  },
+  {
+   "player": "Kyren Williams",
+   "team": "LA",
+   "opponent": "ARI",
+   "pos": "RB",
+   "proj": 3.47,
+   "season_avg": 5.4,
+   "targets_recent": 6.6
+  },
+  {
+   "player": "Laquon Treadwell",
+   "team": "IND",
+   "opponent": "TEN",
+   "pos": "WR",
+   "proj": 2.26,
+   "season_avg": 2.2,
+   "targets_recent": 3.8
+  },
+  {
+   "player": "Luther Burden III",
+   "team": "CHI",
+   "opponent": "ATL",
+   "pos": "WR",
+   "proj": 4.06,
+   "season_avg": 4.6,
+   "targets_recent": 7.0
+  },
+  {
+   "player": "Makai Lemon",
+   "team": "PHI",
+   "opponent": "CAR",
+   "pos": "WR",
+   "proj": 3.32,
+   "season_avg": 3.0,
+   "targets_recent": 4.4
+  },
+  {
+   "player": "Malachi Fields",
+   "team": "NYG",
+   "opponent": "NO",
+   "pos": "WR",
+   "proj": 1.72,
+   "season_avg": 2.0,
+   "targets_recent": 3.4
+  },
+  {
+   "player": "Malik Nabers",
+   "team": "NYG",
+   "opponent": "NO",
+   "pos": "WR",
+   "proj": 6.18,
+   "season_avg": 5.8,
+   "targets_recent": 9.2
+  },
+  {
+   "player": "Mark Andrews",
+   "team": "BAL",
+   "opponent": "CLE",
+   "pos": "TE",
+   "proj": 4.26,
+   "season_avg": 4.4,
+   "targets_recent": 6.0
+  },
+  {
+   "player": "Matthew Golden",
+   "team": "GB",
+   "opponent": "DAL",
+   "pos": "WR",
+   "proj": 4.21,
+   "season_avg": 4.8,
+   "targets_recent": 8.8
+  },
+  {
+   "player": "Michael Mayer",
+   "team": "LV",
+   "opponent": "BUF",
+   "pos": "TE",
+   "proj": 3.47,
+   "season_avg": 4.2,
+   "targets_recent": 5.0
+  },
+  {
+   "player": "Michael Wilson",
+   "team": "ARI",
+   "opponent": "LA",
+   "pos": "WR",
+   "proj": 6.63,
+   "season_avg": 5.8,
+   "targets_recent": 10.2
+  },
+  {
+   "player": "Mike Evans",
+   "team": "SF",
+   "opponent": "WAS",
+   "pos": "WR",
+   "proj": 4.65,
+   "season_avg": 4.8,
+   "targets_recent": 6.8
+  },
+  {
+   "player": "Oronde Gadsden II",
+   "team": "LAC",
+   "opponent": "KC",
+   "pos": "TE",
+   "proj": 2.18,
+   "season_avg": 1.8,
+   "targets_recent": 3.2
+  },
+  {
+   "player": "Parker Washington",
+   "team": "JAX",
+   "opponent": "HOU",
+   "pos": "WR",
+   "proj": 4.04,
+   "season_avg": 4.4,
+   "targets_recent": 7.0
+  },
+  {
+   "player": "Pat Freiermuth",
+   "team": "PIT",
+   "opponent": "TB",
+   "pos": "TE",
+   "proj": 3.11,
+   "season_avg": 3.8,
+   "targets_recent": 5.2
+  },
+  {
+   "player": "Quinshon Judkins",
+   "team": "CLE",
+   "opponent": "BAL",
+   "pos": "RB",
+   "proj": 2.76,
+   "season_avg": 3.6,
+   "targets_recent": 4.0
+  },
+  {
+   "player": "Rashid Shaheed",
+   "team": "SEA",
+   "opponent": "DEN",
+   "pos": "WR",
+   "proj": 2.42,
+   "season_avg": 1.8,
+   "targets_recent": 3.8
+  },
+  {
+   "player": "Rashod Bateman",
+   "team": "BAL",
+   "opponent": "CLE",
+   "pos": "WR",
+   "proj": 2.58,
+   "season_avg": 3.2,
+   "targets_recent": 4.2
+  },
+  {
+   "player": "Rhamondre Stevenson",
+   "team": "NE",
+   "opponent": "NYJ",
+   "pos": "RB",
+   "proj": 2.37,
+   "season_avg": 3.0,
+   "targets_recent": 3.8
+  },
+  {
+   "player": "Roman Wilson",
+   "team": "PIT",
+   "opponent": "TB",
+   "pos": "WR",
+   "proj": 2.62,
+   "season_avg": 2.8,
+   "targets_recent": 5.0
+  },
+  {
+   "player": "Rome Odunze",
+   "team": "CHI",
+   "opponent": "ATL",
+   "pos": "WR",
+   "proj": 3.36,
+   "season_avg": 3.4,
+   "targets_recent": 5.8
+  },
+  {
+   "player": "Romeo Doubs",
+   "team": "NE",
+   "opponent": "NYJ",
+   "pos": "WR",
+   "proj": 2.83,
+   "season_avg": 2.6,
+   "targets_recent": 4.6
+  },
+  {
+   "player": "Ryan Flournoy",
+   "team": "DAL",
+   "opponent": "GB",
+   "pos": "WR",
+   "proj": 2.82,
+   "season_avg": 3.2,
+   "targets_recent": 5.4
+  },
+  {
+   "player": "Tre Harris",
+   "team": "LAC",
+   "opponent": "KC",
+   "pos": "WR",
+   "proj": 3.19,
+   "season_avg": 3.0,
+   "targets_recent": 5.0
+  },
+  {
+   "player": "Tre Tucker",
+   "team": "LV",
+   "opponent": "BUF",
+   "pos": "WR",
+   "proj": 3.28,
+   "season_avg": 3.8,
+   "targets_recent": 5.6
+  },
+  {
+   "player": "Trey McBride",
+   "team": "ARI",
+   "opponent": "LA",
+   "pos": "TE",
+   "proj": 7.35,
+   "season_avg": 8.4,
+   "targets_recent": 11.2
+  },
+  {
+   "player": "Tucker Kraft",
+   "team": "GB",
+   "opponent": "DAL",
+   "pos": "TE",
+   "proj": 3.66,
+   "season_avg": 4.0,
+   "targets_recent": 5.8
+  },
+  {
+   "player": "Tyjae Spears",
+   "team": "TEN",
+   "opponent": "IND",
+   "pos": "RB",
+   "proj": 2.42,
+   "season_avg": 2.8,
+   "targets_recent": 3.2
+  },
+  {
+   "player": "Tyler Warren",
+   "team": "IND",
+   "opponent": "TEN",
+   "pos": "TE",
+   "proj": 5.47,
+   "season_avg": 6.0,
+   "targets_recent": 7.2
+  },
+  {
+   "player": "Wan'Dale Robinson",
+   "team": "TEN",
+   "opponent": "IND",
+   "pos": "WR",
+   "proj": 4.23,
+   "season_avg": 4.4,
+   "targets_recent": 6.0
+  },
+  {
+   "player": "Xavier Hutchinson",
+   "team": "HOU",
+   "opponent": "JAX",
+   "pos": "WR",
+   "proj": 3.15,
+   "season_avg": 3.2,
+   "targets_recent": 6.2
+  }
+ ]
+}
