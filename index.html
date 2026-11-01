@@ -11,14 +11,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper:      #EDF0E6;
-    --paper-warm: #E4E9DA;
-    --rule:       #C7CFB8;
-    --ink:        #1B2733;
-    --ink-soft:   #5D6B78;
-    --bar:        #33513F;
-    --bar-fade:   #8FA394;
-    --pencil:     #A3301C;
+    /* Royal rail, black type on white. The blue carries the identity;
+       black does the reading. Red is kept for one job only - marking a
+       figure that falls short - so it never competes with the blue. */
+    --paper:      #FFFFFF;
+    --paper-warm: #EEF2FB;
+    --rule:       #D6DCE8;
+    --ink:        #111111;
+    --ink-soft:   #5A5F68;
+    --bar:        #002F8C;
+    --bar-fade:   #9DB2DC;
+    --pencil:     #C8102E;
+
+    --royal:      #003DA5;
+    --royal-soft: #B9C8E6;
+    --on-royal:   #FFFFFF;
 
     --gutter: clamp(1rem, 4vw, 2.5rem);
     --row-pad: 0.95rem;
@@ -48,7 +55,11 @@
     gap: 0 clamp(1.6rem, 3.5vw, 3rem);
     align-items: start;
   }
-  .rail { position: sticky; top: 1.2rem; }
+  .rail {
+    position: sticky; top: 1.2rem;
+    background: var(--royal); color: var(--on-royal);
+    padding: 1.1rem 1rem 1.3rem;
+  }
   .main { min-width: 0; }
 
   @media (max-width: 62rem) {
@@ -58,29 +69,32 @@
 
   /* ---------- masthead ---------- */
 
-  .railhead { padding-bottom: 0.9rem; border-bottom: 2px solid var(--ink); }
+  .railhead {
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255,255,255,0.25);
+  }
   .railhead h1 {
     margin: 0; font-size: 1.5rem; font-weight: 700;
     letter-spacing: -0.03em; line-height: 1;
   }
   .railhead .date {
     display: block; margin-top: 0.35rem;
-    font-size: 0.82rem; color: var(--ink-soft); font-weight: 500;
+    font-size: 0.82rem; color: var(--royal-soft); font-weight: 400;
   }
 
   .railnav { display: flex; flex-direction: column; margin: 0.9rem 0 0; }
   .railnav button {
     font: inherit; font-size: 0.95rem; font-weight: 500;
-    color: var(--ink-soft); background: none; border: 0;
+    color: var(--royal-soft); background: none; border: 0;
     border-left: 3px solid transparent;
     padding: 0.4rem 0 0.4rem 0.6rem; text-align: left; cursor: pointer;
   }
-  .railnav button:hover { color: var(--ink); }
+  .railnav button:hover { color: var(--on-royal); }
   .railnav button[aria-pressed="true"] {
-    color: var(--ink); font-weight: 700; border-left-color: var(--pencil);
+    color: var(--on-royal); font-weight: 700;
+    border-left-color: var(--on-royal);
   }
-  .railnav button:focus-visible { outline: 2px solid var(--pencil); outline-offset: -2px; }
-  .railnav .count { color: var(--ink-soft); font-weight: 400; font-size: 0.82rem; }
+  .railnav button:focus-visible { outline: 2px solid #fff; outline-offset: -2px; }
 
   /* ---------- sortable tables ---------- */
   .dt { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
@@ -189,19 +203,19 @@
   .railgroup { margin-top: 1.3rem; }
   .railgroup h2 {
     margin: 0 0 0.3rem; font-size: 0.74rem; font-weight: 600;
-    color: var(--ink-soft); letter-spacing: 0;
+    color: var(--royal-soft); letter-spacing: 0;
   }
 
   .onnow { margin: 1.3rem 0 0; }
   .onnow .cell {
     display: flex; justify-content: space-between; align-items: baseline;
-    padding: 0.22rem 0; font-size: 0.82rem; color: var(--ink-soft);
-    border-bottom: 1px solid var(--rule);
+    padding: 0.22rem 0; font-size: 0.82rem; color: var(--royal-soft);
+    border-bottom: 1px solid rgba(255,255,255,0.16);
   }
   .onnow .cell b {
-    color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums;
+    color: var(--on-royal); font-weight: 700; font-variant-numeric: tabular-nums;
   }
-  .onnow .none { font-size: 0.8rem; color: var(--ink-soft); }
+  .onnow .none { font-size: 0.8rem; color: var(--royal-soft); }
 
   @media (max-width: 62rem) {
     .railnav { flex-direction: row; flex-wrap: wrap; gap: 0 0.9rem; }
@@ -272,29 +286,23 @@
   .controls {
     display: flex; flex-wrap: wrap; align-items: baseline;
     gap: 0.1rem 0.75rem;
-    margin: 1.2rem 0 0; font-size: 0.85rem; color: var(--ink-soft);
+    margin: 1.2rem 0 0; font-size: 0.85rem; color: var(--royal-soft);
   }
   .controls > span[aria-hidden] { display: none; }
   .controls > span:first-child {
     flex: 0 0 100%; font-size: 0.74rem; font-weight: 600;
-    color: var(--ink-soft); margin-bottom: 0.15rem;
+    color: var(--royal-soft); margin-bottom: 0.15rem;
   }
 
   .controls button {
-    font: inherit;
-    font-weight: 500;
-    color: var(--ink-soft);
-    background: none;
-    border: 0;
-    border-bottom: 2px solid transparent;
-    padding: 0.15rem 0.1rem;
-    cursor: pointer;
+    font: inherit; font-weight: 500; color: var(--royal-soft);
+    background: none; border: 0; border-bottom: 2px solid transparent;
+    padding: 0.15rem 0.1rem; cursor: pointer;
   }
-  .controls button:hover { color: var(--ink); }
+  .controls button:hover { color: var(--on-royal); }
   .controls button[aria-pressed="true"] {
-    color: var(--ink);
-    font-weight: 600;
-    border-bottom-color: var(--pencil);
+    color: var(--on-royal); font-weight: 700;
+    border-bottom-color: var(--on-royal);
   }
   .controls button:focus-visible {
     outline: 2px solid var(--pencil);
@@ -631,12 +639,16 @@
   .search input {
     font: inherit; font-size: 0.9rem;
     padding: 0.4rem 0.55rem; width: 100%;
-    border: 1px solid var(--rule); background: var(--paper);
-    color: var(--ink); border-radius: 0;
+    border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.1);
+    color: var(--on-royal); border-radius: 0;
   }
+  .search input::placeholder { color: var(--royal-soft); }
+  .search input:focus { outline: 2px solid #fff; outline-offset: -1px;
+                        background: rgba(255,255,255,0.16); }
   .search input:focus { outline: 2px solid var(--pencil); outline-offset: -1px; }
   .search .count { display: block; margin-top: 0.3rem;
-                   font-size: 0.78rem; color: var(--ink-soft); }
+                   font-size: 0.78rem; color: var(--royal-soft); }
 
   /* --- why line --- */
   .why {
@@ -850,13 +862,13 @@
              margin: 0.9rem 0 0; font-size: 0.88rem; }
   .res-tab > span[aria-hidden] { display: none; }
   .res-tab button {
-    font: inherit; font-weight: 500; color: var(--ink-soft); background: none;
+    font: inherit; font-weight: 500; color: var(--royal-soft); background: none;
     border: 0; border-left: 3px solid transparent;
     padding: 0.28rem 0 0.28rem 0.6rem; text-align: left; cursor: pointer;
   }
-  .res-tab button:hover { color: var(--ink); }
+  .res-tab button:hover { color: var(--on-royal); }
   .res-tab button[aria-pressed="true"] {
-    color: var(--ink); font-weight: 700; border-left-color: var(--bar); }
+    color: var(--on-royal); font-weight: 700; border-left-color: var(--on-royal); }
   .cal-tab { margin: 0.8rem 0 1.1rem; }
   .cal-tab .r {
     display: grid; grid-template-columns: 5.4rem 4rem 4.6rem 5rem;
@@ -3593,11 +3605,11 @@ function render() {
   const viewBar = `
     <div class="railnav">
       <button data-view="home" aria-pressed="${state.view === "home"}">Overview</button>
-      <button data-view="slate" aria-pressed="${state.view === "slate"}">strikeouts</button>
-      <button data-view="nfl" aria-pressed="${state.view === "nfl"}">receptions${
+      <button data-view="slate" aria-pressed="${state.view === "slate"}">Strikeouts</button>
+      <button data-view="nfl" aria-pressed="${state.view === "nfl"}">Receptions${
         nflCount ? ` (${nflCount})` : ""}</button>
-      <button data-view="picks" aria-pressed="${state.view === "picks"}">game picks</button>
-      <button data-view="td" aria-pressed="${state.view === "td"}">touchdowns</button>
+      <button data-view="picks" aria-pressed="${state.view === "picks"}">Game picks</button>
+      <button data-view="td" aria-pressed="${state.view === "td"}">Touchdowns</button>
       <button data-view="nba" aria-pressed="${state.view === "nba"}">NBA</button>
       <button data-view="nhl" aria-pressed="${state.view === "nhl"}">NHL</button>
     </div>`;
@@ -3666,8 +3678,15 @@ function render() {
     </div>`;
 
   const wire = () => {
-    document.querySelectorAll(".views button").forEach(b =>
-      b.onclick = () => { state.view = b.dataset.view; render(); });
+    // .railnav, not .views - the nav moved into the rail and this selector
+    // was left behind, so the sport buttons stopped binding once you left
+    // the overview.
+    document.querySelectorAll(".railnav button").forEach(b =>
+      b.onclick = () => {
+        state.view = b.dataset.view;
+        state.selected = null;
+        render();
+      });
     const q = document.getElementById("q");
     if (q) {
       q.oninput = () => {
