@@ -146,6 +146,7 @@ def main():
         max_depth=4, learning_rate=0.05, max_iter=300,
         min_samples_leaf=25, random_state=0)
     model.fit(tr[feat], tr.actual)
+    resid = residual_table(model, tr, feat, "actual")
     print(f"  fitted on {len(tr)} player-weeks")
 
     if args.backfill:
@@ -198,6 +199,8 @@ def main():
 
     P = with_dummies(pd.DataFrame(preds), [c for c in feat if c.startswith("p_")])
     P["proj"] = model.predict(P[feat])
+    P["line"] = np.floor(P["proj"]) + 0.5
+    P["p_over"] = [p_over(resid, pr, ln) for pr, ln in zip(P["proj"], P["line"])]
     P["proj_rounded"] = P.proj.round().astype(int)
     P = P.sort_values("proj", ascending=False)
 
@@ -212,6 +215,7 @@ def main():
             "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "season": args.season, "week": target_week,
             "trained_on": train_seasons,
+            "residuals": resid, "trusted_band": [0.25, 0.75],
             "honesty": {
                 "model_mae": 1.499, "baseline_mae": 1.533, "market_mae": 1.43,
                 "note": ("Beats a player's season average by 0.03 receptions "
@@ -222,6 +226,8 @@ def main():
                 {"player": r.player, "team": r.team, "opponent": r.opponent,
                  "pos": r.pos, "proj": round(float(r.proj), 2),
                  "season_avg": round(float(r.naive), 2),
+                 "line": float(r.line),
+                 "p_over": (None if r.p_over is None else round(float(r.p_over), 4)),
                  "targets_recent": round(float(r.tgt5), 1)}
                 for _, r in P.iterrows()
             ],
@@ -235,6 +241,33 @@ def main():
         print(f"\n  Wrote receptions_proj.json ({len(P)} players)")
         print(f"  Archived proj_history/rec_{args.season}_wk{target_week}.json")
     return 0
+
+
+def residual_table(model, tr, feat, target, nbins=5):
+    """The model's own miss distribution, binned by projection size - what
+    turns a point estimate into a probability. Empirical rather than a
+    fitted curve, because these counts are skewed and discrete."""
+    p = model.predict(tr[feat])
+    a = tr[target].values
+    edges = np.quantile(p, np.linspace(0, 1, nbins + 1))[1:-1]
+    bins = np.digitize(p, edges)
+    per = []
+    for b in range(nbins):
+        r = np.sort(a[bins == b] - p[bins == b])
+        per.append([round(float(x), 2) for x in
+                    (np.quantile(r, np.linspace(0.01, 0.99, 99))
+                     if len(r) > 50 else np.array([0.0]))])
+    return {"edges": [round(float(e), 2) for e in edges], "resid": per}
+
+
+def p_over(table, proj, line):
+    if not table:
+        return None
+    b = int(np.digitize([proj], table["edges"])[0])
+    r = np.array(table["resid"][b])
+    if len(r) < 10:
+        return None
+    return float((proj + r > line).mean())
 
 
 def backfill(season, train, model, feat, d, opp):
@@ -278,6 +311,8 @@ def backfill(season, train, model, feat, d, opp):
                                 "opponent": r.opponent, "pos": r.pos,
                                 "proj": round(float(r.proj), 2),
                                 "season_avg": round(float(r.naive), 2),
+                 "line": float(r.line),
+                 "p_over": (None if r.p_over is None else round(float(r.p_over), 4)),
                                 "targets_recent": round(float(r.tgt5), 1)}
                                for _, r in P.iterrows()]}, open(path, "w"), indent=1)
         made += 1
