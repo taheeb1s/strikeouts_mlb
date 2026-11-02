@@ -282,6 +282,48 @@ def fit_first(tr):
         min_samples_leaf=60, random_state=0).fit(t[FIRST_FEATURES], t.was_first)
 
 
+def residual_table(models, tr, nbins=5):
+    """The model's own miss distribution, binned by projection size.
+
+    This is what turns a projection into a probability. Measured rather
+    than assumed: a normal curve fits PRA and points well but is badly
+    wrong for threes, which are skewed, discrete and low. Empirical
+    residuals make no assumption about shape.
+
+    Validated at half-point lines on a held-out season: within a few
+    points everywhere between about 30% and 65%. Above 75% the thin
+    markets (assists, threes) drift badly, so the page refuses to quote
+    outside a trusted band.
+    """
+    out = {}
+    for c in MARKETS:
+        p = models[c].predict(tr[feature_list(c)])
+        a = tr[c + "_act"].values
+        edges = np.quantile(p, np.linspace(0, 1, nbins + 1))[1:-1]
+        bins = np.digitize(p, edges)
+        per = []
+        for b in range(nbins):
+            r = np.sort(a[bins == b] - p[bins == b])
+            # 1st to 99th percentile in 1% steps keeps the payload small
+            per.append([round(float(x), 2) for x in
+                        (np.quantile(r, np.linspace(0.01, 0.99, 99))
+                         if len(r) > 50 else np.array([0.0]))])
+        out[c] = {"edges": [round(float(e), 2) for e in edges], "resid": per}
+    return out
+
+
+def p_over(table, market, proj, line):
+    """Share of the model's historical misses that would clear the line."""
+    t = table.get(market)
+    if not t:
+        return None
+    b = int(np.digitize([proj], t["edges"])[0])
+    r = np.array(t["resid"][b])
+    if len(r) < 10:
+        return None
+    return float((proj + r > line).mean())
+
+
 def fit_all(tr):
     models = {}
     for c in MARKETS:
@@ -416,6 +458,7 @@ def main():
         print(f"Only {len(tr)} training rows - not enough.")
         return 1
     models = fit_all(tr)
+    resid = residual_table(models, tr)
     try:
         fmodel = fit_first(tr) if tr.was_first.sum() >= 50 else None
         if fmodel is None:
@@ -490,6 +533,11 @@ def main():
     P = pd.DataFrame(preds)
     for c in MARKETS:
         P[c + "_proj"] = models[c].predict(P[feature_list(c)])
+        # the half-point line just below the projection, and the chance of
+        # clearing it
+        P[c + "_line"] = np.floor(P[c + "_proj"]) + 0.5
+        P[c + "_pover"] = [p_over(resid, c, pr, ln)
+                           for pr, ln in zip(P[c + "_proj"], P[c + "_line"])]
     if fmodel is not None:
         try:
             P["p_first"] = fmodel.predict_proba(P[FIRST_FEATURES])[:, 1]
@@ -517,6 +565,8 @@ def main():
             "games": sorted({f"{r.team} {'vs' if r.home else 'at'} {r.opponent}"
                              for _, r in P.iterrows() if r.home}),
             "injuries_applied": bool(inj_ok),
+            "residuals": resid,
+            "trusted_band": [0.25, 0.75],
             "honesty": {
                 "note": ("Trained on one season, scored on the next, never "
                          "overlapping: every market beats a season average by "
@@ -539,7 +589,11 @@ def main():
                                 else round(float(r.absent_pra), 1)),
                  "p_first": (None if pd.isna(r.p_first)
                              else round(float(r.p_first), 4)),
-                 **{c: round(float(r[c + "_proj"]), 1) for c in MARKETS}}
+                 **{c: round(float(r[c + "_proj"]), 1) for c in MARKETS},
+                 **{c + "_line": float(r[c + "_line"]) for c in MARKETS},
+                 **{c + "_pover": (None if r[c + "_pover"] is None
+                                   else round(float(r[c + "_pover"]), 4))
+                    for c in MARKETS}}
                 for _, r in P.iterrows()
             ],
         }
