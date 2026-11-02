@@ -158,6 +158,33 @@ def fit(tr, feat):
         max_iter=400, min_samples_leaf=40, random_state=0).fit(tr[feat], tr.sog)
 
 
+def residual_table(model, tr, feat, target, nbins=5):
+    """The model's own miss distribution, binned by projection size - what
+    turns a point estimate into a probability. Empirical rather than a
+    fitted curve, because these counts are skewed and discrete."""
+    p = model.predict(tr[feat])
+    a = tr[target].values
+    edges = np.quantile(p, np.linspace(0, 1, nbins + 1))[1:-1]
+    bins = np.digitize(p, edges)
+    per = []
+    for b in range(nbins):
+        r = np.sort(a[bins == b] - p[bins == b])
+        per.append([round(float(x), 2) for x in
+                    (np.quantile(r, np.linspace(0.01, 0.99, 99))
+                     if len(r) > 50 else np.array([0.0]))])
+    return {"edges": [round(float(e), 2) for e in edges], "resid": per}
+
+
+def p_over(table, proj, line):
+    if not table:
+        return None
+    b = int(np.digitize([proj], table["edges"])[0])
+    r = np.array(table["resid"][b])
+    if len(r) < 10:
+        return None
+    return float((proj + r > line).mean())
+
+
 def backtest(d):
     r = with_pos(usable(d))
     feat = FEATURES + [c for c in r.columns if c.startswith("pos_")]
@@ -244,6 +271,7 @@ def main():
     tr = with_pos(usable(tr_raw))
     feat = FEATURES + [c for c in tr.columns if c.startswith("pos_")]
     model = fit(tr, feat)
+    resid = residual_table(model, tr, feat, "sog")
     gfeat = GOAL_FEATURES + [c for c in tr.columns if c.startswith("pos_")]
     gmodel = fit_goal(tr.dropna(subset=["sh_pct", "goals_all"]), gfeat)
     print(f"trained on {len(tr)} skater-games from {args.train}")
@@ -288,6 +316,8 @@ def main():
 
     P = with_pos(pd.DataFrame(rows), [c for c in feat if c.startswith("pos_")])
     P["proj"] = model.predict(P[feat])
+    P["line"] = np.floor(P["proj"]) + 0.5
+    P["p_over"] = [p_over(resid, pr, ln) for pr, ln in zip(P["proj"], P["line"])]
     P["p_goal"] = gmodel.predict_proba(P[gfeat])[:, 1]
     P = P.sort_values("proj", ascending=False)
 
@@ -304,6 +334,7 @@ def main():
             "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "season": args.season, "date": str(day.date()),
             "trained_on": args.train,
+            "residuals": resid, "trusted_band": [0.25, 0.75],
             "games": sorted({f"{r.team} vs {r.opponent}"
                              for _, r in P.iterrows() if r.home}),
             "honesty": {
@@ -322,6 +353,8 @@ def main():
                  "toi": float(r.toi), "proj": round(float(r.proj), 2),
                  "season_avg": round(float(r.sog_all), 2),
                  "p_goal": round(float(r.p_goal), 4),
+                 "line": float(r.line),
+                 "p_over": (None if r.p_over is None else round(float(r.p_over), 4)),
                  "goals_avg": round(float(r.goals_all), 2)}
                 for _, r in P.iterrows()
             ],
