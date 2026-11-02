@@ -2340,6 +2340,7 @@ function cfbView() {
         <span class="n">${g.pred_margin > 0 ? "+" : ""}${g.pred_margin.toFixed(1)}</span>
       </div>`).join("")}
     </div>
+    ${pickParlays(state.cfb, "cfb")}
     <p class="cal-key">Score is away&ndash;home. The margin is reliable; the
       individual scores split a league-average total around it, so read them
       as "by about this much" rather than a scoreline.</p>`;
@@ -2386,7 +2387,8 @@ function nhlView() {
       better-behaved of the two and is calibrated across its range.</p>
     ${dataTable("nhl", cols, rows, { defaultKey: "proj",
       rowId: p => p.player_id, limit: 200,
-      empty: `Nothing matches "${state.q}".` })}`;
+      empty: `Nothing matches "${state.q}".` })}
+    ${nhlParlays()}`;
 }
 
 function nhlGradeView() {
@@ -2463,7 +2465,9 @@ function nbaView() {
       heading to sort by it. <b>No NBA odds are collected.</b></p>
     ${dataTable("nba", cols, rows, { defaultKey: "pra",
       rowId: p => p.athlete_id, limit: 200,
-      empty: `Nothing matches "${state.q}".` })}`;
+      empty: `Nothing matches "${state.q}".` })}
+    ${nbaParlays()}
+    ${nbaFirstParlays()}`;
 }
 
 function nbaGradeView() {
@@ -2624,7 +2628,8 @@ function tdView() {
       time. <b>No touchdown odds are collected.</b></p>
     ${dataTable("td", cols, rows, { defaultKey: "p_any",
       rowId: p => p.player + p.team, limit: 200,
-      empty: `Nothing matches "${state.q}".` })}`;
+      empty: `Nothing matches "${state.q}".` })}
+    ${tdParlays()}`;
 }
 
 function recGradeView() {
@@ -2801,6 +2806,7 @@ function gamesView() {
         </div>`;
       }).join("")}
     </div>
+    ${pickParlays(state.games, "nfl")}
     <p class="cal-key">Score is away&ndash;home, with the projected game total
       beneath it. Margin is from the home team's side, with the Vegas line
       under it in red where the two disagree on the winner. The winner comes
@@ -3259,6 +3265,208 @@ function RAIL(nav, ...extras) {
   document.getElementById("tabs").innerHTML = nav;
   document.getElementById("rail").innerHTML = extras.filter(Boolean).join("");
   document.getElementById("onnow").innerHTML = onNow();
+}
+
+/* ================= parlay suggestions ================= */
+
+// Legs are {id, who, what, p, game}. Combining assumes the legs are
+// independent, which holds across different games and does not hold within
+// one - so same-game pairs are never suggested.
+function buildParlays(legs, opts) {
+  opts = opts || {};
+  // Draw the best from EACH market rather than the best overall. Sorted
+  // globally, the top fourteen legs were all threes - that market has the
+  // tightest spread, so it monopolises the confident end and every slip
+  // came out as the same bet five times.
+  const ok = legs.filter(l => l.p != null && l.p > 0.02 && l.p < 0.985)
+                 .sort((a, b) => b.p - a.p);
+  const byKind = {};
+  ok.forEach(l => (byKind[l.kind || "x"] = byKind[l.kind || "x"] || []).push(l));
+  const kinds = Object.keys(byKind);
+  const want = opts.pool || 16;
+  const pool = [];
+  for (let i = 0; pool.length < want && i < 40; i++) {
+    let added = false;
+    for (const k of kinds) {
+      if (byKind[k][i]) { pool.push(byKind[k][i]); added = true; }
+      if (pool.length >= want) break;
+    }
+    if (!added) break;
+  }
+  if (pool.length < 2) return [];
+
+  const clash = (a, b) => a.game && b.game && a.game === b.game;
+  const pick = (from, size) => {
+    // One leg per player, and spread across markets where there is a
+    // choice. Without this every slip came out as three of the same bet -
+    // the highest-probability legs all cluster in one market.
+    const out = [];
+    for (const pass of [true, false]) {
+      for (const l of from) {
+        if (out.length >= size) break;
+        if (out.some(o => clash(o, l) || o.who === l.who)) continue;
+        if (pass && l.kind && out.some(o => o.kind === l.kind)) continue;
+        out.push(l);
+      }
+      if (out.length >= size) break;
+    }
+    return out.length === size ? out : null;
+  };
+
+  // A spread of shapes rather than five versions of "the favourites".
+  const recipes = [
+    ["Shortest double", pool, 2],
+    ["Shortest treble", pool, 3],
+    ["Mid-range treble", pool.slice(3), 3],
+    ["Longer treble", pool.slice(6), 3],
+    ["Outside double", pool.slice(8), 2],
+  ];
+
+  const seen = new Set();
+  const out = [];
+  for (const [label, from, size] of recipes) {
+    const legsPicked = pick(from, size);
+    if (!legsPicked) continue;
+    const key = legsPicked.map(l => l.id).sort().join("|");
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({
+      label,
+      legs: legsPicked,
+      p: legsPicked.reduce((x, l) => x * l.p, 1),
+    });
+  }
+  return out;
+}
+
+function parlayBlock(title, legs, note) {
+  const slips = buildParlays(legs);
+  if (!slips.length) {
+    return `<div class="par"><h2>${title}</h2>
+      <p class="sub">Needs at least two qualifying legs in different games.</p></div>`;
+  }
+  return `<div class="par">
+    <h2>${title}</h2>
+    <p class="sub">${note} Confidence is the chance <b>every</b> leg lands,
+      assuming the games are independent — which is why no two legs here
+      come from the same game. There are no odds collected for this market,
+      so there is no payout or expected value, only the probability.</p>
+    ${slips.map(s => `<div class="slip">
+      <div class="n">${s.label} &middot; ${s.legs.length} legs</div>
+      ${s.legs.map(l => `<div class="leg">
+        <span class="who">${l.who}</span>
+        <span>${l.what}</span>
+        <span class="bk">${Math.round(l.p * 100)}%</span>
+      </div>`).join("")}
+      <div class="tot">
+        <span>Confidence <b>${(s.p * 100).toFixed(1)}%</b></span>
+        <span class="bk">about 1 in ${Math.max(1, Math.round(1 / s.p))}</span>
+      </div>
+    </div>`).join("")}
+    <p class="cal-key">Each extra leg multiplies the risk: a treble of three
+      60% legs lands about one time in five. The confidence figure is doing
+      that arithmetic for you.</p>
+  </div>`;
+}
+
+// Only quote where the probability has actually been validated. Outside
+// 25-75% the thin markets drift badly - threes said 93% and landed 56%.
+// A book posts props on players who matter. Without a floor, this
+// suggested "under 0.5 assists" for deep bench players - trivially likely,
+// and not a line anyone offers.
+const MIN_PROJ = { pra: 15, points: 8, rebounds: 3, assists: 2, threes: 1, "": 1.5 };
+
+function overLegs(players, markets, gameOf, idOf) {
+  const legs = [];
+  for (const p of players) {
+    for (const [key, label] of markets) {
+      const prob = key ? p[key + "_pover"] : p.p_over;
+      const line = key ? p[key + "_line"] : p.line;
+      const proj = key ? p[key] : p.proj;
+      if (prob == null || line == null) continue;
+      if (proj == null || proj < (MIN_PROJ[key] ?? 1)) continue;
+      const over = prob >= 0.5;
+      const q = over ? prob : 1 - prob;
+      if (q < 0.5 || q > 0.75) continue;
+      legs.push({
+        id: idOf(p) + ":" + key,
+        who: p.player, game: gameOf(p), kind: key || "shots",
+        what: `${over ? "over" : "under"} ${line} ${label}`,
+        p: q,
+      });
+    }
+  }
+  return legs;
+}
+
+function tdParlays() {
+  const d = state.td;
+  if (!d || !d.players) return "";
+  return parlayBlock("Suggested parlays",
+    d.players.map(p => ({
+      id: p.player + p.team, who: p.player, game: p.game,
+      what: `anytime TD vs ${p.opponent}`, p: p.p_any,
+    })),
+    "Anytime touchdown legs, drawn from the model's own probabilities.");
+}
+
+function nhlParlays() {
+  const d = state.nhl;
+  if (!d || !d.players) return "";
+  const gameOf = p => [p.team, p.opponent].sort().join("@");
+  const shots = overLegs(d.players, [["", "shots"]], gameOf,
+                         p => String(p.player_id));
+  const goals = d.players.map(p => ({
+    id: p.player_id + ":g", who: p.player, game: gameOf(p), kind: "goal",
+    what: `goal vs ${p.opponent}`, p: p.p_goal,
+  }));
+  return parlayBlock("Suggested parlays", goals.concat(shots),
+    "Anytime goalscorer legs mixed with shot overs and unders at the " +
+    "half-point line.");
+}
+
+function nbaParlays() {
+  const d = state.nba;
+  if (!d || !d.players) return "";
+  const gameOf = p => [p.team, p.opponent].sort().join("@");
+  const legs = overLegs(d.players,
+    [["pra", "PRA"], ["points", "points"], ["rebounds", "rebounds"],
+     ["assists", "assists"], ["threes", "threes"]],
+    gameOf, p => String(p.athlete_id));
+  if (!legs.length) return "";
+  return parlayBlock("Suggested parlays", legs,
+    "Over and under legs at the half-point line beside each projection. " +
+    "The probability comes from the model's own miss distribution, " +
+    "measured rather than assumed — a normal curve fits PRA well and is " +
+    "badly wrong for threes.");
+}
+
+function nbaFirstParlays() {
+  const d = state.nba;
+  if (!d || !d.players) return "";
+  const legs = d.players.filter(p => p.p_first != null).map(p => ({
+    id: String(p.athlete_id), who: p.player,
+    game: [p.team, p.opponent].sort().join("@"),
+    what: `first point vs ${p.opponent}`, p: p.p_first,
+  }));
+  if (!legs.length) return "";
+  return parlayBlock("First-point parlays", legs,
+    "Long by nature — ten starters compete for the opening basket, so even " +
+    "the favourite is around 14%.");
+}
+
+function pickParlays(src, label) {
+  if (!src || !src.games || !src.games.length) return "";
+  const wk = Math.min(...src.games.map(g => g.week));
+  return parlayBlock("Suggested parlays",
+    src.games.filter(g => g.week === wk).map(g => ({
+      id: g.away + g.home, who: g.pick,
+      game: g.away + g.home,
+      what: `to beat ${g.pick === g.home ? g.away : g.home}`,
+      p: g.confidence,
+    })),
+    `${label === "cfb" ? "College" : "NFL"} winners for week ${wk}, straight ` +
+    `up rather than against the spread.`);
 }
 
 /* ================= drawer contents ================= */
