@@ -113,7 +113,9 @@ jobs:
         run: |
           pip install nflreadpy sportsdataverse pandas pyarrow scikit-learn
           python3 nfl_games.py --json || echo "(NFL game model unavailable)"
-          python3 cfb_games.py --json || echo "(college model unavailable)"
+          python3 cfb_games.py --json || echo "(college football model unavailable)"
+          python3 mbb_games.py --json \
+            || echo "::warning::mbb_games.py failed"
           python3 rec_model.py --backfill --json \
             || echo "::warning::rec_model.py failed - too early, or stale file?"
           python3 rec_model.py --grade --json || echo "(nothing to grade yet)"
@@ -147,7 +149,7 @@ jobs:
                    cfb_games.json receptions_proj.json nfl_weeks.json \
                    receptions_grade.json td_model.json td_grade.json \
                    nba_model.json nba_grade.json \
-                   nhl_model.json nhl_grade.json; do
+                   nhl_model.json nhl_grade.json mbb_games.json; do
             [ -f "$f" ] && git add "$f"
           done
           [ -d snapshots ] && git add snapshots/
