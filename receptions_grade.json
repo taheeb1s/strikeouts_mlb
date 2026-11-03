@@ -9,6 +9,17 @@
  "gap": 0.027,
  "se": 0.5,
  "market_mae": 1.43,
+ "floor_hit": 0.6935,
+ "floor_hit_naive": 0.6129,
+ "at_least_2": 0.7849,
+ "bet": {
+  "n": 183,
+  "raw": 0.5301,
+  "floored": 0.5574,
+  "floored_under_share": 0.8251,
+  "always_under": 0.5464,
+  "break_even": 0.524
+ },
  "by_pos": [
   {
    "pos": "WR",
@@ -1519,5 +1530,5 @@
    "err": 1.1
   }
  ],
- "generated_at": "2026-11-01T15:33:02+00:00"
+ "generated_at": "2026-11-03T02:42:25+00:00"
 }
