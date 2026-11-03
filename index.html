@@ -4,13 +4,24 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Prop projections</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#003DA5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Props">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
   :root {
+    /* Installed, the page runs edge to edge under the status bar and the
+       home indicator, so keep content clear of both. Zero on desktop. */
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-sizing: border-box;
     /* Royal rail, black type on white. The blue carries the identity;
        black does the reading. Red is kept for one job only - marking a
        figure that falls short - so it never competes with the blue. */
@@ -56,7 +67,7 @@
     align-items: start;
   }
   .rail {
-    position: sticky; top: 1.2rem;
+    position: sticky; top: calc(1.2rem + env(safe-area-inset-top, 0px));
     background: var(--royal); color: var(--on-royal);
     padding: 1.1rem 1rem 1.3rem;
   }
@@ -171,6 +182,33 @@
   .kv dt { font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 0.1rem; }
   .kv dd { margin: 0; font-size: 1.25rem; font-weight: 700;
            letter-spacing: -0.025em; font-variant-numeric: tabular-nums; }
+
+  /* ---------- live scoreboard ---------- */
+  .sb { border-top: 2px solid var(--ink); }
+  .sb-row {
+    display: grid; grid-template-columns: minmax(0,1fr) 3.4rem;
+    gap: 0 0.8rem; padding: 0.6rem 0; border-bottom: 1px solid var(--rule);
+    align-items: center;
+  }
+  .sb-row .side {
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 0.6rem; padding: 0.12rem 0; font-size: 0.95rem;
+  }
+  .sb-row .side .nm { white-space: nowrap; overflow: hidden;
+                      text-overflow: ellipsis; }
+  .sb-row .side .sc {
+    font-weight: 700; font-variant-numeric: tabular-nums; font-size: 1.05rem;
+  }
+  .sb-row .side.win .nm { font-weight: 700; }
+  .sb-row .side.lose { color: var(--ink-soft); }
+  .sb-row .st { text-align: right; font-size: 0.76rem; color: var(--ink-soft);
+                line-height: 1.3; }
+  .sb-row .st .live {
+    color: var(--pencil); font-weight: 700; display: block;
+  }
+  .sb-row .st .final { font-weight: 600; color: var(--ink); }
+  .sb-note { font-size: 0.82rem; color: var(--ink-soft); padding: 1.4rem 0; }
+  .sb-stale { font-size: 0.76rem; color: var(--ink-soft); margin-top: 0.8rem; }
 
   /* ---------- dashboard home ---------- */
   .home { display: grid; gap: 1rem;
@@ -1540,6 +1578,7 @@ let state = { view: "home", data: null, card: null, nfl: null, nflScore: null, g
               nba: null, nbaGrade: null, nbaSort: "pra", nbaTab: "slate",
               kTab: "slate", nhl: null, nhlGrade: null, nhlTab: "slate", nhlSort: "proj",
               tsort: {}, selected: null,
+              scores: {}, league2: "nfl", sbTimer: null,
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", open: new Set() };
@@ -2648,6 +2687,55 @@ function recGradeView() {
       <span class="split">${g.graded} projections, weeks ${g.weeks.join(", ")}<br>
         the books, measured on 2025: <b>${g.market_mae}</b></span>
     </div>
+    ${g.bet ? `
+      <div class="cal-tab">
+        <div class="r h"><span>Taking a side on ${g.bet.n} lines</span>
+          <span>Hit</span><span></span><span></span></div>
+        <div class="r"><span>Round down, then pick a side</span>
+          <span class="n ${g.bet.floored >= g.bet.break_even ? "ok y" : "ok n"}"
+            >${(g.bet.floored * 100).toFixed(1)}%</span><span></span><span></span></div>
+        <div class="r"><span>Take the under on everything</span>
+          <span class="n">${(g.bet.always_under * 100).toFixed(1)}%</span>
+          <span></span><span></span></div>
+        <div class="r"><span>Use the projection as it stands</span>
+          <span class="n ${g.bet.raw >= g.bet.break_even ? "ok y" : "ok n"}"
+            >${(g.bet.raw * 100).toFixed(1)}%</span><span></span><span></span></div>
+        <div class="r"><span>Break-even at a standard price</span>
+          <span class="n">${(g.bet.break_even * 100).toFixed(1)}%</span>
+          <span></span><span></span></div>
+      </div>
+      <p class="cal-key">Rounding down and taking whichever side is left
+        scores better than the raw projection — but it ends up on the under
+        <b>${Math.round(g.bet.floored_under_share * 100)}%</b> of the time,
+        and the under has been landing
+        ${(g.bet.always_under * 100).toFixed(1)}% anyway. Against simply
+        backing every under, the method gains
+        ${((g.bet.floored - g.bet.always_under) * 100).toFixed(1)} points,
+        which is inside the noise on ${g.bet.n} bets. Worth watching as the
+        sample grows rather than acting on.</p>` : ""}
+
+    ${g.floor_hit != null ? `
+      <div class="cal-tab">
+        <div class="r h"><span>Reached the whole number</span><span>Hit</span>
+          <span></span><span></span></div>
+        <div class="r"><span>This model</span>
+          <span class="n">${(g.floor_hit * 100).toFixed(1)}%</span>
+          <span></span><span></span></div>
+        <div class="r"><span>A plain season average</span>
+          <span class="n">${(g.floor_hit_naive * 100).toFixed(1)}%</span>
+          <span></span><span></span></div>
+        <div class="r"><span>Simply "at least 2 catches"</span>
+          <span class="n">${(g.at_least_2 * 100).toFixed(1)}%</span>
+          <span></span><span></span></div>
+      </div>
+      <p class="cal-key">Reading a projection of 3.9 as "he gets at least 3"
+        and asking how often that held. A fair way to read a number, but
+        <b>not a betting record</b> — it rewards guessing low. Shading every
+        projection down by three would take this to 98% while making the
+        projections twice as bad, and "at least 2 catches" clears
+        ${(g.at_least_2 * 100).toFixed(0)}% for every player with no model
+        at all.</p>` : ""}
+
     <p class="cal-key">${beat
       ? `Ahead of a plain season average by <b>${g.gap}</b> receptions`
         + (g.se ? ` (${g.se} standard errors)` : "") + "."
@@ -3530,6 +3618,12 @@ const DRAWERS = {
       than the scores themselves.</p>`,
 
   game: g => `
+    ${g.qb_out_home || g.qb_out_away ? `<p class="cal-key"
+      style="border-left:3px solid var(--pencil);padding-left:0.6rem">
+      <b>${g.qb_out_home ? g.home : g.away} are without their starting
+      quarterback.</b> The pick already allows about four points for this.
+      Measured across 1,538 games: with both starters playing the home side
+      wins 53%, and when the away starter is out that rises to 74%.</p>` : ""}
     <dl class="kv">
       <div><dt>Pick</dt><dd style="font-size:1.05rem">${g.pick}</dd></div>
       <div><dt>Win chance</dt><dd>${pc1(g.confidence)}</dd></div>
@@ -3571,6 +3665,114 @@ const DRAWERS = {
     <p class="cal-key"><b>No pick here.</b> Every figure is the books' own
       number with their margin removed.</p>`,
 };
+
+/* ================= live scoreboard ================= */
+
+// ESPN's public scoreboard endpoints - no key, no account. Undocumented
+// and unofficial, so every field is read defensively and a failure shows
+// a plain message rather than breaking the tab.
+const LEAGUES = [
+  ["nfl", "NFL", "football/nfl"],
+  ["cfb", "College", "football/college-football"],
+  ["nba", "NBA", "basketball/nba"],
+  ["nhl", "NHL", "hockey/nhl"],
+  ["mlb", "MLB", "baseball/mlb"],
+];
+
+function fetchScores(key) {
+  const path = (LEAGUES.find(l => l[0] === key) || [])[2];
+  if (!path) return;
+  state.scores[key] = { loading: true };
+  const extra = key === "cfb" ? "?groups=50&limit=200" : "";
+  // Wrapped: a throw here would otherwise take the whole render down with
+  // it, and this is the one thing on the page that depends on a live
+  // third-party feed.
+  let req;
+  try {
+    req = fetch(`https://site.api.espn.com/apis/site/v2/sports/${path}/scoreboard${extra}`,
+                { cache: "no-store" });
+  } catch (e) {
+    state.scores[key] = { error: String(e) };
+    return;
+  }
+  req
+    .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
+    .then(d => {
+      state.scores[key] = { at: Date.now(), events: (d && d.events) || [] };
+      if (state.view === "scores") render();
+    })
+    .catch(e => {
+      state.scores[key] = { error: String(e) };
+      if (state.view === "scores") render();
+    });
+}
+
+function sbSide(c, other) {
+  const score = c && c.score != null ? Number(c.score) : null;
+  const os = other && other.score != null ? Number(other.score) : null;
+  const cls = score == null || os == null ? ""
+    : score > os ? " win" : score < os ? " lose" : "";
+  const t = (c && c.team) || {};
+  return `<div class="side${cls}">
+    <span class="nm">${t.shortDisplayName || t.displayName || t.abbreviation || "—"}
+      ${(c && c.records && c.records[0] && c.records[0].summary)
+        ? `<span style="font-size:0.72rem;color:var(--ink-soft)">
+           ${c.records[0].summary}</span>` : ""}</span>
+    <span class="sc">${score == null ? "—" : score}</span>
+  </div>`;
+}
+
+function scoresView() {
+  const key = state.league2;
+  const s = state.scores[key];
+  const label = (LEAGUES.find(l => l[0] === key) || [])[1] || "";
+
+  if (!s || s.loading) {
+    return `<p class="sb-note">Loading ${label} scores…</p>`;
+  }
+  if (s.error) {
+    return `<div class="empty"><h2>Couldn't reach the scores</h2>
+      <p>ESPN's scoreboard didn't answer (${s.error}). It's an unofficial
+      feed, so it goes down occasionally. Nothing else on this page depends
+      on it.</p></div>`;
+  }
+  if (!s.events.length) {
+    return `<p class="sb-note">No ${label} games today.</p>`;
+  }
+
+  const live = s.events.filter(e =>
+    ((e.status || {}).type || {}).state === "in").length;
+
+  return `
+    ${live ? `<p class="cal-key"><b>${live} game${live === 1 ? "" : "s"}
+      in progress.</b> Refreshing every half minute while you watch.</p>` : ""}
+    <div class="sb">
+      ${s.events.map(e => {
+        const comp = (e.competitions || [])[0] || {};
+        const cs = comp.competitors || [];
+        const home = cs.find(c => c.homeAway === "home") || cs[0];
+        const away = cs.find(c => c.homeAway === "away") || cs[1];
+        const stt = (e.status || {}).type || {};
+        const inPlay = stt.state === "in";
+        const done = stt.state === "post";
+        const when = e.date
+          ? new Date(e.date).toLocaleTimeString(undefined,
+              { hour: "numeric", minute: "2-digit" })
+          : "";
+        return `<div class="sb-row">
+          <div>${sbSide(away, home)}${sbSide(home, away)}</div>
+          <div class="st">${
+            inPlay ? `<span class="live">${(e.status || {}).displayClock || "LIVE"}</span>
+                      ${stt.shortDetail ? stt.shortDetail.split(" - ").pop() : ""}`
+            : done ? `<span class="final">Final</span>`
+            : when}</div>
+        </div>`;
+      }).join("")}
+    </div>
+    <p class="sb-stale">Scores from ESPN's public feed, fetched by your
+      browser. Updated ${s.at ? new Date(s.at).toLocaleTimeString(undefined,
+      { hour: "numeric", minute: "2-digit", second: "2-digit" }) : "just now"}.</p>`;
+}
 
 /* ================= dashboard home ================= */
 
@@ -3805,6 +4007,7 @@ document.addEventListener("keydown", e => {
 });
 
 function render() {
+  if (state.view !== "scores") clearInterval(state.sbTimer);
   mountDrawer();
   // Defined up here: the overview block below needs it, and a const
   // declared later in the function is in its dead zone until then.
@@ -3820,6 +4023,7 @@ function render() {
       <button data-view="td" aria-pressed="${state.view === "td"}">Touchdowns</button>
       <button data-view="nba" aria-pressed="${state.view === "nba"}">NBA</button>
       <button data-view="nhl" aria-pressed="${state.view === "nhl"}">NHL</button>
+      <button data-view="scores" aria-pressed="${state.view === "scores"}">Scoreboard</button>
     </div>`;
 
   if (state.view === "home") {
@@ -3944,6 +4148,43 @@ function render() {
     document.getElementById("card").innerHTML = scorecard();
     document.getElementById("calc").innerHTML = "";
     document.getElementById("footer").innerHTML = "";
+    return;
+  }
+
+  if (state.view === "scores") {
+    const bar = `<div class="nfl-views">
+      ${LEAGUES.map(([k, lab]) => `
+        <button data-lg="${k}" aria-pressed="${state.league2 === k}">${lab}</button>`
+      ).join("")}</div>`;
+    RAIL(viewBar, bar);
+    document.getElementById("body").innerHTML = scoresView();
+    document.querySelectorAll(".nfl-views button[data-lg]").forEach(b =>
+      b.onclick = () => {
+        state.league2 = b.dataset.lg;
+        if (!state.scores[state.league2]) fetchScores(state.league2);
+        render();
+      });
+    document.querySelectorAll(".railnav button").forEach(b =>
+      b.onclick = () => { state.view = b.dataset.view; state.selected = null; render(); });
+    if (!state.scores[state.league2]) fetchScores(state.league2);
+
+    // Refresh only while something is actually in progress, and only on
+    // this tab. The feed is unofficial, so keep the volume down.
+    clearInterval(state.sbTimer);
+    const s = state.scores[state.league2];
+    const live = s && s.events && s.events.some(e =>
+      (((e.status || {}).type || {}).state === "in"));
+    if (live) {
+      state.sbTimer = setInterval(() => {
+        if (state.view === "scores") fetchScores(state.league2);
+        else clearInterval(state.sbTimer);
+      }, 30000);
+    }
+    document.getElementById("card").innerHTML = "";
+    document.getElementById("calc").innerHTML = "";
+    document.getElementById("footer").innerHTML =
+      `Live scores come straight from ESPN's public feed to your browser —
+       nothing here is stored or modelled.`;
     return;
   }
 
@@ -4239,6 +4480,15 @@ Promise.all([
     if (SAMPLE) { state.data = SAMPLE; render(); }
     else empty("Couldn't find projections.json in this folder.");
   });
+
+/* Installable, and usable with no signal. The shell is cached so it opens
+   instantly; the data files go to the network first, because a stale
+   projection is worse than a slow one. */
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("sw.js").catch(() => {});
+  });
+}
 </script>
 </body>
 </html>
