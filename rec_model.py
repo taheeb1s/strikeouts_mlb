@@ -327,6 +327,17 @@ def grade(season):
         print("No archived projections yet - they accumulate weekly.")
         return {"graded": 0}
 
+    # The posted lines live in the captured snapshots, not in the archived
+    # projections - early archives predate the field.
+    posted = {}
+    try:
+        cap = json.load(open("receptions.json"))
+        for g in cap.get("games", []):
+            for p in g.get("players", []):
+                posted[(norm_name(p["player"]), g.get("week"))] = p.get("line")
+    except Exception:
+        pass
+
     d = load([season])
     actual = {}
     for _, r in d.iterrows():
@@ -345,6 +356,7 @@ def grade(season):
                 continue
             rows.append({"week": wk, "player": p["player"], "pos": p.get("pos"),
                          "proj": p["proj"], "naive": p["season_avg"],
+                         "line": p.get("line", posted.get((norm_name(p["player"]), wk))),
                          "actual": got})
     if not rows:
         print("Nothing could be matched to a played game yet.")
@@ -352,6 +364,41 @@ def grade(season):
 
     r = pd.DataFrame(rows)
     a = r.actual.values
+
+    # "He'll get at least the whole number" - a fair way to read a
+    # projection, but it is not a betting record and must never be shown as
+    # one. It rewards guessing LOW: shading every projection down by three
+    # takes it to 98% while the projections get twice as bad. Reported
+    # beside the season average and a fixed threshold so it can be judged.
+    floor_model = float((a >= np.floor(r.proj.values)).mean())
+    floor_naive = float((a >= np.floor(r.naive.values)).mean())
+    at_least_2 = float((a >= 2).mean())
+
+    # The floored projection graded as a BETTING strategy: round down,
+    # then take the side that leaves. It scores better than the raw
+    # projection - but only because flooring lowers everything, so it takes
+    # the under about four times in five. Reported beside "take the under
+    # every time", which is what it mostly amounts to.
+    lined = r.dropna(subset=["line"])
+    bet = None
+    if len(lined) >= 20:
+        ln = lined.line.values
+        act = lined.actual.values
+        def side_hit(pred):
+            s_ = np.where(pred > ln, "over", "under")
+            return np.where(s_ == "over", act > ln, act < ln), s_
+        h_raw, _ = side_hit(lined.proj.values)
+        h_flo, s_flo = side_hit(np.floor(lined.proj.values))
+        h_und = act < ln
+        bet = {
+            "n": int(len(ln)),
+            "raw": round(float(h_raw.mean()), 4),
+            "floored": round(float(h_flo.mean()), 4),
+            "floored_under_share": round(float((s_flo == "under").mean()), 4),
+            "always_under": round(float(h_und.mean()), 4),
+            "break_even": 0.524,
+        }
+
     pm = float(np.abs(np.round(r.proj.values) - a).mean())
     nm = float(np.abs(np.round(r.naive.values) - a).mean())
     diff = np.abs(np.round(r.naive.values) - a) - np.abs(np.round(r.proj.values) - a)
@@ -363,6 +410,16 @@ def grade(season):
     print(f"  season avg   {nm:.3f}")
     print(f"  gap          {nm - pm:+.3f}" + (f"  ({abs((nm-pm)/se):.1f} se)" if se else ""))
     print(f"  market, measured on 2025 data: 1.430")
+    if bet:
+        print(f"\n  taking a side against the posted line ({bet['n']} lines):")
+        print(f"    raw projection   {bet['raw']:.1%}")
+        print(f"    floored          {bet['floored']:.1%}"
+              f"   (takes the under {bet['floored_under_share']:.0%} of the time)")
+        print(f"    always the under {bet['always_under']:.1%}")
+        print(f"    break-even       52.4%")
+    print(f"\n  reached the whole number: {floor_model:.1%}"
+          f"   (season average {floor_naive:.1%}, "
+          f"simply 'at least 2' {at_least_2:.1%})")
 
     by_pos = []
     for p in ["WR", "TE", "RB"]:
@@ -379,6 +436,10 @@ def grade(season):
         "gap": round(nm - pm, 3),
         "se": round(abs((nm - pm) / se), 1) if se else None,
         "market_mae": 1.43,
+        "floor_hit": round(floor_model, 4),
+        "floor_hit_naive": round(floor_naive, 4),
+        "at_least_2": round(at_least_2, 4),
+        "bet": bet,
         "by_pos": by_pos,
         "recent": sorted(
             [{"week": int(x.week), "player": x.player, "pos": x.pos,
