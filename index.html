@@ -1578,7 +1578,7 @@ let state = { view: "home", data: null, card: null, nfl: null, nflScore: null, g
               nba: null, nbaGrade: null, nbaSort: "pra", nbaTab: "slate",
               kTab: "slate", nhl: null, nhlGrade: null, nhlTab: "slate", nhlSort: "proj",
               tsort: {}, selected: null,
-              scores: {}, league2: "nfl", sbTimer: null,
+              scores: {}, league2: "nfl", sbTimer: null, mbb: null,
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", open: new Set() };
@@ -2840,6 +2840,55 @@ function pickResults(src, label) {
     </div>`).join("")}`;
 }
 
+function mbbView() {
+  const d = state.mbb;
+  if (!d || !d.games || !d.games.length) {
+    return `<div class="empty"><h2>No college basketball slate</h2>
+      <p>Rebuilt each morning. Fills in once the season is under way.</p></div>`;
+  }
+  const q = state.q.toLowerCase();
+  const rows = d.games
+    .filter(g => !q || g.home.toLowerCase().includes(q)
+              || g.away.toLowerCase().includes(q))
+    .sort((a, b) => b.confidence - a.confidence);
+  const bt = d.backtest || {};
+  return `
+    <dl class="totals">
+      <div class="t"><dt>Called right</dt>
+        <dd>${Math.round((bt.accuracy || 0) * 100)}%
+        <small>${bt.games || 0} games, ${bt.seasons || ""}</small></dd></div>
+      <div class="t"><dt>Home-court baseline</dt>
+        <dd>${Math.round((bt.home_baseline || 0) * 100)}%</dd></div>
+      <div class="t"><dt>Margin error</dt><dd>${bt.margin_mae || "—"}
+        <small>points</small></dd></div>
+      <div class="t"><dt>Games tonight</dt><dd>${d.games.length}</dd></div>
+    </dl>
+    <p class="caption" style="max-width:62ch">Around 360 Division I teams,
+      rated from every game since 2021. Home court is worth far more here
+      than in football — home sides win 67% of the time, against 59% in
+      college football — so the baseline is unusually hard to beat, and the
+      model clears it by six points on 25,000 games. Neutral-site games get
+      no home edge.</p>
+    ${dataTable("mbb", [
+      { key: "matchup", label: "Matchup",
+        sortValue: g => g.away,
+        render: g => `${g.away} at ${g.home}${
+          g.neutral ? ` <span class="vg">neutral</span>` : ""}` },
+      { key: "pick", label: "Pick" },
+      { key: "confidence", label: "Win%", lead: true,
+        render: g => Math.round(g.confidence * 100) + "%" },
+      { key: "pred_margin", label: "Margin",
+        render: g => (g.pred_margin > 0 ? "+" : "") + g.pred_margin.toFixed(1) },
+      { key: "score", label: "Score", sortValue: g => g.score_home + g.score_away,
+        render: g => `${Math.round(g.score_away)}&ndash;${Math.round(g.score_home)}` },
+    ], rows, { defaultKey: "confidence", rowId: g => g.away + g.home,
+               limit: 200, empty: `Nothing matches "${state.q}".` })}
+    ${pickParlays(d, "mbb")}
+    <p class="cal-key">The winner and margin come from team ratings. The
+      scores split a league-average total around the margin, so read them as
+      "by about this much" rather than a scoreline.</p>`;
+}
+
 function gamesView() {
   const d = state.games;
   if (!d || !d.games || !d.games.length) {
@@ -3545,16 +3594,17 @@ function nbaFirstParlays() {
 
 function pickParlays(src, label) {
   if (!src || !src.games || !src.games.length) return "";
-  const wk = Math.min(...src.games.map(g => g.week));
+  const wk = src.games[0].week != null
+    ? Math.min(...src.games.map(g => g.week)) : null;
   return parlayBlock("Suggested parlays",
-    src.games.filter(g => g.week === wk).map(g => ({
+    src.games.filter(g => wk == null || g.week === wk).map(g => ({
       id: g.away + g.home, who: g.pick,
       game: g.away + g.home,
       what: `to beat ${g.pick === g.home ? g.away : g.home}`,
       p: g.confidence,
     })),
-    `${label === "cfb" ? "College" : "NFL"} winners for week ${wk}, straight ` +
-    `up rather than against the spread.`);
+    `${label === "mbb" ? "College basketball" : label === "cfb" ? "College football"
+      : "NFL"} winners, straight up rather than against the spread.`);
 }
 
 /* ================= drawer contents ================= */
@@ -4273,10 +4323,11 @@ function render() {
     const nCf = state.cfb && state.cfb.games ? state.cfb.games.length : 0;
     const leagueBar = `<div class="nfl-views">
         <button data-league="nfl" aria-pressed="${state.league === "nfl"}">NFL</button>
-        <span aria-hidden="true">·</span>
-        <button data-league="cfb" aria-pressed="${state.league === "cfb"}">college</button>
+        <button data-league="cfb" aria-pressed="${state.league === "cfb"}">College football</button>
+        <button data-league="mbb" aria-pressed="${state.league === "mbb"}">College basketball</button>
       </div>`;
-    const src = state.league === "cfb" ? state.cfb : state.games;
+    const src = state.league === "cfb" ? state.cfb
+              : state.league === "mbb" ? state.mbb : state.games;
     const gr = src && src.results ? src.results.graded : 0;
     const resBar = `<div class="res-tab">
         <button data-ptab="upcoming" aria-pressed="${state.pickTab === "upcoming"}">this week</button>
@@ -4289,7 +4340,8 @@ function render() {
     document.getElementById("body").innerHTML =
       state.pickTab === "results"
         ? pickResults(src, state.league)
-        : (state.league === "cfb" ? cfbView() : gamesView());
+        : (state.league === "cfb" ? cfbView()
+           : state.league === "mbb" ? mbbView() : gamesView());
     document.querySelectorAll(".res-tab button").forEach(b =>
       b.onclick = () => { state.pickTab = b.dataset.ptab; render(); });
     document.querySelectorAll(".nfl-views button").forEach(b =>
@@ -4466,12 +4518,14 @@ Promise.all([
     .then(r => r.ok ? r.json() : null).catch(() => null),
   fetch("nhl_grade.json", { cache: "no-store" })
     .then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([c, n, rs, gm, cf, rp, td, rg, tg, nb, ng, hk, hg]) => {
+  fetch("mbb_games.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n, rs, gm, cf, rp, td, rg, tg, nb, ng, hk, hg, mb]) => {
   state.card = c; state.nfl = n; state.nflScore = rs;
   state.games = gm; state.cfb = cf; state.recProj = rp;
   state.td = td; state.recGrade = rg; state.tdGrade = tg;
   state.nba = nb; state.nbaGrade = ng;
-  state.nhl = hk; state.nhlGrade = hg;
+  state.nhl = hk; state.nhlGrade = hg; state.mbb = mb;
 })
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
