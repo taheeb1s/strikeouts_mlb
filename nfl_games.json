@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-03T23:42:15+00:00",
+ "generated_at": "2026-11-03T23:53:12+00:00",
  "backtest": {
   "games": 1540,
   "accuracy": 0.6331,
@@ -1320,7 +1320,7 @@
    "pred_total": 45.9,
    "pick": "JAX",
    "confidence": 0.8344,
-   "vegas_spread": -8.5,
+   "vegas_spread": -9.5,
    "elo_home": 1286.8,
    "elo_away": 1615.8
   },
@@ -1337,7 +1337,7 @@
    "pred_total": 48.2,
    "pick": "LA",
    "confidence": 0.7101,
-   "vegas_spread": -8.5,
+   "vegas_spread": -7.5,
    "elo_home": 1387.8,
    "elo_away": 1591.3
   },
