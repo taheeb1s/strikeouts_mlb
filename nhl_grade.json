@@ -1,16 +1,833 @@
 {
- "graded": 502,
+ "graded": 638,
  "dates": [
   "2026-10-31",
-  "2026-11-01"
+  "2026-11-01",
+  "2026-11-02"
  ],
- "mae": 1.016,
- "naive_mae": 1.05,
- "gap": 0.035,
- "se": 2.9,
- "bias": -0.141,
- "actual_mean": 1.53,
+ "mae": 1.015,
+ "naive_mae": 1.04,
+ "gap": 0.025,
+ "se": 2.3,
+ "bias": -0.124,
+ "actual_mean": 1.52,
  "recent": [
+  {
+   "date": "2026-11-02",
+   "player": "N. MacKinnon",
+   "proj": 3.21,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Celebrini",
+   "proj": 3.02,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. DeBrincat",
+   "proj": 2.81,
+   "actual": 4
+  },
+  {
+   "date": "2026-11-02",
+   "player": "D. Pastrnak",
+   "proj": 2.73,
+   "actual": 7
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. Lundell",
+   "proj": 2.7,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "C. Bedard",
+   "proj": 2.62,
+   "actual": 4
+  },
+  {
+   "date": "2026-11-02",
+   "player": "L. Raymond",
+   "proj": 2.61,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "S. Reinhart",
+   "proj": 2.6,
+   "actual": 3
+  },
+  {
+   "date": "2026-11-02",
+   "player": "B. Tkachuk",
+   "proj": 2.57,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "C. Makar",
+   "proj": 2.56,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "V. Arvidsson",
+   "proj": 2.5,
+   "actual": 5
+  },
+  {
+   "date": "2026-11-02",
+   "player": "W. Smith",
+   "proj": 2.49,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Eichel",
+   "proj": 2.4,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Backlund",
+   "proj": 2.38,
+   "actual": 4
+  },
+  {
+   "date": "2026-11-02",
+   "player": "S. Jones",
+   "proj": 2.36,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "E. Finnie",
+   "proj": 2.33,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Gridin",
+   "proj": 2.27,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Marner",
+   "proj": 2.23,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "N. Kadri",
+   "proj": 2.23,
+   "actual": 4
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Farabee",
+   "proj": 2.2,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Coronato",
+   "proj": 2.06,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "S. Bennett",
+   "proj": 2.03,
+   "actual": 5
+  },
+  {
+   "date": "2026-11-02",
+   "player": "R. Strome",
+   "proj": 2.03,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Necas",
+   "proj": 1.96,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Peterka",
+   "proj": 1.91,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "T. Hughes",
+   "proj": 1.88,
+   "actual": 3
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. Lehkonen",
+   "proj": 1.86,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Stone",
+   "proj": 1.81,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "C. Verhaeghe",
+   "proj": 1.8,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "S. Theodore",
+   "proj": 1.77,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "F. Minten",
+   "proj": 1.76,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "T. Hertl",
+   "proj": 1.75,
+   "actual": 4
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Tkachuk",
+   "proj": 1.74,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "P. Zacha",
+   "proj": 1.73,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Brandsegg-Nyg\u00e5rd",
+   "proj": 1.72,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "B. Nelson",
+   "proj": 1.72,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "P. Kane",
+   "proj": 1.69,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "C. McAvoy",
+   "proj": 1.65,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "E. Lindholm",
+   "proj": 1.64,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "K. Sherwood",
+   "proj": 1.63,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Marchment",
+   "proj": 1.63,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. Frondell",
+   "proj": 1.63,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. Copp",
+   "proj": 1.62,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Seider",
+   "proj": 1.62,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "R. Kantserov",
+   "proj": 1.61,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "T. Connelly",
+   "proj": 1.61,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "D. Nurse",
+   "proj": 1.58,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. Suniev",
+   "proj": 1.55,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Hagens",
+   "proj": 1.52,
+   "actual": 3
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Frost",
+   "proj": 1.49,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "W. Karlsson",
+   "proj": 1.48,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "Y. Sharangovich",
+   "proj": 1.46,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Schwartz",
+   "proj": 1.45,
+   "actual": 4
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Pospisil",
+   "proj": 1.44,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "T. Toffoli",
+   "proj": 1.43,
+   "actual": 6
+  },
+  {
+   "date": "2026-11-02",
+   "player": "R. Andersson",
+   "proj": 1.42,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "F. Nazar",
+   "proj": 1.38,
+   "actual": 3
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Gatcomb",
+   "proj": 1.36,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "I. Stenberg",
+   "proj": 1.35,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "Z. Parekh",
+   "proj": 1.33,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. Klapka",
+   "proj": 1.33,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "C. Graf",
+   "proj": 1.33,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Compher",
+   "proj": 1.33,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "B. Howden",
+   "proj": 1.32,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "C. Mittelstadt",
+   "proj": 1.3,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Rasmussen",
+   "proj": 1.29,
+   "actual": 5
+  },
+  {
+   "date": "2026-11-02",
+   "player": "S. Vilmanis",
+   "proj": 1.28,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Geekie",
+   "proj": 1.27,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "O. Moore",
+   "proj": 1.27,
+   "actual": 3
+  },
+  {
+   "date": "2026-11-02",
+   "player": "I. Barbashev",
+   "proj": 1.26,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "E. Luostarinen",
+   "proj": 1.25,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "C. Smith",
+   "proj": 1.25,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "T. Bertuzzi",
+   "proj": 1.19,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "B. Bowman",
+   "proj": 1.18,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "D. Toews",
+   "proj": 1.18,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "S. Nemec",
+   "proj": 1.16,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Trouba",
+   "proj": 1.15,
+   "actual": 6
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Misa",
+   "proj": 1.11,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "N. Mikkola",
+   "proj": 1.1,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "G. Forsling",
+   "proj": 1.09,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "G. Landeskog",
+   "proj": 1.09,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "N. Hanifin",
+   "proj": 1.08,
+   "actual": 5
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. Levshunov",
+   "proj": 1.08,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Aspirot",
+   "proj": 1.08,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "R. Greene",
+   "proj": 1.07,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "H. Lindholm",
+   "proj": 1.07,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. Ekblad",
+   "proj": 1.07,
+   "actual": 3
+  },
+  {
+   "date": "2026-11-02",
+   "player": "R. Donato",
+   "proj": 1.06,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Faulk",
+   "proj": 1.05,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Lauzon",
+   "proj": 1.05,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "P. Kelly",
+   "proj": 1.04,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "S. Malinski",
+   "proj": 1.03,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Kesselring",
+   "proj": 1.02,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. Vlasic",
+   "proj": 1.02,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Khusnutdinov",
+   "proj": 1.02,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "T. Teravainen",
+   "proj": 1.01,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Poitras",
+   "proj": 1.0,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "N. Roy",
+   "proj": 0.99,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "E. Del Mastro",
+   "proj": 0.99,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "L. Eller",
+   "proj": 0.98,
+   "actual": 3
+  },
+  {
+   "date": "2026-11-02",
+   "player": "D. Coghlan",
+   "proj": 0.98,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Kastelic",
+   "proj": 0.96,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Castagna",
+   "proj": 0.96,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "C. Mazur",
+   "proj": 0.95,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "B. Burns",
+   "proj": 0.95,
+   "actual": 3
+  },
+  {
+   "date": "2026-11-02",
+   "player": "B. McNabb",
+   "proj": 0.91,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "Z. Ostapchuk",
+   "proj": 0.9,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "K. Bahl",
+   "proj": 0.9,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "S. Dries",
+   "proj": 0.88,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "B. Goodrow",
+   "proj": 0.87,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "B. Kulak",
+   "proj": 0.87,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "Z. Whitecloud",
+   "proj": 0.86,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "D. Orlov",
+   "proj": 0.85,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "F. Svechkov",
+   "proj": 0.81,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "Y. Kuznetsov",
+   "proj": 0.8,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "W. Wallinder",
+   "proj": 0.8,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "B. Chiarot",
+   "proj": 0.8,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "T. Jeannot",
+   "proj": 0.8,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "M. Lohrei",
+   "proj": 0.78,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "W. Borgen",
+   "proj": 0.77,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "J. Middleton",
+   "proj": 0.77,
+   "actual": 3
+  },
+  {
+   "date": "2026-11-02",
+   "player": "S. Rinzel",
+   "proj": 0.77,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "N. Zadorov",
+   "proj": 0.76,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "W. Kaiser",
+   "proj": 0.76,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "I. Cole",
+   "proj": 0.76,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "S. Dickinson",
+   "proj": 0.74,
+   "actual": 2
+  },
+  {
+   "date": "2026-11-02",
+   "player": "N. Allan",
+   "proj": 0.73,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "K. Kolesar",
+   "proj": 0.69,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. Johansson",
+   "proj": 0.69,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "G. Hathaway",
+   "proj": 0.67,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "N. Dowd",
+   "proj": 0.65,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "B. Imama",
+   "proj": 0.63,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "R. Gudas",
+   "proj": 0.58,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "D. Kulikov",
+   "proj": 0.55,
+   "actual": 1
+  },
+  {
+   "date": "2026-11-02",
+   "player": "N. Juulsen",
+   "proj": 0.53,
+   "actual": 0
+  },
+  {
+   "date": "2026-11-02",
+   "player": "A. Englund",
+   "proj": 0.53,
+   "actual": 0
+  },
   {
    "date": "2026-11-01",
    "player": "K. Connor",
@@ -694,823 +1511,7 @@
    "player": "N. Nesterenko",
    "proj": 1.02,
    "actual": 2
-  },
-  {
-   "date": "2026-11-01",
-   "player": "J. Malott",
-   "proj": 1.01,
-   "actual": 3
-  },
-  {
-   "date": "2026-11-01",
-   "player": "J. Sourdif",
-   "proj": 1.01,
-   "actual": 2
-  },
-  {
-   "date": "2026-11-01",
-   "player": "B. Schneider",
-   "proj": 1.01,
-   "actual": 3
-  },
-  {
-   "date": "2026-11-01",
-   "player": "V. Gavrikov",
-   "proj": 0.99,
-   "actual": 3
-  },
-  {
-   "date": "2026-11-01",
-   "player": "C. Murphy",
-   "proj": 0.97,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "A. Fox",
-   "proj": 0.96,
-   "actual": 2
-  },
-  {
-   "date": "2026-11-01",
-   "player": "A. Beauvillier",
-   "proj": 0.95,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "N. Cates",
-   "proj": 0.95,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "D. Samberg",
-   "proj": 0.95,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "T. Pitlick",
-   "proj": 0.94,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "F. Hallander",
-   "proj": 0.94,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "D. Helleson",
-   "proj": 0.94,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "J. Brodin",
-   "proj": 0.92,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "R. McQueen",
-   "proj": 0.92,
-   "actual": 4
-  },
-  {
-   "date": "2026-11-01",
-   "player": "M. Feh\u00e9rv\u00e1ry",
-   "proj": 0.92,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "E. Tolvanen",
-   "proj": 0.92,
-   "actual": 2
-  },
-  {
-   "date": "2026-11-01",
-   "player": "K. Stenlund",
-   "proj": 0.91,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "J. McBain",
-   "proj": 0.91,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "O. Bonk",
-   "proj": 0.9,
-   "actual": 2
-  },
-  {
-   "date": "2026-11-01",
-   "player": "N. Acciari",
-   "proj": 0.89,
-   "actual": 2
-  },
-  {
-   "date": "2026-11-01",
-   "player": "I. Protas",
-   "proj": 0.88,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "R. Shea",
-   "proj": 0.88,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "O. Michaels",
-   "proj": 0.87,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "O. Maatta",
-   "proj": 0.87,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "N. Laba",
-   "proj": 0.86,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "M. Ekholm",
-   "proj": 0.85,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "T. Frederic",
-   "proj": 0.85,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "D. Barkey",
-   "proj": 0.85,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "T. Luneau",
-   "proj": 0.85,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "N. Schmidt",
-   "proj": 0.85,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "M. Pettersson",
-   "proj": 0.83,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "A. Lowry",
-   "proj": 0.83,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "N. Sturm",
-   "proj": 0.83,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "Z. Bogosian",
-   "proj": 0.81,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "A. Zub",
-   "proj": 0.81,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "J. Spence",
-   "proj": 0.8,
-   "actual": 2
-  },
-  {
-   "date": "2026-11-01",
-   "player": "V. Bj\u00f6rck",
-   "proj": 0.8,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "D. DeMelo",
-   "proj": 0.8,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "M. Kiersted",
-   "proj": 0.79,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "A. Peeke",
-   "proj": 0.78,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "D. Spacek",
-   "proj": 0.77,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "T. Mitchell",
-   "proj": 0.76,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "H. Fleury",
-   "proj": 0.74,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "N. Warren",
-   "proj": 0.74,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "N. Seeler",
-   "proj": 0.74,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "D. Simashev",
-   "proj": 0.73,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "N. Cousins",
-   "proj": 0.72,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "N. Deslauriers",
-   "proj": 0.72,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "S. Benoit",
-   "proj": 0.68,
-   "actual": 1
-  },
-  {
-   "date": "2026-11-01",
-   "player": "J. St. Ivany",
-   "proj": 0.64,
-   "actual": 3
-  },
-  {
-   "date": "2026-11-01",
-   "player": "N. Matinpalo",
-   "proj": 0.62,
-   "actual": 2
-  },
-  {
-   "date": "2026-11-01",
-   "player": "T. Emberson",
-   "proj": 0.6,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "S. Mukhamadullin",
-   "proj": 0.58,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "P. Mintyukov",
-   "proj": 0.57,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "T. Liljegren",
-   "proj": 0.57,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "A. Smits",
-   "proj": 0.54,
-   "actual": 0
-  },
-  {
-   "date": "2026-11-01",
-   "player": "T. Bauer",
-   "proj": 0.5,
-   "actual": 0
-  },
-  {
-   "date": "2026-10-31",
-   "player": "M. Celebrini",
-   "proj": 3.34,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "B. Hagel",
-   "proj": 3.23,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "T. Thompson",
-   "proj": 3.08,
-   "actual": 8
-  },
-  {
-   "date": "2026-10-31",
-   "player": "M. Schaefer",
-   "proj": 3.03,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "N. MacKinnon",
-   "proj": 2.96,
-   "actual": 5
-  },
-  {
-   "date": "2026-10-31",
-   "player": "A. DeBrincat",
-   "proj": 2.9,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "L. Draisaitl",
-   "proj": 2.84,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. Guentzel",
-   "proj": 2.82,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "A. Panarin",
-   "proj": 2.73,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. Robertson",
-   "proj": 2.72,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "C. Caufield",
-   "proj": 2.7,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "D. Pastrnak",
-   "proj": 2.68,
-   "actual": 4
-  },
-  {
-   "date": "2026-10-31",
-   "player": "B. Horvat",
-   "proj": 2.65,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "Q. Byfield",
-   "proj": 2.61,
-   "actual": 0
-  },
-  {
-   "date": "2026-10-31",
-   "player": "L. Raymond",
-   "proj": 2.61,
-   "actual": 4
-  },
-  {
-   "date": "2026-10-31",
-   "player": "W. Nylander",
-   "proj": 2.59,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "M. McTavish",
-   "proj": 2.58,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "A. Matthews",
-   "proj": 2.56,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "V. Arvidsson",
-   "proj": 2.55,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "A. Fantilli",
-   "proj": 2.53,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "C. Makar",
-   "proj": 2.52,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "N. Kucherov",
-   "proj": 2.52,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. Quinn",
-   "proj": 2.52,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "A. Laferriere",
-   "proj": 2.51,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "Z. Werenski",
-   "proj": 2.5,
-   "actual": 4
-  },
-  {
-   "date": "2026-10-31",
-   "player": "W. Smith",
-   "proj": 2.43,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "W. Johnston",
-   "proj": 2.4,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "R. Josi",
-   "proj": 2.39,
-   "actual": 5
-  },
-  {
-   "date": "2026-10-31",
-   "player": "R. Dahlin",
-   "proj": 2.37,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "E. Bouchard",
-   "proj": 2.36,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "F. Forsberg",
-   "proj": 2.35,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "R. Rakell",
-   "proj": 2.32,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "M. Gridin",
-   "proj": 2.27,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. Roslovic",
-   "proj": 2.25,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "C. McDavid",
-   "proj": 2.25,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "M. Backlund",
-   "proj": 2.24,
-   "actual": 5
-  },
-  {
-   "date": "2026-10-31",
-   "player": "B. Kindel",
-   "proj": 2.23,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "C. Bedard",
-   "proj": 2.21,
-   "actual": 6
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. Slafkovsk\u00fd",
-   "proj": 2.21,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. Carlson",
-   "proj": 2.15,
-   "actual": 5
-  },
-  {
-   "date": "2026-10-31",
-   "player": "Z. Benson",
-   "proj": 2.11,
-   "actual": 4
-  },
-  {
-   "date": "2026-10-31",
-   "player": "E. Finnie",
-   "proj": 2.06,
-   "actual": 5
-  },
-  {
-   "date": "2026-10-31",
-   "player": "M. Coronato",
-   "proj": 2.05,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. Farabee",
-   "proj": 2.03,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "N. Kadri",
-   "proj": 2.02,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "N. Ostlund",
-   "proj": 2.02,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "B. Point",
-   "proj": 2.0,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "V. Podkolzin",
-   "proj": 2.0,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. Snuggerud",
-   "proj": 2.0,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "D. Batherson",
-   "proj": 1.97,
-   "actual": 4
-  },
-  {
-   "date": "2026-10-31",
-   "player": "M. Rantanen",
-   "proj": 1.96,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "R. Strome",
-   "proj": 1.96,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "K. Johnson",
-   "proj": 1.96,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "D. Holloway",
-   "proj": 1.95,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "E. Cowan",
-   "proj": 1.94,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "T. Seguin",
-   "proj": 1.94,
-   "actual": 0
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. DeBrusk",
-   "proj": 1.93,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "F. Minten",
-   "proj": 1.92,
-   "actual": 0
-  },
-  {
-   "date": "2026-10-31",
-   "player": "P. Broberg",
-   "proj": 1.92,
-   "actual": 0
-  },
-  {
-   "date": "2026-10-31",
-   "player": "M. Necas",
-   "proj": 1.92,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "M. Brandsegg-Nyg\u00e5rd",
-   "proj": 1.88,
-   "actual": 0
-  },
-  {
-   "date": "2026-10-31",
-   "player": "O. Zellweger",
-   "proj": 1.86,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "E. Malkin",
-   "proj": 1.85,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. Marchessault",
-   "proj": 1.84,
-   "actual": 4
-  },
-  {
-   "date": "2026-10-31",
-   "player": "S. Holmstrom",
-   "proj": 1.84,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "S. Stamkos",
-   "proj": 1.83,
-   "actual": 6
-  },
-  {
-   "date": "2026-10-31",
-   "player": "B. Nelson",
-   "proj": 1.82,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "A. Lehkonen",
-   "proj": 1.82,
-   "actual": 4
-  },
-  {
-   "date": "2026-10-31",
-   "player": "T. St\u00fctzle",
-   "proj": 1.82,
-   "actual": 7
-  },
-  {
-   "date": "2026-10-31",
-   "player": "R. O'Reilly",
-   "proj": 1.82,
-   "actual": 0
-  },
-  {
-   "date": "2026-10-31",
-   "player": "S. Pinto",
-   "proj": 1.8,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. Peterka",
-   "proj": 1.8,
-   "actual": 4
-  },
-  {
-   "date": "2026-10-31",
-   "player": "J. Anderson",
-   "proj": 1.79,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "T. Moore",
-   "proj": 1.79,
-   "actual": 3
-  },
-  {
-   "date": "2026-10-31",
-   "player": "D. Cozens",
-   "proj": 1.78,
-   "actual": 5
-  },
-  {
-   "date": "2026-10-31",
-   "player": "R. Kantserov",
-   "proj": 1.78,
-   "actual": 0
-  },
-  {
-   "date": "2026-10-31",
-   "player": "M. Heiskanen",
-   "proj": 1.78,
-   "actual": 1
-  },
-  {
-   "date": "2026-10-31",
-   "player": "C. Coyle",
-   "proj": 1.78,
-   "actual": 2
-  },
-  {
-   "date": "2026-10-31",
-   "player": "T. Hughes",
-   "proj": 1.77,
-   "actual": 2
   }
  ],
- "generated_at": "2026-11-03T02:46:02+00:00"
+ "generated_at": "2026-11-03T13:05:23+00:00"
 }
