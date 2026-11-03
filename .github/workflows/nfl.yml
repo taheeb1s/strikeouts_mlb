@@ -77,13 +77,16 @@ jobs:
           FORCE: ${{ github.event.inputs.force_daily || 'false' }}
         run: |
           # These pull a season of nflverse data, so once a day is plenty.
-          # 12:00 UTC is well after Monday night football finishes.
-          # Was pinned to exactly 12:00 UTC, and GitHub's best-effort
-          # scheduler skipped it three days running. A window plus a
-          # marker file means a missed hour just runs at the next one.
-          H=$(date -u +%H); TODAY=$(date -u +%F)
+          #
+          # The marker file is what enforces "once", so the window only has
+          # to be wide enough that GitHub's scheduler lands in it at least
+          # once. A 12-17 window was not: on 2 November it skipped all six
+          # of those hours while the hourly capture ran normally either
+          # side. Twelve hours gives it twelve chances, and the marker
+          # still stops it running twice.
+          H=$(date -u +%H); H=${H#0}; TODAY=$(date -u +%F)
           LAST=$(cat .last_daily 2>/dev/null || echo "")
-          if { [ "$H" -ge 12 ] && [ "$H" -le 17 ] && [ "$LAST" != "$TODAY" ]; } \
+          if { [ "$H" -ge 12 ] && [ "$H" -le 23 ] && [ "$LAST" != "$TODAY" ]; } \
              || [ "$FORCE" = "true" ]; then
             echo "$TODAY" > .last_daily
             echo "go=yes" >> "$GITHUB_OUTPUT"
