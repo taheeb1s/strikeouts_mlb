@@ -2861,6 +2861,8 @@ function mbbView() {
         <dd>${Math.round((bt.home_baseline || 0) * 100)}%</dd></div>
       <div class="t"><dt>Margin error</dt><dd>${bt.margin_mae || "—"}
         <small>points</small></dd></div>
+      <div class="t"><dt>Total error</dt><dd>${bt.total_mae || "—"}
+        <small>vs 15.1 flat</small></dd></div>
       <div class="t"><dt>Games tonight</dt><dd>${d.games.length}</dd></div>
     </dl>
     <p class="caption" style="max-width:62ch">Around 360 Division I teams,
@@ -2881,12 +2883,16 @@ function mbbView() {
         render: g => (g.pred_margin > 0 ? "+" : "") + g.pred_margin.toFixed(1) },
       { key: "score", label: "Score", sortValue: g => g.score_home + g.score_away,
         render: g => `${Math.round(g.score_away)}&ndash;${Math.round(g.score_home)}` },
+      { key: "pred_total", label: "Total",
+        render: g => (g.pred_total == null ? "—" : Math.round(g.pred_total)) },
     ], rows, { defaultKey: "confidence", rowId: g => g.away + g.home,
                limit: 200, empty: `Nothing matches "${state.q}".` })}
     ${pickParlays(d, "mbb")}
-    <p class="cal-key">The winner and margin come from team ratings. The
-      scores split a league-average total around the margin, so read them as
-      "by about this much" rather than a scoreline.</p>`;
+    <p class="cal-key">The winner and margin come from team ratings; the
+      total from opponent-adjusted scoring rates. Tempo matters more here
+      than anywhere else on this page — the totals beat a flat league
+      average by 1.6 points at 31 standard errors, where the equivalent in
+      the NFL was worth a quarter of a point.</p>`;
 }
 
 function gamesView() {
