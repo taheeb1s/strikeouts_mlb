@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-04T19:00:17+00:00",
+ "generated_at": "2026-11-05T15:54:02+00:00",
  "season": 2027,
  "backtest": {
-  "games": 25275,
-  "accuracy": 0.732,
-  "total_mae": 13.54,
-  "home_baseline": 0.6705,
-  "margin_mae": 11.45,
+  "games": 25301,
+  "accuracy": 0.7323,
+  "total_mae": 13.55,
+  "home_baseline": 0.6707,
+  "margin_mae": 11.47,
   "seasons": "2023-2027"
  },
  "ratings": {
@@ -26,20 +26,20 @@
   "Tennessee": 1814.3,
   "Vanderbilt": 1812.6,
   "Virginia": 1795.3,
+  "Saint Mary's": 1779.2,
   "UCLA": 1774.5,
   "Utah State": 1761.0,
-  "Saint Mary's": 1760.2,
   "VCU": 1758.7,
   "Iowa State": 1756.3,
   "Wisconsin": 1754.7,
   "South Florida": 1746.4,
   "McNeese": 1744.9,
   "Kansas": 1744.1,
-  "High Point": 1733.6,
+  "High Point": 1735.1,
+  "Santa Clara": 1733.2,
   "Texas Tech": 1732.7,
   "Akron": 1732.0,
   "Nebraska": 1729.9,
-  "Santa Clara": 1729.0,
   "Louisville": 1726.5,
   "Miami OH": 1725.3,
   "TCU": 1720.7,
@@ -47,73 +47,313 @@
   "North Carolina": 1710.7,
   "Kentucky": 1705.1,
   "Saint Louis": 1704.9,
+  "Auburn": 1701.3,
   "BYU": 1698.0,
-  "Auburn": 1696.6,
   "Texas": 1692.9
  },
  "results": {
-  "graded": 212,
-  "won": 190,
-  "lost": 22,
-  "win_pct": 0.8962,
-  "home_baseline": 0.8915,
-  "margin_mae": 19.79,
+  "graded": 238,
+  "won": 215,
+  "lost": 23,
+  "win_pct": 0.9034,
+  "home_baseline": 0.895,
+  "margin_mae": 20.55,
   "bands": [
    {
     "band": "50-60%",
-    "n": 18,
-    "won": 13,
-    "said": 0.563,
-    "happened": 0.722
+    "n": 21,
+    "won": 15,
+    "said": 0.564,
+    "happened": 0.714
    },
    {
     "band": "60-70%",
-    "n": 28,
-    "won": 24,
-    "said": 0.656,
-    "happened": 0.857
+    "n": 29,
+    "won": 25,
+    "said": 0.657,
+    "happened": 0.862
    },
    {
     "band": "70-80%",
-    "n": 54,
-    "won": 47,
-    "said": 0.755,
-    "happened": 0.87
+    "n": 59,
+    "won": 52,
+    "said": 0.754,
+    "happened": 0.881
    },
    {
     "band": "80-90%",
-    "n": 61,
-    "won": 57,
+    "n": 69,
+    "won": 65,
     "said": 0.85,
-    "happened": 0.934
+    "happened": 0.942
    },
    {
     "band": "over 90%",
-    "n": 51,
-    "won": 49,
-    "said": 0.938,
-    "happened": 0.961
+    "n": 60,
+    "won": 58,
+    "said": 0.937,
+    "happened": 0.967
    }
   ],
   "recent": [
    {
-    "date": "2026-11-04",
-    "away": "North Florida",
-    "home": "CA Baptist",
-    "pick": "CA Baptist",
-    "conf": 0.945,
-    "pred_margin": 17.7,
+    "date": "2026-11-05",
+    "away": "Queens",
+    "home": "LMU",
+    "pick": "Queens",
+    "conf": 0.587,
+    "pred_margin": -2.2,
+    "margin": -1,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Milwaukee",
+    "home": "Santa Clara",
+    "pick": "Santa Clara",
+    "conf": 0.938,
+    "pred_margin": 16.9,
+    "margin": 23,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "N Dakota St",
+    "home": "Saint Mary's",
+    "pick": "Saint Mary's",
+    "conf": 0.784,
+    "pred_margin": 8.0,
+    "margin": 41,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "SalishKootenai",
+    "home": "Montana",
+    "pick": "Montana",
+    "conf": 0.859,
+    "pred_margin": 11.2,
+    "margin": 65,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Radford",
+    "home": "California",
+    "pick": "California",
+    "conf": 0.806,
+    "pred_margin": 8.8,
+    "margin": 14,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Grace U",
+    "home": "Utah Tech",
+    "pick": "Utah Tech",
+    "conf": 0.918,
+    "pred_margin": 15.0,
+    "margin": 51,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "West Coast",
+    "home": "Boise St",
+    "pick": "Boise St",
+    "conf": 0.938,
+    "pred_margin": 16.8,
+    "margin": 79,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "N Kentucky",
+    "home": "South Dakota",
+    "pick": "South Dakota",
+    "conf": 0.517,
+    "pred_margin": 0.4,
     "margin": -8,
     "won": false
    },
    {
+    "date": "2026-11-05",
+    "away": "Randolph",
+    "home": "Norfolk St",
+    "pick": "Norfolk St",
+    "conf": 0.701,
+    "pred_margin": 5.3,
+    "margin": 7,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "St Mary's",
+    "home": "S Indiana",
+    "pick": "S Indiana",
+    "conf": 0.594,
+    "pred_margin": 2.4,
+    "margin": 70,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "SE Louisiana",
+    "home": "Auburn",
+    "pick": "Auburn",
+    "conf": 0.938,
+    "pred_margin": 16.8,
+    "margin": 33,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "CSU Northridge",
+    "home": "Wichita St",
+    "pick": "Wichita St",
+    "conf": 0.83,
+    "pred_margin": 9.8,
+    "margin": 12,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Christendom",
+    "home": "App State",
+    "pick": "App State",
+    "conf": 0.906,
+    "pred_margin": 14.1,
+    "margin": 65,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Central Col",
+    "home": "Drake",
+    "pick": "Drake",
+    "conf": 0.921,
+    "pred_margin": 15.3,
+    "margin": 53,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Blue Mountain",
+    "home": "Tennessee Tech",
+    "pick": "Tennessee Tech",
+    "conf": 0.715,
+    "pred_margin": 5.7,
+    "margin": 47,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Bob Jones",
+    "home": "Furman",
+    "pick": "Furman",
+    "conf": 0.913,
+    "pred_margin": 14.6,
+    "margin": 69,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Champ Chrstn",
+    "home": "UL Monroe",
+    "pick": "UL Monroe",
+    "conf": 0.68,
+    "pred_margin": 4.7,
+    "margin": 44,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Webster",
+    "home": "SE Missouri",
+    "pick": "SE Missouri",
+    "conf": 0.839,
+    "pred_margin": 10.2,
+    "margin": 25,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Regent",
+    "home": "Old Dominion",
+    "pick": "Old Dominion",
+    "conf": 0.899,
+    "pred_margin": 13.5,
+    "margin": 44,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "VA Lynchburg",
+    "home": "Morgan St",
+    "pick": "Morgan St",
+    "conf": 0.891,
+    "pred_margin": 13.1,
+    "margin": 37,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Concordia Chi",
+    "home": "SIUE",
+    "pick": "SIUE",
+    "conf": 0.918,
+    "pred_margin": 15.0,
+    "margin": 24,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Erskine",
+    "home": "UNC Asheville",
+    "pick": "UNC Asheville",
+    "conf": 0.798,
+    "pred_margin": 8.5,
+    "margin": 27,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "MD Eastern",
+    "home": "High Point",
+    "pick": "High Point",
+    "conf": 0.972,
+    "pred_margin": 22.0,
+    "margin": 14,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "Longwood",
+    "home": "Saint Joseph's",
+    "pick": "Saint Joseph's",
+    "conf": 0.83,
+    "pred_margin": 9.8,
+    "margin": 9,
+    "won": true
+   },
+   {
+    "date": "2026-11-05",
+    "away": "FDU",
+    "home": "Butler",
+    "pick": "Butler",
+    "conf": 0.856,
+    "pred_margin": 11.1,
+    "margin": 34,
+    "won": true
+   },
+   {
     "date": "2026-11-04",
-    "away": "Bethesda",
-    "home": "Pacific",
-    "pick": "Pacific",
-    "conf": 0.915,
-    "pred_margin": 14.7,
-    "margin": 55,
+    "away": "Framingham St",
+    "home": "Dartmouth",
+    "pick": "Dartmouth",
+    "conf": 0.752,
+    "pred_margin": 6.9,
+    "margin": 57,
     "won": true
    },
    {
@@ -128,22 +368,22 @@
    },
    {
     "date": "2026-11-04",
-    "away": "Chapman",
-    "home": "UC Irvine",
-    "pick": "UC Irvine",
-    "conf": 0.884,
-    "pred_margin": 12.6,
-    "margin": 26,
-    "won": true
-   },
-   {
-    "date": "2026-11-04",
     "away": "N Arizona",
     "home": "UNLV",
     "pick": "UNLV",
     "conf": 0.917,
     "pred_margin": 14.9,
     "margin": 12,
+    "won": true
+   },
+   {
+    "date": "2026-11-04",
+    "away": "Chapman",
+    "home": "UC Irvine",
+    "pick": "UC Irvine",
+    "conf": 0.884,
+    "pred_margin": 12.6,
+    "margin": 26,
     "won": true
    },
    {
@@ -155,6 +395,26 @@
     "pred_margin": 9.8,
     "margin": 52,
     "won": true
+   },
+   {
+    "date": "2026-11-04",
+    "away": "Bethesda",
+    "home": "Pacific",
+    "pick": "Pacific",
+    "conf": 0.915,
+    "pred_margin": 14.7,
+    "margin": 55,
+    "won": true
+   },
+   {
+    "date": "2026-11-04",
+    "away": "North Florida",
+    "home": "CA Baptist",
+    "pick": "CA Baptist",
+    "conf": 0.945,
+    "pred_margin": 17.7,
+    "margin": -8,
+    "won": false
    },
    {
     "date": "2026-11-04",
@@ -178,12 +438,12 @@
    },
    {
     "date": "2026-11-04",
-    "away": "Lincoln (MO)",
-    "home": "Missouri St",
-    "pick": "Missouri St",
-    "conf": 0.766,
-    "pred_margin": 7.4,
-    "margin": 28,
+    "away": "LSU N Orleans",
+    "home": "LSU",
+    "pick": "LSU",
+    "conf": 0.668,
+    "pred_margin": 4.3,
+    "margin": 43,
     "won": true
    },
    {
@@ -218,22 +478,12 @@
    },
    {
     "date": "2026-11-04",
-    "away": "LSU N Orleans",
-    "home": "LSU",
-    "pick": "LSU",
-    "conf": 0.668,
-    "pred_margin": 4.3,
-    "margin": 43,
-    "won": true
-   },
-   {
-    "date": "2026-11-04",
-    "away": "Lipscomb",
-    "home": "Iowa",
-    "pick": "Iowa",
-    "conf": 0.897,
-    "pred_margin": 13.4,
-    "margin": 22,
+    "away": "Lincoln (MO)",
+    "home": "Missouri St",
+    "pick": "Missouri St",
+    "conf": 0.766,
+    "pred_margin": 7.4,
+    "margin": 28,
     "won": true
    },
    {
@@ -244,6 +494,16 @@
     "conf": 0.954,
     "pred_margin": 18.9,
     "margin": 31,
+    "won": true
+   },
+   {
+    "date": "2026-11-04",
+    "away": "Lipscomb",
+    "home": "Iowa",
+    "pick": "Iowa",
+    "conf": 0.897,
+    "pred_margin": 13.4,
+    "margin": 22,
     "won": true
    },
    {
@@ -288,22 +548,12 @@
    },
    {
     "date": "2026-11-04",
-    "away": "Purdue FW",
-    "home": "Duquesne",
-    "pick": "Duquesne",
-    "conf": 0.743,
-    "pred_margin": 6.6,
-    "margin": 7,
-    "won": true
-   },
-   {
-    "date": "2026-11-04",
-    "away": "Manhattan",
-    "home": "Kentucky",
-    "pick": "Kentucky",
-    "conf": 0.949,
-    "pred_margin": 18.2,
-    "margin": 28,
+    "away": "Coppin St",
+    "home": "Virginia Tech",
+    "pick": "Virginia Tech",
+    "conf": 0.926,
+    "pred_margin": 15.7,
+    "margin": 34,
     "won": true
    },
    {
@@ -318,22 +568,22 @@
    },
    {
     "date": "2026-11-04",
+    "away": "Manhattan",
+    "home": "Kentucky",
+    "pick": "Kentucky",
+    "conf": 0.949,
+    "pred_margin": 18.2,
+    "margin": 28,
+    "won": true
+   },
+   {
+    "date": "2026-11-04",
     "away": "Stetson",
     "home": "South Carolina",
     "pick": "South Carolina",
     "conf": 0.779,
     "pred_margin": 7.8,
     "margin": 26,
-    "won": true
-   },
-   {
-    "date": "2026-11-04",
-    "away": "Coppin St",
-    "home": "Virginia Tech",
-    "pick": "Virginia Tech",
-    "conf": 0.926,
-    "pred_margin": 15.7,
-    "margin": 34,
     "won": true
    },
    {
@@ -348,12 +598,12 @@
    },
    {
     "date": "2026-11-04",
-    "away": "Hampton",
-    "home": "Georgia Tech",
-    "pick": "Georgia Tech",
-    "conf": 0.579,
-    "pred_margin": 2.0,
-    "margin": 20,
+    "away": "Purdue FW",
+    "home": "Duquesne",
+    "pick": "Duquesne",
+    "conf": 0.743,
+    "pred_margin": 6.6,
+    "margin": 7,
     "won": true
    },
    {
@@ -364,6 +614,16 @@
     "conf": 0.828,
     "pred_margin": 9.8,
     "margin": 44,
+    "won": true
+   },
+   {
+    "date": "2026-11-04",
+    "away": "Hampton",
+    "home": "Georgia Tech",
+    "pick": "Georgia Tech",
+    "conf": 0.579,
+    "pred_margin": 2.0,
+    "margin": 20,
     "won": true
    },
    {
@@ -408,22 +668,32 @@
    },
    {
     "date": "2026-11-03",
-    "away": "Towson",
-    "home": "Santa Clara",
-    "pick": "Santa Clara",
-    "conf": 0.799,
-    "pred_margin": 8.6,
-    "margin": 19,
+    "away": "Colgate",
+    "home": "Washington",
+    "pick": "Washington",
+    "conf": 0.786,
+    "pred_margin": 8.1,
+    "margin": 14,
     "won": true
    },
    {
     "date": "2026-11-03",
-    "away": "E Washington",
-    "home": "Stanford",
-    "pick": "Stanford",
-    "conf": 0.757,
-    "pred_margin": 7.1,
-    "margin": 9,
+    "away": "La Verne",
+    "home": "UC Riverside",
+    "pick": "UC Riverside",
+    "conf": 0.702,
+    "pred_margin": 5.3,
+    "margin": 63,
+    "won": true
+   },
+   {
+    "date": "2026-11-03",
+    "away": "West Coast",
+    "home": "Southern Utah",
+    "pick": "Southern Utah",
+    "conf": 0.761,
+    "pred_margin": 7.2,
+    "margin": 65,
     "won": true
    },
    {
@@ -478,32 +748,22 @@
    },
    {
     "date": "2026-11-03",
-    "away": "Colgate",
-    "home": "Washington",
-    "pick": "Washington",
-    "conf": 0.786,
-    "pred_margin": 8.1,
-    "margin": 14,
+    "away": "Robert Morris",
+    "home": "Nevada",
+    "pick": "Nevada",
+    "conf": 0.657,
+    "pred_margin": 4.0,
+    "margin": 37,
     "won": true
    },
    {
     "date": "2026-11-03",
-    "away": "Illinois St",
-    "home": "Saint Mary's",
-    "pick": "Saint Mary's",
-    "conf": 0.797,
-    "pred_margin": 8.5,
-    "margin": 5,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Whittier",
-    "home": "UC San Diego",
-    "pick": "UC San Diego",
-    "conf": 0.883,
-    "pred_margin": 12.5,
-    "margin": 25,
+    "away": "E Washington",
+    "home": "Stanford",
+    "pick": "Stanford",
+    "conf": 0.757,
+    "pred_margin": 7.1,
+    "margin": 9,
     "won": true
    },
    {
@@ -518,12 +778,22 @@
    },
    {
     "date": "2026-11-03",
-    "away": "La Verne",
-    "home": "UC Riverside",
-    "pick": "UC Riverside",
-    "conf": 0.702,
-    "pred_margin": 5.3,
-    "margin": 63,
+    "away": "Towson",
+    "home": "Santa Clara",
+    "pick": "Santa Clara",
+    "conf": 0.799,
+    "pred_margin": 8.6,
+    "margin": 19,
+    "won": true
+   },
+   {
+    "date": "2026-11-03",
+    "away": "Illinois St",
+    "home": "Saint Mary's",
+    "pick": "Saint Mary's",
+    "conf": 0.797,
+    "pred_margin": 8.5,
+    "margin": 5,
     "won": true
    },
    {
@@ -538,12 +808,12 @@
    },
    {
     "date": "2026-11-03",
-    "away": "Robert Morris",
-    "home": "Nevada",
-    "pick": "Nevada",
-    "conf": 0.657,
-    "pred_margin": 4.0,
-    "margin": 37,
+    "away": "Whittier",
+    "home": "UC San Diego",
+    "pick": "UC San Diego",
+    "conf": 0.883,
+    "pred_margin": 12.5,
+    "margin": 25,
     "won": true
    },
    {
@@ -555,26 +825,6 @@
     "pred_margin": -9.0,
     "margin": 9,
     "won": false
-   },
-   {
-    "date": "2026-11-03",
-    "away": "West Coast",
-    "home": "Southern Utah",
-    "pick": "Southern Utah",
-    "conf": 0.761,
-    "pred_margin": 7.2,
-    "margin": 65,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Idaho St",
-    "home": "Utah State",
-    "pick": "Utah State",
-    "conf": 0.957,
-    "pred_margin": 19.2,
-    "margin": 36,
-    "won": true
    },
    {
     "date": "2026-11-03",
@@ -594,6 +844,16 @@
     "conf": 0.733,
     "pred_margin": 6.3,
     "margin": 41,
+    "won": true
+   },
+   {
+    "date": "2026-11-03",
+    "away": "Idaho St",
+    "home": "Utah State",
+    "pick": "Utah State",
+    "conf": 0.957,
+    "pred_margin": 19.2,
+    "margin": 36,
     "won": true
    },
    {
@@ -634,266 +894,6 @@
     "conf": 0.752,
     "pred_margin": -6.9,
     "margin": -43,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "San Fran St",
-    "home": "Santa Barbara",
-    "pick": "Santa Barbara",
-    "conf": 0.838,
-    "pred_margin": 10.2,
-    "margin": 30,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Gardner-Webb",
-    "home": "UConn",
-    "pick": "UConn",
-    "conf": 0.99,
-    "pred_margin": 28.6,
-    "margin": 40,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Chicago St",
-    "home": "Texas",
-    "pick": "Texas",
-    "conf": 0.953,
-    "pred_margin": 18.6,
-    "margin": 50,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "La Salle",
-    "home": "Houston",
-    "pick": "Houston",
-    "conf": 0.971,
-    "pred_margin": 21.9,
-    "margin": 39,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Chattanooga",
-    "home": "Louisville",
-    "pick": "Louisville",
-    "conf": 0.923,
-    "pred_margin": 15.4,
-    "margin": 14,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Ohio State",
-    "home": "BYU",
-    "pick": "Ohio State",
-    "conf": 0.561,
-    "pred_margin": -1.5,
-    "margin": 11,
-    "won": false
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Fresno Pacific",
-    "home": "Fresno St",
-    "pick": "Fresno St",
-    "conf": 0.747,
-    "pred_margin": 6.7,
-    "margin": 9,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Long Beach St",
-    "home": "Utah",
-    "pick": "Utah",
-    "conf": 0.68,
-    "pred_margin": 4.7,
-    "margin": 3,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Utah Tech",
-    "home": "New Mexico",
-    "pick": "New Mexico",
-    "conf": 0.844,
-    "pred_margin": 10.5,
-    "margin": 40,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Incarnate Word",
-    "home": "Oklahoma St",
-    "pick": "Oklahoma St",
-    "conf": 0.876,
-    "pred_margin": 12.1,
-    "margin": 31,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "North Dakota",
-    "home": "Minnesota",
-    "pick": "Minnesota",
-    "conf": 0.716,
-    "pred_margin": 5.8,
-    "margin": 35,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Texas Southern",
-    "home": "Grand Canyon",
-    "pick": "Grand Canyon",
-    "conf": 0.904,
-    "pred_margin": 13.9,
-    "margin": 24,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Abilene Chrstn",
-    "home": "Colorado",
-    "pick": "Colorado",
-    "conf": 0.824,
-    "pred_margin": 9.6,
-    "margin": 35,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Davidson",
-    "home": "Washington St",
-    "pick": "Davidson",
-    "conf": 0.515,
-    "pred_margin": -0.4,
-    "margin": -15,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Oakwood",
-    "home": "Alabama A&M",
-    "pick": "Alabama A&M",
-    "conf": 0.751,
-    "pred_margin": 6.9,
-    "margin": 33,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Alcorn St",
-    "home": "Ole Miss",
-    "pick": "Ole Miss",
-    "conf": 0.919,
-    "pred_margin": 15.1,
-    "margin": 41,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "LaGrange",
-    "home": "Jax State",
-    "pick": "Jax State",
-    "conf": 0.795,
-    "pred_margin": 8.4,
-    "margin": 64,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "TAMU-Kingsvlle",
-    "home": "UT Rio Grande",
-    "pick": "UT Rio Grande",
-    "conf": 0.903,
-    "pred_margin": 13.9,
-    "margin": 30,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Schreiner",
-    "home": "Lamar",
-    "pick": "Lamar",
-    "conf": 0.67,
-    "pred_margin": 4.4,
-    "margin": 62,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Oral Roberts",
-    "home": "C Arkansas",
-    "pick": "C Arkansas",
-    "conf": 0.877,
-    "pred_margin": 12.2,
-    "margin": 30,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Minn Crook",
-    "home": "N Dakota St",
-    "pick": "N Dakota St",
-    "conf": 0.935,
-    "pred_margin": 16.5,
-    "margin": 31,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Akron",
-    "home": "Louisiana",
-    "pick": "Akron",
-    "conf": 0.801,
-    "pred_margin": -8.6,
-    "margin": -14,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Maryville (MO)",
-    "home": "S Illinois",
-    "pick": "S Illinois",
-    "conf": 0.802,
-    "pred_margin": 8.7,
-    "margin": 42,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "UNT Dallas",
-    "home": "UT Arlington",
-    "pick": "UT Arlington",
-    "conf": 0.831,
-    "pred_margin": 9.9,
-    "margin": 33,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Furman",
-    "home": "Bethune",
-    "pick": "Furman",
-    "conf": 0.639,
-    "pred_margin": -3.5,
-    "margin": -9,
-    "won": true
-   },
-   {
-    "date": "2026-11-03",
-    "away": "Fordham",
-    "home": "Kansas",
-    "pick": "Kansas",
-    "conf": 0.885,
-    "pred_margin": 12.6,
-    "margin": 30,
     "won": true
    }
   ]
