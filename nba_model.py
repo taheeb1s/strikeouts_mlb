@@ -413,6 +413,12 @@ def next_slate(d, season):
     todo = sched[~sched.status_type_completed.astype(bool)]
     if todo.empty:
         return None, None
+    # Start from today. A fixture that was abandoned and never marked
+    # complete otherwise blocks every slate behind it forever.
+    today = pd.Timestamp.now(tz="America/New_York").tz_localize(None).normalize()
+    todo = todo[todo.d.dt.normalize() >= today]
+    if todo.empty:
+        return None, None
     day = todo.d.min().normalize()
     games = todo[todo.d.dt.normalize() == day]
     facing = {}
