@@ -2827,11 +2827,15 @@ function pickResults(src, label) {
         don't, the model's confidence is lying — red marks a gap over
         10 points.</p>` : ""}
 
-    <div class="gm-head" style="grid-template-columns:2.4rem minmax(0,1fr) 5rem 3.2rem 4rem">
-      <span>Wk</span><span>Game</span><span>Pick</span><span>Pred</span><span>Result</span>
+    <div class="gm-head" style="grid-template-columns:3.4rem minmax(0,1fr) 5rem 3.2rem 4rem">
+      <span>${r.recent.some(g => g.date) ? "Date" : "Wk"}</span>
+      <span>Game</span><span>Pick</span><span>Pred</span><span>Result</span>
     </div>
-    ${r.recent.map(g => `<div class="pk-row">
-      <span class="wk">${g.week}</span>
+    ${r.recent.map(g => `<div class="pk-row"
+        style="grid-template-columns:3.4rem minmax(0,1fr) 5rem 3.2rem 4rem">
+      <span class="wk">${g.date
+        ? g.date.slice(5).replace("-", "/")
+        : (g.week != null ? g.week : "—")}</span>
       <span class="mu2">${g.away} at ${g.home}</span>
       <span>${g.pick}</span>
       <span class="n">${g.pred_margin > 0 ? "+" : ""}${g.pred_margin}</span>
