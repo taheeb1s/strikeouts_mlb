@@ -285,11 +285,17 @@ def main():
 
     # next slate
     season = args.seasons[-1]
-    todo = games[(games.season == season) & (~games.played)]
+    # Start from today, not from the earliest unplayed fixture. A single
+    # abandoned exhibition from two days ago was never marked complete and
+    # blocked the whole slate behind it - the model reported one game.
+    now_et = pd.Timestamp.now(tz="America/New_York").normalize()
+    todo = games[(games.season == season) & (~games.played)].copy()
+    todo["et"] = todo.d.dt.tz_convert("America/New_York")
+    todo = todo[todo.et.dt.normalize() >= now_et]
     nxt = []
     if len(todo):
-        day = todo.d.min().tz_convert("America/New_York").normalize()
-        same = todo[todo.d.dt.tz_convert("America/New_York").dt.normalize() == day]
+        day = todo.et.dt.normalize().min()
+        same = todo[todo.et.dt.normalize() == day]
         avg_total = float(d.total.mean())
         for _, g in same.iterrows():
             eh = final.get(g.home_id, START)
