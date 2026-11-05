@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T15:53:47+00:00",
+ "generated_at": "2026-11-05T22:52:03+00:00",
  "backtest": {
   "games": 1540,
   "accuracy": 0.6331,
@@ -1082,7 +1082,7 @@
    "pred_total": 41.8,
    "pick": "HOU",
    "confidence": 0.6104,
-   "vegas_spread": -4.5,
+   "vegas_spread": -5.5,
    "elo_home": 1395.1,
    "elo_away": 1521.1
   },
@@ -1116,7 +1116,7 @@
    "pred_total": 43.0,
    "pick": "NE",
    "confidence": 0.6604,
-   "vegas_spread": 3.5,
+   "vegas_spread": 3.0,
    "elo_home": 1605.6,
    "elo_away": 1538.1
   },
@@ -1167,7 +1167,7 @@
    "pred_total": 44.0,
    "pick": "BUF",
    "confidence": 0.5115,
-   "vegas_spread": -3.5,
+   "vegas_spread": -3.0,
    "elo_home": 1622.1,
    "elo_away": 1678.1
   },
@@ -1252,7 +1252,7 @@
    "pred_total": 38.5,
    "pick": "MIN",
    "confidence": 0.5516,
-   "vegas_spread": 2.5,
+   "vegas_spread": 3.0,
    "elo_home": 1538.1,
    "elo_away": 1622.1
   },
