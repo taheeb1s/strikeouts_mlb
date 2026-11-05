@@ -2827,21 +2827,29 @@ function pickResults(src, label) {
         don't, the model's confidence is lying — red marks a gap over
         10 points.</p>` : ""}
 
-    <div class="gm-head" style="grid-template-columns:3.4rem minmax(0,1fr) 5rem 3.2rem 4rem">
-      <span>${r.recent.some(g => g.date) ? "Date" : "Wk"}</span>
-      <span>Game</span><span>Pick</span><span>Pred</span><span>Result</span>
-    </div>
-    ${r.recent.map(g => `<div class="pk-row"
-        style="grid-template-columns:3.4rem minmax(0,1fr) 5rem 3.2rem 4rem">
-      <span class="wk">${g.date
-        ? g.date.slice(5).replace("-", "/")
-        : (g.week != null ? g.week : "—")}</span>
-      <span class="mu2">${g.away} at ${g.home}</span>
-      <span>${g.pick}</span>
-      <span class="n">${g.pred_margin > 0 ? "+" : ""}${g.pred_margin}</span>
-      <span class="ok ${g.won ? "y" : "n"}">${g.margin > 0 ? "+" : ""}${g.margin}
-        ${g.won ? "✓" : "✗"}</span>
-    </div>`).join("")}`;
+    ${(() => {
+      const cols = "3.4rem minmax(0,1fr) 5.2rem 5.2rem 3.2rem 3.6rem";
+      return `<div class="gm-head" style="grid-template-columns:${cols}">
+        <span>${r.recent.some(g => g.date) ? "Date" : "Wk"}</span>
+        <span>Game</span><span>Pick</span><span>Won</span>
+        <span>Pred</span><span>Final</span>
+      </div>
+      ${r.recent.map(g => {
+        // the side that actually won, from the margin's sign
+        const winner = g.margin > 0 ? g.home : g.margin < 0 ? g.away : null;
+        return `<div class="pk-row" style="grid-template-columns:${cols}">
+          <span class="wk">${g.date
+            ? g.date.slice(5).replace("-", "/")
+            : (g.week != null ? g.week : "—")}</span>
+          <span class="mu2">${g.away} at ${g.home}</span>
+          <span class="mu2">${g.pick}</span>
+          <span class="mu2 ${g.won ? "ok y" : "ok n"}"
+            style="text-align:left">${winner || "tie"}</span>
+          <span class="n">${g.pred_margin > 0 ? "+" : ""}${g.pred_margin}</span>
+          <span class="n">${g.margin > 0 ? "+" : ""}${g.margin}</span>
+        </div>`;
+      }).join("")}`;
+    })()}`;
 }
 
 function mbbView() {
