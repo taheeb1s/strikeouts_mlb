@@ -233,6 +233,12 @@ def next_slate(season):
         todo = s
     if todo.empty:
         return None, None
+    # Same guard as the NBA: ignore anything dated before today, so one
+    # abandoned fixture cannot pin the slate to a past date.
+    today = pd.Timestamp.now(tz="America/New_York").tz_localize(None).normalize()
+    todo = todo[todo.d.dt.normalize() >= today]
+    if todo.empty:
+        return None, None
     day = todo.d.min().normalize()
     games = todo[todo.d.dt.normalize() == day]
     facing = {}
