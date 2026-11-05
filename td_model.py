@@ -254,6 +254,14 @@ def main():
     if unplayed.empty:
         print("Season complete - nothing left to predict.")
         return 1
+    # Ignore fixtures dated before today: one abandoned game that never
+    # got marked complete would otherwise pin the target week in the past.
+    if "gameday" in unplayed:
+        _d = pd.to_datetime(unplayed.gameday, errors="coerce")
+        _today = pd.Timestamp.now().normalize()
+        _ahead = unplayed[_d >= _today - pd.Timedelta(days=1)]
+        if len(_ahead):
+            unplayed = _ahead
     target = int(unplayed.week.min())
     # and form must come from before that week, not from a game already
     # played inside it
