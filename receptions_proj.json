@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T22:52:22+00:00",
+ "generated_at": "2026-11-06T16:28:16+00:00",
  "season": 2026,
  "week": 9,
  "trained_on": [
@@ -622,17 +622,6 @@
    "targets_recent": 9.8
   },
   {
-   "player": "Zay Flowers",
-   "team": "BAL",
-   "opponent": "JAX",
-   "pos": "WR",
-   "proj": 5.53,
-   "season_avg": 5.71,
-   "line": 5.5,
-   "p_over": 0.5354,
-   "targets_recent": 9.2
-  },
-  {
    "player": "Isaiah Likely",
    "team": "NYG",
    "opponent": "PHI",
@@ -996,17 +985,6 @@
    "targets_recent": 7.0
   },
   {
-   "player": "Mark Andrews",
-   "team": "BAL",
-   "opponent": "JAX",
-   "pos": "TE",
-   "proj": 3.94,
-   "season_avg": 3.62,
-   "line": 3.5,
-   "p_over": 0.6667,
-   "targets_recent": 4.6
-  },
-  {
    "player": "George Pickens",
    "team": "DAL",
    "opponent": "IND",
@@ -1062,17 +1040,6 @@
    "targets_recent": 5.2
   },
   {
-   "player": "Brenton Strange",
-   "team": "JAX",
-   "opponent": "BAL",
-   "pos": "TE",
-   "proj": 3.52,
-   "season_avg": 4.0,
-   "line": 3.5,
-   "p_over": 0.5354,
-   "targets_recent": 6.0
-  },
-  {
    "player": "Mason Taylor",
    "team": "NYJ",
    "opponent": "KC",
@@ -1104,17 +1071,6 @@
    "line": 3.5,
    "p_over": 0.4848,
    "targets_recent": 6.2
-  },
-  {
-   "player": "Parker Washington",
-   "team": "JAX",
-   "opponent": "BAL",
-   "pos": "WR",
-   "proj": 3.41,
-   "season_avg": 3.86,
-   "line": 3.5,
-   "p_over": 0.4848,
-   "targets_recent": 6.0
   },
   {
    "player": "KC Concepcion",
@@ -1159,17 +1115,6 @@
    "line": 3.5,
    "p_over": 0.4646,
    "targets_recent": 7.6
-  },
-  {
-   "player": "Jakobi Meyers",
-   "team": "JAX",
-   "opponent": "BAL",
-   "pos": "WR",
-   "proj": 3.26,
-   "season_avg": 3.14,
-   "line": 3.5,
-   "p_over": 0.4646,
-   "targets_recent": 5.6
   },
   {
    "player": "Hunter Henry",
@@ -1412,17 +1357,6 @@
    "line": 2.5,
    "p_over": 0.5152,
    "targets_recent": 4.8
-  },
-  {
-   "player": "Justice Hill",
-   "team": "BAL",
-   "opponent": "JAX",
-   "pos": "RB",
-   "proj": 2.72,
-   "season_avg": 2.12,
-   "line": 2.5,
-   "p_over": 0.5051,
-   "targets_recent": 4.4
   },
   {
    "player": "Deebo Samuel Sr.",
@@ -1843,17 +1777,6 @@
    "targets_recent": 3.4
   },
   {
-   "player": "Bhayshul Tuten",
-   "team": "JAX",
-   "opponent": "BAL",
-   "pos": "RB",
-   "proj": 1.97,
-   "season_avg": 2.14,
-   "line": 1.5,
-   "p_over": 0.6263,
-   "targets_recent": 2.6
-  },
-  {
    "player": "Kenyon Sadiq",
    "team": "NYJ",
    "opponent": "KC",
@@ -1992,17 +1915,6 @@
    "pos": "WR",
    "proj": 1.8,
    "season_avg": 1.14,
-   "line": 1.5,
-   "p_over": 0.6263,
-   "targets_recent": 3.2
-  },
-  {
-   "player": "Rashod Bateman",
-   "team": "BAL",
-   "opponent": "JAX",
-   "pos": "WR",
-   "proj": 1.78,
-   "season_avg": 2.38,
    "line": 1.5,
    "p_over": 0.6263,
    "targets_recent": 3.2
@@ -2215,17 +2127,6 @@
    "line": 1.5,
    "p_over": 0.3131,
    "targets_recent": 3.8
-  },
-  {
-   "player": "Brian Thomas Jr.",
-   "team": "JAX",
-   "opponent": "BAL",
-   "pos": "WR",
-   "proj": 1.06,
-   "season_avg": 1.43,
-   "line": 1.5,
-   "p_over": 0.303,
-   "targets_recent": 2.0
   },
   {
    "player": "Dyami Brown",

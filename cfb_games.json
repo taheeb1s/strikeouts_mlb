@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-11-05T22:52:07+00:00",
+ "generated_at": "2026-11-06T16:27:43+00:00",
  "backtest": {
-  "games": 7305,
-  "accuracy": 0.7049,
+  "games": 7307,
+  "accuracy": 0.7048,
   "home_baseline": 0.5844,
   "margin_mae": 13.53,
   "seasons": "2017-2026"
@@ -28,10 +28,9 @@
   "Arizona": 1744.9,
   "Oregon": 1739.0,
   "Missouri": 1737.3,
+  "James Madison": 1736.4,
   "UCLA": 1725.8,
-  "James Madison": 1720.1,
   "Kentucky": 1717.6,
-  "UTSA": 1716.5,
   "Duke": 1701.6,
   "Houston": 1700.7,
   "South Carolina": 1698.9,
@@ -47,15 +46,16 @@
   "Clemson": 1634.1,
   "South Florida": 1633.0,
   "Liberty": 1632.6,
-  "Oklahoma": 1625.1
+  "Oklahoma": 1625.1,
+  "Wisconsin": 1618.2
  },
  "results": {
-  "graded": 505,
-  "won": 356,
-  "lost": 149,
-  "win_pct": 0.705,
-  "home_baseline": 0.6257,
-  "margin_mae": 13.49,
+  "graded": 507,
+  "won": 357,
+  "lost": 150,
+  "win_pct": 0.7041,
+  "home_baseline": 0.6252,
+  "margin_mae": 13.55,
   "bands": [
    {
     "band": "50-60%",
@@ -73,17 +73,17 @@
    },
    {
     "band": "70-80%",
-    "n": 133,
+    "n": 134,
     "won": 104,
     "said": 0.748,
-    "happened": 0.782
+    "happened": 0.776
    },
    {
     "band": "80-90%",
-    "n": 97,
-    "won": 77,
+    "n": 98,
+    "won": 78,
     "said": 0.847,
-    "happened": 0.794
+    "happened": 0.796
    },
    {
     "band": "over 90%",
@@ -96,6 +96,26 @@
   "recent": [
    {
     "week": 10,
+    "away": "James Madison",
+    "home": "Southern Miss",
+    "pick": "James Madison",
+    "conf": 0.851,
+    "pred_margin": -13.8,
+    "margin": -31,
+    "won": true
+   },
+   {
+    "week": 10,
+    "away": "UTSA",
+    "home": "Florida Atlantic",
+    "pick": "UTSA",
+    "conf": 0.776,
+    "pred_margin": -9.8,
+    "margin": 31,
+    "won": false
+   },
+   {
+    "week": 10,
     "away": "Central Michigan",
     "home": "Eastern Michigan",
     "pick": "Eastern Michigan",
@@ -103,6 +123,26 @@
     "pred_margin": 1.1,
     "margin": -28,
     "won": false
+   },
+   {
+    "week": 10,
+    "away": "Toledo",
+    "home": "Sacramento State",
+    "pick": "Toledo",
+    "conf": 0.833,
+    "pred_margin": -12.7,
+    "margin": -3,
+    "won": true
+   },
+   {
+    "week": 10,
+    "away": "Ohio",
+    "home": "Akron",
+    "pick": "Ohio",
+    "conf": 0.874,
+    "pred_margin": -15.3,
+    "margin": -8,
+    "won": true
    },
    {
     "week": 10,
@@ -125,436 +165,6 @@
     "won": true
    },
    {
-    "week": 10,
-    "away": "Ohio",
-    "home": "Akron",
-    "pick": "Ohio",
-    "conf": 0.874,
-    "pred_margin": -15.3,
-    "margin": -8,
-    "won": true
-   },
-   {
-    "week": 10,
-    "away": "Toledo",
-    "home": "Sacramento State",
-    "pick": "Toledo",
-    "conf": 0.833,
-    "pred_margin": -12.7,
-    "margin": -3,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Temple",
-    "home": "East Carolina",
-    "pick": "East Carolina",
-    "conf": 0.771,
-    "pred_margin": 9.6,
-    "margin": 8,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Delaware",
-    "home": "Western Kentucky",
-    "pick": "Western Kentucky",
-    "conf": 0.606,
-    "pred_margin": 3.4,
-    "margin": -14,
-    "won": false
-   },
-   {
-    "week": 9,
-    "away": "Southern Miss",
-    "home": "UL Monroe",
-    "pick": "Southern Miss",
-    "conf": 0.572,
-    "pred_margin": -2.3,
-    "margin": -14,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Clemson",
-    "home": "Florida State",
-    "pick": "Clemson",
-    "conf": 0.536,
-    "pred_margin": -1.1,
-    "margin": -12,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Nevada",
-    "home": "UCLA",
-    "pick": "UCLA",
-    "conf": 0.898,
-    "pred_margin": 17.2,
-    "margin": 27,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Stanford",
-    "home": "Louisville",
-    "pick": "Louisville",
-    "conf": 0.791,
-    "pred_margin": 10.5,
-    "margin": 28,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Florida",
-    "home": "Georgia",
-    "pick": "Georgia",
-    "conf": 0.877,
-    "pred_margin": 15.5,
-    "margin": 19,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Utah",
-    "home": "Cincinnati",
-    "pick": "Utah",
-    "conf": 0.712,
-    "pred_margin": -7.1,
-    "margin": -24,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Virginia",
-    "home": "Wake Forest",
-    "pick": "Wake Forest",
-    "conf": 0.821,
-    "pred_margin": 12.0,
-    "margin": 44,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "New Mexico",
-    "home": "San Jos\u00e9 State",
-    "pick": "New Mexico",
-    "conf": 0.836,
-    "pred_margin": -12.9,
-    "margin": -5,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "South Carolina",
-    "home": "Oklahoma",
-    "pick": "Oklahoma",
-    "conf": 0.672,
-    "pred_margin": 5.7,
-    "margin": -17,
-    "won": false
-   },
-   {
-    "week": 9,
-    "away": "Army",
-    "home": "Memphis",
-    "pick": "Memphis",
-    "conf": 0.534,
-    "pred_margin": 1.1,
-    "margin": 27,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Boston College",
-    "home": "Duke",
-    "pick": "Duke",
-    "conf": 0.754,
-    "pred_margin": 8.9,
-    "margin": 45,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "SMU",
-    "home": "Syracuse",
-    "pick": "SMU",
-    "conf": 0.853,
-    "pred_margin": -13.9,
-    "margin": 3,
-    "won": false
-   },
-   {
-    "week": 9,
-    "away": "Oregon State",
-    "home": "Fresno State",
-    "pick": "Fresno State",
-    "conf": 0.599,
-    "pred_margin": 3.2,
-    "margin": 16,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Sam Houston",
-    "home": "Missouri State",
-    "pick": "Missouri State",
-    "conf": 0.729,
-    "pred_margin": 7.8,
-    "margin": 21,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Baylor",
-    "home": "UCF",
-    "pick": "UCF",
-    "conf": 0.548,
-    "pred_margin": 1.5,
-    "margin": -32,
-    "won": false
-   },
-   {
-    "week": 9,
-    "away": "Kent State",
-    "home": "Sacramento State",
-    "pick": "Kent State",
-    "conf": 0.658,
-    "pred_margin": -5.2,
-    "margin": 21,
-    "won": false
-   },
-   {
-    "week": 9,
-    "away": "Kennesaw State",
-    "home": "Middle Tennessee",
-    "pick": "Middle Tennessee",
-    "conf": 0.589,
-    "pred_margin": 2.8,
-    "margin": -16,
-    "won": false
-   },
-   {
-    "week": 9,
-    "away": "Florida Atlantic",
-    "home": "North Texas",
-    "pick": "North Texas",
-    "conf": 0.797,
-    "pred_margin": 10.8,
-    "margin": 7,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Jacksonville State",
-    "home": "New Mexico State",
-    "pick": "Jacksonville State",
-    "conf": 0.689,
-    "pred_margin": -6.3,
-    "margin": -24,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Troy",
-    "home": "James Madison",
-    "pick": "James Madison",
-    "conf": 0.936,
-    "pred_margin": 21.1,
-    "margin": -3,
-    "won": false
-   },
-   {
-    "week": 9,
-    "away": "California",
-    "home": "NC State",
-    "pick": "NC State",
-    "conf": 0.711,
-    "pred_margin": 7.1,
-    "margin": 21,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Missouri",
-    "home": "Arkansas",
-    "pick": "Missouri",
-    "conf": 0.7,
-    "pred_margin": -6.7,
-    "margin": -24,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "UAB",
-    "home": "South Florida",
-    "pick": "South Florida",
-    "conf": 0.751,
-    "pred_margin": 8.7,
-    "margin": 20,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Notre Dame",
-    "home": "Navy",
-    "pick": "Notre Dame",
-    "conf": 0.87,
-    "pred_margin": -15.0,
-    "margin": -22,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Illinois",
-    "home": "Maryland",
-    "pick": "Illinois",
-    "conf": 0.76,
-    "pred_margin": -9.1,
-    "margin": -3,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Washington",
-    "home": "Nebraska",
-    "pick": "Nebraska",
-    "conf": 0.606,
-    "pred_margin": 3.4,
-    "margin": -7,
-    "won": false
-   },
-   {
-    "week": 9,
-    "away": "Texas State",
-    "home": "Boise State",
-    "pick": "Boise State",
-    "conf": 0.792,
-    "pred_margin": 10.5,
-    "margin": 1,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "App State",
-    "home": "Georgia Southern",
-    "pick": "Georgia Southern",
-    "conf": 0.593,
-    "pred_margin": 3.0,
-    "margin": 16,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Oklahoma State",
-    "home": "Iowa State",
-    "pick": "Iowa State",
-    "conf": 0.584,
-    "pred_margin": 2.7,
-    "margin": 2,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Northern Illinois",
-    "home": "UNLV",
-    "pick": "UNLV",
-    "conf": 0.941,
-    "pred_margin": 21.9,
-    "margin": 7,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Ohio State",
-    "home": "USC",
-    "pick": "Ohio State",
-    "conf": 0.779,
-    "pred_margin": -10.0,
-    "margin": 12,
-    "won": false
-   },
-   {
-    "week": 9,
-    "away": "Miami",
-    "home": "North Carolina",
-    "pick": "Miami",
-    "conf": 0.846,
-    "pred_margin": -13.4,
-    "margin": -3,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Arizona",
-    "home": "Texas Tech",
-    "pick": "Texas Tech",
-    "conf": 0.546,
-    "pred_margin": 1.5,
-    "margin": 8,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Mississippi State",
-    "home": "Texas",
-    "pick": "Texas",
-    "conf": 0.851,
-    "pred_margin": 13.8,
-    "margin": 28,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Kansas",
-    "home": "TCU",
-    "pick": "TCU",
-    "conf": 0.715,
-    "pred_margin": 7.3,
-    "margin": 6,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Northwestern",
-    "home": "Oregon",
-    "pick": "Oregon",
-    "conf": 0.633,
-    "pred_margin": 4.3,
-    "margin": 8,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Colorado State",
-    "home": "Utah State",
-    "pick": "Utah State",
-    "conf": 0.687,
-    "pred_margin": 6.2,
-    "margin": 17,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Minnesota",
-    "home": "Indiana",
-    "pick": "Indiana",
-    "conf": 0.913,
-    "pred_margin": 18.6,
-    "margin": 7,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Kansas State",
-    "home": "Colorado",
-    "pick": "Kansas State",
-    "conf": 0.711,
-    "pred_margin": -7.1,
-    "margin": 3,
-    "won": false
-   },
-   {
     "week": 9,
     "away": "UConn",
     "home": "Air Force",
@@ -572,6 +182,46 @@
     "conf": 0.565,
     "pred_margin": -2.1,
     "margin": -13,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Kansas State",
+    "home": "Colorado",
+    "pick": "Kansas State",
+    "conf": 0.711,
+    "pred_margin": -7.1,
+    "margin": 3,
+    "won": false
+   },
+   {
+    "week": 9,
+    "away": "Notre Dame",
+    "home": "Navy",
+    "pick": "Notre Dame",
+    "conf": 0.87,
+    "pred_margin": -15.0,
+    "margin": -22,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Bowling Green",
+    "home": "Western Michigan",
+    "pick": "Western Michigan",
+    "conf": 0.854,
+    "pred_margin": 13.9,
+    "margin": 13,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "UAB",
+    "home": "South Florida",
+    "pick": "South Florida",
+    "conf": 0.751,
+    "pred_margin": 8.7,
+    "margin": 20,
     "won": true
    },
    {
@@ -596,12 +246,32 @@
    },
    {
     "week": 9,
-    "away": "Bowling Green",
-    "home": "Western Michigan",
-    "pick": "Western Michigan",
-    "conf": 0.854,
-    "pred_margin": 13.9,
-    "margin": 13,
+    "away": "Louisiana Tech",
+    "home": "South Alabama",
+    "pick": "Louisiana Tech",
+    "conf": 0.544,
+    "pred_margin": -1.4,
+    "margin": -15,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Temple",
+    "home": "East Carolina",
+    "pick": "East Carolina",
+    "conf": 0.771,
+    "pred_margin": 9.6,
+    "margin": 8,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Stanford",
+    "home": "Louisville",
+    "pick": "Louisville",
+    "conf": 0.791,
+    "pred_margin": 10.5,
+    "margin": 28,
     "won": true
    },
    {
@@ -616,52 +286,22 @@
    },
    {
     "week": 9,
-    "away": "Tulane",
-    "home": "Charlotte",
-    "pick": "Tulane",
-    "conf": 0.832,
-    "pred_margin": -12.6,
-    "margin": -7,
+    "away": "App State",
+    "home": "Georgia Southern",
+    "pick": "Georgia Southern",
+    "conf": 0.593,
+    "pred_margin": 3.0,
+    "margin": 16,
     "won": true
    },
    {
     "week": 9,
-    "away": "Washington State",
-    "home": "San Diego State",
-    "pick": "San Diego State",
-    "conf": 0.6,
-    "pred_margin": 3.2,
-    "margin": 6,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Louisiana Tech",
-    "home": "South Alabama",
-    "pick": "Louisiana Tech",
-    "conf": 0.544,
-    "pred_margin": -1.4,
-    "margin": -15,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Arizona State",
-    "home": "BYU",
-    "pick": "BYU",
-    "conf": 0.786,
-    "pred_margin": 10.3,
-    "margin": 7,
-    "won": true
-   },
-   {
-    "week": 9,
-    "away": "Georgia Tech",
-    "home": "Pittsburgh",
-    "pick": "Pittsburgh",
-    "conf": 0.767,
-    "pred_margin": 9.4,
-    "margin": 23,
+    "away": "Illinois",
+    "home": "Maryland",
+    "pick": "Illinois",
+    "conf": 0.76,
+    "pred_margin": -9.1,
+    "margin": -3,
     "won": true
    },
    {
@@ -676,12 +316,272 @@
    },
    {
     "week": 9,
+    "away": "Boston College",
+    "home": "Duke",
+    "pick": "Duke",
+    "conf": 0.754,
+    "pred_margin": 8.9,
+    "margin": 45,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Baylor",
+    "home": "UCF",
+    "pick": "UCF",
+    "conf": 0.548,
+    "pred_margin": 1.5,
+    "margin": -32,
+    "won": false
+   },
+   {
+    "week": 9,
+    "away": "Kent State",
+    "home": "Sacramento State",
+    "pick": "Kent State",
+    "conf": 0.658,
+    "pred_margin": -5.2,
+    "margin": 21,
+    "won": false
+   },
+   {
+    "week": 9,
+    "away": "Arizona",
+    "home": "Texas Tech",
+    "pick": "Texas Tech",
+    "conf": 0.546,
+    "pred_margin": 1.5,
+    "margin": 8,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "California",
+    "home": "NC State",
+    "pick": "NC State",
+    "conf": 0.711,
+    "pred_margin": 7.1,
+    "margin": 21,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Tulane",
+    "home": "Charlotte",
+    "pick": "Tulane",
+    "conf": 0.832,
+    "pred_margin": -12.6,
+    "margin": -7,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Troy",
+    "home": "James Madison",
+    "pick": "James Madison",
+    "conf": 0.936,
+    "pred_margin": 21.1,
+    "margin": -3,
+    "won": false
+   },
+   {
+    "week": 9,
+    "away": "Florida Atlantic",
+    "home": "North Texas",
+    "pick": "North Texas",
+    "conf": 0.797,
+    "pred_margin": 10.8,
+    "margin": 7,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Jacksonville State",
+    "home": "New Mexico State",
+    "pick": "Jacksonville State",
+    "conf": 0.689,
+    "pred_margin": -6.3,
+    "margin": -24,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "SMU",
+    "home": "Syracuse",
+    "pick": "SMU",
+    "conf": 0.853,
+    "pred_margin": -13.9,
+    "margin": 3,
+    "won": false
+   },
+   {
+    "week": 9,
+    "away": "Ohio State",
+    "home": "USC",
+    "pick": "Ohio State",
+    "conf": 0.779,
+    "pred_margin": -10.0,
+    "margin": 12,
+    "won": false
+   },
+   {
+    "week": 9,
+    "away": "Washington",
+    "home": "Nebraska",
+    "pick": "Nebraska",
+    "conf": 0.606,
+    "pred_margin": 3.4,
+    "margin": -7,
+    "won": false
+   },
+   {
+    "week": 9,
+    "away": "Missouri",
+    "home": "Arkansas",
+    "pick": "Missouri",
+    "conf": 0.7,
+    "pred_margin": -6.7,
+    "margin": -24,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Northern Illinois",
+    "home": "UNLV",
+    "pick": "UNLV",
+    "conf": 0.941,
+    "pred_margin": 21.9,
+    "margin": 7,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Texas State",
+    "home": "Boise State",
+    "pick": "Boise State",
+    "conf": 0.792,
+    "pred_margin": 10.5,
+    "margin": 1,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Miami",
+    "home": "North Carolina",
+    "pick": "Miami",
+    "conf": 0.846,
+    "pred_margin": -13.4,
+    "margin": -3,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Oklahoma State",
+    "home": "Iowa State",
+    "pick": "Iowa State",
+    "conf": 0.584,
+    "pred_margin": 2.7,
+    "margin": 2,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "South Carolina",
+    "home": "Oklahoma",
+    "pick": "Oklahoma",
+    "conf": 0.672,
+    "pred_margin": 5.7,
+    "margin": -17,
+    "won": false
+   },
+   {
+    "week": 9,
+    "away": "Florida International",
+    "home": "Liberty",
+    "pick": "Liberty",
+    "conf": 0.772,
+    "pred_margin": 9.6,
+    "margin": 39,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Utah",
+    "home": "Cincinnati",
+    "pick": "Utah",
+    "conf": 0.712,
+    "pred_margin": -7.1,
+    "margin": -24,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Virginia",
+    "home": "Wake Forest",
+    "pick": "Wake Forest",
+    "conf": 0.821,
+    "pred_margin": 12.0,
+    "margin": 44,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Colorado State",
+    "home": "Utah State",
+    "pick": "Utah State",
+    "conf": 0.687,
+    "pred_margin": 6.2,
+    "margin": 17,
+    "won": true
+   },
+   {
+    "week": 9,
     "away": "UTEP",
     "home": "North Dakota State",
     "pick": "North Dakota State",
     "conf": 0.944,
     "pred_margin": 22.3,
     "margin": 24,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Minnesota",
+    "home": "Indiana",
+    "pick": "Indiana",
+    "conf": 0.913,
+    "pred_margin": 18.6,
+    "margin": 7,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Northwestern",
+    "home": "Oregon",
+    "pick": "Oregon",
+    "conf": 0.633,
+    "pred_margin": 4.3,
+    "margin": 8,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Nevada",
+    "home": "UCLA",
+    "pick": "UCLA",
+    "conf": 0.898,
+    "pred_margin": 17.2,
+    "margin": 27,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "New Mexico",
+    "home": "San Jos\u00e9 State",
+    "pick": "New Mexico",
+    "conf": 0.836,
+    "pred_margin": -12.9,
+    "margin": -5,
     "won": true
    },
    {
@@ -696,23 +596,223 @@
    },
    {
     "week": 9,
-    "away": "Florida International",
-    "home": "Liberty",
-    "pick": "Liberty",
-    "conf": 0.772,
-    "pred_margin": 9.6,
-    "margin": 39,
+    "away": "Washington State",
+    "home": "San Diego State",
+    "pick": "San Diego State",
+    "conf": 0.6,
+    "pred_margin": 3.2,
+    "margin": 6,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Delaware",
+    "home": "Western Kentucky",
+    "pick": "Western Kentucky",
+    "conf": 0.606,
+    "pred_margin": 3.4,
+    "margin": -14,
+    "won": false
+   },
+   {
+    "week": 9,
+    "away": "Sam Houston",
+    "home": "Missouri State",
+    "pick": "Missouri State",
+    "conf": 0.729,
+    "pred_margin": 7.8,
+    "margin": 21,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Kennesaw State",
+    "home": "Middle Tennessee",
+    "pick": "Middle Tennessee",
+    "conf": 0.589,
+    "pred_margin": 2.8,
+    "margin": -16,
+    "won": false
+   },
+   {
+    "week": 9,
+    "away": "Florida",
+    "home": "Georgia",
+    "pick": "Georgia",
+    "conf": 0.877,
+    "pred_margin": 15.5,
+    "margin": 19,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Kansas",
+    "home": "TCU",
+    "pick": "TCU",
+    "conf": 0.715,
+    "pred_margin": 7.3,
+    "margin": 6,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Clemson",
+    "home": "Florida State",
+    "pick": "Clemson",
+    "conf": 0.536,
+    "pred_margin": -1.1,
+    "margin": -12,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Mississippi State",
+    "home": "Texas",
+    "pick": "Texas",
+    "conf": 0.851,
+    "pred_margin": 13.8,
+    "margin": 28,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Georgia Tech",
+    "home": "Pittsburgh",
+    "pick": "Pittsburgh",
+    "conf": 0.767,
+    "pred_margin": 9.4,
+    "margin": 23,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Oregon State",
+    "home": "Fresno State",
+    "pick": "Fresno State",
+    "conf": 0.599,
+    "pred_margin": 3.2,
+    "margin": 16,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Arizona State",
+    "home": "BYU",
+    "pick": "BYU",
+    "conf": 0.786,
+    "pred_margin": 10.3,
+    "margin": 7,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Southern Miss",
+    "home": "UL Monroe",
+    "pick": "Southern Miss",
+    "conf": 0.572,
+    "pred_margin": -2.3,
+    "margin": -14,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "Army",
+    "home": "Memphis",
+    "pick": "Memphis",
+    "conf": 0.534,
+    "pred_margin": 1.1,
+    "margin": 27,
     "won": true
    },
    {
     "week": 8,
-    "away": "Oregon",
-    "home": "Illinois",
-    "pick": "Oregon",
-    "conf": 0.773,
-    "pred_margin": -9.7,
-    "margin": 11,
+    "away": "Syracuse",
+    "home": "North Carolina",
+    "pick": "North Carolina",
+    "conf": 0.83,
+    "pred_margin": 12.5,
+    "margin": -1,
     "won": false
+   },
+   {
+    "week": 8,
+    "away": "Iowa State",
+    "home": "Arizona",
+    "pick": "Arizona",
+    "conf": 0.785,
+    "pred_margin": 10.2,
+    "margin": 36,
+    "won": true
+   },
+   {
+    "week": 8,
+    "away": "Ole Miss",
+    "home": "Texas",
+    "pick": "Ole Miss",
+    "conf": 0.551,
+    "pred_margin": -1.6,
+    "margin": 7,
+    "won": false
+   },
+   {
+    "week": 8,
+    "away": "Vanderbilt",
+    "home": "Kentucky",
+    "pick": "Kentucky",
+    "conf": 0.763,
+    "pred_margin": 9.2,
+    "margin": 17,
+    "won": true
+   },
+   {
+    "week": 8,
+    "away": "Georgia State",
+    "home": "Arkansas State",
+    "pick": "Arkansas State",
+    "conf": 0.528,
+    "pred_margin": 0.9,
+    "margin": 6,
+    "won": true
+   },
+   {
+    "week": 8,
+    "away": "Virginia Tech",
+    "home": "Clemson",
+    "pick": "Clemson",
+    "conf": 0.656,
+    "pred_margin": 5.1,
+    "margin": -4,
+    "won": false
+   },
+   {
+    "week": 8,
+    "away": "Colorado",
+    "home": "Oklahoma State",
+    "pick": "Oklahoma State",
+    "conf": 0.742,
+    "pred_margin": 8.3,
+    "margin": 33,
+    "won": true
+   },
+   {
+    "week": 8,
+    "away": "North Dakota State",
+    "home": "New Mexico",
+    "pick": "New Mexico",
+    "conf": 0.605,
+    "pred_margin": 3.4,
+    "margin": 5,
+    "won": true
+   },
+   {
+    "week": 8,
+    "away": "Utah State",
+    "home": "Texas State",
+    "pick": "Texas State",
+    "conf": 0.75,
+    "pred_margin": 8.7,
+    "margin": 3,
+    "won": true
    },
    {
     "week": 8,
@@ -726,52 +826,12 @@
    },
    {
     "week": 8,
-    "away": "Texas Tech",
-    "home": "Cincinnati",
-    "pick": "Texas Tech",
-    "conf": 0.807,
-    "pred_margin": -11.3,
-    "margin": 13,
-    "won": false
-   },
-   {
-    "week": 8,
-    "away": "West Virginia",
-    "home": "TCU",
-    "pick": "TCU",
-    "conf": 0.733,
-    "pred_margin": 8.0,
-    "margin": -4,
-    "won": false
-   },
-   {
-    "week": 8,
-    "away": "California",
-    "home": "SMU",
-    "pick": "SMU",
-    "conf": 0.875,
-    "pred_margin": 15.4,
-    "margin": 39,
-    "won": true
-   },
-   {
-    "week": 8,
-    "away": "Pittsburgh",
-    "home": "Miami",
-    "pick": "Miami",
-    "conf": 0.882,
-    "pred_margin": 15.9,
-    "margin": 29,
-    "won": true
-   },
-   {
-    "week": 8,
-    "away": "Missouri State",
-    "home": "Delaware",
-    "pick": "Delaware",
-    "conf": 0.558,
-    "pred_margin": 1.8,
-    "margin": 23,
+    "away": "Houston",
+    "home": "Utah",
+    "pick": "Utah",
+    "conf": 0.702,
+    "pred_margin": 6.8,
+    "margin": 8,
     "won": true
    },
    {
@@ -796,139 +856,47 @@
    },
    {
     "week": 8,
-    "away": "James Madison",
-    "home": "App State",
-    "pick": "James Madison",
-    "conf": 0.882,
-    "pred_margin": -15.8,
-    "margin": 3,
-    "won": false
-   },
-   {
-    "week": 8,
-    "away": "Liberty",
-    "home": "Kennesaw State",
-    "pick": "Liberty",
-    "conf": 0.668,
-    "pred_margin": -5.5,
-    "margin": -28,
+    "away": "Missouri State",
+    "home": "Delaware",
+    "pick": "Delaware",
+    "conf": 0.558,
+    "pred_margin": 1.8,
+    "margin": 23,
     "won": true
    },
    {
     "week": 8,
-    "away": "Army",
-    "home": "Tulsa",
-    "pick": "Army",
-    "conf": 0.706,
-    "pred_margin": -6.9,
+    "away": "Middle Tennessee",
+    "home": "Florida International",
+    "pick": "Florida International",
+    "conf": 0.768,
+    "pred_margin": 9.4,
     "margin": -3,
-    "won": true
-   },
-   {
-    "week": 8,
-    "away": "Akron",
-    "home": "Kent State",
-    "pick": "Kent State",
-    "conf": 0.671,
-    "pred_margin": 5.6,
-    "margin": 15,
-    "won": true
-   },
-   {
-    "week": 8,
-    "away": "Sacramento State",
-    "home": "Ball State",
-    "pick": "Ball State",
-    "conf": 0.612,
-    "pred_margin": 3.6,
-    "margin": 17,
-    "won": true
-   },
-   {
-    "week": 8,
-    "away": "Hawai'i",
-    "home": "Northern Illinois",
-    "pick": "Hawai'i",
-    "conf": 0.612,
-    "pred_margin": -3.6,
-    "margin": -35,
-    "won": true
-   },
-   {
-    "week": 8,
-    "away": "Georgia State",
-    "home": "Arkansas State",
-    "pick": "Arkansas State",
-    "conf": 0.528,
-    "pred_margin": 0.9,
-    "margin": 6,
-    "won": true
-   },
-   {
-    "week": 8,
-    "away": "Vanderbilt",
-    "home": "Kentucky",
-    "pick": "Kentucky",
-    "conf": 0.763,
-    "pred_margin": 9.2,
-    "margin": 17,
-    "won": true
-   },
-   {
-    "week": 8,
-    "away": "Boston College",
-    "home": "Georgia Tech",
-    "pick": "Georgia Tech",
-    "conf": 0.619,
-    "pred_margin": 3.8,
-    "margin": -22,
     "won": false
    },
    {
     "week": 8,
-    "away": "Kansas State",
-    "home": "Arizona State",
-    "pick": "Kansas State",
-    "conf": 0.532,
-    "pred_margin": -1.0,
-    "margin": 11,
+    "away": "San Diego State",
+    "home": "Colorado State",
+    "pick": "San Diego State",
+    "conf": 0.661,
+    "pred_margin": -5.3,
+    "margin": 7,
     "won": false
+   },
+   {
+    "week": 8,
+    "away": "Boise State",
+    "home": "Washington State",
+    "pick": "Boise State",
+    "conf": 0.859,
+    "pred_margin": -14.3,
+    "margin": -21,
+    "won": true
    }
   ]
  },
  "games": [
-  {
-   "season": 2026,
-   "week": 10,
-   "kickoff": "2026-11-06T00:30:00.000Z",
-   "home": "Florida Atlantic",
-   "away": "UTSA",
-   "home_conf": "American Athletic",
-   "away_conf": "American Athletic",
-   "p_home": 0.224,
-   "pred_margin": -9.81,
-   "score_home": 29.8,
-   "score_away": 39.6,
-   "pred_total": 69.4,
-   "pick": "UTSA",
-   "confidence": 0.776
-  },
-  {
-   "season": 2026,
-   "week": 10,
-   "kickoff": "2026-11-06T01:00:00.000Z",
-   "home": "Southern Miss",
-   "away": "James Madison",
-   "home_conf": "Sun Belt",
-   "away_conf": "Sun Belt",
-   "p_home": 0.1485,
-   "pred_margin": -13.79,
-   "score_home": 23.0,
-   "score_away": 36.8,
-   "pred_total": 59.8,
-   "pick": "James Madison",
-   "confidence": 0.8515
-  },
   {
    "season": 2026,
    "week": 10,
@@ -2329,13 +2297,13 @@
    "away": "James Madison",
    "home_conf": "FBS Independents",
    "away_conf": "Sun Belt",
-   "p_home": 0.2892,
-   "pred_margin": -7.1,
-   "score_home": 26.6,
-   "score_away": 33.7,
-   "pred_total": 60.2,
+   "p_home": 0.2703,
+   "pred_margin": -7.84,
+   "score_home": 26.7,
+   "score_away": 34.6,
+   "pred_total": 61.3,
    "pick": "James Madison",
-   "confidence": 0.7108
+   "confidence": 0.7297
   },
   {
    "season": 2026,
@@ -2569,13 +2537,13 @@
    "away": "Florida Atlantic",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.4811,
-   "pred_margin": -0.6,
-   "score_home": 33.0,
-   "score_away": 33.6,
-   "pred_total": 66.6,
+   "p_home": 0.3333,
+   "pred_margin": -5.48,
+   "score_home": 31.0,
+   "score_away": 36.5,
+   "pred_total": 67.6,
    "pick": "Florida Atlantic",
-   "confidence": 0.5189
+   "confidence": 0.6667
   },
   {
    "season": 2026,
@@ -2681,13 +2649,13 @@
    "away": "Southern Miss",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.8214,
-   "pred_margin": 12.05,
-   "score_home": 33.9,
-   "score_away": 21.8,
-   "pred_total": 55.7,
+   "p_home": 0.8348,
+   "pred_margin": 12.79,
+   "score_home": 34.8,
+   "score_away": 22.0,
+   "pred_total": 56.8,
    "pick": "Louisiana Tech",
-   "confidence": 0.8214
+   "confidence": 0.8348
   },
   {
    "season": 2026,
@@ -2809,13 +2777,13 @@
    "away": "North Texas",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.6409,
-   "pred_margin": 4.57,
-   "score_home": 37.7,
-   "score_away": 33.1,
-   "pred_total": 70.7,
-   "pick": "UTSA",
-   "confidence": 0.6409
+   "p_home": 0.4903,
+   "pred_margin": -0.31,
+   "score_home": 35.7,
+   "score_away": 36.0,
+   "pred_total": 71.7,
+   "pick": "North Texas",
+   "confidence": 0.5097
   },
   {
    "season": 2026,
@@ -3056,6 +3024,22 @@
    "pred_total": 54.5,
    "pick": "Air Force",
    "confidence": 0.9267
+  },
+  {
+   "season": 2026,
+   "week": 12,
+   "kickoff": "2026-11-21T02:00:00.000Z",
+   "home": "Wyoming",
+   "away": "New Mexico",
+   "home_conf": "Mountain West",
+   "away_conf": "Mountain West",
+   "p_home": 0.2962,
+   "pred_margin": -6.83,
+   "score_home": 18.7,
+   "score_away": 25.5,
+   "pred_total": 44.2,
+   "pick": "New Mexico",
+   "confidence": 0.7038
   },
   {
    "season": 2026,
@@ -3529,13 +3513,13 @@
    "away": "South Florida",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.3183,
-   "pred_margin": -6.01,
-   "score_home": 27.8,
-   "score_away": 33.8,
-   "pred_total": 61.6,
+   "p_home": 0.4642,
+   "pred_margin": -1.13,
+   "score_home": 30.7,
+   "score_away": 31.9,
+   "pred_total": 62.6,
    "pick": "South Florida",
-   "confidence": 0.6817
+   "confidence": 0.5358
   },
   {
    "season": 2026,
@@ -3561,13 +3545,13 @@
    "away": "UTSA",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.2142,
-   "pred_margin": -10.26,
-   "score_home": 23.5,
-   "score_away": 33.8,
-   "pred_total": 57.3,
+   "p_home": 0.3358,
+   "pred_margin": -5.38,
+   "score_home": 26.4,
+   "score_away": 31.8,
+   "pred_total": 58.3,
    "pick": "UTSA",
-   "confidence": 0.7858
+   "confidence": 0.6642
   },
   {
    "season": 2026,
@@ -3673,13 +3657,13 @@
    "away": "South Alabama",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.5073,
-   "pred_margin": 0.23,
-   "score_home": 31.7,
-   "score_away": 31.5,
-   "pred_total": 63.2,
-   "pick": "Southern Miss",
-   "confidence": 0.5073
+   "p_home": 0.4839,
+   "pred_margin": -0.51,
+   "score_home": 31.9,
+   "score_away": 32.4,
+   "pred_total": 64.3,
+   "pick": "South Alabama",
+   "confidence": 0.5161
   },
   {
    "season": 2026,
@@ -3892,22 +3876,6 @@
   {
    "season": 2026,
    "week": 12,
-   "kickoff": "2026-11-22T02:00:00.000Z",
-   "home": "Wyoming",
-   "away": "New Mexico",
-   "home_conf": "Mountain West",
-   "away_conf": "Mountain West",
-   "p_home": 0.2962,
-   "pred_margin": -6.83,
-   "score_home": 18.7,
-   "score_away": 25.5,
-   "pred_total": 44.2,
-   "pick": "New Mexico",
-   "confidence": 0.7038
-  },
-  {
-   "season": 2026,
-   "week": 12,
    "kickoff": "2026-11-22T02:30:00.000Z",
    "home": "Boise State",
    "away": "San Diego State",
@@ -3993,13 +3961,13 @@
    "away": "Florida Atlantic",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.6306,
-   "pred_margin": 4.22,
-   "score_home": 33.3,
-   "score_away": 29.1,
-   "pred_total": 62.4,
-   "pick": "East Carolina",
-   "confidence": 0.6306
+   "p_home": 0.4792,
+   "pred_margin": -0.66,
+   "score_home": 31.3,
+   "score_away": 32.0,
+   "pred_total": 63.3,
+   "pick": "Florida Atlantic",
+   "confidence": 0.5208
   },
   {
    "season": 2026,
@@ -4041,13 +4009,13 @@
    "away": "Tulsa",
    "home_conf": "American Athletic",
    "away_conf": "American Athletic",
-   "p_home": 0.8986,
-   "pred_margin": 17.22,
-   "score_home": 39.2,
-   "score_away": 22.0,
-   "pred_total": 61.2,
+   "p_home": 0.8268,
+   "pred_margin": 12.35,
+   "score_home": 37.2,
+   "score_away": 24.9,
+   "pred_total": 62.1,
    "pick": "UTSA",
-   "confidence": 0.8986
+   "confidence": 0.8268
   },
   {
    "season": 2026,
@@ -4160,6 +4128,22 @@
    "pred_total": 44.6,
    "pick": "North Dakota State",
    "confidence": 0.7845
+  },
+  {
+   "season": 2026,
+   "week": 13,
+   "kickoff": "2026-11-27T21:30:00.000Z",
+   "home": "New Mexico",
+   "away": "Air Force",
+   "home_conf": "Mountain West",
+   "away_conf": "Mountain West",
+   "p_home": 0.7472,
+   "pred_margin": 8.56,
+   "score_home": 30.2,
+   "score_away": 21.7,
+   "pred_total": 51.9,
+   "pick": "New Mexico",
+   "confidence": 0.7472
   },
   {
    "season": 2026,
@@ -4713,13 +4697,13 @@
    "away": "Coastal Carolina",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.8797,
-   "pred_margin": 15.71,
-   "score_home": 36.2,
-   "score_away": 20.5,
-   "pred_total": 56.6,
+   "p_home": 0.8893,
+   "pred_margin": 16.45,
+   "score_home": 37.1,
+   "score_away": 20.6,
+   "pred_total": 57.7,
    "pick": "James Madison",
-   "confidence": 0.8797
+   "confidence": 0.8893
   },
   {
    "season": 2026,
@@ -4777,13 +4761,13 @@
    "away": "Southern Miss",
    "home_conf": "Sun Belt",
    "away_conf": "Sun Belt",
-   "p_home": 0.5422,
-   "pred_margin": 1.34,
-   "score_home": 26.6,
-   "score_away": 25.3,
-   "pred_total": 51.9,
+   "p_home": 0.5654,
+   "pred_margin": 2.08,
+   "score_home": 27.5,
+   "score_away": 25.4,
+   "pred_total": 52.9,
    "pick": "Old Dominion",
-   "confidence": 0.5422
+   "confidence": 0.5654
   },
   {
    "season": 2026,
@@ -4928,22 +4912,6 @@
    "pred_total": 56.1,
    "pick": "Jacksonville State",
    "confidence": 0.5768
-  },
-  {
-   "season": 2026,
-   "week": 13,
-   "kickoff": "2026-11-28T21:30:00.000Z",
-   "home": "New Mexico",
-   "away": "Air Force",
-   "home_conf": "Mountain West",
-   "away_conf": "Mountain West",
-   "p_home": 0.7472,
-   "pred_margin": 8.56,
-   "score_home": 30.2,
-   "score_away": 21.7,
-   "pred_total": 51.9,
-   "pick": "New Mexico",
-   "confidence": 0.7472
   },
   {
    "season": 2026,

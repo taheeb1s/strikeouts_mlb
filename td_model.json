@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-05T22:52:35+00:00",
+ "generated_at": "2026-11-06T16:28:46+00:00",
  "season": 2026,
  "week": 9,
  "trained_on": [
@@ -55,20 +55,6 @@
    "i5pg": 1.0,
    "rzpg": 3.38,
    "td_rate": 0.875
-  },
-  {
-   "player": "Bhayshul Tuten",
-   "player_id": "00-0040719",
-   "team": "JAX",
-   "opponent": "BAL",
-   "game": "JAX@BAL",
-   "pos": "RB",
-   "p_any": 0.5337,
-   "p_two": 0.1022,
-   "p_first": 0.16,
-   "i5pg": 0.71,
-   "rzpg": 3.0,
-   "td_rate": 0.857
   },
   {
    "player": "CeeDee Lamb",
@@ -463,20 +449,6 @@
    "td_rate": 0.25
   },
   {
-   "player": "Derrick Henry",
-   "player_id": "00-0032764",
-   "team": "BAL",
-   "opponent": "JAX",
-   "game": "JAX@BAL",
-   "pos": "RB",
-   "p_any": 0.3904,
-   "p_two": 0.0446,
-   "p_first": 0.1038,
-   "i5pg": 2.12,
-   "rzpg": 5.25,
-   "td_rate": 1.125
-  },
-  {
    "player": "Blake Corum",
    "player_id": "00-0039738",
    "team": "LA",
@@ -645,20 +617,6 @@
    "td_rate": 0.333
   },
   {
-   "player": "Zay Flowers",
-   "player_id": "00-0039064",
-   "team": "BAL",
-   "opponent": "JAX",
-   "game": "JAX@BAL",
-   "pos": "WR",
-   "p_any": 0.3517,
-   "p_two": 0.0332,
-   "p_first": 0.0909,
-   "i5pg": 0.0,
-   "rzpg": 1.14,
-   "td_rate": 0.429
-  },
-  {
    "player": "Isaiah Likely",
    "player_id": "00-0037838",
    "team": "NYG",
@@ -685,20 +643,6 @@
    "i5pg": 0.5,
    "rzpg": 2.38,
    "td_rate": 0.375
-  },
-  {
-   "player": "Parker Washington",
-   "player_id": "00-0038606",
-   "team": "JAX",
-   "opponent": "BAL",
-   "game": "JAX@BAL",
-   "pos": "WR",
-   "p_any": 0.3456,
-   "p_two": 0.0625,
-   "p_first": 0.0889,
-   "i5pg": 0.0,
-   "rzpg": 1.14,
-   "td_rate": 0.571
   },
   {
    "player": "Denzel Boston",
@@ -1443,20 +1387,6 @@
    "td_rate": 0.375
   },
   {
-   "player": "Jakobi Meyers",
-   "player_id": "00-0034960",
-   "team": "JAX",
-   "opponent": "BAL",
-   "game": "JAX@BAL",
-   "pos": "WR",
-   "p_any": 0.2586,
-   "p_two": 0.0296,
-   "p_first": 0.0628,
-   "i5pg": 0.43,
-   "rzpg": 1.0,
-   "td_rate": 0.286
-  },
-  {
    "player": "Josh Downs",
    "player_id": "00-0038997",
    "team": "IND",
@@ -1482,20 +1412,6 @@
    "p_first": 0.0545,
    "i5pg": 0.14,
    "rzpg": 0.71,
-   "td_rate": 0.429
-  },
-  {
-   "player": "Chris Rodriguez Jr.",
-   "player_id": "00-0038611",
-   "team": "JAX",
-   "opponent": "BAL",
-   "game": "JAX@BAL",
-   "pos": "RB",
-   "p_any": 0.2523,
-   "p_two": 0.0736,
-   "p_first": 0.061,
-   "i5pg": 0.57,
-   "rzpg": 1.43,
    "td_rate": 0.429
   },
   {
@@ -1637,20 +1553,6 @@
    "i5pg": 0.29,
    "rzpg": 0.71,
    "td_rate": 0.429
-  },
-  {
-   "player": "Brenton Strange",
-   "player_id": "00-0038935",
-   "team": "JAX",
-   "opponent": "BAL",
-   "game": "JAX@BAL",
-   "pos": "TE",
-   "p_any": 0.2327,
-   "p_two": 0.0265,
-   "p_first": 0.0556,
-   "i5pg": 0.0,
-   "rzpg": 0.43,
-   "td_rate": 0.143
   },
   {
    "player": "Juwan Johnson",
@@ -1947,20 +1849,6 @@
    "td_rate": 0.25
   },
   {
-   "player": "Brian Thomas Jr.",
-   "player_id": "00-0039893",
-   "team": "JAX",
-   "opponent": "BAL",
-   "game": "JAX@BAL",
-   "pos": "WR",
-   "p_any": 0.2024,
-   "p_two": 0.0219,
-   "p_first": 0.0474,
-   "i5pg": 0.29,
-   "rzpg": 0.71,
-   "td_rate": 0.286
-  },
-  {
    "player": "Foster Moreau",
    "player_id": "00-0034981",
    "team": "HOU",
@@ -2029,20 +1917,6 @@
    "i5pg": 0.0,
    "rzpg": 1.0,
    "td_rate": 0.0
-  },
-  {
-   "player": "Mark Andrews",
-   "player_id": "00-0034753",
-   "team": "BAL",
-   "opponent": "JAX",
-   "game": "JAX@BAL",
-   "pos": "TE",
-   "p_any": 0.1887,
-   "p_two": 0.0201,
-   "p_first": 0.0439,
-   "i5pg": 0.38,
-   "rzpg": 1.0,
-   "td_rate": 0.125
   },
   {
    "player": "George Holani",
@@ -2409,20 +2283,6 @@
    "td_rate": 0.167
   },
   {
-   "player": "Rashod Bateman",
-   "player_id": "00-0036550",
-   "team": "BAL",
-   "opponent": "JAX",
-   "game": "JAX@BAL",
-   "pos": "WR",
-   "p_any": 0.1597,
-   "p_two": 0.0137,
-   "p_first": 0.0365,
-   "i5pg": 0.12,
-   "rzpg": 0.38,
-   "td_rate": 0.125
-  },
-  {
    "player": "Najee Harris",
    "player_id": "00-0036893",
    "team": "NYG",
@@ -2434,20 +2294,6 @@
    "p_first": 0.0377,
    "i5pg": 0.6,
    "rzpg": 1.6,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Ja'Kobi Lane",
-   "player_id": "00-0040870",
-   "team": "BAL",
-   "opponent": "JAX",
-   "game": "JAX@BAL",
-   "pos": "WR",
-   "p_any": 0.1573,
-   "p_two": 0.0201,
-   "p_first": 0.0359,
-   "i5pg": 0.25,
-   "rzpg": 1.5,
    "td_rate": 0.0
   },
   {
@@ -2588,20 +2434,6 @@
    "p_first": 0.0289,
    "i5pg": 0.0,
    "rzpg": 0.43,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Justice Hill",
-   "player_id": "00-0034975",
-   "team": "BAL",
-   "opponent": "JAX",
-   "game": "JAX@BAL",
-   "pos": "RB",
-   "p_any": 0.1403,
-   "p_two": 0.0129,
-   "p_first": 0.0317,
-   "i5pg": 0.0,
-   "rzpg": 0.38,
    "td_rate": 0.0
   },
   {
@@ -2759,20 +2591,6 @@
    "td_rate": 0.143
   },
   {
-   "player": "Josh Cameron",
-   "player_id": "00-0041100",
-   "team": "JAX",
-   "opponent": "BAL",
-   "game": "JAX@BAL",
-   "pos": "WR",
-   "p_any": 0.1263,
-   "p_two": 0.0139,
-   "p_first": 0.0283,
-   "i5pg": 0.14,
-   "rzpg": 0.57,
-   "td_rate": 0.286
-  },
-  {
    "player": "Elijah Higgins",
    "player_id": "00-0039041",
    "team": "ARI",
@@ -2883,20 +2701,6 @@
    "i5pg": 0.25,
    "rzpg": 1.25,
    "td_rate": 0.0
-  },
-  {
-   "player": "Josh Cuevas",
-   "player_id": "00-0040887",
-   "team": "BAL",
-   "opponent": "JAX",
-   "game": "JAX@BAL",
-   "pos": "TE",
-   "p_any": 0.1178,
-   "p_two": 0.0111,
-   "p_first": 0.0263,
-   "i5pg": 0.17,
-   "rzpg": 0.33,
-   "td_rate": 0.167
   },
   {
    "player": "Mo Alie-Cox",
@@ -3011,20 +2815,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Devontez Walker",
-   "player_id": "00-0039792",
-   "team": "BAL",
-   "opponent": "JAX",
-   "game": "JAX@BAL",
-   "pos": "WR",
-   "p_any": 0.1059,
-   "p_two": 0.0119,
-   "p_first": 0.0235,
-   "i5pg": 0.0,
-   "rzpg": 0.2,
-   "td_rate": 0.2
-  },
-  {
    "player": "Mitchell Evans",
    "player_id": "00-0040187",
    "team": "CAR",
@@ -3079,20 +2869,6 @@
    "i5pg": 0.0,
    "rzpg": 0.14,
    "td_rate": 0.143
-  },
-  {
-   "player": "Nate Boerkircher",
-   "player_id": "00-0041503",
-   "team": "JAX",
-   "opponent": "BAL",
-   "game": "JAX@BAL",
-   "pos": "TE",
-   "p_any": 0.1015,
-   "p_two": 0.0139,
-   "p_first": 0.0224,
-   "i5pg": 0.17,
-   "rzpg": 0.33,
-   "td_rate": 0.333
   },
   {
    "player": "Troy Franklin",
@@ -3345,20 +3121,6 @@
    "i5pg": 0.0,
    "rzpg": 0.25,
    "td_rate": 0.0
-  },
-  {
-   "player": "Matthew Hibner",
-   "player_id": "00-0040879",
-   "team": "BAL",
-   "opponent": "JAX",
-   "game": "JAX@BAL",
-   "pos": "TE",
-   "p_any": 0.0849,
-   "p_two": 0.0099,
-   "p_first": 0.0186,
-   "i5pg": 0.2,
-   "rzpg": 0.2,
-   "td_rate": 0.2
   },
   {
    "player": "Dyami Brown",
@@ -3669,20 +3431,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "LaJohntay Wester",
-   "player_id": "00-0040075",
-   "team": "BAL",
-   "opponent": "JAX",
-   "game": "JAX@BAL",
-   "pos": "WR",
-   "p_any": 0.0648,
-   "p_two": 0.0081,
-   "p_first": 0.0141,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
    "player": "Zavion Thomas",
    "player_id": "00-0041051",
    "team": "CHI",
@@ -3809,20 +3557,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "LeQuint Allen Jr.",
-   "player_id": "00-0040238",
-   "team": "JAX",
-   "opponent": "BAL",
-   "game": "JAX@BAL",
-   "pos": "RB",
-   "p_any": 0.0591,
-   "p_two": 0.0096,
-   "p_first": 0.0128,
-   "i5pg": 0.17,
-   "rzpg": 0.17,
-   "td_rate": 0.0
-  },
-  {
    "player": "Deion Burks",
    "player_id": "00-0041132",
    "team": "IND",
@@ -3849,20 +3583,6 @@
    "i5pg": 0.17,
    "rzpg": 0.17,
    "td_rate": 0.167
-  },
-  {
-   "player": "Ameer Abdullah",
-   "player_id": "00-0032104",
-   "team": "JAX",
-   "opponent": "BAL",
-   "game": "JAX@BAL",
-   "pos": "RB",
-   "p_any": 0.056,
-   "p_two": 0.0131,
-   "p_first": 0.0121,
-   "i5pg": 0.0,
-   "rzpg": 0.14,
-   "td_rate": 0.0
   },
   {
    "player": "Johnny Mundt",
@@ -4000,20 +3720,6 @@
    "p_any": 0.0523,
    "p_two": 0.0081,
    "p_first": 0.0125,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Rasheen Ali",
-   "player_id": "00-0039796",
-   "team": "BAL",
-   "opponent": "JAX",
-   "game": "JAX@BAL",
-   "pos": "RB",
-   "p_any": 0.0509,
-   "p_two": 0.0081,
-   "p_first": 0.011,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0
@@ -4460,20 +4166,6 @@
    "game": "DEN@CAR",
    "pos": "TE",
    "p_any": 0.0189,
-   "p_two": 0.0081,
-   "p_first": 0.0036,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Quintin Morris",
-   "player_id": "00-0036590",
-   "team": "JAX",
-   "opponent": "BAL",
-   "game": "JAX@BAL",
-   "pos": "TE",
-   "p_any": 0.017,
    "p_two": 0.0081,
    "p_first": 0.0036,
    "i5pg": 0.0,
