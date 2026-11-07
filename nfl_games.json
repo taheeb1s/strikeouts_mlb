@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-07T14:34:13+00:00",
+ "generated_at": "2026-11-07T16:59:36+00:00",
  "backtest": {
   "games": 1541,
   "accuracy": 0.6334,
@@ -929,7 +929,7 @@
    "pred_total": 48.2,
    "pick": "CIN",
    "confidence": 0.5902,
-   "vegas_spread": -3.0,
+   "vegas_spread": -3.5,
    "elo_home": 1456.0,
    "elo_away": 1567.3
   },
@@ -1082,7 +1082,7 @@
    "pred_total": 48.7,
    "pick": "SF",
    "confidence": 0.8298,
-   "vegas_spread": 9.5,
+   "vegas_spread": 10.0,
    "elo_home": 1628.6,
    "elo_away": 1401.4
   },
