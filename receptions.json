@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-08T03:06:30+00:00",
+ "generated_at": "2026-11-08T10:50:49+00:00",
  "market": "player_receptions",
  "games": [
   {
@@ -88528,11 +88528,834 @@
      "moved_prob": null
     }
    ]
+  },
+  {
+   "matchup": "Cincinnati Bengals at Atlanta Falcons",
+   "kickoff": "2026-11-08T14:30:00Z",
+   "week": 9,
+   "captured_at": "2026-11-08T10:50:49+00:00",
+   "snapshots": 1,
+   "players": [
+    {
+     "line": 6.5,
+     "books": 5,
+     "other_lines": [],
+     "consensus_over": 0.5402,
+     "book_spread": 0.0099,
+     "avg_vig": 0.0661,
+     "best_over": {
+      "price": -132,
+      "book": "BetOnline.ag"
+     },
+     "best_under": {
+      "price": 106,
+      "book": "DraftKings"
+     },
+     "shop_over": 4.3,
+     "shop_under": 4.0,
+     "quotes": [
+      {
+       "book": "betmgm",
+       "book_title": "BetMGM",
+       "line": 6.5,
+       "over_price": -140,
+       "under_price": 105
+      },
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 6.5,
+       "over_price": -132,
+       "under_price": 102
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 6.5,
+       "over_price": -135,
+       "under_price": 105
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 6.5,
+       "over_price": -136,
+       "under_price": 106
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 6.5,
+       "over_price": -136,
+       "under_price": 102
+      }
+     ],
+     "player": "Ja'Marr Chase",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 6.5,
+       "consensus_over": 0.5402
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 5.5,
+     "books": 5,
+     "other_lines": [],
+     "consensus_over": 0.5386,
+     "book_spread": 0.0294,
+     "avg_vig": 0.0671,
+     "best_over": {
+      "price": -130,
+      "book": "DraftKings"
+     },
+     "best_under": {
+      "price": 110,
+      "book": "BetMGM"
+     },
+     "shop_over": 10.3,
+     "shop_under": 12.0,
+     "quotes": [
+      {
+       "book": "betmgm",
+       "book_title": "BetMGM",
+       "line": 5.5,
+       "over_price": -150,
+       "under_price": 110
+      },
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 5.5,
+       "over_price": -137,
+       "under_price": 106
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 5.5,
+       "over_price": -130,
+       "under_price": 100
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 5.5,
+       "over_price": -130,
+       "under_price": 102
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 5.5,
+       "over_price": -130,
+       "under_price": -102
+      }
+     ],
+     "player": "Drake London",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 5.5,
+       "consensus_over": 0.5386
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 5.5,
+     "books": 5,
+     "other_lines": [],
+     "consensus_over": 0.4814,
+     "book_spread": 0.0282,
+     "avg_vig": 0.0663,
+     "best_over": {
+      "price": -102,
+      "book": "FanDuel"
+     },
+     "best_under": {
+      "price": -115,
+      "book": "BetMGM"
+     },
+     "shop_over": 11.1,
+     "shop_under": 10.0,
+     "quotes": [
+      {
+       "book": "betmgm",
+       "book_title": "BetMGM",
+       "line": 5.5,
+       "over_price": -115,
+       "under_price": -115
+      },
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 5.5,
+       "over_price": -103,
+       "under_price": -125
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 5.5,
+       "over_price": -105,
+       "under_price": -125
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 5.5,
+       "over_price": -103,
+       "under_price": -124
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 5.5,
+       "over_price": -102,
+       "under_price": -130
+      }
+     ],
+     "player": "Tee Higgins",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 5.5,
+       "consensus_over": 0.4814
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 4.5,
+     "books": 3,
+     "other_lines": [
+      3.5
+     ],
+     "consensus_over": 0.4133,
+     "book_spread": 0.0075,
+     "avg_vig": 0.0628,
+     "best_over": {
+      "price": 130,
+      "book": "BetOnline.ag"
+     },
+     "best_under": {
+      "price": -163,
+      "book": "DraftKings"
+     },
+     "shop_over": 5.0,
+     "shop_under": 2.2,
+     "quotes": [
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 4.5,
+       "over_price": 130,
+       "under_price": -169
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 4.5,
+       "over_price": 125,
+       "under_price": -165
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 4.5,
+       "over_price": 128,
+       "under_price": -163
+      }
+     ],
+     "player": "Chase Brown",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 4.5,
+       "consensus_over": 0.4133
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 3.5,
+     "books": 2,
+     "other_lines": [
+      4.5
+     ],
+     "consensus_over": 0.6,
+     "book_spread": 0.0046,
+     "avg_vig": 0.0683,
+     "best_over": {
+      "price": -178,
+      "book": "FanDuel"
+     },
+     "best_under": {
+      "price": 136,
+      "book": "BetOnline.ag"
+     },
+     "shop_over": 0.3,
+     "shop_under": 4.0,
+     "quotes": [
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 3.5,
+       "over_price": -179,
+       "under_price": 136
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 3.5,
+       "over_price": -178,
+       "under_price": 132
+      }
+     ],
+     "player": "Kyle Pitts",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 3.5,
+       "consensus_over": 0.6
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 3.5,
+     "books": 5,
+     "other_lines": [],
+     "consensus_over": 0.4395,
+     "book_spread": 0.0348,
+     "avg_vig": 0.068,
+     "best_over": {
+      "price": 124,
+      "book": "FanDuel"
+     },
+     "best_under": {
+      "price": -142,
+      "book": "DraftKings"
+     },
+     "shop_over": 19.0,
+     "shop_under": 10.2,
+     "quotes": [
+      {
+       "book": "betmgm",
+       "book_title": "BetMGM",
+       "line": 3.5,
+       "over_price": 105,
+       "under_price": -145
+      },
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 3.5,
+       "over_price": 115,
+       "under_price": -149
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 3.5,
+       "over_price": 110,
+       "under_price": -145
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 3.5,
+       "over_price": 112,
+       "under_price": -142
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 3.5,
+       "over_price": 124,
+       "under_price": -166
+      }
+     ],
+     "player": "Bijan Robinson",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 3.5,
+       "consensus_over": 0.4395
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 2.5,
+     "books": 5,
+     "other_lines": [],
+     "consensus_over": 0.5109,
+     "book_spread": 0.0345,
+     "avg_vig": 0.0661,
+     "best_over": {
+      "price": -108,
+      "book": "FanDuel"
+     },
+     "best_under": {
+      "price": -104,
+      "book": "DraftKings"
+     },
+     "shop_over": 12.6,
+     "shop_under": 14.2,
+     "quotes": [
+      {
+       "book": "betmgm",
+       "book_title": "BetMGM",
+       "line": 2.5,
+       "over_price": -125,
+       "under_price": -105
+      },
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 2.5,
+       "over_price": -118,
+       "under_price": -110
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 2.5,
+       "over_price": -125,
+       "under_price": -105
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 2.5,
+       "over_price": -123,
+       "under_price": -104
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 2.5,
+       "over_price": -108,
+       "under_price": -122
+      }
+     ],
+     "player": "Mike Gesicki",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 2.5,
+       "consensus_over": 0.5109
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 1.5,
+     "books": 5,
+     "other_lines": [],
+     "consensus_over": 0.609,
+     "book_spread": 0.0226,
+     "avg_vig": 0.0662,
+     "best_over": {
+      "price": -175,
+      "book": "BetOnline.ag"
+     },
+     "best_under": {
+      "price": 145,
+      "book": "BetMGM"
+     },
+     "shop_over": 7.1,
+     "shop_under": 13.0,
+     "quotes": [
+      {
+       "book": "betmgm",
+       "book_title": "BetMGM",
+       "line": 1.5,
+       "over_price": -200,
+       "under_price": 145
+      },
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 1.5,
+       "over_price": -175,
+       "under_price": 134
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 1.5,
+       "over_price": -190,
+       "under_price": 145
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 1.5,
+       "over_price": -184,
+       "under_price": 144
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 1.5,
+       "over_price": -178,
+       "under_price": 132
+      }
+     ],
+     "player": "Jahan Dotson",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 1.5,
+       "consensus_over": 0.609
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 1.5,
+     "books": 5,
+     "other_lines": [],
+     "consensus_over": 0.563,
+     "book_spread": 0.0356,
+     "avg_vig": 0.0672,
+     "best_over": {
+      "price": -135,
+      "book": "BetOnline.ag"
+     },
+     "best_under": {
+      "price": 122,
+      "book": "DraftKings"
+     },
+     "shop_over": 11.6,
+     "shop_under": 18.0,
+     "quotes": [
+      {
+       "book": "betmgm",
+       "book_title": "BetMGM",
+       "line": 1.5,
+       "over_price": -155,
+       "under_price": 115
+      },
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 1.5,
+       "over_price": -135,
+       "under_price": 104
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 1.5,
+       "over_price": -160,
+       "under_price": 120
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 1.5,
+       "over_price": -156,
+       "under_price": 122
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 1.5,
+       "over_price": -148,
+       "under_price": 112
+      }
+     ],
+     "player": "Dohnte Meyers",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 1.5,
+       "consensus_over": 0.563
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 1.5,
+     "books": 5,
+     "other_lines": [],
+     "consensus_over": 0.4806,
+     "book_spread": 0.0467,
+     "avg_vig": 0.0675,
+     "best_over": {
+      "price": 105,
+      "book": "BetMGM"
+     },
+     "best_under": {
+      "price": -112,
+      "book": "DraftKings"
+     },
+     "shop_over": 18.0,
+     "shop_under": 17.9,
+     "quotes": [
+      {
+       "book": "betmgm",
+       "book_title": "BetMGM",
+       "line": 1.5,
+       "over_price": 105,
+       "under_price": -140
+      },
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 1.5,
+       "over_price": -106,
+       "under_price": -122
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 1.5,
+       "over_price": -115,
+       "under_price": -115
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 1.5,
+       "over_price": -114,
+       "under_price": -112
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 1.5,
+       "over_price": 102,
+       "under_price": -136
+      }
+     ],
+     "player": "Olamide Zaccheaus",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 1.5,
+       "consensus_over": 0.4806
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 1.5,
+     "books": 5,
+     "other_lines": [],
+     "consensus_over": 0.35,
+     "book_spread": 0.0432,
+     "avg_vig": 0.0647,
+     "best_over": {
+      "price": 182,
+      "book": "FanDuel"
+     },
+     "best_under": {
+      "price": -200,
+      "book": "BetMGM"
+     },
+     "shop_over": 32.0,
+     "shop_under": 10.0,
+     "quotes": [
+      {
+       "book": "betmgm",
+       "book_title": "BetMGM",
+       "line": 1.5,
+       "over_price": 150,
+       "under_price": -200
+      },
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 1.5,
+       "over_price": 171,
+       "under_price": -227
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 1.5,
+       "over_price": 170,
+       "under_price": -230
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 1.5,
+       "over_price": 171,
+       "under_price": -221
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 1.5,
+       "over_price": 182,
+       "under_price": -250
+      }
+     ],
+     "player": "Samaje Perine",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 1.5,
+       "consensus_over": 0.35
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 0.5,
+     "books": 5,
+     "other_lines": [],
+     "consensus_over": 0.6341,
+     "book_spread": 0.0214,
+     "avg_vig": 0.0663,
+     "best_over": {
+      "price": -197,
+      "book": "DraftKings"
+     },
+     "best_under": {
+      "price": 164,
+      "book": "FanDuel"
+     },
+     "shop_over": 6.3,
+     "shop_under": 14.0,
+     "quotes": [
+      {
+       "book": "betmgm",
+       "book_title": "BetMGM",
+       "line": 0.5,
+       "over_price": -220,
+       "under_price": 160
+      },
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 0.5,
+       "over_price": -204,
+       "under_price": 155
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 0.5,
+       "over_price": -200,
+       "under_price": 150
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 0.5,
+       "over_price": -197,
+       "under_price": 153
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 0.5,
+       "over_price": -225,
+       "under_price": 164
+      }
+     ],
+     "player": "Austin Hooper",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 0.5,
+       "consensus_over": 0.6341
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    },
+    {
+     "line": 0.5,
+     "books": 5,
+     "other_lines": [],
+     "consensus_over": 0.6223,
+     "book_spread": 0.0446,
+     "avg_vig": 0.0663,
+     "best_over": {
+      "price": -177,
+      "book": "DraftKings"
+     },
+     "best_under": {
+      "price": 164,
+      "book": "FanDuel"
+     },
+     "shop_over": 12.1,
+     "shop_under": 29.0,
+     "quotes": [
+      {
+       "book": "betmgm",
+       "book_title": "BetMGM",
+       "line": 0.5,
+       "over_price": -210,
+       "under_price": 155
+      },
+      {
+       "book": "betonlineag",
+       "book_title": "BetOnline.ag",
+       "line": 0.5,
+       "over_price": -200,
+       "under_price": 152
+      },
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 0.5,
+       "over_price": -180,
+       "under_price": 135
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 0.5,
+       "over_price": -177,
+       "under_price": 138
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 0.5,
+       "over_price": -225,
+       "under_price": 164
+      }
+     ],
+     "player": "Drew Sample",
+     "history": [
+      {
+       "at": "2026-11-08T10:50:49+00:00",
+       "line": 0.5,
+       "consensus_over": 0.6223
+      }
+     ],
+     "moved_line": null,
+     "moved_prob": null
+    }
+   ]
   }
  ],
  "totals": {
-  "games": 120,
-  "players": 1468
+  "games": 121,
+  "players": 1481
  },
  "weeks": [
   1,
