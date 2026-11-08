@@ -94,6 +94,11 @@
   "kickoff": "2026-09-20T17:00:00Z",
   "matchup": "New Orleans Saints at Baltimore Ravens"
  },
+ "240e23b02b1e3fef655d04a286b5a623": {
+  "captured_at": "2026-11-08T20:51:53+00:00",
+  "kickoff": "2026-11-08T21:25:00Z",
+  "matchup": "Arizona Cardinals at Seattle Seahawks"
+ },
  "259b5df9aa0d10257f56de78523495e0": {
   "captured_at": "2026-10-08T22:36:33+00:00",
   "kickoff": "2026-10-09T00:15:00Z",
@@ -108,6 +113,11 @@
   "captured_at": "2026-10-25T14:39:16+00:00",
   "kickoff": "2026-10-25T17:00:00Z",
   "matchup": "Tampa Bay Buccaneers at Carolina Panthers"
+ },
+ "2922c573ec3df8466c4a34975e446898": {
+  "captured_at": "2026-11-08T20:51:53+00:00",
+  "kickoff": "2026-11-08T21:25:00Z",
+  "matchup": "Green Bay Packers at New England Patriots"
  },
  "2a529c108305ffa049d8b6cfdbaa4d36": {
   "captured_at": "2026-09-27T13:02:45+00:00",
@@ -163,6 +173,11 @@
   "captured_at": "2026-10-18T18:20:38+00:00",
   "kickoff": "2026-10-18T20:05:00Z",
   "matchup": "Arizona Cardinals at Los Angeles Rams"
+ },
+ "39aeac43cea7b12558b91cdab1255a10": {
+  "captured_at": "2026-11-08T20:51:53+00:00",
+  "kickoff": "2026-11-08T21:05:00Z",
+  "matchup": "Houston Texans at Los Angeles Chargers"
  },
  "3bfd8bfb4b8e9a365a0877879b73b16b": {
   "captured_at": "2026-09-27T21:02:51+00:00",
@@ -428,6 +443,11 @@
   "captured_at": "2026-10-30T23:48:32+00:00",
   "kickoff": "2026-11-01T18:00:00Z",
   "matchup": "Cleveland Browns at Pittsburgh Steelers"
+ },
+ "ac9d38a18d5c92814233a31aa9a48d78": {
+  "captured_at": "2026-11-08T20:51:53+00:00",
+  "kickoff": "2026-11-08T21:25:00Z",
+  "matchup": "Las Vegas Raiders at San Francisco 49ers"
  },
  "acc580d74344ea3b31bbcdd057fe6a9c": {
   "captured_at": "2026-09-10T21:02:30+00:00",
