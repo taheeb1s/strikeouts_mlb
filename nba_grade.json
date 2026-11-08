@@ -1,41 +1,3378 @@
 {
- "graded": 954,
+ "graded": 1093,
  "dates": [
   "2026-10-31",
   "2026-11-01",
   "2026-11-02",
   "2026-11-04",
   "2026-11-05",
-  "2026-11-06"
+  "2026-11-06",
+  "2026-11-07"
  ],
  "markets": {
   "points": {
-   "mae": 4.84,
-   "bias": -0.112,
-   "actual_mean": 11.38
+   "mae": 4.779,
+   "bias": -0.03,
+   "actual_mean": 11.29
   },
   "rebounds": {
-   "mae": 1.873,
-   "bias": -0.198,
-   "actual_mean": 4.34
+   "mae": 1.884,
+   "bias": -0.246,
+   "actual_mean": 4.37
   },
   "assists": {
-   "mae": 1.384,
-   "bias": -0.191,
+   "mae": 1.413,
+   "bias": -0.184,
    "actual_mean": 2.63
   },
   "threes": {
-   "mae": 0.929,
-   "bias": -0.193,
-   "actual_mean": 1.35
+   "mae": 0.907,
+   "bias": -0.181,
+   "actual_mean": 1.34
   },
   "pra": {
-   "mae": 6.185,
-   "bias": -0.036,
-   "actual_mean": 18.36
+   "mae": 6.162,
+   "bias": -0.012,
+   "actual_mean": 18.28
   }
  },
  "recent": [
+  {
+   "date": "2026-11-07",
+   "player": "Nikola Jokic",
+   "points": [
+    23.8,
+    19.0
+   ],
+   "rebounds": [
+    10.1,
+    13.0
+   ],
+   "assists": [
+    9.2,
+    8.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    47.9,
+    40.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Victor Wembanyama",
+   "points": [
+    27.8,
+    29.0
+   ],
+   "rebounds": [
+    11.3,
+    7.0
+   ],
+   "assists": [
+    3.0,
+    3.0
+   ],
+   "threes": [
+    2.0,
+    3.0
+   ],
+   "pra": [
+    41.6,
+    39.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Shai Gilgeous-Alexander",
+   "points": [
+    30.2,
+    30.0
+   ],
+   "rebounds": [
+    3.8,
+    2.0
+   ],
+   "assists": [
+    4.8,
+    9.0
+   ],
+   "threes": [
+    2.0,
+    3.0
+   ],
+   "pra": [
+    38.3,
+    41.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Alperen Sengun",
+   "points": [
+    21.2,
+    15.0
+   ],
+   "rebounds": [
+    8.9,
+    6.0
+   ],
+   "assists": [
+    7.6,
+    5.0
+   ],
+   "threes": [
+    0.9,
+    1.0
+   ],
+   "pra": [
+    37.8,
+    26.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Deni Avdija",
+   "points": [
+    23.9,
+    15.0
+   ],
+   "rebounds": [
+    6.6,
+    4.0
+   ],
+   "assists": [
+    6.4,
+    1.0
+   ],
+   "threes": [
+    2.0,
+    2.0
+   ],
+   "pra": [
+    37.5,
+    20.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Stephen Curry",
+   "points": [
+    29.4,
+    41.0
+   ],
+   "rebounds": [
+    3.3,
+    6.0
+   ],
+   "assists": [
+    4.4,
+    6.0
+   ],
+   "threes": [
+    3.6,
+    5.0
+   ],
+   "pra": [
+    36.8,
+    53.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jamal Murray",
+   "points": [
+    25.3,
+    16.0
+   ],
+   "rebounds": [
+    4.9,
+    6.0
+   ],
+   "assists": [
+    5.9,
+    8.0
+   ],
+   "threes": [
+    3.6,
+    2.0
+   ],
+   "pra": [
+    35.9,
+    30.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Karl-Anthony Towns",
+   "points": [
+    19.2,
+    29.0
+   ],
+   "rebounds": [
+    11.9,
+    13.0
+   ],
+   "assists": [
+    3.0,
+    3.0
+   ],
+   "threes": [
+    1.7,
+    2.0
+   ],
+   "pra": [
+    35.3,
+    45.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Julius Randle",
+   "points": [
+    21.3,
+    19.0
+   ],
+   "rebounds": [
+    6.7,
+    7.0
+   ],
+   "assists": [
+    4.3,
+    8.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    34.8,
+    34.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Donovan Mitchell",
+   "points": [
+    23.6,
+    37.0
+   ],
+   "rebounds": [
+    4.6,
+    4.0
+   ],
+   "assists": [
+    5.4,
+    4.0
+   ],
+   "threes": [
+    2.6,
+    5.0
+   ],
+   "pra": [
+    34.8,
+    45.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Devin Booker",
+   "points": [
+    24.7,
+    24.0
+   ],
+   "rebounds": [
+    3.3,
+    2.0
+   ],
+   "assists": [
+    5.1,
+    3.0
+   ],
+   "threes": [
+    2.0,
+    2.0
+   ],
+   "pra": [
+    34.2,
+    29.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Michael Porter Jr.",
+   "points": [
+    24.3,
+    25.0
+   ],
+   "rebounds": [
+    6.9,
+    9.0
+   ],
+   "assists": [
+    1.9,
+    1.0
+   ],
+   "threes": [
+    3.6,
+    3.0
+   ],
+   "pra": [
+    33.7,
+    35.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jalen Brunson",
+   "points": [
+    24.7,
+    31.0
+   ],
+   "rebounds": [
+    3.1,
+    6.0
+   ],
+   "assists": [
+    5.2,
+    9.0
+   ],
+   "threes": [
+    2.7,
+    3.0
+   ],
+   "pra": [
+    33.7,
+    46.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Franz Wagner",
+   "points": [
+    20.4,
+    30.0
+   ],
+   "rebounds": [
+    5.8,
+    6.0
+   ],
+   "assists": [
+    6.9,
+    11.0
+   ],
+   "threes": [
+    1.0,
+    3.0
+   ],
+   "pra": [
+    33.5,
+    47.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jalen Johnson",
+   "points": [
+    20.6,
+    30.0
+   ],
+   "rebounds": [
+    8.8,
+    7.0
+   ],
+   "assists": [
+    7.5,
+    6.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    33.5,
+    43.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Trae Young",
+   "points": [
+    20.5,
+    4.0
+   ],
+   "rebounds": [
+    2.7,
+    5.0
+   ],
+   "assists": [
+    8.8,
+    3.0
+   ],
+   "threes": [
+    2.0,
+    0.0
+   ],
+   "pra": [
+    33.2,
+    12.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Pascal Siakam",
+   "points": [
+    22.9,
+    23.0
+   ],
+   "rebounds": [
+    6.8,
+    2.0
+   ],
+   "assists": [
+    3.8,
+    5.0
+   ],
+   "threes": [
+    1.0,
+    2.0
+   ],
+   "pra": [
+    32.9,
+    30.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Yaxel Lendeborg",
+   "points": [
+    20.3,
+    23.0
+   ],
+   "rebounds": [
+    6.6,
+    8.0
+   ],
+   "assists": [
+    3.6,
+    3.0
+   ],
+   "threes": [
+    2.0,
+    2.0
+   ],
+   "pra": [
+    31.6,
+    34.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Evan Mobley",
+   "points": [
+    19.6,
+    12.0
+   ],
+   "rebounds": [
+    8.2,
+    9.0
+   ],
+   "assists": [
+    3.7,
+    5.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    31.1,
+    26.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "James Harden",
+   "points": [
+    18.1,
+    7.0
+   ],
+   "rebounds": [
+    5.0,
+    2.0
+   ],
+   "assists": [
+    5.9,
+    5.0
+   ],
+   "threes": [
+    2.6,
+    1.0
+   ],
+   "pra": [
+    30.3,
+    14.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Miles Bridges",
+   "points": [
+    18.3,
+    13.0
+   ],
+   "rebounds": [
+    7.0,
+    10.0
+   ],
+   "assists": [
+    3.6,
+    7.0
+   ],
+   "threes": [
+    2.0,
+    1.0
+   ],
+   "pra": [
+    30.0,
+    30.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Nickeil Alexander-Walker",
+   "points": [
+    22.3,
+    20.0
+   ],
+   "rebounds": [
+    3.1,
+    3.0
+   ],
+   "assists": [
+    2.6,
+    1.0
+   ],
+   "threes": [
+    3.6,
+    2.0
+   ],
+   "pra": [
+    29.4,
+    24.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Kyshawn George",
+   "points": [
+    18.9,
+    14.0
+   ],
+   "rebounds": [
+    4.3,
+    7.0
+   ],
+   "assists": [
+    4.7,
+    6.0
+   ],
+   "threes": [
+    2.0,
+    2.0
+   ],
+   "pra": [
+    28.8,
+    27.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Kevin Durant",
+   "points": [
+    20.7,
+    21.0
+   ],
+   "rebounds": [
+    4.5,
+    10.0
+   ],
+   "assists": [
+    3.1,
+    3.0
+   ],
+   "threes": [
+    1.7,
+    1.0
+   ],
+   "pra": [
+    28.7,
+    34.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Andrew Nembhard",
+   "points": [
+    19.5,
+    9.0
+   ],
+   "rebounds": [
+    2.2,
+    1.0
+   ],
+   "assists": [
+    6.9,
+    8.0
+   ],
+   "threes": [
+    2.0,
+    3.0
+   ],
+   "pra": [
+    28.3,
+    18.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Damian Lillard",
+   "points": [
+    21.5,
+    12.0
+   ],
+   "rebounds": [
+    3.1,
+    0.0
+   ],
+   "assists": [
+    4.1,
+    7.0
+   ],
+   "threes": [
+    3.0,
+    2.0
+   ],
+   "pra": [
+    28.3,
+    19.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Dylan Harper",
+   "points": [
+    17.6,
+    13.0
+   ],
+   "rebounds": [
+    4.6,
+    7.0
+   ],
+   "assists": [
+    4.5,
+    3.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    27.1,
+    23.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Onyeka Okongwu",
+   "points": [
+    14.3,
+    16.0
+   ],
+   "rebounds": [
+    8.5,
+    2.0
+   ],
+   "assists": [
+    2.6,
+    5.0
+   ],
+   "threes": [
+    1.9,
+    2.0
+   ],
+   "pra": [
+    26.2,
+    23.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Donovan Clingan",
+   "points": [
+    12.8,
+    6.0
+   ],
+   "rebounds": [
+    10.5,
+    5.0
+   ],
+   "assists": [
+    1.8,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    25.8,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Brandin Podziemski",
+   "points": [
+    15.3,
+    15.0
+   ],
+   "rebounds": [
+    5.0,
+    7.0
+   ],
+   "assists": [
+    4.2,
+    1.0
+   ],
+   "threes": [
+    2.0,
+    4.0
+   ],
+   "pra": [
+    25.7,
+    23.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Ajay Mitchell",
+   "points": [
+    18.7,
+    12.0
+   ],
+   "rebounds": [
+    3.1,
+    4.0
+   ],
+   "assists": [
+    3.7,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    25.6,
+    16.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Dillon Brooks",
+   "points": [
+    18.8,
+    11.0
+   ],
+   "rebounds": [
+    3.3,
+    4.0
+   ],
+   "assists": [
+    2.1,
+    1.0
+   ],
+   "threes": [
+    2.0,
+    3.0
+   ],
+   "pra": [
+    25.3,
+    16.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jabari Smith Jr.",
+   "points": [
+    16.4,
+    15.0
+   ],
+   "rebounds": [
+    5.5,
+    9.0
+   ],
+   "assists": [
+    2.0,
+    2.0
+   ],
+   "threes": [
+    2.7,
+    1.0
+   ],
+   "pra": [
+    24.7,
+    26.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Stephon Castle",
+   "points": [
+    13.5,
+    14.0
+   ],
+   "rebounds": [
+    5.3,
+    7.0
+   ],
+   "assists": [
+    5.4,
+    5.0
+   ],
+   "threes": [
+    1.7,
+    2.0
+   ],
+   "pra": [
+    24.5,
+    26.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jrue Holiday",
+   "points": [
+    14.5,
+    11.0
+   ],
+   "rebounds": [
+    4.2,
+    0.0
+   ],
+   "assists": [
+    5.1,
+    0.0
+   ],
+   "threes": [
+    2.0,
+    1.0
+   ],
+   "pra": [
+    23.8,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Dyson Daniels",
+   "points": [
+    11.8,
+    9.0
+   ],
+   "rebounds": [
+    7.0,
+    10.0
+   ],
+   "assists": [
+    5.6,
+    7.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    23.5,
+    26.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "OG Anunoby",
+   "points": [
+    15.5,
+    15.0
+   ],
+   "rebounds": [
+    5.0,
+    6.0
+   ],
+   "assists": [
+    2.0,
+    2.0
+   ],
+   "threes": [
+    2.0,
+    3.0
+   ],
+   "pra": [
+    23.4,
+    23.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Amen Thompson",
+   "points": [
+    13.7,
+    17.0
+   ],
+   "rebounds": [
+    5.6,
+    7.0
+   ],
+   "assists": [
+    3.3,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    23.2,
+    24.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Fred VanVleet",
+   "points": [
+    12.3,
+    16.0
+   ],
+   "rebounds": [
+    3.0,
+    3.0
+   ],
+   "assists": [
+    6.2,
+    4.0
+   ],
+   "threes": [
+    2.0,
+    4.0
+   ],
+   "pra": [
+    21.7,
+    23.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "CJ McCollum",
+   "points": [
+    13.7,
+    9.0
+   ],
+   "rebounds": [
+    3.2,
+    4.0
+   ],
+   "assists": [
+    3.9,
+    3.0
+   ],
+   "threes": [
+    2.0,
+    1.0
+   ],
+   "pra": [
+    21.4,
+    16.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "AJ Dybantsa",
+   "points": [
+    14.1,
+    19.0
+   ],
+   "rebounds": [
+    5.5,
+    6.0
+   ],
+   "assists": [
+    2.1,
+    3.0
+   ],
+   "threes": [
+    0.9,
+    1.0
+   ],
+   "pra": [
+    21.4,
+    28.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jalen Green",
+   "points": [
+    14.4,
+    16.0
+   ],
+   "rebounds": [
+    3.3,
+    3.0
+   ],
+   "assists": [
+    3.3,
+    6.0
+   ],
+   "threes": [
+    1.7,
+    0.0
+   ],
+   "pra": [
+    21.4,
+    25.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "De'Aaron Fox",
+   "points": [
+    13.8,
+    8.0
+   ],
+   "rebounds": [
+    3.3,
+    3.0
+   ],
+   "assists": [
+    5.4,
+    6.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    21.3,
+    17.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Obi Toppin",
+   "points": [
+    13.8,
+    10.0
+   ],
+   "rebounds": [
+    4.9,
+    7.0
+   ],
+   "assists": [
+    2.0,
+    2.0
+   ],
+   "threes": [
+    2.0,
+    2.0
+   ],
+   "pra": [
+    21.3,
+    19.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Anthony Black",
+   "points": [
+    12.3,
+    18.0
+   ],
+   "rebounds": [
+    4.1,
+    8.0
+   ],
+   "assists": [
+    3.7,
+    6.0
+   ],
+   "threes": [
+    1.0,
+    2.0
+   ],
+   "pra": [
+    21.2,
+    32.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Aaron Wiggins",
+   "points": [
+    14.0,
+    20.0
+   ],
+   "rebounds": [
+    3.4,
+    4.0
+   ],
+   "assists": [
+    1.9,
+    6.0
+   ],
+   "threes": [
+    2.0,
+    5.0
+   ],
+   "pra": [
+    21.1,
+    30.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Wendell Carter Jr.",
+   "points": [
+    11.0,
+    19.0
+   ],
+   "rebounds": [
+    8.0,
+    11.0
+   ],
+   "assists": [
+    1.3,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    3.0
+   ],
+   "pra": [
+    21.0,
+    30.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Isaiah Hartenstein",
+   "points": [
+    7.8,
+    2.0
+   ],
+   "rebounds": [
+    9.7,
+    14.0
+   ],
+   "assists": [
+    2.9,
+    6.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    19.9,
+    22.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Day'Ron Sharpe",
+   "points": [
+    9.6,
+    12.0
+   ],
+   "rebounds": [
+    7.6,
+    10.0
+   ],
+   "assists": [
+    2.4,
+    13.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    19.9,
+    35.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Alex Sarr",
+   "points": [
+    10.9,
+    15.0
+   ],
+   "rebounds": [
+    6.6,
+    14.0
+   ],
+   "assists": [
+    2.0,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    19.7,
+    30.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Aaron Gordon",
+   "points": [
+    11.8,
+    12.0
+   ],
+   "rebounds": [
+    5.2,
+    5.0
+   ],
+   "assists": [
+    2.1,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    19.4,
+    17.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Mikel Brown Jr.",
+   "points": [
+    12.1,
+    18.0
+   ],
+   "rebounds": [
+    2.2,
+    1.0
+   ],
+   "assists": [
+    3.7,
+    3.0
+   ],
+   "threes": [
+    1.3,
+    3.0
+   ],
+   "pra": [
+    19.3,
+    22.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Christian Braun",
+   "points": [
+    12.6,
+    6.0
+   ],
+   "rebounds": [
+    3.9,
+    4.0
+   ],
+   "assists": [
+    2.0,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    19.3,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Peyton Watson",
+   "points": [
+    11.4,
+    12.0
+   ],
+   "rebounds": [
+    4.4,
+    6.0
+   ],
+   "assists": [
+    2.1,
+    3.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    19.3,
+    21.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Mario Hezonja",
+   "points": [
+    10.3,
+    0.0
+   ],
+   "rebounds": [
+    7.0,
+    5.0
+   ],
+   "assists": [
+    1.9,
+    1.0
+   ],
+   "threes": [
+    1.9,
+    0.0
+   ],
+   "pra": [
+    19.2,
+    6.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Kingston Flemings",
+   "points": [
+    10.7,
+    10.0
+   ],
+   "rebounds": [
+    3.1,
+    2.0
+   ],
+   "assists": [
+    4.9,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    18.9,
+    13.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Toumani Camara",
+   "points": [
+    13.4,
+    4.0
+   ],
+   "rebounds": [
+    3.4,
+    4.0
+   ],
+   "assists": [
+    1.8,
+    0.0
+   ],
+   "threes": [
+    3.3,
+    0.0
+   ],
+   "pra": [
+    18.9,
+    8.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Quenton Jackson",
+   "points": [
+    11.1,
+    6.0
+   ],
+   "rebounds": [
+    3.2,
+    4.0
+   ],
+   "assists": [
+    3.2,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    18.5,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Devin Vassell",
+   "points": [
+    11.0,
+    15.0
+   ],
+   "rebounds": [
+    3.9,
+    2.0
+   ],
+   "assists": [
+    2.5,
+    3.0
+   ],
+   "threes": [
+    2.0,
+    2.0
+   ],
+   "pra": [
+    18.4,
+    20.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Luguentz Dort",
+   "points": [
+    11.3,
+    3.0
+   ],
+   "rebounds": [
+    3.4,
+    2.0
+   ],
+   "assists": [
+    1.7,
+    1.0
+   ],
+   "threes": [
+    2.0,
+    1.0
+   ],
+   "pra": [
+    18.1,
+    6.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Moritz Wagner",
+   "points": [
+    10.7,
+    9.0
+   ],
+   "rebounds": [
+    4.2,
+    2.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    18.0,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Nolan Traore",
+   "points": [
+    11.3,
+    19.0
+   ],
+   "rebounds": [
+    2.2,
+    1.0
+   ],
+   "assists": [
+    3.6,
+    2.0
+   ],
+   "threes": [
+    1.1,
+    2.0
+   ],
+   "pra": [
+    17.8,
+    22.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Ivica Zubac",
+   "points": [
+    7.9,
+    10.0
+   ],
+   "rebounds": [
+    6.9,
+    12.0
+   ],
+   "assists": [
+    0.9,
+    5.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    17.7,
+    27.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jarace Walker",
+   "points": [
+    9.6,
+    9.0
+   ],
+   "rebounds": [
+    6.1,
+    5.0
+   ],
+   "assists": [
+    2.0,
+    2.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    17.5,
+    16.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Meleek Thomas",
+   "points": [
+    13.1,
+    9.0
+   ],
+   "rebounds": [
+    2.4,
+    4.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    2.0,
+    3.0
+   ],
+   "pra": [
+    17.2,
+    13.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Tristan da Silva",
+   "points": [
+    11.4,
+    19.0
+   ],
+   "rebounds": [
+    3.1,
+    7.0
+   ],
+   "assists": [
+    1.7,
+    2.0
+   ],
+   "threes": [
+    2.7,
+    5.0
+   ],
+   "pra": [
+    17.0,
+    28.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Aaron Nesmith",
+   "points": [
+    12.7,
+    8.0
+   ],
+   "rebounds": [
+    2.9,
+    5.0
+   ],
+   "assists": [
+    1.8,
+    1.0
+   ],
+   "threes": [
+    2.0,
+    2.0
+   ],
+   "pra": [
+    16.9,
+    14.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "De'Anthony Melton",
+   "points": [
+    10.2,
+    4.0
+   ],
+   "rebounds": [
+    3.7,
+    1.0
+   ],
+   "assists": [
+    1.9,
+    1.0
+   ],
+   "threes": [
+    2.0,
+    1.0
+   ],
+   "pra": [
+    16.8,
+    6.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Draymond Green",
+   "points": [
+    5.5,
+    2.0
+   ],
+   "rebounds": [
+    4.9,
+    6.0
+   ],
+   "assists": [
+    5.9,
+    13.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    16.3,
+    21.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Brandon Williams",
+   "points": [
+    10.3,
+    9.0
+   ],
+   "rebounds": [
+    2.2,
+    0.0
+   ],
+   "assists": [
+    2.4,
+    2.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    16.2,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jared McCain",
+   "points": [
+    11.0,
+    19.0
+   ],
+   "rebounds": [
+    3.1,
+    5.0
+   ],
+   "assists": [
+    1.8,
+    2.0
+   ],
+   "threes": [
+    2.0,
+    2.0
+   ],
+   "pra": [
+    16.2,
+    26.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Keldon Johnson",
+   "points": [
+    9.0,
+    10.0
+   ],
+   "rebounds": [
+    5.2,
+    7.0
+   ],
+   "assists": [
+    1.2,
+    4.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    16.0,
+    21.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Tari Eason",
+   "points": [
+    8.3,
+    2.0
+   ],
+   "rebounds": [
+    5.6,
+    7.0
+   ],
+   "assists": [
+    1.0,
+    2.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    15.5,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "DeMar DeRozan",
+   "points": [
+    10.5,
+    11.0
+   ],
+   "rebounds": [
+    1.7,
+    1.0
+   ],
+   "assists": [
+    2.5,
+    5.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    15.3,
+    17.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Collin Gillespie",
+   "points": [
+    9.1,
+    7.0
+   ],
+   "rebounds": [
+    2.8,
+    3.0
+   ],
+   "assists": [
+    3.7,
+    4.0
+   ],
+   "threes": [
+    2.0,
+    1.0
+   ],
+   "pra": [
+    15.0,
+    14.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Scoot Henderson",
+   "points": [
+    10.6,
+    13.0
+   ],
+   "rebounds": [
+    2.2,
+    2.0
+   ],
+   "assists": [
+    1.9,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    14.7,
+    16.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jay Huff",
+   "points": [
+    9.9,
+    0.0
+   ],
+   "rebounds": [
+    3.9,
+    3.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    14.6,
+    3.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Cameron Johnson",
+   "points": [
+    9.2,
+    18.0
+   ],
+   "rebounds": [
+    3.3,
+    4.0
+   ],
+   "assists": [
+    1.8,
+    1.0
+   ],
+   "threes": [
+    1.1,
+    2.0
+   ],
+   "pra": [
+    14.6,
+    23.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Oso Ighodaro",
+   "points": [
+    7.4,
+    4.0
+   ],
+   "rebounds": [
+    4.6,
+    6.0
+   ],
+   "assists": [
+    2.2,
+    3.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    14.5,
+    13.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Danny Wolf",
+   "points": [
+    6.9,
+    11.0
+   ],
+   "rebounds": [
+    3.9,
+    9.0
+   ],
+   "assists": [
+    1.8,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    2.0
+   ],
+   "pra": [
+    14.4,
+    21.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Reed Sheppard",
+   "points": [
+    10.1,
+    6.0
+   ],
+   "rebounds": [
+    2.0,
+    0.0
+   ],
+   "assists": [
+    2.8,
+    0.0
+   ],
+   "threes": [
+    2.0,
+    2.0
+   ],
+   "pra": [
+    14.4,
+    6.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Kenrich Williams",
+   "points": [
+    8.0,
+    9.0
+   ],
+   "rebounds": [
+    4.0,
+    4.0
+   ],
+   "assists": [
+    1.4,
+    2.0
+   ],
+   "threes": [
+    1.6,
+    1.0
+   ],
+   "pra": [
+    14.1,
+    15.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Julian Champagnie",
+   "points": [
+    8.7,
+    14.0
+   ],
+   "rebounds": [
+    3.9,
+    4.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    2.0,
+    4.0
+   ],
+   "pra": [
+    13.9,
+    18.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Bilal Coulibaly",
+   "points": [
+    9.4,
+    0.0
+   ],
+   "rebounds": [
+    3.2,
+    5.0
+   ],
+   "assists": [
+    1.5,
+    0.0
+   ],
+   "threes": [
+    0.9,
+    0.0
+   ],
+   "pra": [
+    13.6,
+    5.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Aday Mara",
+   "points": [
+    7.0,
+    18.0
+   ],
+   "rebounds": [
+    5.7,
+    8.0
+   ],
+   "assists": [
+    1.0,
+    3.0
+   ],
+   "threes": [
+    0.0,
+    1.0
+   ],
+   "pra": [
+    13.5,
+    29.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Kelly Oubre Jr.",
+   "points": [
+    9.0,
+    2.0
+   ],
+   "rebounds": [
+    3.1,
+    1.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    13.1,
+    3.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Chaney Johnson",
+   "points": [
+    6.9,
+    5.0
+   ],
+   "rebounds": [
+    3.8,
+    2.0
+   ],
+   "assists": [
+    1.7,
+    1.0
+   ],
+   "threes": [
+    0.0,
+    1.0
+   ],
+   "pra": [
+    12.6,
+    8.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Zuby Ejiofor",
+   "points": [
+    6.7,
+    7.0
+   ],
+   "rebounds": [
+    3.7,
+    6.0
+   ],
+   "assists": [
+    1.9,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    1.0
+   ],
+   "pra": [
+    12.6,
+    13.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Tyrese Proctor",
+   "points": [
+    7.9,
+    7.0
+   ],
+   "rebounds": [
+    3.0,
+    3.0
+   ],
+   "assists": [
+    2.0,
+    3.0
+   ],
+   "threes": [
+    1.0,
+    2.0
+   ],
+   "pra": [
+    12.6,
+    13.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Khaman Maluach",
+   "points": [
+    5.8,
+    8.0
+   ],
+   "rebounds": [
+    5.6,
+    10.0
+   ],
+   "assists": [
+    0.9,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    12.6,
+    18.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Noah Clowney",
+   "points": [
+    7.3,
+    3.0
+   ],
+   "rebounds": [
+    3.8,
+    10.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    12.6,
+    13.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Landry Shamet",
+   "points": [
+    8.9,
+    9.0
+   ],
+   "rebounds": [
+    1.6,
+    1.0
+   ],
+   "assists": [
+    1.8,
+    1.0
+   ],
+   "threes": [
+    2.0,
+    3.0
+   ],
+   "pra": [
+    12.6,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Marcus Smart",
+   "points": [
+    7.6,
+    5.0
+   ],
+   "rebounds": [
+    2.0,
+    2.0
+   ],
+   "assists": [
+    1.9,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    12.5,
+    7.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Deandre Ayton",
+   "points": [
+    6.8,
+    2.0
+   ],
+   "rebounds": [
+    4.4,
+    1.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    12.4,
+    3.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Georges Niang",
+   "points": [
+    7.5,
+    11.0
+   ],
+   "rebounds": [
+    3.0,
+    2.0
+   ],
+   "assists": [
+    1.7,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    3.0
+   ],
+   "pra": [
+    12.1,
+    14.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Mikal Bridges",
+   "points": [
+    7.0,
+    9.0
+   ],
+   "rebounds": [
+    2.2,
+    6.0
+   ],
+   "assists": [
+    2.0,
+    4.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    12.0,
+    19.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Trevon Brazile",
+   "points": [
+    6.4,
+    3.0
+   ],
+   "rebounds": [
+    5.6,
+    4.0
+   ],
+   "assists": [
+    0.2,
+    2.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    12.0,
+    9.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Tre Johnson",
+   "points": [
+    9.0,
+    4.0
+   ],
+   "rebounds": [
+    2.1,
+    0.0
+   ],
+   "assists": [
+    1.0,
+    3.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    11.9,
+    7.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Andre Drummond",
+   "points": [
+    3.7,
+    0.0
+   ],
+   "rebounds": [
+    6.4,
+    8.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    11.8,
+    8.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Braden Smith",
+   "points": [
+    6.9,
+    0.0
+   ],
+   "rebounds": [
+    1.2,
+    0.0
+   ],
+   "assists": [
+    3.6,
+    2.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    11.7,
+    2.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Charles Bassey",
+   "points": [
+    7.5,
+    8.0
+   ],
+   "rebounds": [
+    4.0,
+    4.0
+   ],
+   "assists": [
+    0.0,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    11.6,
+    12.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Alex Caruso",
+   "points": [
+    5.7,
+    0.0
+   ],
+   "rebounds": [
+    3.1,
+    3.0
+   ],
+   "assists": [
+    2.1,
+    3.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    11.6,
+    6.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Sidy Cissoko",
+   "points": [
+    5.8,
+    4.0
+   ],
+   "rebounds": [
+    3.0,
+    3.0
+   ],
+   "assists": [
+    1.9,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    11.4,
+    8.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jase Richardson",
+   "points": [
+    6.3,
+    2.0
+   ],
+   "rebounds": [
+    1.9,
+    4.0
+   ],
+   "assists": [
+    1.8,
+    4.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    11.1,
+    10.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Al Horford",
+   "points": [
+    6.2,
+    2.0
+   ],
+   "rebounds": [
+    4.0,
+    5.0
+   ],
+   "assists": [
+    1.0,
+    4.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    11.0,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jalen Slawson",
+   "points": [
+    5.5,
+    4.0
+   ],
+   "rebounds": [
+    3.3,
+    1.0
+   ],
+   "assists": [
+    1.1,
+    2.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    10.8,
+    7.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Luke Kennard",
+   "points": [
+    6.8,
+    11.0
+   ],
+   "rebounds": [
+    1.7,
+    1.0
+   ],
+   "assists": [
+    1.9,
+    2.0
+   ],
+   "threes": [
+    1.0,
+    3.0
+   ],
+   "pra": [
+    10.6,
+    14.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Gui Santos",
+   "points": [
+    6.2,
+    3.0
+   ],
+   "rebounds": [
+    3.0,
+    1.0
+   ],
+   "assists": [
+    1.5,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    10.0,
+    4.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Ryan Dunn",
+   "points": [
+    4.7,
+    8.0
+   ],
+   "rebounds": [
+    3.1,
+    5.0
+   ],
+   "assists": [
+    1.0,
+    3.0
+   ],
+   "threes": [
+    0.0,
+    2.0
+   ],
+   "pra": [
+    9.9,
+    16.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Bub Carrington",
+   "points": [
+    6.3,
+    9.0
+   ],
+   "rebounds": [
+    1.6,
+    6.0
+   ],
+   "assists": [
+    2.0,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    3.0
+   ],
+   "pra": [
+    9.8,
+    16.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Larry Nance Jr.",
+   "points": [
+    5.2,
+    15.0
+   ],
+   "rebounds": [
+    3.6,
+    2.0
+   ],
+   "assists": [
+    1.0,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    5.0
+   ],
+   "pra": [
+    9.4,
+    18.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Marvin Bagley III",
+   "points": [
+    5.5,
+    10.0
+   ],
+   "rebounds": [
+    3.2,
+    3.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    9.2,
+    13.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Thomas Bryant",
+   "points": [
+    6.8,
+    5.0
+   ],
+   "rebounds": [
+    2.8,
+    3.0
+   ],
+   "assists": [
+    -0.0,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    9.2,
+    9.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jamal Cain",
+   "points": [
+    6.6,
+    18.0
+   ],
+   "rebounds": [
+    2.6,
+    12.0
+   ],
+   "assists": [
+    0.9,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    2.0
+   ],
+   "pra": [
+    9.0,
+    31.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Will Richard",
+   "points": [
+    5.8,
+    4.0
+   ],
+   "rebounds": [
+    2.0,
+    2.0
+   ],
+   "assists": [
+    1.0,
+    1.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    9.0,
+    7.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Bryce Hopkins",
+   "points": [
+    6.7,
+    3.0
+   ],
+   "rebounds": [
+    2.3,
+    1.0
+   ],
+   "assists": [
+    0.2,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    8.9,
+    4.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Bennett Stirtz",
+   "points": [
+    7.0,
+    11.0
+   ],
+   "rebounds": [
+    1.2,
+    5.0
+   ],
+   "assists": [
+    0.7,
+    3.0
+   ],
+   "threes": [
+    1.9,
+    2.0
+   ],
+   "pra": [
+    8.9,
+    19.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Luke Kornet",
+   "points": [
+    3.4,
+    6.0
+   ],
+   "rebounds": [
+    3.8,
+    4.0
+   ],
+   "assists": [
+    1.0,
+    2.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    8.7,
+    12.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Miles McBride",
+   "points": [
+    6.2,
+    5.0
+   ],
+   "rebounds": [
+    1.7,
+    0.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    1.7,
+    1.0
+   ],
+   "pra": [
+    8.2,
+    5.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Gary Payton II",
+   "points": [
+    5.2,
+    4.0
+   ],
+   "rebounds": [
+    2.0,
+    0.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    7.8,
+    4.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Terance Mann",
+   "points": [
+    3.3,
+    0.0
+   ],
+   "rebounds": [
+    2.0,
+    2.0
+   ],
+   "assists": [
+    1.7,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    7.0,
+    2.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Tyler Kolek",
+   "points": [
+    2.5,
+    0.0
+   ],
+   "rebounds": [
+    1.0,
+    4.0
+   ],
+   "assists": [
+    2.7,
+    5.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    6.9,
+    9.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Chris Youngblood",
+   "points": [
+    3.9,
+    11.0
+   ],
+   "rebounds": [
+    1.2,
+    4.0
+   ],
+   "assists": [
+    0.6,
+    4.0
+   ],
+   "threes": [
+    1.0,
+    2.0
+   ],
+   "pra": [
+    6.8,
+    19.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Micah Peavy",
+   "points": [
+    4.2,
+    7.0
+   ],
+   "rebounds": [
+    3.0,
+    3.0
+   ],
+   "assists": [
+    0.9,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    1.0
+   ],
+   "pra": [
+    6.7,
+    10.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jordan Clarkson",
+   "points": [
+    5.4,
+    9.0
+   ],
+   "rebounds": [
+    1.0,
+    2.0
+   ],
+   "assists": [
+    0.8,
+    0.0
+   ],
+   "threes": [
+    0.9,
+    1.0
+   ],
+   "pra": [
+    6.3,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Nikola Vucevic",
+   "points": [
+    2.5,
+    0.0
+   ],
+   "rebounds": [
+    2.1,
+    1.0
+   ],
+   "assists": [
+    1.0,
+    2.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    6.2,
+    3.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Oscar Tshiebwe",
+   "points": [
+    2.8,
+    2.0
+   ],
+   "rebounds": [
+    2.3,
+    0.0
+   ],
+   "assists": [
+    0.0,
+    0.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    5.8,
+    2.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Bogdan Bogdanovic",
+   "points": [
+    3.3,
+    0.0
+   ],
+   "rebounds": [
+    1.0,
+    1.0
+   ],
+   "assists": [
+    1.0,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    0.0
+   ],
+   "pra": [
+    5.6,
+    1.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Harrison Barnes",
+   "points": [
+    4.7,
+    5.0
+   ],
+   "rebounds": [
+    1.3,
+    3.0
+   ],
+   "assists": [
+    0.0,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    1.0
+   ],
+   "pra": [
+    5.6,
+    8.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Yang Hansen",
+   "points": [
+    3.0,
+    12.0
+   ],
+   "rebounds": [
+    2.1,
+    10.0
+   ],
+   "assists": [
+    0.6,
+    1.0
+   ],
+   "threes": [
+    0.0,
+    1.0
+   ],
+   "pra": [
+    5.3,
+    23.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Jevon Carter",
+   "points": [
+    3.6,
+    9.0
+   ],
+   "rebounds": [
+    1.3,
+    1.0
+   ],
+   "assists": [
+    0.8,
+    0.0
+   ],
+   "threes": [
+    1.0,
+    3.0
+   ],
+   "pra": [
+    5.2,
+    10.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Goga Bitadze",
+   "points": [
+    2.2,
+    4.0
+   ],
+   "rebounds": [
+    2.7,
+    5.0
+   ],
+   "assists": [
+    0.0,
+    2.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    4.9,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Josh Dix",
+   "points": [
+    2.3,
+    2.0
+   ],
+   "rebounds": [
+    1.3,
+    1.0
+   ],
+   "assists": [
+    0.0,
+    2.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    4.3,
+    5.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Craig Porter Jr.",
+   "points": [
+    1.4,
+    0.0
+   ],
+   "rebounds": [
+    1.8,
+    1.0
+   ],
+   "assists": [
+    1.0,
+    1.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    4.3,
+    2.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Carter Bryant",
+   "points": [
+    2.7,
+    6.0
+   ],
+   "rebounds": [
+    1.3,
+    4.0
+   ],
+   "assists": [
+    0.0,
+    1.0
+   ],
+   "threes": [
+    0.0,
+    2.0
+   ],
+   "pra": [
+    3.7,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Tyus Jones",
+   "points": [
+    1.8,
+    3.0
+   ],
+   "rebounds": [
+    0.9,
+    4.0
+   ],
+   "assists": [
+    1.8,
+    4.0
+   ],
+   "threes": [
+    0.0,
+    1.0
+   ],
+   "pra": [
+    3.6,
+    11.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Will Riley",
+   "points": [
+    2.6,
+    5.0
+   ],
+   "rebounds": [
+    0.5,
+    2.0
+   ],
+   "assists": [
+    0.0,
+    1.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    3.3,
+    8.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Brooks Barnhizer",
+   "points": [
+    1.2,
+    2.0
+   ],
+   "rebounds": [
+    0.9,
+    4.0
+   ],
+   "assists": [
+    0.0,
+    3.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    2.9,
+    9.0
+   ]
+  },
+  {
+   "date": "2026-11-07",
+   "player": "Alex Morales",
+   "points": [
+    2.3,
+    0.0
+   ],
+   "rebounds": [
+    1.1,
+    2.0
+   ],
+   "assists": [
+    1.0,
+    1.0
+   ],
+   "threes": [
+    0.0,
+    0.0
+   ],
+   "pra": [
+    2.9,
+    3.0
+   ]
+  },
   {
    "date": "2026-11-06",
    "player": "Luka Doncic",
@@ -601,7 +3938,7 @@
    ],
    "assists": [
     3.7,
-    5.0
+    4.0
    ],
    "threes": [
     1.8,
@@ -609,7 +3946,7 @@
    ],
    "pra": [
     30.0,
-    39.0
+    38.0
    ]
   },
   {
@@ -1033,7 +4370,7 @@
    ],
    "assists": [
     4.6,
-    7.0
+    8.0
    ],
    "threes": [
     2.0,
@@ -1041,7 +4378,7 @@
    ],
    "pra": [
     24.7,
-    44.0
+    45.0
    ]
   },
   {
@@ -2589,7 +5926,7 @@
    ],
    "rebounds": [
     3.3,
-    7.0
+    8.0
    ],
    "assists": [
     1.0,
@@ -2601,7 +5938,7 @@
    ],
    "pra": [
     13.0,
-    17.0
+    18.0
    ]
   },
   {
@@ -2709,7 +6046,7 @@
    ],
    "rebounds": [
     4.8,
-    4.0
+    3.0
    ],
    "assists": [
     1.3,
@@ -2721,7 +6058,7 @@
    ],
    "pra": [
     12.5,
-    11.0
+    10.0
    ]
   },
   {
@@ -2977,7 +6314,7 @@
    ],
    "assists": [
     1.0,
-    1.0
+    2.0
    ],
    "threes": [
     0.0,
@@ -2985,7 +6322,7 @@
    ],
    "pra": [
     11.5,
-    31.0
+    32.0
    ]
   },
   {
@@ -3097,7 +6434,7 @@
    ],
    "assists": [
     2.7,
-    1.0
+    0.0
    ],
    "threes": [
     1.0,
@@ -3105,7 +6442,7 @@
    ],
    "pra": [
     10.6,
-    7.0
+    6.0
    ]
   },
   {
@@ -3899,3343 +7236,7 @@
     5.2,
     14.0
    ]
-  },
-  {
-   "date": "2026-11-06",
-   "player": "Kyle Filipowski",
-   "points": [
-    2.3,
-    0.0
-   ],
-   "rebounds": [
-    1.3,
-    0.0
-   ],
-   "assists": [
-    0.8,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    4.8,
-    0.0
-   ]
-  },
-  {
-   "date": "2026-11-06",
-   "player": "Harrison Barnes",
-   "points": [
-    3.0,
-    13.0
-   ],
-   "rebounds": [
-    1.2,
-    1.0
-   ],
-   "assists": [
-    0.0,
-    0.0
-   ],
-   "threes": [
-    1.0,
-    2.0
-   ],
-   "pra": [
-    4.1,
-    14.0
-   ]
-  },
-  {
-   "date": "2026-11-06",
-   "player": "Christian Anderson",
-   "points": [
-    1.8,
-    4.0
-   ],
-   "rebounds": [
-    1.0,
-    3.0
-   ],
-   "assists": [
-    1.0,
-    5.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    4.0,
-    12.0
-   ]
-  },
-  {
-   "date": "2026-11-06",
-   "player": "Labaron Philon Jr.",
-   "points": [
-    2.0,
-    3.0
-   ],
-   "rebounds": [
-    1.0,
-    1.0
-   ],
-   "assists": [
-    0.0,
-    1.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    3.8,
-    5.0
-   ]
-  },
-  {
-   "date": "2026-11-06",
-   "player": "Alijah Martin",
-   "points": [
-    2.5,
-    27.0
-   ],
-   "rebounds": [
-    0.8,
-    4.0
-   ],
-   "assists": [
-    1.0,
-    1.0
-   ],
-   "threes": [
-    0.0,
-    6.0
-   ],
-   "pra": [
-    3.8,
-    32.0
-   ]
-  },
-  {
-   "date": "2026-11-06",
-   "player": "Alex Karaban",
-   "points": [
-    2.3,
-    0.0
-   ],
-   "rebounds": [
-    0.8,
-    1.0
-   ],
-   "assists": [
-    0.0,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    3.1,
-    1.0
-   ]
-  },
-  {
-   "date": "2026-11-06",
-   "player": "Carter Bryant",
-   "points": [
-    1.9,
-    0.0
-   ],
-   "rebounds": [
-    1.2,
-    0.0
-   ],
-   "assists": [
-    0.0,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    3.0,
-    0.0
-   ]
-  },
-  {
-   "date": "2026-11-06",
-   "player": "Nique Clifford",
-   "points": [
-    0.5,
-    5.0
-   ],
-   "rebounds": [
-    0.4,
-    2.0
-   ],
-   "assists": [
-    0.0,
-    2.0
-   ],
-   "threes": [
-    0.0,
-    1.0
-   ],
-   "pra": [
-    1.7,
-    9.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Giannis Antetokounmpo",
-   "points": [
-    29.7,
-    20.0
-   ],
-   "rebounds": [
-    11.4,
-    14.0
-   ],
-   "assists": [
-    6.0,
-    4.0
-   ],
-   "threes": [
-    0.0,
-    1.0
-   ],
-   "pra": [
-    43.1,
-    38.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Stephen Curry",
-   "points": [
-    29.2,
-    29.0
-   ],
-   "rebounds": [
-    3.5,
-    1.0
-   ],
-   "assists": [
-    4.9,
-    4.0
-   ],
-   "threes": [
-    3.6,
-    6.0
-   ],
-   "pra": [
-    37.9,
-    34.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Franz Wagner",
-   "points": [
-    22.9,
-    15.0
-   ],
-   "rebounds": [
-    5.9,
-    8.0
-   ],
-   "assists": [
-    6.4,
-    15.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    37.0,
-    38.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Devin Booker",
-   "points": [
-    24.4,
-    30.0
-   ],
-   "rebounds": [
-    3.2,
-    1.0
-   ],
-   "assists": [
-    4.8,
-    8.0
-   ],
-   "threes": [
-    2.0,
-    4.0
-   ],
-   "pra": [
-    33.4,
-    39.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Bam Adebayo",
-   "points": [
-    19.2,
-    18.0
-   ],
-   "rebounds": [
-    8.6,
-    10.0
-   ],
-   "assists": [
-    3.3,
-    0.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    31.8,
-    28.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Yaxel Lendeborg",
-   "points": [
-    21.1,
-    17.0
-   ],
-   "rebounds": [
-    6.5,
-    8.0
-   ],
-   "assists": [
-    3.5,
-    6.0
-   ],
-   "threes": [
-    2.0,
-    1.0
-   ],
-   "pra": [
-    31.6,
-    31.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Miles Bridges",
-   "points": [
-    18.3,
-    18.0
-   ],
-   "rebounds": [
-    6.4,
-    13.0
-   ],
-   "assists": [
-    3.0,
-    5.0
-   ],
-   "threes": [
-    2.0,
-    3.0
-   ],
-   "pra": [
-    27.2,
-    36.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Brandin Podziemski",
-   "points": [
-    16.8,
-    9.0
-   ],
-   "rebounds": [
-    4.9,
-    6.0
-   ],
-   "assists": [
-    4.6,
-    3.0
-   ],
-   "threes": [
-    2.0,
-    2.0
-   ],
-   "pra": [
-    26.4,
-    18.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Desmond Bane",
-   "points": [
-    20.7,
-    15.0
-   ],
-   "rebounds": [
-    3.8,
-    6.0
-   ],
-   "assists": [
-    3.2,
-    0.0
-   ],
-   "threes": [
-    3.3,
-    3.0
-   ],
-   "pra": [
-    26.2,
-    21.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Dillon Brooks",
-   "points": [
-    17.4,
-    24.0
-   ],
-   "rebounds": [
-    3.6,
-    1.0
-   ],
-   "assists": [
-    1.9,
-    1.0
-   ],
-   "threes": [
-    2.0,
-    4.0
-   ],
-   "pra": [
-    24.7,
-    26.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Anthony Black",
-   "points": [
-    14.3,
-    10.0
-   ],
-   "rebounds": [
-    3.6,
-    7.0
-   ],
-   "assists": [
-    3.9,
-    6.0
-   ],
-   "threes": [
-    1.2,
-    1.0
-   ],
-   "pra": [
-    23.6,
-    23.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Davion Mitchell",
-   "points": [
-    11.9,
-    22.0
-   ],
-   "rebounds": [
-    1.9,
-    2.0
-   ],
-   "assists": [
-    7.4,
-    8.0
-   ],
-   "threes": [
-    1.7,
-    4.0
-   ],
-   "pra": [
-    23.0,
-    32.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Wendell Carter Jr.",
-   "points": [
-    12.9,
-    27.0
-   ],
-   "rebounds": [
-    7.6,
-    13.0
-   ],
-   "assists": [
-    1.4,
-    2.0
-   ],
-   "threes": [
-    1.0,
-    2.0
-   ],
-   "pra": [
-    22.9,
-    42.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Jalen Green",
-   "points": [
-    14.5,
-    6.0
-   ],
-   "rebounds": [
-    3.2,
-    0.0
-   ],
-   "assists": [
-    3.0,
-    3.0
-   ],
-   "threes": [
-    2.0,
-    0.0
-   ],
-   "pra": [
-    21.5,
-    9.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "De'Anthony Melton",
-   "points": [
-    10.7,
-    5.0
-   ],
-   "rebounds": [
-    4.0,
-    6.0
-   ],
-   "assists": [
-    2.0,
-    2.0
-   ],
-   "threes": [
-    2.0,
-    0.0
-   ],
-   "pra": [
-    19.0,
-    13.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Pelle Larsson",
-   "points": [
-    10.6,
-    13.0
-   ],
-   "rebounds": [
-    3.0,
-    1.0
-   ],
-   "assists": [
-    3.3,
-    4.0
-   ],
-   "threes": [
-    1.0,
-    3.0
-   ],
-   "pra": [
-    18.9,
-    18.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Tristan da Silva",
-   "points": [
-    12.9,
-    18.0
-   ],
-   "rebounds": [
-    3.2,
-    2.0
-   ],
-   "assists": [
-    1.7,
-    1.0
-   ],
-   "threes": [
-    2.1,
-    4.0
-   ],
-   "pra": [
-    18.7,
-    21.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Brandon Williams",
-   "points": [
-    10.0,
-    10.0
-   ],
-   "rebounds": [
-    2.8,
-    1.0
-   ],
-   "assists": [
-    2.2,
-    4.0
-   ],
-   "threes": [
-    0.9,
-    0.0
-   ],
-   "pra": [
-    16.9,
-    15.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Draymond Green",
-   "points": [
-    5.7,
-    2.0
-   ],
-   "rebounds": [
-    4.9,
-    5.0
-   ],
-   "assists": [
-    5.9,
-    11.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    16.6,
-    18.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Klay Thompson",
-   "points": [
-    12.6,
-    11.0
-   ],
-   "rebounds": [
-    2.1,
-    0.0
-   ],
-   "assists": [
-    1.3,
-    3.0
-   ],
-   "threes": [
-    3.6,
-    2.0
-   ],
-   "pra": [
-    16.1,
-    14.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Collin Gillespie",
-   "points": [
-    8.7,
-    6.0
-   ],
-   "rebounds": [
-    2.9,
-    2.0
-   ],
-   "assists": [
-    4.0,
-    2.0
-   ],
-   "threes": [
-    2.0,
-    2.0
-   ],
-   "pra": [
-    15.4,
-    10.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Bobby Portis",
-   "points": [
-    7.9,
-    0.0
-   ],
-   "rebounds": [
-    5.8,
-    5.0
-   ],
-   "assists": [
-    1.2,
-    0.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    15.0,
-    5.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Andrew Wiggins",
-   "points": [
-    9.6,
-    2.0
-   ],
-   "rebounds": [
-    3.0,
-    6.0
-   ],
-   "assists": [
-    1.8,
-    4.0
-   ],
-   "threes": [
-    1.7,
-    0.0
-   ],
-   "pra": [
-    14.6,
-    12.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Oso Ighodaro",
-   "points": [
-    6.1,
-    2.0
-   ],
-   "rebounds": [
-    4.7,
-    5.0
-   ],
-   "assists": [
-    3.0,
-    1.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    13.7,
-    8.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Charles Bassey",
-   "points": [
-    5.5,
-    8.0
-   ],
-   "rebounds": [
-    3.5,
-    7.0
-   ],
-   "assists": [
-    0.1,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    11.6,
-    15.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Georges Niang",
-   "points": [
-    6.8,
-    13.0
-   ],
-   "rebounds": [
-    3.0,
-    4.0
-   ],
-   "assists": [
-    1.3,
-    3.0
-   ],
-   "threes": [
-    1.0,
-    2.0
-   ],
-   "pra": [
-    11.6,
-    20.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Khaman Maluach",
-   "points": [
-    5.5,
-    8.0
-   ],
-   "rebounds": [
-    5.5,
-    6.0
-   ],
-   "assists": [
-    0.9,
-    2.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    11.5,
-    16.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Jase Richardson",
-   "points": [
-    7.9,
-    10.0
-   ],
-   "rebounds": [
-    1.9,
-    2.0
-   ],
-   "assists": [
-    1.9,
-    3.0
-   ],
-   "threes": [
-    1.0,
-    2.0
-   ],
-   "pra": [
-    10.9,
-    15.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Al Horford",
-   "points": [
-    5.3,
-    8.0
-   ],
-   "rebounds": [
-    3.9,
-    5.0
-   ],
-   "assists": [
-    0.9,
-    1.0
-   ],
-   "threes": [
-    1.0,
-    2.0
-   ],
-   "pra": [
-    10.8,
-    14.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Jamal Cain",
-   "points": [
-    7.3,
-    5.0
-   ],
-   "rebounds": [
-    2.3,
-    5.0
-   ],
-   "assists": [
-    1.0,
-    0.0
-   ],
-   "threes": [
-    1.0,
-    1.0
-   ],
-   "pra": [
-    9.1,
-    10.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Nikola Vucevic",
-   "points": [
-    3.8,
-    0.0
-   ],
-   "rebounds": [
-    3.0,
-    0.0
-   ],
-   "assists": [
-    1.0,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    9.1,
-    0.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Will Richard",
-   "points": [
-    5.2,
-    10.0
-   ],
-   "rebounds": [
-    2.3,
-    0.0
-   ],
-   "assists": [
-    1.0,
-    2.0
-   ],
-   "threes": [
-    1.0,
-    2.0
-   ],
-   "pra": [
-    9.0,
-    12.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Graham Ike",
-   "points": [
-    4.9,
-    0.0
-   ],
-   "rebounds": [
-    2.4,
-    1.0
-   ],
-   "assists": [
-    0.8,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    9.0,
-    1.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Jevon Carter",
-   "points": [
-    5.6,
-    0.0
-   ],
-   "rebounds": [
-    1.9,
-    0.0
-   ],
-   "assists": [
-    2.0,
-    0.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    8.7,
-    0.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Luke Kennard",
-   "points": [
-    5.5,
-    12.0
-   ],
-   "rebounds": [
-    1.3,
-    1.0
-   ],
-   "assists": [
-    1.1,
-    5.0
-   ],
-   "threes": [
-    1.0,
-    3.0
-   ],
-   "pra": [
-    8.7,
-    18.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Gary Payton II",
-   "points": [
-    5.2,
-    9.0
-   ],
-   "rebounds": [
-    2.4,
-    0.0
-   ],
-   "assists": [
-    1.0,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    1.0
-   ],
-   "pra": [
-    8.4,
-    9.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Ryan Dunn",
-   "points": [
-    3.5,
-    11.0
-   ],
-   "rebounds": [
-    3.1,
-    3.0
-   ],
-   "assists": [
-    1.0,
-    3.0
-   ],
-   "threes": [
-    0.0,
-    1.0
-   ],
-   "pra": [
-    7.5,
-    17.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Tim Hardaway Jr.",
-   "points": [
-    4.9,
-    0.0
-   ],
-   "rebounds": [
-    1.2,
-    0.0
-   ],
-   "assists": [
-    0.9,
-    1.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    6.2,
-    1.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Goga Bitadze",
-   "points": [
-    2.8,
-    4.0
-   ],
-   "rebounds": [
-    3.2,
-    5.0
-   ],
-   "assists": [
-    0.6,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    5.9,
-    9.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Dru Smith",
-   "points": [
-    2.2,
-    0.0
-   ],
-   "rebounds": [
-    0.9,
-    0.0
-   ],
-   "assists": [
-    0.8,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    4.7,
-    0.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Nikola Jovic",
-   "points": [
-    2.4,
-    1.0
-   ],
-   "rebounds": [
-    1.3,
-    0.0
-   ],
-   "assists": [
-    1.0,
-    1.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    4.5,
-    2.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Alex Morales",
-   "points": [
-    2.7,
-    0.0
-   ],
-   "rebounds": [
-    1.1,
-    0.0
-   ],
-   "assists": [
-    1.2,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    3.8,
-    0.0
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "player": "Ryan Conwell",
-   "points": [
-    1.8,
-    13.0
-   ],
-   "rebounds": [
-    0.8,
-    1.0
-   ],
-   "assists": [
-    1.0,
-    2.0
-   ],
-   "threes": [
-    0.0,
-    3.0
-   ],
-   "pra": [
-    2.9,
-    16.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Luka Doncic",
-   "points": [
-    31.5,
-    40.0
-   ],
-   "rebounds": [
-    7.0,
-    9.0
-   ],
-   "assists": [
-    7.7,
-    7.0
-   ],
-   "threes": [
-    3.6,
-    6.0
-   ],
-   "pra": [
-    49.1,
-    56.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Nikola Jokic",
-   "points": [
-    25.1,
-    32.0
-   ],
-   "rebounds": [
-    10.6,
-    10.0
-   ],
-   "assists": [
-    9.2,
-    11.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    48.3,
-    53.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Giannis Antetokounmpo",
-   "points": [
-    27.5,
-    27.0
-   ],
-   "rebounds": [
-    11.3,
-    14.0
-   ],
-   "assists": [
-    5.5,
-    6.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    42.9,
-    47.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Jamal Murray",
-   "points": [
-    29.1,
-    14.0
-   ],
-   "rebounds": [
-    4.8,
-    5.0
-   ],
-   "assists": [
-    6.2,
-    7.0
-   ],
-   "threes": [
-    3.6,
-    2.0
-   ],
-   "pra": [
-    41.5,
-    26.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Cade Cunningham",
-   "points": [
-    25.5,
-    26.0
-   ],
-   "rebounds": [
-    5.2,
-    7.0
-   ],
-   "assists": [
-    7.3,
-    11.0
-   ],
-   "threes": [
-    2.0,
-    1.0
-   ],
-   "pra": [
-    40.0,
-    44.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Victor Wembanyama",
-   "points": [
-    26.1,
-    52.0
-   ],
-   "rebounds": [
-    10.3,
-    24.0
-   ],
-   "assists": [
-    3.0,
-    2.0
-   ],
-   "threes": [
-    1.8,
-    1.0
-   ],
-   "pra": [
-    39.9,
-    78.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Shai Gilgeous-Alexander",
-   "points": [
-    30.7,
-    42.0
-   ],
-   "rebounds": [
-    4.4,
-    4.0
-   ],
-   "assists": [
-    5.3,
-    8.0
-   ],
-   "threes": [
-    2.0,
-    5.0
-   ],
-   "pra": [
-    39.4,
-    54.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Alperen Sengun",
-   "points": [
-    22.7,
-    17.0
-   ],
-   "rebounds": [
-    8.0,
-    12.0
-   ],
-   "assists": [
-    7.2,
-    10.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    38.7,
-    39.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Tyrese Maxey",
-   "points": [
-    27.0,
-    19.0
-   ],
-   "rebounds": [
-    3.5,
-    1.0
-   ],
-   "assists": [
-    5.2,
-    7.0
-   ],
-   "threes": [
-    2.6,
-    3.0
-   ],
-   "pra": [
-    38.5,
-    27.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Karl-Anthony Towns",
-   "points": [
-    20.6,
-    17.0
-   ],
-   "rebounds": [
-    11.8,
-    12.0
-   ],
-   "assists": [
-    3.6,
-    1.0
-   ],
-   "threes": [
-    1.7,
-    2.0
-   ],
-   "pra": [
-    38.2,
-    30.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Trae Young",
-   "points": [
-    21.1,
-    18.0
-   ],
-   "rebounds": [
-    3.0,
-    2.0
-   ],
-   "assists": [
-    9.2,
-    6.0
-   ],
-   "threes": [
-    2.0,
-    2.0
-   ],
-   "pra": [
-    37.3,
-    26.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Cooper Flagg",
-   "points": [
-    23.7,
-    19.0
-   ],
-   "rebounds": [
-    5.6,
-    10.0
-   ],
-   "assists": [
-    5.3,
-    5.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    37.1,
-    34.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Ty Jerome",
-   "points": [
-    28.2,
-    23.0
-   ],
-   "rebounds": [
-    3.2,
-    4.0
-   ],
-   "assists": [
-    6.0,
-    3.0
-   ],
-   "threes": [
-    2.9,
-    2.0
-   ],
-   "pra": [
-    37.0,
-    30.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Deni Avdija",
-   "points": [
-    24.2,
-    21.0
-   ],
-   "rebounds": [
-    6.4,
-    7.0
-   ],
-   "assists": [
-    5.8,
-    12.0
-   ],
-   "threes": [
-    1.9,
-    1.0
-   ],
-   "pra": [
-    36.6,
-    40.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Domantas Sabonis",
-   "points": [
-    14.7,
-    16.0
-   ],
-   "rebounds": [
-    12.5,
-    17.0
-   ],
-   "assists": [
-    5.3,
-    1.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    36.0,
-    34.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Anthony Davis",
-   "points": [
-    23.1,
-    26.0
-   ],
-   "rebounds": [
-    9.5,
-    10.0
-   ],
-   "assists": [
-    2.1,
-    3.0
-   ],
-   "threes": [
-    0.9,
-    0.0
-   ],
-   "pra": [
-    35.7,
-    39.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Scottie Barnes",
-   "points": [
-    21.0,
-    17.0
-   ],
-   "rebounds": [
-    7.5,
-    6.0
-   ],
-   "assists": [
-    5.1,
-    6.0
-   ],
-   "threes": [
-    0.0,
-    1.0
-   ],
-   "pra": [
-    35.5,
-    29.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Darius Acuff Jr.",
-   "points": [
-    24.5,
-    22.0
-   ],
-   "rebounds": [
-    3.5,
-    3.0
-   ],
-   "assists": [
-    6.2,
-    12.0
-   ],
-   "threes": [
-    3.0,
-    3.0
-   ],
-   "pra": [
-    35.3,
-    37.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Pascal Siakam",
-   "points": [
-    22.4,
-    20.0
-   ],
-   "rebounds": [
-    7.0,
-    5.0
-   ],
-   "assists": [
-    4.1,
-    2.0
-   ],
-   "threes": [
-    1.0,
-    2.0
-   ],
-   "pra": [
-    35.2,
-    27.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Julius Randle",
-   "points": [
-    20.8,
-    22.0
-   ],
-   "rebounds": [
-    6.8,
-    3.0
-   ],
-   "assists": [
-    4.4,
-    4.0
-   ],
-   "threes": [
-    1.0,
-    2.0
-   ],
-   "pra": [
-    35.1,
-    29.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Joel Embiid",
-   "points": [
-    22.0,
-    26.0
-   ],
-   "rebounds": [
-    8.7,
-    15.0
-   ],
-   "assists": [
-    4.2,
-    2.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    35.1,
-    43.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Devin Booker",
-   "points": [
-    23.4,
-    33.0
-   ],
-   "rebounds": [
-    3.4,
-    1.0
-   ],
-   "assists": [
-    5.2,
-    2.0
-   ],
-   "threes": [
-    1.9,
-    2.0
-   ],
-   "pra": [
-    34.6,
-    36.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Jaylen Brown",
-   "points": [
-    23.1,
-    30.0
-   ],
-   "rebounds": [
-    6.6,
-    7.0
-   ],
-   "assists": [
-    4.3,
-    1.0
-   ],
-   "threes": [
-    2.0,
-    3.0
-   ],
-   "pra": [
-    34.1,
-    38.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Cameron Boozer",
-   "points": [
-    18.9,
-    10.0
-   ],
-   "rebounds": [
-    9.9,
-    6.0
-   ],
-   "assists": [
-    5.2,
-    4.0
-   ],
-   "threes": [
-    2.0,
-    2.0
-   ],
-   "pra": [
-    33.7,
-    20.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Donovan Mitchell",
-   "points": [
-    22.9,
-    27.0
-   ],
-   "rebounds": [
-    4.8,
-    3.0
-   ],
-   "assists": [
-    5.5,
-    6.0
-   ],
-   "threes": [
-    2.9,
-    5.0
-   ],
-   "pra": [
-    33.1,
-    36.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Jalen Brunson",
-   "points": [
-    24.9,
-    33.0
-   ],
-   "rebounds": [
-    3.0,
-    2.0
-   ],
-   "assists": [
-    5.7,
-    4.0
-   ],
-   "threes": [
-    2.0,
-    5.0
-   ],
-   "pra": [
-    32.4,
-    39.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "LeBron James",
-   "points": [
-    16.6,
-    13.0
-   ],
-   "rebounds": [
-    6.0,
-    10.0
-   ],
-   "assists": [
-    6.7,
-    8.0
-   ],
-   "threes": [
-    1.0,
-    1.0
-   ],
-   "pra": [
-    32.3,
-    31.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Evan Mobley",
-   "points": [
-    19.1,
-    16.0
-   ],
-   "rebounds": [
-    8.4,
-    10.0
-   ],
-   "assists": [
-    3.6,
-    3.0
-   ],
-   "threes": [
-    1.0,
-    1.0
-   ],
-   "pra": [
-    31.6,
-    29.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Keyonte George",
-   "points": [
-    21.0,
-    39.0
-   ],
-   "rebounds": [
-    3.8,
-    2.0
-   ],
-   "assists": [
-    5.1,
-    9.0
-   ],
-   "threes": [
-    2.0,
-    2.0
-   ],
-   "pra": [
-    31.4,
-    50.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Zion Williamson",
-   "points": [
-    22.3,
-    23.0
-   ],
-   "rebounds": [
-    5.5,
-    4.0
-   ],
-   "assists": [
-    3.0,
-    2.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    31.1,
-    29.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "RJ Barrett",
-   "points": [
-    20.6,
-    22.0
-   ],
-   "rebounds": [
-    5.8,
-    5.0
-   ],
-   "assists": [
-    3.7,
-    3.0
-   ],
-   "threes": [
-    1.7,
-    3.0
-   ],
-   "pra": [
-    31.0,
-    30.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Brandon Miller",
-   "points": [
-    22.8,
-    10.0
-   ],
-   "rebounds": [
-    5.0,
-    4.0
-   ],
-   "assists": [
-    3.1,
-    1.0
-   ],
-   "threes": [
-    3.0,
-    1.0
-   ],
-   "pra": [
-    31.0,
-    15.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Caleb Wilson",
-   "points": [
-    20.3,
-    5.0
-   ],
-   "rebounds": [
-    6.6,
-    5.0
-   ],
-   "assists": [
-    2.2,
-    0.0
-   ],
-   "threes": [
-    2.6,
-    1.0
-   ],
-   "pra": [
-    30.4,
-    10.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Austin Reaves",
-   "points": [
-    22.4,
-    21.0
-   ],
-   "rebounds": [
-    3.6,
-    3.0
-   ],
-   "assists": [
-    4.8,
-    4.0
-   ],
-   "threes": [
-    2.0,
-    1.0
-   ],
-   "pra": [
-    30.1,
-    28.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Bam Adebayo",
-   "points": [
-    16.7,
-    35.0
-   ],
-   "rebounds": [
-    8.3,
-    10.0
-   ],
-   "assists": [
-    3.1,
-    4.0
-   ],
-   "threes": [
-    1.0,
-    1.0
-   ],
-   "pra": [
-    30.1,
-    49.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Kyrie Irving",
-   "points": [
-    21.3,
-    29.0
-   ],
-   "rebounds": [
-    3.0,
-    7.0
-   ],
-   "assists": [
-    4.5,
-    5.0
-   ],
-   "threes": [
-    3.0,
-    5.0
-   ],
-   "pra": [
-    30.0,
-    41.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Paul George",
-   "points": [
-    17.7,
-    25.0
-   ],
-   "rebounds": [
-    5.7,
-    3.0
-   ],
-   "assists": [
-    4.3,
-    5.0
-   ],
-   "threes": [
-    3.0,
-    5.0
-   ],
-   "pra": [
-    30.0,
-    33.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Tyler Herro",
-   "points": [
-    19.9,
-    25.0
-   ],
-   "rebounds": [
-    4.7,
-    5.0
-   ],
-   "assists": [
-    3.1,
-    3.0
-   ],
-   "threes": [
-    3.2,
-    4.0
-   ],
-   "pra": [
-    30.0,
-    33.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "James Harden",
-   "points": [
-    17.8,
-    19.0
-   ],
-   "rebounds": [
-    4.3,
-    9.0
-   ],
-   "assists": [
-    6.5,
-    6.0
-   ],
-   "threes": [
-    2.6,
-    3.0
-   ],
-   "pra": [
-    29.9,
-    34.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Dejounte Murray",
-   "points": [
-    18.5,
-    20.0
-   ],
-   "rebounds": [
-    5.1,
-    8.0
-   ],
-   "assists": [
-    6.0,
-    4.0
-   ],
-   "threes": [
-    1.0,
-    1.0
-   ],
-   "pra": [
-    29.6,
-    32.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Michael Porter Jr.",
-   "points": [
-    21.7,
-    26.0
-   ],
-   "rebounds": [
-    6.6,
-    10.0
-   ],
-   "assists": [
-    1.9,
-    0.0
-   ],
-   "threes": [
-    3.3,
-    4.0
-   ],
-   "pra": [
-    29.5,
-    36.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "LaMelo Ball",
-   "points": [
-    18.0,
-    20.0
-   ],
-   "rebounds": [
-    4.2,
-    2.0
-   ],
-   "assists": [
-    6.4,
-    6.0
-   ],
-   "threes": [
-    3.2,
-    4.0
-   ],
-   "pra": [
-    28.8,
-    28.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Andrew Nembhard",
-   "points": [
-    18.6,
-    22.0
-   ],
-   "rebounds": [
-    2.5,
-    2.0
-   ],
-   "assists": [
-    7.7,
-    4.0
-   ],
-   "threes": [
-    2.0,
-    2.0
-   ],
-   "pra": [
-    28.8,
-    28.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Dylan Harper",
-   "points": [
-    17.1,
-    21.0
-   ],
-   "rebounds": [
-    4.9,
-    5.0
-   ],
-   "assists": [
-    5.2,
-    0.0
-   ],
-   "threes": [
-    1.0,
-    1.0
-   ],
-   "pra": [
-    28.7,
-    26.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Kevin Durant",
-   "points": [
-    21.1,
-    21.0
-   ],
-   "rebounds": [
-    4.8,
-    5.0
-   ],
-   "assists": [
-    3.3,
-    2.0
-   ],
-   "threes": [
-    1.7,
-    2.0
-   ],
-   "pra": [
-    28.6,
-    28.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Damian Lillard",
-   "points": [
-    19.2,
-    25.0
-   ],
-   "rebounds": [
-    4.3,
-    3.0
-   ],
-   "assists": [
-    4.0,
-    5.0
-   ],
-   "threes": [
-    3.0,
-    2.0
-   ],
-   "pra": [
-    28.1,
-    33.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Jaden McDaniels",
-   "points": [
-    17.3,
-    14.0
-   ],
-   "rebounds": [
-    5.5,
-    8.0
-   ],
-   "assists": [
-    3.8,
-    4.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    27.1,
-    26.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Ayo Dosunmu",
-   "points": [
-    17.1,
-    21.0
-   ],
-   "rebounds": [
-    5.3,
-    1.0
-   ],
-   "assists": [
-    4.1,
-    6.0
-   ],
-   "threes": [
-    2.0,
-    0.0
-   ],
-   "pra": [
-    26.9,
-    28.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Immanuel Quickley",
-   "points": [
-    17.5,
-    13.0
-   ],
-   "rebounds": [
-    3.7,
-    1.0
-   ],
-   "assists": [
-    5.8,
-    7.0
-   ],
-   "threes": [
-    2.6,
-    2.0
-   ],
-   "pra": [
-    26.8,
-    21.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Ajay Mitchell",
-   "points": [
-    18.4,
-    23.0
-   ],
-   "rebounds": [
-    3.5,
-    7.0
-   ],
-   "assists": [
-    3.8,
-    4.0
-   ],
-   "threes": [
-    1.0,
-    1.0
-   ],
-   "pra": [
-    26.8,
-    34.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Zach LaVine",
-   "points": [
-    20.4,
-    21.0
-   ],
-   "rebounds": [
-    3.1,
-    4.0
-   ],
-   "assists": [
-    2.0,
-    1.0
-   ],
-   "threes": [
-    2.7,
-    3.0
-   ],
-   "pra": [
-    26.8,
-    26.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Nickeil Alexander-Walker",
-   "points": [
-    20.1,
-    26.0
-   ],
-   "rebounds": [
-    3.1,
-    4.0
-   ],
-   "assists": [
-    2.8,
-    2.0
-   ],
-   "threes": [
-    3.4,
-    6.0
-   ],
-   "pra": [
-    26.6,
-    32.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Darius Garland",
-   "points": [
-    18.0,
-    26.0
-   ],
-   "rebounds": [
-    1.9,
-    1.0
-   ],
-   "assists": [
-    6.2,
-    7.0
-   ],
-   "threes": [
-    2.6,
-    4.0
-   ],
-   "pra": [
-    26.5,
-    34.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Miles Bridges",
-   "points": [
-    17.4,
-    18.0
-   ],
-   "rebounds": [
-    6.4,
-    7.0
-   ],
-   "assists": [
-    3.1,
-    5.0
-   ],
-   "threes": [
-    2.0,
-    4.0
-   ],
-   "pra": [
-    26.4,
-    30.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Jarrett Allen",
-   "points": [
-    14.0,
-    0.0
-   ],
-   "rebounds": [
-    8.5,
-    1.0
-   ],
-   "assists": [
-    1.3,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    26.1,
-    1.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Jeremiah Fears",
-   "points": [
-    14.5,
-    19.0
-   ],
-   "rebounds": [
-    4.5,
-    6.0
-   ],
-   "assists": [
-    4.9,
-    2.0
-   ],
-   "threes": [
-    1.0,
-    1.0
-   ],
-   "pra": [
-    26.0,
-    27.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Kyshawn George",
-   "points": [
-    16.6,
-    25.0
-   ],
-   "rebounds": [
-    4.5,
-    4.0
-   ],
-   "assists": [
-    4.5,
-    7.0
-   ],
-   "threes": [
-    2.0,
-    3.0
-   ],
-   "pra": [
-    26.0,
-    36.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Jabari Smith Jr.",
-   "points": [
-    17.6,
-    11.0
-   ],
-   "rebounds": [
-    6.2,
-    4.0
-   ],
-   "assists": [
-    2.0,
-    2.0
-   ],
-   "threes": [
-    2.7,
-    2.0
-   ],
-   "pra": [
-    26.0,
-    17.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Lauri Markkanen",
-   "points": [
-    18.1,
-    21.0
-   ],
-   "rebounds": [
-    5.7,
-    10.0
-   ],
-   "assists": [
-    1.4,
-    4.0
-   ],
-   "threes": [
-    2.0,
-    5.0
-   ],
-   "pra": [
-    25.4,
-    35.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Amen Thompson",
-   "points": [
-    14.5,
-    11.0
-   ],
-   "rebounds": [
-    5.6,
-    8.0
-   ],
-   "assists": [
-    3.3,
-    1.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    25.2,
-    20.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Dillon Brooks",
-   "points": [
-    18.2,
-    15.0
-   ],
-   "rebounds": [
-    3.4,
-    6.0
-   ],
-   "assists": [
-    2.1,
-    2.0
-   ],
-   "threes": [
-    2.0,
-    0.0
-   ],
-   "pra": [
-    25.0,
-    23.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Paul Reed",
-   "points": [
-    15.2,
-    8.0
-   ],
-   "rebounds": [
-    8.0,
-    7.0
-   ],
-   "assists": [
-    2.1,
-    4.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    24.9,
-    19.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Cedric Coward",
-   "points": [
-    13.8,
-    23.0
-   ],
-   "rebounds": [
-    7.4,
-    9.0
-   ],
-   "assists": [
-    2.6,
-    4.0
-   ],
-   "threes": [
-    2.0,
-    4.0
-   ],
-   "pra": [
-    24.9,
-    36.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "AJ Dybantsa",
-   "points": [
-    18.7,
-    9.0
-   ],
-   "rebounds": [
-    4.4,
-    6.0
-   ],
-   "assists": [
-    1.6,
-    3.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    24.8,
-    18.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Jaime Jaquez Jr.",
-   "points": [
-    14.1,
-    18.0
-   ],
-   "rebounds": [
-    6.3,
-    2.0
-   ],
-   "assists": [
-    3.1,
-    2.0
-   ],
-   "threes": [
-    1.0,
-    4.0
-   ],
-   "pra": [
-    24.7,
-    22.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "De'Aaron Fox",
-   "points": [
-    15.0,
-    10.0
-   ],
-   "rebounds": [
-    3.4,
-    3.0
-   ],
-   "assists": [
-    6.1,
-    4.0
-   ],
-   "threes": [
-    1.0,
-    0.0
-   ],
-   "pra": [
-    24.7,
-    17.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Stephon Castle",
-   "points": [
-    12.7,
-    17.0
-   ],
-   "rebounds": [
-    4.8,
-    10.0
-   ],
-   "assists": [
-    5.8,
-    3.0
-   ],
-   "threes": [
-    1.7,
-    2.0
-   ],
-   "pra": [
-    24.4,
-    30.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Onyeka Okongwu",
-   "points": [
-    12.3,
-    14.0
-   ],
-   "rebounds": [
-    7.5,
-    16.0
-   ],
-   "assists": [
-    2.5,
-    4.0
-   ],
-   "threes": [
-    1.7,
-    2.0
-   ],
-   "pra": [
-    24.3,
-    34.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Ace Bailey",
-   "points": [
-    14.0,
-    15.0
-   ],
-   "rebounds": [
-    6.4,
-    5.0
-   ],
-   "assists": [
-    2.1,
-    1.0
-   ],
-   "threes": [
-    1.9,
-    1.0
-   ],
-   "pra": [
-    24.1,
-    21.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Christian Braun",
-   "points": [
-    15.1,
-    11.0
-   ],
-   "rebounds": [
-    4.5,
-    3.0
-   ],
-   "assists": [
-    2.4,
-    3.0
-   ],
-   "threes": [
-    1.0,
-    1.0
-   ],
-   "pra": [
-    24.1,
-    17.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Norman Powell",
-   "points": [
-    20.3,
-    12.0
-   ],
-   "rebounds": [
-    3.0,
-    1.0
-   ],
-   "assists": [
-    2.0,
-    1.0
-   ],
-   "threes": [
-    2.6,
-    0.0
-   ],
-   "pra": [
-    23.9,
-    14.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Jrue Holiday",
-   "points": [
-    13.1,
-    15.0
-   ],
-   "rebounds": [
-    4.4,
-    4.0
-   ],
-   "assists": [
-    5.1,
-    0.0
-   ],
-   "threes": [
-    2.0,
-    5.0
-   ],
-   "pra": [
-    23.9,
-    19.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Jonathan Kuminga",
-   "points": [
-    14.0,
-    16.0
-   ],
-   "rebounds": [
-    6.0,
-    8.0
-   ],
-   "assists": [
-    2.6,
-    5.0
-   ],
-   "threes": [
-    1.9,
-    4.0
-   ],
-   "pra": [
-    23.8,
-    29.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Isaiah Hartenstein",
-   "points": [
-    10.6,
-    3.0
-   ],
-   "rebounds": [
-    11.3,
-    12.0
-   ],
-   "assists": [
-    2.8,
-    4.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    23.7,
-    19.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "OG Anunoby",
-   "points": [
-    16.5,
-    18.0
-   ],
-   "rebounds": [
-    5.0,
-    5.0
-   ],
-   "assists": [
-    2.0,
-    2.0
-   ],
-   "threes": [
-    2.0,
-    1.0
-   ],
-   "pra": [
-    23.5,
-    25.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "VJ Edgecombe",
-   "points": [
-    12.9,
-    11.0
-   ],
-   "rebounds": [
-    6.2,
-    6.0
-   ],
-   "assists": [
-    3.2,
-    3.0
-   ],
-   "threes": [
-    1.7,
-    1.0
-   ],
-   "pra": [
-    23.4,
-    20.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Walker Kessler",
-   "points": [
-    11.0,
-    15.0
-   ],
-   "rebounds": [
-    9.5,
-    8.0
-   ],
-   "assists": [
-    2.0,
-    0.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    23.3,
-    23.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Saddiq Bey",
-   "points": [
-    15.8,
-    22.0
-   ],
-   "rebounds": [
-    4.1,
-    4.0
-   ],
-   "assists": [
-    2.0,
-    3.0
-   ],
-   "threes": [
-    2.0,
-    2.0
-   ],
-   "pra": [
-    23.1,
-    29.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Josh Giddey",
-   "points": [
-    10.3,
-    10.0
-   ],
-   "rebounds": [
-    5.2,
-    1.0
-   ],
-   "assists": [
-    6.9,
-    6.0
-   ],
-   "threes": [
-    1.0,
-    1.0
-   ],
-   "pra": [
-    22.9,
-    17.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Davion Mitchell",
-   "points": [
-    12.4,
-    11.0
-   ],
-   "rebounds": [
-    1.9,
-    2.0
-   ],
-   "assists": [
-    7.4,
-    10.0
-   ],
-   "threes": [
-    1.9,
-    0.0
-   ],
-   "pra": [
-    22.8,
-    23.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Rudy Gobert",
-   "points": [
-    9.9,
-    8.0
-   ],
-   "rebounds": [
-    11.0,
-    11.0
-   ],
-   "assists": [
-    1.5,
-    2.0
-   ],
-   "threes": [
-    0.0,
-    0.0
-   ],
-   "pra": [
-    22.7,
-    21.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Naz Reid",
-   "points": [
-    12.6,
-    28.0
-   ],
-   "rebounds": [
-    7.0,
-    9.0
-   ],
-   "assists": [
-    1.9,
-    2.0
-   ],
-   "threes": [
-    2.0,
-    2.0
-   ],
-   "pra": [
-    22.7,
-    39.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Fred VanVleet",
-   "points": [
-    11.8,
-    18.0
-   ],
-   "rebounds": [
-    3.2,
-    3.0
-   ],
-   "assists": [
-    6.2,
-    3.0
-   ],
-   "threes": [
-    2.0,
-    4.0
-   ],
-   "pra": [
-    22.6,
-    24.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Darryn Peterson",
-   "points": [
-    14.2,
-    7.0
-   ],
-   "rebounds": [
-    4.3,
-    2.0
-   ],
-   "assists": [
-    3.6,
-    7.0
-   ],
-   "threes": [
-    1.9,
-    0.0
-   ],
-   "pra": [
-    22.5,
-    16.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "P.J. Washington",
-   "points": [
-    14.2,
-    21.0
-   ],
-   "rebounds": [
-    7.3,
-    10.0
-   ],
-   "assists": [
-    1.2,
-    3.0
-   ],
-   "threes": [
-    1.9,
-    3.0
-   ],
-   "pra": [
-    22.5,
-    34.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "CJ McCollum",
-   "points": [
-    14.7,
-    15.0
-   ],
-   "rebounds": [
-    3.2,
-    5.0
-   ],
-   "assists": [
-    3.6,
-    5.0
-   ],
-   "threes": [
-    2.0,
-    2.0
-   ],
-   "pra": [
-    22.3,
-    25.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Donovan Clingan",
-   "points": [
-    9.4,
-    24.0
-   ],
-   "rebounds": [
-    9.4,
-    11.0
-   ],
-   "assists": [
-    1.8,
-    1.0
-   ],
-   "threes": [
-    1.0,
-    1.0
-   ],
-   "pra": [
-    22.2,
-    36.0
-   ]
-  },
-  {
-   "date": "2026-11-04",
-   "player": "Jalen Green",
-   "points": [
-    14.6,
-    22.0
-   ],
-   "rebounds": [
-    3.4,
-    2.0
-   ],
-   "assists": [
-    3.3,
-    2.0
-   ],
-   "threes": [
-    2.0,
-    2.0
-   ],
-   "pra": [
-    21.9,
-    26.0
-   ]
   }
  ],
- "generated_at": "2026-11-07T17:03:22+00:00"
+ "generated_at": "2026-11-08T16:52:53+00:00"
 }
