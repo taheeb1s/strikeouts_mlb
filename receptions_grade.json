@@ -1,47 +1,128 @@
 {
- "graded": 194,
+ "graded": 204,
  "weeks": [
   6,
   7,
-  8
+  8,
+  9
  ],
- "model_mae": 1.644,
- "naive_mae": 1.68,
- "gap": 0.036,
+ "model_mae": 1.598,
+ "naive_mae": 1.637,
+ "gap": 0.039,
  "se": 0.7,
  "market_mae": 1.43,
- "floor_hit": 0.6959,
- "floor_hit_naive": 0.6082,
- "at_least_2": 0.7887,
+ "floor_hit": 0.6961,
+ "floor_hit_naive": 0.6078,
+ "at_least_2": 0.7892,
  "bet": {
-  "n": 191,
-  "raw": 0.5236,
-  "floored": 0.5602,
-  "floored_under_share": 0.8325,
-  "always_under": 0.5497,
+  "n": 201,
+  "raw": 0.5274,
+  "floored": 0.5672,
+  "floored_under_share": 0.8408,
+  "always_under": 0.5572,
   "break_even": 0.524
  },
  "by_pos": [
   {
    "pos": "WR",
-   "n": 113,
-   "model": 1.575,
-   "naive": 1.469
+   "n": 118,
+   "model": 1.542,
+   "naive": 1.432
   },
   {
    "pos": "TE",
-   "n": 49,
-   "model": 1.939,
-   "naive": 2.082
+   "n": 51,
+   "model": 1.882,
+   "naive": 2.02
   },
   {
    "pos": "RB",
-   "n": 32,
-   "model": 1.438,
-   "naive": 1.812
+   "n": 35,
+   "model": 1.371,
+   "naive": 1.771
   }
  ],
  "recent": [
+  {
+   "week": 9,
+   "player": "Aaron Jones",
+   "pos": "RB",
+   "proj": 1.8,
+   "actual": 1,
+   "err": 0.8
+  },
+  {
+   "week": 9,
+   "player": "DJ Moore",
+   "pos": "WR",
+   "proj": 3.2,
+   "actual": 3,
+   "err": 0.2
+  },
+  {
+   "week": 9,
+   "player": "Dalton Kincaid",
+   "pos": "TE",
+   "proj": 3.1,
+   "actual": 3,
+   "err": 0.1
+  },
+  {
+   "week": 9,
+   "player": "James Cook",
+   "pos": "RB",
+   "proj": 1.2,
+   "actual": 0,
+   "err": 1.2
+  },
+  {
+   "week": 9,
+   "player": "Jordan Addison",
+   "pos": "WR",
+   "proj": 3.2,
+   "actual": 2,
+   "err": 1.2
+  },
+  {
+   "week": 9,
+   "player": "Justin Jefferson",
+   "pos": "WR",
+   "proj": 4.5,
+   "actual": 3,
+   "err": 1.5
+  },
+  {
+   "week": 9,
+   "player": "Keon Coleman",
+   "pos": "WR",
+   "proj": 2.2,
+   "actual": 3,
+   "err": -0.8
+  },
+  {
+   "week": 9,
+   "player": "Khalil Shakir",
+   "pos": "WR",
+   "proj": 3.1,
+   "actual": 4,
+   "err": -0.9
+  },
+  {
+   "week": 9,
+   "player": "T.J. Hockenson",
+   "pos": "TE",
+   "proj": 4.6,
+   "actual": 4,
+   "err": 0.6
+  },
+  {
+   "week": 9,
+   "player": "Ty Johnson",
+   "pos": "RB",
+   "proj": 1.9,
+   "actual": 2,
+   "err": -0.1
+  },
   {
    "week": 8,
    "player": "AJ Barner",
@@ -1561,39 +1642,7 @@
    "proj": 7.3,
    "actual": 7,
    "err": 0.3
-  },
-  {
-   "week": 6,
-   "player": "Tucker Kraft",
-   "pos": "TE",
-   "proj": 3.7,
-   "actual": 5,
-   "err": -1.3
-  },
-  {
-   "week": 6,
-   "player": "Tyjae Spears",
-   "pos": "RB",
-   "proj": 2.4,
-   "actual": 1,
-   "err": 1.4
-  },
-  {
-   "week": 6,
-   "player": "Wan'Dale Robinson",
-   "pos": "WR",
-   "proj": 4.2,
-   "actual": 3,
-   "err": 1.2
-  },
-  {
-   "week": 6,
-   "player": "Xavier Hutchinson",
-   "pos": "WR",
-   "proj": 3.1,
-   "actual": 2,
-   "err": 1.1
   }
  ],
- "generated_at": "2026-11-09T17:56:53+00:00"
+ "generated_at": "2026-11-10T16:10:11+00:00"
 }
