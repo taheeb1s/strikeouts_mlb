@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-10T16:10:27+00:00",
+ "generated_at": "2026-11-11T17:41:37+00:00",
  "season": 2026,
  "week": 10,
  "trained_on": [
@@ -3809,20 +3809,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Charlie Jones",
-   "player_id": "00-0038576",
-   "team": "NYG",
-   "opponent": "WAS",
-   "game": "WAS@NYG",
-   "pos": "WR",
-   "p_any": 0.0504,
-   "p_two": 0.0081,
-   "p_first": 0.0105,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
    "player": "Tylan Wallace",
    "player_id": "00-0036630",
    "team": "CLE",
@@ -3832,6 +3818,20 @@
    "p_any": 0.0504,
    "p_two": 0.0081,
    "p_first": 0.0103,
+   "i5pg": 0.0,
+   "rzpg": 0.0,
+   "td_rate": 0.0
+  },
+  {
+   "player": "Charlie Jones",
+   "player_id": "00-0038576",
+   "team": "NYG",
+   "opponent": "WAS",
+   "game": "WAS@NYG",
+   "pos": "WR",
+   "p_any": 0.0504,
+   "p_two": 0.0081,
+   "p_first": 0.0105,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0
@@ -4299,20 +4299,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Brayden Willis",
-   "player_id": "00-0038643",
-   "team": "SF",
-   "opponent": "DAL",
-   "game": "SF@DAL",
-   "pos": "TE",
-   "p_any": 0.017,
-   "p_two": 0.0081,
-   "p_first": 0.0029,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
    "player": "Feleipe Franks",
    "player_id": "00-0036825",
    "team": "CAR",
@@ -4322,6 +4308,20 @@
    "p_any": 0.017,
    "p_two": 0.0081,
    "p_first": 0.0024,
+   "i5pg": 0.0,
+   "rzpg": 0.0,
+   "td_rate": 0.0
+  },
+  {
+   "player": "Brayden Willis",
+   "player_id": "00-0038643",
+   "team": "SF",
+   "opponent": "DAL",
+   "game": "SF@DAL",
+   "pos": "TE",
+   "p_any": 0.017,
+   "p_two": 0.0081,
+   "p_first": 0.0029,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0
