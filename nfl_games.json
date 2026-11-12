@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-11T17:40:27+00:00",
+ "generated_at": "2026-11-12T13:25:43+00:00",
  "backtest": {
   "games": 1555,
   "accuracy": 0.6347,
@@ -963,7 +963,7 @@
    "pred_total": 43.2,
    "pick": "KC",
    "confidence": 0.6188,
-   "vegas_spread": -3.5,
+   "vegas_spread": -3.0,
    "elo_home": 1432.9,
    "elo_away": 1565.1
   },
@@ -997,7 +997,7 @@
    "pred_total": 39.1,
    "pick": "GB",
    "confidence": 0.5476,
-   "vegas_spread": 3.5,
+   "vegas_spread": 3.0,
    "elo_home": 1579.2,
    "elo_away": 1594.0
   },
@@ -1303,7 +1303,7 @@
    "pred_total": 43.9,
    "pick": "LAC",
    "confidence": 0.6454,
-   "vegas_spread": 2.5,
+   "vegas_spread": 1.5,
    "elo_home": 1371.5,
    "elo_away": 1315.5
   },
