@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-12T13:26:21+00:00",
+ "generated_at": "2026-11-13T18:16:17+00:00",
  "season": 2026,
  "week": 10,
  "trained_on": [
@@ -567,17 +567,6 @@
    "targets_recent": 9.6
   },
   {
-   "player": "Malik Nabers",
-   "team": "NYG",
-   "opponent": "WAS",
-   "pos": "WR",
-   "proj": 6.32,
-   "season_avg": 6.62,
-   "line": 6.5,
-   "p_over": 0.4949,
-   "targets_recent": 11.8
-  },
-  {
    "player": "Ja'Marr Chase",
    "team": "CIN",
    "opponent": "PIT",
@@ -642,17 +631,6 @@
    "line": 5.5,
    "p_over": 0.4848,
    "targets_recent": 9.4
-  },
-  {
-   "player": "Isaiah Likely",
-   "team": "NYG",
-   "opponent": "WAS",
-   "pos": "TE",
-   "proj": 5.25,
-   "season_avg": 5.75,
-   "line": 5.5,
-   "p_over": 0.4747,
-   "targets_recent": 9.2
   },
   {
    "player": "Brock Bowers",
@@ -952,17 +930,6 @@
    "targets_recent": 8.0
   },
   {
-   "player": "Stefon Diggs",
-   "team": "WAS",
-   "opponent": "NYG",
-   "pos": "WR",
-   "proj": 3.77,
-   "season_avg": 4.29,
-   "line": 3.5,
-   "p_over": 0.6263,
-   "targets_recent": 6.8
-  },
-  {
    "player": "Dalton Schultz",
    "team": "HOU",
    "opponent": "CLE",
@@ -1183,17 +1150,6 @@
    "targets_recent": 5.8
   },
   {
-   "player": "Chig Okonkwo",
-   "team": "WAS",
-   "opponent": "NYG",
-   "pos": "TE",
-   "proj": 3.12,
-   "season_avg": 3.83,
-   "line": 3.5,
-   "p_over": 0.4444,
-   "targets_recent": 5.6
-  },
-  {
    "player": "Caleb Douglas",
    "team": "MIA",
    "opponent": "IND",
@@ -1271,17 +1227,6 @@
    "targets_recent": 5.0
   },
   {
-   "player": "Terry McLaurin",
-   "team": "WAS",
-   "opponent": "NYG",
-   "pos": "WR",
-   "proj": 3.04,
-   "season_avg": 3.0,
-   "line": 3.5,
-   "p_over": 0.4343,
-   "targets_recent": 5.4
-  },
-  {
    "player": "Kyle Pitts",
    "team": "ATL",
    "opponent": "KC",
@@ -1346,17 +1291,6 @@
    "line": 2.5,
    "p_over": 0.5758,
    "targets_recent": 4.4
-  },
-  {
-   "player": "Antonio Williams",
-   "team": "WAS",
-   "opponent": "NYG",
-   "pos": "WR",
-   "proj": 2.94,
-   "season_avg": 3.25,
-   "line": 2.5,
-   "p_over": 0.5758,
-   "targets_recent": 5.6
   },
   {
    "player": "Rhamondre Stevenson",
@@ -1689,28 +1623,6 @@
    "targets_recent": 4.2
   },
   {
-   "player": "Malachi Fields",
-   "team": "NYG",
-   "opponent": "WAS",
-   "pos": "WR",
-   "proj": 2.37,
-   "season_avg": 2.38,
-   "line": 2.5,
-   "p_over": 0.4444,
-   "targets_recent": 4.6
-  },
-  {
-   "player": "Treylon Burks",
-   "team": "WAS",
-   "opponent": "NYG",
-   "pos": "WR",
-   "proj": 2.37,
-   "season_avg": 2.0,
-   "line": 2.5,
-   "p_over": 0.4444,
-   "targets_recent": 4.2
-  },
-  {
    "player": "Jaylen Warren",
    "team": "PIT",
    "opponent": "CIN",
@@ -1731,17 +1643,6 @@
    "line": 2.5,
    "p_over": 0.4343,
    "targets_recent": 3.4
-  },
-  {
-   "player": "Rachaad White",
-   "team": "WAS",
-   "opponent": "NYG",
-   "pos": "RB",
-   "proj": 2.3,
-   "season_avg": 2.57,
-   "line": 2.5,
-   "p_over": 0.4242,
-   "targets_recent": 2.6
   },
   {
    "player": "Bhayshul Tuten",
@@ -2063,17 +1964,6 @@
    "targets_recent": 2.6
   },
   {
-   "player": "Darnell Mooney",
-   "team": "NYG",
-   "opponent": "WAS",
-   "pos": "WR",
-   "proj": 1.64,
-   "season_avg": 1.5,
-   "line": 1.5,
-   "p_over": 0.5253,
-   "targets_recent": 3.6
-  },
-  {
    "player": "Kayshon Boutte",
    "team": "HOU",
    "opponent": "CLE",
@@ -2215,17 +2105,6 @@
    "line": 1.5,
    "p_over": 0.3434,
    "targets_recent": 2.0
-  },
-  {
-   "player": "Dyami Brown",
-   "team": "WAS",
-   "opponent": "NYG",
-   "pos": "WR",
-   "proj": 1.01,
-   "season_avg": 1.29,
-   "line": 1.5,
-   "p_over": 0.2929,
-   "targets_recent": 1.6
   },
   {
    "player": "George Holani",
