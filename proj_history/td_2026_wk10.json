@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-14T12:40:47+00:00",
+ "generated_at": "2026-11-15T15:51:34+00:00",
  "season": 2026,
  "week": 10,
  "trained_on": [
@@ -3963,20 +3963,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Brayden Willis",
-   "player_id": "00-0038643",
-   "team": "SF",
-   "opponent": "DAL",
-   "game": "SF@DAL",
-   "pos": "TE",
-   "p_any": 0.017,
-   "p_two": 0.0081,
-   "p_first": 0.0029,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
    "player": "Feleipe Franks",
    "player_id": "00-0036825",
    "team": "CAR",
@@ -3986,6 +3972,20 @@
    "p_any": 0.017,
    "p_two": 0.0081,
    "p_first": 0.0024,
+   "i5pg": 0.0,
+   "rzpg": 0.0,
+   "td_rate": 0.0
+  },
+  {
+   "player": "Brayden Willis",
+   "player_id": "00-0038643",
+   "team": "SF",
+   "opponent": "DAL",
+   "game": "SF@DAL",
+   "pos": "TE",
+   "p_any": 0.017,
+   "p_two": 0.0081,
+   "p_first": 0.0029,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0
