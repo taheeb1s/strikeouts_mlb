@@ -1,43 +1,44 @@
 {
- "graded": 613,
+ "graded": 629,
  "weeks": [
   5,
   6,
   7,
   8,
-  9
+  9,
+  10
  ],
- "base_rate": 0.2268,
- "brier": 0.1538,
- "brier_base": 0.1753,
- "brier_two": 0.0414,
- "brier_two_base": 0.0436,
- "brier_first": 0.0539,
- "brier_first_base": 0.0553,
+ "base_rate": 0.2242,
+ "brier": 0.1518,
+ "brier_base": 0.1739,
+ "brier_two": 0.0415,
+ "brier_two_base": 0.044,
+ "brier_first": 0.0527,
+ "brier_first_base": 0.054,
  "bands": [
   {
    "band": "under 10%",
-   "n": 145,
+   "n": 147,
    "said": 0.058,
-   "happened": 0.055
+   "happened": 0.054
   },
   {
    "band": "10-20%",
-   "n": 162,
+   "n": 172,
    "said": 0.146,
-   "happened": 0.154
+   "happened": 0.145
   },
   {
    "band": "20-30%",
-   "n": 140,
+   "n": 141,
    "said": 0.25,
-   "happened": 0.279
+   "happened": 0.277
   },
   {
    "band": "30-45%",
-   "n": 126,
+   "n": 129,
    "said": 0.368,
-   "happened": 0.341
+   "happened": 0.349
   },
   {
    "band": "over 45%",
@@ -71,9 +72,126 @@
    "week": 9,
    "hit": 0,
    "of": 10
+  },
+  {
+   "week": 10,
+   "hit": 0,
+   "of": 10
   }
  ],
  "recent": [
+  {
+   "week": 10,
+   "player": "Derrick Henry",
+   "p_any": 0.43,
+   "tds": 2,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Zay Flowers",
+   "p_any": 0.414,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Omarion Hampton",
+   "p_any": 0.326,
+   "tds": 1,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Kimani Vidal",
+   "p_any": 0.206,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Justice Hill",
+   "p_any": 0.199,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Mark Andrews",
+   "p_any": 0.197,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Keaton Mitchell",
+   "p_any": 0.185,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Tre Harris",
+   "p_any": 0.165,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Oronde Gadsden II",
+   "p_any": 0.164,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Ja'Kobi Lane",
+   "p_any": 0.152,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Charlie Kolar",
+   "p_any": 0.137,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Quentin Johnston",
+   "p_any": 0.133,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Rashod Bateman",
+   "p_any": 0.13,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Josh Cuevas",
+   "p_any": 0.109,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "Derius Davis",
+   "p_any": 0.066,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 10,
+   "player": "LaJohntay Wester",
+   "p_any": 0.054,
+   "tds": 0,
+   "first": false
+  },
   {
    "week": 9,
    "player": "James Cook",
@@ -1361,119 +1479,7 @@
    "p_any": 0.1,
    "tds": 0,
    "first": false
-  },
-  {
-   "week": 7,
-   "player": "Elic Ayomanor",
-   "p_any": 0.098,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Josh Cuevas",
-   "p_any": 0.098,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Austin Hooper",
-   "p_any": 0.097,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "J. Michael Sturdivant",
-   "p_any": 0.096,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Jalen Nailor",
-   "p_any": 0.095,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Tez Johnson",
-   "p_any": 0.094,
-   "tds": 1,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Cole Kmet",
-   "p_any": 0.091,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Isaiah Williams",
-   "p_any": 0.091,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Brevyn Spann-Ford",
-   "p_any": 0.09,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Jelani Woods",
-   "p_any": 0.089,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Chris Bell",
-   "p_any": 0.087,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Malik Benson",
-   "p_any": 0.086,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Jerry Jeudy",
-   "p_any": 0.083,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Kyle Williams",
-   "p_any": 0.077,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Myles Price",
-   "p_any": 0.077,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Justice Hill",
-   "p_any": 0.076,
-   "tds": 0,
-   "first": false
   }
  ],
- "generated_at": "2026-11-16T20:45:04+00:00"
+ "generated_at": "2026-11-17T12:37:31+00:00"
 }

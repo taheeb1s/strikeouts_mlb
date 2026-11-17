@@ -1,48 +1,129 @@
 {
- "graded": 204,
+ "graded": 214,
  "weeks": [
   6,
   7,
   8,
-  9
+  9,
+  10
  ],
  "model_mae": 1.598,
- "naive_mae": 1.637,
- "gap": 0.039,
- "se": 0.7,
+ "naive_mae": 1.64,
+ "gap": 0.042,
+ "se": 0.8,
  "market_mae": 1.43,
- "floor_hit": 0.6961,
- "floor_hit_naive": 0.6078,
- "at_least_2": 0.7892,
+ "floor_hit": 0.6963,
+ "floor_hit_naive": 0.6168,
+ "at_least_2": 0.785,
  "bet": {
-  "n": 201,
-  "raw": 0.5274,
-  "floored": 0.5672,
-  "floored_under_share": 0.8408,
-  "always_under": 0.5572,
+  "n": 211,
+  "raw": 0.5355,
+  "floored": 0.5592,
+  "floored_under_share": 0.8483,
+  "always_under": 0.5498,
   "break_even": 0.524
  },
  "by_pos": [
   {
    "pos": "WR",
-   "n": 118,
-   "model": 1.542,
-   "naive": 1.432
+   "n": 122,
+   "model": 1.533,
+   "naive": 1.426
   },
   {
    "pos": "TE",
-   "n": 51,
-   "model": 1.882,
-   "naive": 2.02
+   "n": 54,
+   "model": 1.907,
+   "naive": 2.019
   },
   {
    "pos": "RB",
-   "n": 35,
-   "model": 1.371,
-   "naive": 1.771
+   "n": 38,
+   "model": 1.368,
+   "naive": 1.789
   }
  ],
  "recent": [
+  {
+   "week": 10,
+   "player": "Charlie Kolar",
+   "pos": "TE",
+   "proj": 2.9,
+   "actual": 2,
+   "err": 0.9
+  },
+  {
+   "week": 10,
+   "player": "Justice Hill",
+   "pos": "RB",
+   "proj": 2.5,
+   "actual": 5,
+   "err": -2.5
+  },
+  {
+   "week": 10,
+   "player": "Keaton Mitchell",
+   "pos": "RB",
+   "proj": 2.0,
+   "actual": 0,
+   "err": 2.0
+  },
+  {
+   "week": 10,
+   "player": "Kimani Vidal",
+   "pos": "RB",
+   "proj": 1.6,
+   "actual": 2,
+   "err": -0.4
+  },
+  {
+   "week": 10,
+   "player": "Mark Andrews",
+   "pos": "TE",
+   "proj": 3.9,
+   "actual": 8,
+   "err": -4.2
+  },
+  {
+   "week": 10,
+   "player": "Oronde Gadsden II",
+   "pos": "TE",
+   "proj": 2.8,
+   "actual": 1,
+   "err": 1.8
+  },
+  {
+   "week": 10,
+   "player": "Quentin Johnston",
+   "pos": "WR",
+   "proj": 2.4,
+   "actual": 1,
+   "err": 1.4
+  },
+  {
+   "week": 10,
+   "player": "Rashod Bateman",
+   "pos": "WR",
+   "proj": 1.9,
+   "actual": 3,
+   "err": -1.1
+  },
+  {
+   "week": 10,
+   "player": "Tre Harris",
+   "pos": "WR",
+   "proj": 3.3,
+   "actual": 5,
+   "err": -1.7
+  },
+  {
+   "week": 10,
+   "player": "Zay Flowers",
+   "pos": "WR",
+   "proj": 4.6,
+   "actual": 6,
+   "err": -1.4
+  },
   {
    "week": 9,
    "player": "Aaron Jones",
@@ -1562,87 +1643,7 @@
    "proj": 2.2,
    "actual": 3,
    "err": -0.8
-  },
-  {
-   "week": 6,
-   "player": "Parker Washington",
-   "pos": "WR",
-   "proj": 4.0,
-   "actual": 4,
-   "err": 0.0
-  },
-  {
-   "week": 6,
-   "player": "Pat Freiermuth",
-   "pos": "TE",
-   "proj": 3.1,
-   "actual": 2,
-   "err": 1.1
-  },
-  {
-   "week": 6,
-   "player": "Rashid Shaheed",
-   "pos": "WR",
-   "proj": 2.4,
-   "actual": 5,
-   "err": -2.6
-  },
-  {
-   "week": 6,
-   "player": "Rashod Bateman",
-   "pos": "WR",
-   "proj": 2.6,
-   "actual": 0,
-   "err": 2.6
-  },
-  {
-   "week": 6,
-   "player": "Rhamondre Stevenson",
-   "pos": "RB",
-   "proj": 2.4,
-   "actual": 0,
-   "err": 2.4
-  },
-  {
-   "week": 6,
-   "player": "Rome Odunze",
-   "pos": "WR",
-   "proj": 3.4,
-   "actual": 3,
-   "err": 0.4
-  },
-  {
-   "week": 6,
-   "player": "Romeo Doubs",
-   "pos": "WR",
-   "proj": 2.8,
-   "actual": 1,
-   "err": 1.8
-  },
-  {
-   "week": 6,
-   "player": "Ryan Flournoy",
-   "pos": "WR",
-   "proj": 2.8,
-   "actual": 7,
-   "err": -4.2
-  },
-  {
-   "week": 6,
-   "player": "Tre Tucker",
-   "pos": "WR",
-   "proj": 3.3,
-   "actual": 5,
-   "err": -1.7
-  },
-  {
-   "week": 6,
-   "player": "Trey McBride",
-   "pos": "TE",
-   "proj": 7.3,
-   "actual": 7,
-   "err": 0.3
   }
  ],
- "generated_at": "2026-11-16T20:44:48+00:00"
+ "generated_at": "2026-11-17T12:37:16+00:00"
 }
