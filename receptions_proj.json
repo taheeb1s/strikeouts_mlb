@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-17T12:37:14+00:00",
+ "generated_at": "2026-11-18T12:26:05+00:00",
  "season": 2026,
  "week": 11,
  "trained_on": [
@@ -688,6 +688,17 @@
    "targets_recent": 10.4
   },
   {
+   "player": "Luther Burden III",
+   "team": "CHI",
+   "opponent": "NO",
+   "pos": "WR",
+   "proj": 4.75,
+   "season_avg": 5.44,
+   "line": 4.5,
+   "p_over": 0.6061,
+   "targets_recent": 7.4
+  },
+  {
    "player": "George Kittle",
    "team": "SF",
    "opponent": "MIN",
@@ -697,17 +708,6 @@
    "line": 4.5,
    "p_over": 0.596,
    "targets_recent": 8.0
-  },
-  {
-   "player": "Luther Burden III",
-   "team": "CHI",
-   "opponent": "NO",
-   "pos": "WR",
-   "proj": 4.68,
-   "season_avg": 5.44,
-   "line": 4.5,
-   "p_over": 0.5859,
-   "targets_recent": 7.2
   },
   {
    "player": "Tee Higgins",
