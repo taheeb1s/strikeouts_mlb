@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T12:26:20+00:00",
+ "generated_at": "2026-11-19T19:15:45+00:00",
  "season": 2026,
  "week": 11,
  "trained_on": [
@@ -3725,20 +3725,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Simi Fehoko",
-   "player_id": "00-0036646",
-   "team": "ARI",
-   "opponent": "KC",
-   "game": "ARI@KC",
-   "pos": "WR",
-   "p_any": 0.0466,
-   "p_two": 0.0081,
-   "p_first": 0.0075,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
    "player": "KhaDarel Hodge",
    "player_id": "00-0034854",
    "team": "SF",
@@ -3748,6 +3734,20 @@
    "p_any": 0.0466,
    "p_two": 0.0081,
    "p_first": 0.0095,
+   "i5pg": 0.0,
+   "rzpg": 0.0,
+   "td_rate": 0.0
+  },
+  {
+   "player": "Simi Fehoko",
+   "player_id": "00-0036646",
+   "team": "ARI",
+   "opponent": "KC",
+   "game": "ARI@KC",
+   "pos": "WR",
+   "p_any": 0.0466,
+   "p_two": 0.0081,
+   "p_first": 0.0075,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0

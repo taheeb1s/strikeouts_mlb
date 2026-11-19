@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-18T12:25:42+00:00",
+ "generated_at": "2026-11-19T19:14:39+00:00",
  "backtest": {
   "games": 1569,
   "accuracy": 0.6348,
@@ -963,7 +963,7 @@
    "pred_total": 46.0,
    "pick": "CAR",
    "confidence": 0.5318,
-   "vegas_spread": 2.5,
+   "vegas_spread": 3.0,
    "elo_home": 1431.3,
    "elo_away": 1457.1
   },
@@ -1014,7 +1014,7 @@
    "pred_total": 46.1,
    "pick": "DET",
    "confidence": 0.7416,
-   "vegas_spread": 7.0,
+   "vegas_spread": 6.0,
    "elo_home": 1622.1,
    "elo_away": 1486.9
   },
@@ -1031,7 +1031,7 @@
    "pred_total": 44.4,
    "pick": "KC",
    "confidence": 0.8273,
-   "vegas_spread": 16.5,
+   "vegas_spread": 15.5,
    "elo_home": 1588.1,
    "elo_away": 1364.0
   },
@@ -1065,7 +1065,7 @@
    "pred_total": 43.6,
    "pick": "LAC",
    "confidence": 0.6807,
-   "vegas_spread": 3.5,
+   "vegas_spread": 3.0,
    "elo_home": 1392.7,
    "elo_away": 1309.2
   },
@@ -1167,7 +1167,7 @@
    "pred_total": 48.3,
    "pick": "DET",
    "confidence": 0.5612,
-   "vegas_spread": -1.5,
+   "vegas_spread": -2.5,
    "elo_home": 1622.1,
    "elo_away": 1627.3
   },
@@ -1252,7 +1252,7 @@
    "pred_total": 44.8,
    "pick": "CLE",
    "confidence": 0.6547,
-   "vegas_spread": 3.5,
+   "vegas_spread": 4.5,
    "elo_home": 1445.8,
    "elo_away": 1382.7
   },
@@ -1354,7 +1354,7 @@
    "pred_total": 46.1,
    "pick": "WAS",
    "confidence": 0.5381,
-   "vegas_spread": -6.0,
+   "vegas_spread": -6.5,
    "elo_home": 1364.0,
    "elo_away": 1438.5
   },
@@ -1371,7 +1371,7 @@
    "pred_total": 45.4,
    "pick": "SF",
    "confidence": 0.559,
-   "vegas_spread": 3.0,
+   "vegas_spread": 2.5,
    "elo_home": 1649.7,
    "elo_away": 1656.5
   },
@@ -1388,7 +1388,7 @@
    "pred_total": 43.9,
    "pick": "NE",
    "confidence": 0.6397,
-   "vegas_spread": 5.5,
+   "vegas_spread": 4.5,
    "elo_home": 1392.7,
    "elo_away": 1540.4
   },
