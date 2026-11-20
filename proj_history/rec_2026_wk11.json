@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-19T19:15:15+00:00",
+ "generated_at": "2026-11-20T18:06:58+00:00",
  "season": 2026,
  "week": 11,
  "trained_on": [
@@ -732,17 +732,6 @@
    "targets_recent": 7.8
   },
   {
-   "player": "Tyler Warren",
-   "team": "IND",
-   "opponent": "HOU",
-   "pos": "TE",
-   "proj": 4.55,
-   "season_avg": 5.0,
-   "line": 4.5,
-   "p_over": 0.5455,
-   "targets_recent": 6.8
-  },
-  {
    "player": "Chase Brown",
    "team": "CIN",
    "opponent": "WAS",
@@ -895,17 +884,6 @@
    "line": 3.5,
    "p_over": 0.6364,
    "targets_recent": 5.6
-  },
-  {
-   "player": "Nico Collins",
-   "team": "HOU",
-   "opponent": "IND",
-   "pos": "WR",
-   "proj": 3.78,
-   "season_avg": 5.29,
-   "line": 3.5,
-   "p_over": 0.6364,
-   "targets_recent": 7.4
   },
   {
    "player": "Chris Godwin Jr.",
@@ -1249,17 +1227,6 @@
    "targets_recent": 5.6
   },
   {
-   "player": "Dalton Schultz",
-   "team": "HOU",
-   "opponent": "IND",
-   "pos": "TE",
-   "proj": 3.0,
-   "season_avg": 4.0,
-   "line": 2.5,
-   "p_over": 0.6667,
-   "targets_recent": 4.4
-  },
-  {
    "player": "Kendrick Bourne",
    "team": "ARI",
    "opponent": "KC",
@@ -1280,17 +1247,6 @@
    "line": 2.5,
    "p_over": 0.5758,
    "targets_recent": 3.6
-  },
-  {
-   "player": "Xavier Hutchinson",
-   "team": "HOU",
-   "opponent": "IND",
-   "pos": "WR",
-   "proj": 2.97,
-   "season_avg": 3.11,
-   "line": 2.5,
-   "p_over": 0.5758,
-   "targets_recent": 5.6
   },
   {
    "player": "Michael Mayer",
@@ -1425,17 +1381,6 @@
    "targets_recent": 6.8
   },
   {
-   "player": "Jonathan Taylor",
-   "team": "IND",
-   "opponent": "HOU",
-   "pos": "RB",
-   "proj": 2.69,
-   "season_avg": 2.8,
-   "line": 2.5,
-   "p_over": 0.5051,
-   "targets_recent": 4.2
-  },
-  {
    "player": "Mason Taylor",
    "team": "NYJ",
    "opponent": "LAC",
@@ -1511,17 +1456,6 @@
    "line": 2.5,
    "p_over": 0.4444,
    "targets_recent": 4.2
-  },
-  {
-   "player": "Jaylin Noel",
-   "team": "HOU",
-   "opponent": "IND",
-   "pos": "WR",
-   "proj": 2.35,
-   "season_avg": 2.71,
-   "line": 2.5,
-   "p_over": 0.4444,
-   "targets_recent": 3.2
   },
   {
    "player": "D'Andre Swift",
@@ -1755,17 +1689,6 @@
    "targets_recent": 2.0
   },
   {
-   "player": "Marvin Harrison Jr.",
-   "team": "HOU",
-   "opponent": "IND",
-   "pos": "WR",
-   "proj": 1.93,
-   "season_avg": 1.57,
-   "line": 1.5,
-   "p_over": 0.6263,
-   "targets_recent": 4.0
-  },
-  {
    "player": "Pat Bryant",
    "team": "DEN",
    "opponent": "LV",
@@ -1841,17 +1764,6 @@
    "line": 1.5,
    "p_over": 0.6263,
    "targets_recent": 2.4
-  },
-  {
-   "player": "Laquon Treadwell",
-   "team": "IND",
-   "opponent": "HOU",
-   "pos": "WR",
-   "proj": 1.8,
-   "season_avg": 1.9,
-   "line": 1.5,
-   "p_over": 0.6263,
-   "targets_recent": 2.6
   },
   {
    "player": "Jalen Nailor",
@@ -2052,17 +1964,6 @@
    "targets_recent": 2.6
   },
   {
-   "player": "Kayshon Boutte",
-   "team": "HOU",
-   "opponent": "IND",
-   "pos": "WR",
-   "proj": 1.41,
-   "season_avg": 2.11,
-   "line": 1.5,
-   "p_over": 0.3838,
-   "targets_recent": 3.2
-  },
-  {
    "player": "Emmett Johnson",
    "team": "KC",
    "opponent": "ARI",
@@ -2148,17 +2049,6 @@
    "season_avg": 1.88,
    "line": 1.5,
    "p_over": 0.3535,
-   "targets_recent": 2.6
-  },
-  {
-   "player": "Woody Marks",
-   "team": "HOU",
-   "opponent": "IND",
-   "pos": "RB",
-   "proj": 1.18,
-   "season_avg": 1.78,
-   "line": 1.5,
-   "p_over": 0.3434,
    "targets_recent": 2.6
   },
   {
