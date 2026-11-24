@@ -1,0 +1,1016 @@
+{
+ "captured_at": "2026-11-24T01:19:31+00:00",
+ "market": "player_receptions",
+ "sport": "americanfootball_nfl",
+ "games_captured": 1,
+ "credits_spent": 1,
+ "credits_remaining": "450",
+ "games": [
+  {
+   "id": "3a60ed1d20004aa4d4772b2c1a2272e7",
+   "sport_key": "americanfootball_nfl",
+   "sport_title": "NFL",
+   "commence_time": "2026-11-24T01:16:17Z",
+   "home_team": "Washington Commanders",
+   "away_team": "Cincinnati Bengals",
+   "bookmakers": [
+    {
+     "key": "draftkings",
+     "title": "DraftKings",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-11-24T01:18:17Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Ja'Marr Chase",
+         "price": -145,
+         "point": 7.5
+        },
+        {
+         "name": "Under",
+         "description": "Ja'Marr Chase",
+         "price": 105,
+         "point": 7.5
+        },
+        {
+         "name": "Over",
+         "description": "Tee Higgins",
+         "price": 105,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Tee Higgins",
+         "price": -140,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Stefon Diggs",
+         "price": -125,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Stefon Diggs",
+         "price": -105,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Chase Brown",
+         "price": 105,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Chase Brown",
+         "price": -140,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Chig Okonkwo",
+         "price": -165,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Chig Okonkwo",
+         "price": 125,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Antonio Williams",
+         "price": 120,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Antonio Williams",
+         "price": -160,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Gesicki",
+         "price": 100,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Mike Gesicki",
+         "price": -135,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Dohnte Meyers",
+         "price": 135,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Dohnte Meyers",
+         "price": -185,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Treylon Burks",
+         "price": 140,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Treylon Burks",
+         "price": -190,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Rachaad White",
+         "price": -125,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Rachaad White",
+         "price": -110,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Drew Sample",
+         "price": 140,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Drew Sample",
+         "price": -190,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Austin Ekeler",
+         "price": 145,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Austin Ekeler",
+         "price": -200,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Samaje Perine",
+         "price": 165,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Samaje Perine",
+         "price": -225,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Van Jefferson",
+         "price": -195,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Van Jefferson",
+         "price": 140,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Jacory Croskey-Merritt",
+         "price": -140,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Jacory Croskey-Merritt",
+         "price": 100,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Ben Sinnott",
+         "price": -105,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Ben Sinnott",
+         "price": -130,
+         "point": 0.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "fanduel",
+     "title": "FanDuel",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-11-24T01:19:02Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Stefon Diggs",
+         "price": -130,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Stefon Diggs",
+         "price": -102,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Tee Higgins",
+         "price": 120,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Tee Higgins",
+         "price": -160,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Drew Sample",
+         "price": 182,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Drew Sample",
+         "price": -250,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Ja'Marr Chase",
+         "price": -136,
+         "point": 7.5
+        },
+        {
+         "name": "Under",
+         "description": "Ja'Marr Chase",
+         "price": 102,
+         "point": 7.5
+        },
+        {
+         "name": "Over",
+         "description": "Rachaad White",
+         "price": -144,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Rachaad White",
+         "price": 108,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Austin Ekeler",
+         "price": 118,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Austin Ekeler",
+         "price": -158,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Dohnte Meyers",
+         "price": -210,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Dohnte Meyers",
+         "price": 154,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Antonio Williams",
+         "price": 108,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Antonio Williams",
+         "price": -144,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Samaje Perine",
+         "price": 172,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Samaje Perine",
+         "price": -235,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Chase Brown",
+         "price": -166,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Chase Brown",
+         "price": 124,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Gesicki",
+         "price": 120,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Mike Gesicki",
+         "price": -160,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Treylon Burks",
+         "price": 134,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Treylon Burks",
+         "price": -180,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Chig Okonkwo",
+         "price": 110,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Chig Okonkwo",
+         "price": -146,
+         "point": 4.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betonlineag",
+     "title": "BetOnline.ag",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-11-24T01:15:27Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Stefon Diggs",
+         "price": -135,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Stefon Diggs",
+         "price": 105,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Ja'Marr Chase",
+         "price": 102,
+         "point": 8.5
+        },
+        {
+         "name": "Under",
+         "description": "Ja'Marr Chase",
+         "price": -132,
+         "point": 8.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Gesicki",
+         "price": -108,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Mike Gesicki",
+         "price": -120,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Chig Okonkwo",
+         "price": 117,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Chig Okonkwo",
+         "price": -152,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Tee Higgins",
+         "price": 100,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Tee Higgins",
+         "price": -130,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Chase Brown",
+         "price": -101,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Chase Brown",
+         "price": -128,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Antonio Williams",
+         "price": 104,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Antonio Williams",
+         "price": -135,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Drew Sample",
+         "price": 158,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Drew Sample",
+         "price": -208,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Samaje Perine",
+         "price": 158,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Samaje Perine",
+         "price": -208,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Treylon Burks",
+         "price": 134,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Treylon Burks",
+         "price": -175,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Dohnte Meyers",
+         "price": 130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Dohnte Meyers",
+         "price": -169,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Ben Sinnott",
+         "price": 100,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Ben Sinnott",
+         "price": -130,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Van Jefferson",
+         "price": -182,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Van Jefferson",
+         "price": 139,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Austin Ekeler",
+         "price": 126,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Austin Ekeler",
+         "price": -164,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Rachaad White",
+         "price": -135,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Rachaad White",
+         "price": 105,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betrivers",
+     "title": "BetRivers",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-11-24T01:19:01Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Rachaad White",
+         "price": -152,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Van Jefferson",
+         "price": 225,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Drew Sample",
+         "price": 175,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Dohnte Meyers",
+         "price": -220,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Ja'Marr Chase",
+         "price": -136,
+         "point": 7.5
+        },
+        {
+         "name": "Over",
+         "description": "Austin Ekeler",
+         "price": 128,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Chig Okonkwo",
+         "price": 106,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Treylon Burks",
+         "price": 114,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Gesicki",
+         "price": 112,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Stefon Diggs",
+         "price": -141,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Chase Brown",
+         "price": 118,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Tee Higgins",
+         "price": 116,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Antonio Williams",
+         "price": -106,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Samaje Perine",
+         "price": 165,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "betmgm",
+     "title": "BetMGM",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-11-24T01:14:01Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Chase Brown",
+         "price": 100,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Chase Brown",
+         "price": -135,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Chig Okonkwo",
+         "price": 120,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Chig Okonkwo",
+         "price": -160,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Antonio Williams",
+         "price": 105,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Antonio Williams",
+         "price": -140,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Gesicki",
+         "price": -105,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Mike Gesicki",
+         "price": -130,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Stefon Diggs",
+         "price": -145,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Stefon Diggs",
+         "price": 105,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Ja'Marr Chase",
+         "price": 105,
+         "point": 8.5
+        },
+        {
+         "name": "Under",
+         "description": "Ja'Marr Chase",
+         "price": -140,
+         "point": 8.5
+        },
+        {
+         "name": "Over",
+         "description": "Tee Higgins",
+         "price": 100,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Tee Higgins",
+         "price": -135,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Treylon Burks",
+         "price": 130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Treylon Burks",
+         "price": -175,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Dohnte Meyers",
+         "price": 130,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Dohnte Meyers",
+         "price": -175,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Samaje Perine",
+         "price": 160,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Samaje Perine",
+         "price": -220,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Drew Sample",
+         "price": 145,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Drew Sample",
+         "price": -200,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Van Jefferson",
+         "price": -200,
+         "point": 0.5
+        },
+        {
+         "name": "Under",
+         "description": "Van Jefferson",
+         "price": 145,
+         "point": 0.5
+        },
+        {
+         "name": "Over",
+         "description": "Austin Ekeler",
+         "price": 125,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Austin Ekeler",
+         "price": -165,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Rachaad White",
+         "price": -140,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Rachaad White",
+         "price": 105,
+         "point": 1.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "key": "bovada",
+     "title": "Bovada",
+     "markets": [
+      {
+       "key": "player_receptions",
+       "last_update": "2026-11-24T01:19:03Z",
+       "outcomes": [
+        {
+         "name": "Over",
+         "description": "Antonio Williams",
+         "price": 100,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Antonio Williams",
+         "price": -130,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "Austin Ekeler",
+         "price": 140,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Austin Ekeler",
+         "price": -185,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Chig Okonkwo",
+         "price": 110,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Chig Okonkwo",
+         "price": -145,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Dohnte Meyers",
+         "price": -200,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Dohnte Meyers",
+         "price": 150,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Drew Sample",
+         "price": 185,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Drew Sample",
+         "price": -250,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Ja'Marr Chase",
+         "price": -125,
+         "point": 7.5
+        },
+        {
+         "name": "Under",
+         "description": "Ja'Marr Chase",
+         "price": -105,
+         "point": 7.5
+        },
+        {
+         "name": "Over",
+         "description": "Mike Gesicki",
+         "price": -120,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Mike Gesicki",
+         "price": -110,
+         "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Rachaad White",
+         "price": -115,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Rachaad White",
+         "price": -115,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Samaje Perine",
+         "price": 130,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Samaje Perine",
+         "price": -170,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Stefon Diggs",
+         "price": -145,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Stefon Diggs",
+         "price": 110,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Tee Higgins",
+         "price": 105,
+         "point": 5.5
+        },
+        {
+         "name": "Under",
+         "description": "Tee Higgins",
+         "price": -135,
+         "point": 5.5
+        },
+        {
+         "name": "Over",
+         "description": "Treylon Burks",
+         "price": 140,
+         "point": 2.5
+        },
+        {
+         "name": "Under",
+         "description": "Treylon Burks",
+         "price": -185,
+         "point": 2.5
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
