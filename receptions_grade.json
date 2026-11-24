@@ -1,49 +1,138 @@
 {
- "graded": 214,
+ "graded": 225,
  "weeks": [
   6,
   7,
   8,
   9,
-  10
+  10,
+  11
  ],
- "model_mae": 1.598,
- "naive_mae": 1.64,
- "gap": 0.042,
- "se": 0.8,
+ "model_mae": 1.609,
+ "naive_mae": 1.653,
+ "gap": 0.044,
+ "se": 0.9,
  "market_mae": 1.43,
- "floor_hit": 0.6963,
- "floor_hit_naive": 0.6168,
- "at_least_2": 0.785,
+ "floor_hit": 0.6978,
+ "floor_hit_naive": 0.6178,
+ "at_least_2": 0.7867,
  "bet": {
-  "n": 211,
-  "raw": 0.5355,
-  "floored": 0.5592,
-  "floored_under_share": 0.8483,
-  "always_under": 0.5498,
+  "n": 222,
+  "raw": 0.5315,
+  "floored": 0.5586,
+  "floored_under_share": 0.8559,
+  "always_under": 0.5495,
   "break_even": 0.524
  },
  "by_pos": [
   {
    "pos": "WR",
-   "n": 122,
-   "model": 1.533,
-   "naive": 1.426
+   "n": 128,
+   "model": 1.547,
+   "naive": 1.461
   },
   {
    "pos": "TE",
-   "n": 54,
-   "model": 1.907,
-   "naive": 2.019
+   "n": 56,
+   "model": 1.911,
+   "naive": 2.0
   },
   {
    "pos": "RB",
-   "n": 38,
-   "model": 1.368,
-   "naive": 1.789
+   "n": 41,
+   "model": 1.39,
+   "naive": 1.78
   }
  ],
  "recent": [
+  {
+   "week": 11,
+   "player": "Antonio Williams",
+   "pos": "WR",
+   "proj": 2.8,
+   "actual": 9,
+   "err": -6.2
+  },
+  {
+   "week": 11,
+   "player": "Chase Brown",
+   "pos": "RB",
+   "proj": 4.5,
+   "actual": 5,
+   "err": -0.5
+  },
+  {
+   "week": 11,
+   "player": "Chig Okonkwo",
+   "pos": "TE",
+   "proj": 3.5,
+   "actual": 4,
+   "err": -0.5
+  },
+  {
+   "week": 11,
+   "player": "Dohnte Meyers",
+   "pos": "WR",
+   "proj": 1.8,
+   "actual": 1,
+   "err": 0.8
+  },
+  {
+   "week": 11,
+   "player": "Ja'Marr Chase",
+   "pos": "WR",
+   "proj": 6.0,
+   "actual": 5,
+   "err": 1.0
+  },
+  {
+   "week": 11,
+   "player": "Mike Gesicki",
+   "pos": "TE",
+   "proj": 2.2,
+   "actual": 5,
+   "err": -2.8
+  },
+  {
+   "week": 11,
+   "player": "Rachaad White",
+   "pos": "RB",
+   "proj": 1.8,
+   "actual": 0,
+   "err": 1.8
+  },
+  {
+   "week": 11,
+   "player": "Samaje Perine",
+   "pos": "RB",
+   "proj": 1.0,
+   "actual": 4,
+   "err": -3.0
+  },
+  {
+   "week": 11,
+   "player": "Stefon Diggs",
+   "pos": "WR",
+   "proj": 4.0,
+   "actual": 4,
+   "err": 0.0
+  },
+  {
+   "week": 11,
+   "player": "Tee Higgins",
+   "pos": "WR",
+   "proj": 4.7,
+   "actual": 2,
+   "err": 2.7
+  },
+  {
+   "week": 11,
+   "player": "Treylon Burks",
+   "pos": "WR",
+   "proj": 2.1,
+   "actual": 2,
+   "err": 0.1
+  },
   {
    "week": 10,
    "player": "Charlie Kolar",
@@ -1555,95 +1644,7 @@
    "proj": 3.5,
    "actual": 3,
    "err": 0.5
-  },
-  {
-   "week": 6,
-   "player": "Laquon Treadwell",
-   "pos": "WR",
-   "proj": 2.3,
-   "actual": 2,
-   "err": 0.3
-  },
-  {
-   "week": 6,
-   "player": "Luther Burden III",
-   "pos": "WR",
-   "proj": 4.1,
-   "actual": 8,
-   "err": -3.9
-  },
-  {
-   "week": 6,
-   "player": "Makai Lemon",
-   "pos": "WR",
-   "proj": 3.3,
-   "actual": 3,
-   "err": 0.3
-  },
-  {
-   "week": 6,
-   "player": "Malachi Fields",
-   "pos": "WR",
-   "proj": 1.7,
-   "actual": 2,
-   "err": -0.3
-  },
-  {
-   "week": 6,
-   "player": "Malik Nabers",
-   "pos": "WR",
-   "proj": 6.2,
-   "actual": 12,
-   "err": -5.8
-  },
-  {
-   "week": 6,
-   "player": "Mark Andrews",
-   "pos": "TE",
-   "proj": 4.3,
-   "actual": 1,
-   "err": 3.3
-  },
-  {
-   "week": 6,
-   "player": "Matthew Golden",
-   "pos": "WR",
-   "proj": 4.2,
-   "actual": 6,
-   "err": -1.8
-  },
-  {
-   "week": 6,
-   "player": "Michael Mayer",
-   "pos": "TE",
-   "proj": 3.5,
-   "actual": 7,
-   "err": -3.5
-  },
-  {
-   "week": 6,
-   "player": "Michael Wilson",
-   "pos": "WR",
-   "proj": 6.6,
-   "actual": 4,
-   "err": 2.6
-  },
-  {
-   "week": 6,
-   "player": "Mike Evans",
-   "pos": "WR",
-   "proj": 4.7,
-   "actual": 3,
-   "err": 1.7
-  },
-  {
-   "week": 6,
-   "player": "Oronde Gadsden II",
-   "pos": "TE",
-   "proj": 2.2,
-   "actual": 3,
-   "err": -0.8
   }
  ],
- "generated_at": "2026-11-23T13:49:42+00:00"
+ "generated_at": "2026-11-24T21:43:42+00:00"
 }

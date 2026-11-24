@@ -1,50 +1,51 @@
 {
- "graded": 629,
+ "graded": 647,
  "weeks": [
   5,
   6,
   7,
   8,
   9,
-  10
+  10,
+  11
  ],
- "base_rate": 0.2242,
- "brier": 0.1518,
- "brier_base": 0.1739,
- "brier_two": 0.0415,
- "brier_two_base": 0.044,
- "brier_first": 0.0527,
- "brier_first_base": 0.054,
+ "base_rate": 0.221,
+ "brier": 0.1503,
+ "brier_base": 0.1722,
+ "brier_two": 0.0404,
+ "brier_two_base": 0.0428,
+ "brier_first": 0.0525,
+ "brier_first_base": 0.0539,
  "bands": [
   {
    "band": "under 10%",
-   "n": 147,
+   "n": 151,
    "said": 0.058,
-   "happened": 0.054
+   "happened": 0.053
   },
   {
    "band": "10-20%",
-   "n": 172,
+   "n": 176,
    "said": 0.146,
-   "happened": 0.145
+   "happened": 0.142
   },
   {
    "band": "20-30%",
-   "n": 141,
-   "said": 0.25,
-   "happened": 0.277
+   "n": 146,
+   "said": 0.249,
+   "happened": 0.274
   },
   {
    "band": "30-45%",
-   "n": 129,
+   "n": 132,
    "said": 0.368,
-   "happened": 0.349
+   "happened": 0.341
   },
   {
    "band": "over 45%",
-   "n": 40,
-   "said": 0.539,
-   "happened": 0.6
+   "n": 42,
+   "said": 0.536,
+   "happened": 0.595
   }
  ],
  "first_top10": [
@@ -77,9 +78,140 @@
    "week": 10,
    "hit": 0,
    "of": 10
+  },
+  {
+   "week": 11,
+   "hit": 1,
+   "of": 10
   }
  ],
  "recent": [
+  {
+   "week": 11,
+   "player": "Ja'Marr Chase",
+   "p_any": 0.49,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Tee Higgins",
+   "p_any": 0.458,
+   "tds": 1,
+   "first": true
+  },
+  {
+   "week": 11,
+   "player": "Chase Brown",
+   "p_any": 0.419,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Stefon Diggs",
+   "p_any": 0.317,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Rachaad White",
+   "p_any": 0.31,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Jacory Croskey-Merritt",
+   "p_any": 0.284,
+   "tds": 1,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Samaje Perine",
+   "p_any": 0.265,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Austin Ekeler",
+   "p_any": 0.246,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Mike Gesicki",
+   "p_any": 0.225,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Treylon Burks",
+   "p_any": 0.208,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Dohnte Meyers",
+   "p_any": 0.151,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Chig Okonkwo",
+   "p_any": 0.147,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Drew Sample",
+   "p_any": 0.126,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Antonio Williams",
+   "p_any": 0.117,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Tahj Brooks",
+   "p_any": 0.056,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Colson Yankoff",
+   "p_any": 0.049,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "John Bates",
+   "p_any": 0.048,
+   "tds": 0,
+   "first": false
+  },
+  {
+   "week": 11,
+   "player": "Luke McCaffrey",
+   "p_any": 0.035,
+   "tds": 0,
+   "first": false
+  },
   {
    "week": 10,
    "player": "Derrick Henry",
@@ -1353,133 +1485,7 @@
    "p_any": 0.133,
    "tds": 0,
    "first": false
-  },
-  {
-   "week": 7,
-   "player": "Elijah Higgins",
-   "p_any": 0.132,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Emmett Johnson",
-   "p_any": 0.129,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Jalen Royals",
-   "p_any": 0.123,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Gunnar Helm",
-   "p_any": 0.12,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Marvin Mims Jr.",
-   "p_any": 0.119,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Troy Franklin",
-   "p_any": 0.116,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Sione Vaki",
-   "p_any": 0.113,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Ted Hurst III",
-   "p_any": 0.113,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Mitchell Evans",
-   "p_any": 0.112,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Jaylen Wright",
-   "p_any": 0.108,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Makai Lemon",
-   "p_any": 0.108,
-   "tds": 1,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Seth McGowan",
-   "p_any": 0.108,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Brycen Tremayne",
-   "p_any": 0.105,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Jaleel McLaughlin",
-   "p_any": 0.104,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Bo Melton",
-   "p_any": 0.103,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Dylan Laube",
-   "p_any": 0.102,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Travis Homer",
-   "p_any": 0.101,
-   "tds": 0,
-   "first": false
-  },
-  {
-   "week": 7,
-   "player": "Dohnte Meyers",
-   "p_any": 0.1,
-   "tds": 0,
-   "first": false
   }
  ],
- "generated_at": "2026-11-23T13:50:12+00:00"
+ "generated_at": "2026-11-24T21:44:11+00:00"
 }
