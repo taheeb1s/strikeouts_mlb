@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T23:05:40+00:00",
+ "generated_at": "2026-11-25T23:11:48+00:00",
  "market": "player_receptions",
  "games": [
   {
@@ -120556,7 +120556,7 @@
    "matchup": "Green Bay Packers at Los Angeles Rams",
    "kickoff": "2026-11-26T01:00:00Z",
    "week": 12,
-   "captured_at": "2026-11-25T23:05:40+00:00",
+   "captured_at": "2026-11-25T23:11:47+00:00",
    "snapshots": 3,
    "players": [
     {
@@ -120626,7 +120626,7 @@
        "consensus_over": 0.5031
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 5.5,
        "consensus_over": 0.5031
       }
@@ -120701,7 +120701,7 @@
        "consensus_over": 0.5559
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 4.5,
        "consensus_over": 0.5559
       }
@@ -120776,7 +120776,7 @@
        "consensus_over": 0.5727
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 3.5,
        "consensus_over": 0.5669
       }
@@ -120788,19 +120788,19 @@
      "line": 3.5,
      "books": 5,
      "other_lines": [],
-     "consensus_over": 0.465,
+     "consensus_over": 0.4644,
      "book_spread": 0.0212,
-     "avg_vig": 0.0668,
+     "avg_vig": 0.067,
      "best_over": {
       "price": 106,
       "book": "FanDuel"
      },
      "best_under": {
-      "price": -128,
-      "book": "BetOnline.ag"
+      "price": -130,
+      "book": "BetMGM"
      },
      "shop_over": 10.8,
-     "shop_under": 6.7,
+     "shop_under": 5.5,
      "quotes": [
       {
        "book": "betmgm",
@@ -120813,8 +120813,8 @@
        "book": "betonlineag",
        "book_title": "BetOnline.ag",
        "line": 3.5,
-       "over_price": -101,
-       "under_price": -128
+       "over_price": 100,
+       "under_price": -130
       },
       {
        "book": "bovada",
@@ -120851,31 +120851,31 @@
        "consensus_over": 0.4665
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 3.5,
-       "consensus_over": 0.465
+       "consensus_over": 0.4644
       }
      ],
      "moved_line": 0.0,
-     "moved_prob": -0.0035
+     "moved_prob": -0.0041
     },
     {
      "line": 3.5,
      "books": 5,
      "other_lines": [],
-     "consensus_over": 0.4397,
-     "book_spread": 0.0138,
-     "avg_vig": 0.066,
+     "consensus_over": 0.4402,
+     "book_spread": 0.0164,
+     "avg_vig": 0.0657,
      "best_over": {
       "price": 115,
       "book": "DraftKings"
      },
      "best_under": {
-      "price": -143,
+      "price": -141,
       "book": "BetOnline.ag"
      },
-     "shop_over": 5.0,
-     "shop_under": 5.4,
+     "shop_over": 6.0,
+     "shop_under": 6.4,
      "quotes": [
       {
        "book": "betmgm",
@@ -120888,8 +120888,8 @@
        "book": "betonlineag",
        "book_title": "BetOnline.ag",
        "line": 3.5,
-       "over_price": 110,
-       "under_price": -143
+       "over_price": 109,
+       "under_price": -141
       },
       {
        "book": "bovada",
@@ -120926,13 +120926,13 @@
        "consensus_over": 0.4397
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 3.5,
-       "consensus_over": 0.4397
+       "consensus_over": 0.4402
       }
      ],
      "moved_line": 0.0,
-     "moved_prob": 0.0
+     "moved_prob": 0.0005
     },
     {
      "line": 2.5,
@@ -120996,7 +120996,7 @@
        "consensus_over": 0.5463
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 2.5,
        "consensus_over": 0.547
       }
@@ -121071,83 +121071,13 @@
        "consensus_over": 0.5178
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 2.5,
        "consensus_over": 0.5178
       }
      ],
      "moved_line": 0.0,
      "moved_prob": -0.0014
-    },
-    {
-     "line": 2.5,
-     "books": 4,
-     "other_lines": [
-      1.5
-     ],
-     "consensus_over": 0.3946,
-     "book_spread": 0.0203,
-     "avg_vig": 0.0651,
-     "best_over": {
-      "price": 142,
-      "book": "DraftKings"
-     },
-     "best_under": {
-      "price": -169,
-      "book": "BetOnline.ag"
-     },
-     "shop_over": 12.0,
-     "shop_under": 6.5,
-     "quotes": [
-      {
-       "book": "betmgm",
-       "book_title": "BetMGM",
-       "line": 2.5,
-       "over_price": 140,
-       "under_price": -190
-      },
-      {
-       "book": "betonlineag",
-       "book_title": "BetOnline.ag",
-       "line": 2.5,
-       "over_price": 130,
-       "under_price": -169
-      },
-      {
-       "book": "bovada",
-       "book_title": "Bovada",
-       "line": 2.5,
-       "over_price": 140,
-       "under_price": -185
-      },
-      {
-       "book": "draftkings",
-       "book_title": "DraftKings",
-       "line": 2.5,
-       "over_price": 142,
-       "under_price": -183
-      }
-     ],
-     "player": "Blake Corum",
-     "history": [
-      {
-       "at": "2026-11-25T22:37:22+00:00",
-       "line": 2.5,
-       "consensus_over": 0.3937
-      },
-      {
-       "at": "2026-11-25T22:43:20+00:00",
-       "line": 2.5,
-       "consensus_over": 0.3942
-      },
-      {
-       "at": "2026-11-25T23:05:40+00:00",
-       "line": 2.5,
-       "consensus_over": 0.3946
-      }
-     ],
-     "moved_line": 0.0,
-     "moved_prob": 0.0009
     },
     {
      "line": 2.5,
@@ -121216,13 +121146,76 @@
        "consensus_over": 0.3938
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 2.5,
        "consensus_over": 0.3938
       }
      ],
      "moved_line": 0.0,
      "moved_prob": 0.0
+    },
+    {
+     "line": 1.5,
+     "books": 3,
+     "other_lines": [
+      2.5
+     ],
+     "consensus_over": 0.616,
+     "book_spread": 0.0197,
+     "avg_vig": 0.0649,
+     "best_over": {
+      "price": -183,
+      "book": "DraftKings"
+     },
+     "best_under": {
+      "price": 152,
+      "book": "FanDuel"
+     },
+     "shop_over": 5.9,
+     "shop_under": 12.0,
+     "quotes": [
+      {
+       "book": "bovada",
+       "book_title": "Bovada",
+       "line": 1.5,
+       "over_price": -185,
+       "under_price": 140
+      },
+      {
+       "book": "draftkings",
+       "book_title": "DraftKings",
+       "line": 1.5,
+       "over_price": -183,
+       "under_price": 142
+      },
+      {
+       "book": "fanduel",
+       "book_title": "FanDuel",
+       "line": 1.5,
+       "over_price": -205,
+       "under_price": 152
+      }
+     ],
+     "player": "Blake Corum",
+     "history": [
+      {
+       "at": "2026-11-25T22:37:22+00:00",
+       "line": 2.5,
+       "consensus_over": 0.3937
+      },
+      {
+       "at": "2026-11-25T22:43:20+00:00",
+       "line": 2.5,
+       "consensus_over": 0.3942
+      },
+      {
+       "at": "2026-11-25T23:11:47+00:00",
+       "line": 1.5,
+       "consensus_over": 0.616
+      }
+     ],
+     "moved_line": -1.0,
+     "moved_prob": 0.2223
     },
     {
      "line": 1.5,
@@ -121284,7 +121277,7 @@
        "consensus_over": 0.6072
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 1.5,
        "consensus_over": 0.6035
       }
@@ -121359,7 +121352,7 @@
        "consensus_over": 0.55
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 1.5,
        "consensus_over": 0.55
       }
@@ -121434,7 +121427,7 @@
        "consensus_over": 0.4857
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 1.5,
        "consensus_over": 0.4857
       }
@@ -121446,9 +121439,9 @@
      "line": 1.5,
      "books": 4,
      "other_lines": [],
-     "consensus_over": 0.4874,
+     "consensus_over": 0.4864,
      "book_spread": 0.0218,
-     "avg_vig": 0.0648,
+     "avg_vig": 0.0647,
      "best_over": {
       "price": -103,
       "book": "DraftKings"
@@ -121464,8 +121457,8 @@
        "book": "betonlineag",
        "book_title": "BetOnline.ag",
        "line": 1.5,
-       "over_price": -110,
-       "under_price": -118
+       "over_price": -108,
+       "under_price": -120
       },
       {
        "book": "bovada",
@@ -121502,31 +121495,31 @@
        "consensus_over": 0.4925
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 1.5,
-       "consensus_over": 0.4874
+       "consensus_over": 0.4864
       }
      ],
      "moved_line": 0.0,
-     "moved_prob": -0.0051
+     "moved_prob": -0.0061
     },
     {
      "line": 1.5,
      "books": 5,
      "other_lines": [],
-     "consensus_over": 0.4327,
-     "book_spread": 0.0176,
-     "avg_vig": 0.0675,
+     "consensus_over": 0.4291,
+     "book_spread": 0.026,
+     "avg_vig": 0.067,
      "best_over": {
-      "price": 121,
+      "price": 126,
       "book": "DraftKings"
      },
      "best_under": {
       "price": -148,
       "book": "FanDuel"
      },
-     "shop_over": 11.0,
-     "shop_under": 5.1,
+     "shop_over": 16.0,
+     "shop_under": 7.0,
      "quotes": [
       {
        "book": "betmgm",
@@ -121546,15 +121539,15 @@
        "book": "bovada",
        "book_title": "Bovada",
        "line": 1.5,
-       "over_price": 120,
-       "under_price": -160
+       "over_price": 125,
+       "under_price": -165
       },
       {
        "book": "draftkings",
        "book_title": "DraftKings",
        "line": 1.5,
-       "over_price": 121,
-       "under_price": -154
+       "over_price": 126,
+       "under_price": -161
       },
       {
        "book": "fanduel",
@@ -121577,13 +121570,13 @@
        "consensus_over": 0.4327
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 1.5,
-       "consensus_over": 0.4327
+       "consensus_over": 0.4291
       }
      ],
      "moved_line": 0.0,
-     "moved_prob": 0.0
+     "moved_prob": -0.0036
     },
     {
      "line": 0.5,
@@ -121645,7 +121638,7 @@
        "consensus_over": 0.5636
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 0.5,
        "consensus_over": 0.5513
       }
@@ -121659,7 +121652,7 @@
    "matchup": "Chicago Bears at Detroit Lions",
    "kickoff": "2026-11-26T18:00:00Z",
    "week": 12,
-   "captured_at": "2026-11-25T23:05:40+00:00",
+   "captured_at": "2026-11-25T23:11:47+00:00",
    "snapshots": 2,
    "players": [
     {
@@ -121719,7 +121712,7 @@
        "consensus_over": 0.4633
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 7.5,
        "consensus_over": 0.4725
       }
@@ -121784,7 +121777,7 @@
        "consensus_over": 0.4426
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 5.5,
        "consensus_over": 0.44
       }
@@ -121849,7 +121842,7 @@
        "consensus_over": 0.5745
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 4.5,
        "consensus_over": 0.5745
       }
@@ -121919,7 +121912,7 @@
        "consensus_over": 0.4791
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 4.5,
        "consensus_over": 0.4791
       }
@@ -121989,7 +121982,7 @@
        "consensus_over": 0.4417
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 4.5,
        "consensus_over": 0.4417
       }
@@ -122059,7 +122052,7 @@
        "consensus_over": 0.536
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 3.5,
        "consensus_over": 0.536
       }
@@ -122129,7 +122122,7 @@
        "consensus_over": 0.4345
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 3.5,
        "consensus_over": 0.4287
       }
@@ -122199,7 +122192,7 @@
        "consensus_over": 0.5249
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 2.5,
        "consensus_over": 0.5255
       }
@@ -122269,7 +122262,7 @@
        "consensus_over": 0.4532
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 2.5,
        "consensus_over": 0.4532
       }
@@ -122339,7 +122332,7 @@
        "consensus_over": 0.4554
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 1.5,
        "consensus_over": 0.4554
       }
@@ -122409,7 +122402,7 @@
        "consensus_over": 0.3857
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 1.5,
        "consensus_over": 0.3857
       }
@@ -122472,7 +122465,7 @@
        "consensus_over": 0.6537
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 0.5,
        "consensus_over": 0.6537
       }
@@ -122542,7 +122535,7 @@
        "consensus_over": 0.6353
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 0.5,
        "consensus_over": 0.6324
       }
@@ -122612,7 +122605,7 @@
        "consensus_over": 0.5631
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 0.5,
        "consensus_over": 0.5672
       }
@@ -122682,7 +122675,7 @@
        "consensus_over": 0.5296
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 0.5,
        "consensus_over": 0.5296
       }
@@ -122696,7 +122689,7 @@
    "matchup": "Philadelphia Eagles at Dallas Cowboys",
    "kickoff": "2026-11-26T21:30:00Z",
    "week": 12,
-   "captured_at": "2026-11-25T23:05:40+00:00",
+   "captured_at": "2026-11-25T23:11:47+00:00",
    "snapshots": 2,
    "players": [
     {
@@ -122761,7 +122754,7 @@
        "consensus_over": 0.4527
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 7.5,
        "consensus_over": 0.4527
       }
@@ -122831,7 +122824,7 @@
        "consensus_over": 0.4912
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 5.5,
        "consensus_over": 0.4912
       }
@@ -122901,7 +122894,7 @@
        "consensus_over": 0.4343
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 5.5,
        "consensus_over": 0.4343
       }
@@ -122971,7 +122964,7 @@
        "consensus_over": 0.466
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 3.5,
        "consensus_over": 0.466
       }
@@ -123041,7 +123034,7 @@
        "consensus_over": 0.4096
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 3.5,
        "consensus_over": 0.4096
       }
@@ -123106,7 +123099,7 @@
        "consensus_over": 0.5751
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 2.5,
        "consensus_over": 0.5751
       }
@@ -123169,7 +123162,7 @@
        "consensus_over": 0.4803
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 2.5,
        "consensus_over": 0.4803
       }
@@ -123239,7 +123232,7 @@
        "consensus_over": 0.5859
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 1.5,
        "consensus_over": 0.5859
       }
@@ -123309,7 +123302,7 @@
        "consensus_over": 0.5634
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 1.5,
        "consensus_over": 0.5634
       }
@@ -123379,7 +123372,7 @@
        "consensus_over": 0.4652
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 1.5,
        "consensus_over": 0.4652
       }
@@ -123449,7 +123442,7 @@
        "consensus_over": 0.3662
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 1.5,
        "consensus_over": 0.3662
       }
@@ -123512,7 +123505,7 @@
        "consensus_over": 0.588
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 0.5,
        "consensus_over": 0.588
       }
@@ -123582,7 +123575,7 @@
        "consensus_over": 0.5825
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 0.5,
        "consensus_over": 0.5825
       }
@@ -123638,7 +123631,7 @@
        "consensus_over": 0.4976
       },
       {
-       "at": "2026-11-25T23:05:40+00:00",
+       "at": "2026-11-25T23:11:47+00:00",
        "line": 0.5,
        "consensus_over": 0.4976
       }

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T23:06:53+00:00",
+ "generated_at": "2026-11-25T23:12:22+00:00",
  "season": 2026,
  "week": 12,
  "trained_on": [
@@ -4355,20 +4355,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Luke Schoonmaker",
-   "player_id": "00-0038547",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "TE",
-   "p_any": 0.0653,
-   "p_two": 0.0101,
-   "p_first": 0.0117,
-   "i5pg": 0.0,
-   "rzpg": 0.2,
-   "td_rate": 0.0
-  },
-  {
    "player": "Luke Farrell",
    "player_id": "00-0036887",
    "team": "SF",
@@ -4380,6 +4366,20 @@
    "p_first": 0.0127,
    "i5pg": 0.0,
    "rzpg": 0.22,
+   "td_rate": 0.0
+  },
+  {
+   "player": "Luke Schoonmaker",
+   "player_id": "00-0038547",
+   "team": "DAL",
+   "opponent": "PHI",
+   "game": "PHI@DAL",
+   "pos": "TE",
+   "p_any": 0.0653,
+   "p_two": 0.0101,
+   "p_first": 0.0117,
+   "i5pg": 0.0,
+   "rzpg": 0.2,
    "td_rate": 0.0
   },
   {

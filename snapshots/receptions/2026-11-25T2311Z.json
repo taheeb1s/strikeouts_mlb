@@ -1,10 +1,10 @@
 {
- "captured_at": "2026-11-25T23:05:40+00:00",
+ "captured_at": "2026-11-25T23:11:47+00:00",
  "market": "player_receptions",
  "sport": "americanfootball_nfl",
  "games_captured": 3,
  "credits_spent": 3,
- "credits_remaining": "443",
+ "credits_remaining": "440",
  "games": [
   {
    "id": "5b612899d6dcdf998107f2c6c6e49a58",
@@ -20,7 +20,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:39Z",
+       "last_update": "2026-11-25T23:08:34Z",
        "outcomes": [
         {
          "name": "Over",
@@ -108,18 +108,6 @@
         },
         {
          "name": "Over",
-         "description": "Blake Corum",
-         "price": 142,
-         "point": 2.5
-        },
-        {
-         "name": "Under",
-         "description": "Blake Corum",
-         "price": -183,
-         "point": 2.5
-        },
-        {
-         "name": "Over",
          "description": "CJ Daniels",
          "price": 143,
          "point": 2.5
@@ -129,6 +117,18 @@
          "description": "CJ Daniels",
          "price": -183,
          "point": 2.5
+        },
+        {
+         "name": "Over",
+         "description": "Blake Corum",
+         "price": -183,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Blake Corum",
+         "price": 142,
+         "point": 1.5
         },
         {
          "name": "Over",
@@ -181,13 +181,13 @@
         {
          "name": "Over",
          "description": "Chris Brooks",
-         "price": 121,
+         "price": 126,
          "point": 1.5
         },
         {
          "name": "Under",
          "description": "Chris Brooks",
-         "price": -154,
+         "price": -161,
          "point": 1.5
         },
         {
@@ -212,20 +212,8 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:46Z",
+       "last_update": "2026-11-25T23:11:22Z",
        "outcomes": [
-        {
-         "name": "Over",
-         "description": "Tucker Kraft",
-         "price": -152,
-         "point": 3.5
-        },
-        {
-         "name": "Under",
-         "description": "Tucker Kraft",
-         "price": 114,
-         "point": 3.5
-        },
         {
          "name": "Over",
          "description": "Konata Mumpfield",
@@ -252,6 +240,90 @@
         },
         {
          "name": "Over",
+         "description": "Tutu Atwell",
+         "price": -146,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Tutu Atwell",
+         "price": 110,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Chris Brooks",
+         "price": 112,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Chris Brooks",
+         "price": -148,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Blake Corum",
+         "price": -205,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "Blake Corum",
+         "price": 152,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Kyren Williams",
+         "price": 106,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Kyren Williams",
+         "price": -140,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
+         "description": "MarShawn Lloyd",
+         "price": -114,
+         "point": 1.5
+        },
+        {
+         "name": "Under",
+         "description": "MarShawn Lloyd",
+         "price": -114,
+         "point": 1.5
+        },
+        {
+         "name": "Over",
+         "description": "Christian Watson",
+         "price": -144,
+         "point": 4.5
+        },
+        {
+         "name": "Under",
+         "description": "Christian Watson",
+         "price": 108,
+         "point": 4.5
+        },
+        {
+         "name": "Over",
+         "description": "Tucker Kraft",
+         "price": -152,
+         "point": 3.5
+        },
+        {
+         "name": "Under",
+         "description": "Tucker Kraft",
+         "price": 114,
+         "point": 3.5
+        },
+        {
+         "name": "Over",
          "description": "Savion Williams",
          "price": -172,
          "point": 1.5
@@ -273,18 +345,6 @@
          "description": "Tyler Higbee",
          "price": -148,
          "point": 3.5
-        },
-        {
-         "name": "Over",
-         "description": "Tutu Atwell",
-         "price": -146,
-         "point": 1.5
-        },
-        {
-         "name": "Under",
-         "description": "Tutu Atwell",
-         "price": 110,
-         "point": 1.5
         },
         {
          "name": "Over",
@@ -333,66 +393,6 @@
          "description": "Xavier Smith",
          "price": 118,
          "point": 0.5
-        },
-        {
-         "name": "Over",
-         "description": "Chris Brooks",
-         "price": 112,
-         "point": 1.5
-        },
-        {
-         "name": "Under",
-         "description": "Chris Brooks",
-         "price": -148,
-         "point": 1.5
-        },
-        {
-         "name": "Over",
-         "description": "Blake Corum",
-         "price": -205,
-         "point": 1.5
-        },
-        {
-         "name": "Under",
-         "description": "Blake Corum",
-         "price": 152,
-         "point": 1.5
-        },
-        {
-         "name": "Over",
-         "description": "MarShawn Lloyd",
-         "price": -114,
-         "point": 1.5
-        },
-        {
-         "name": "Under",
-         "description": "MarShawn Lloyd",
-         "price": -114,
-         "point": 1.5
-        },
-        {
-         "name": "Over",
-         "description": "Kyren Williams",
-         "price": 106,
-         "point": 3.5
-        },
-        {
-         "name": "Under",
-         "description": "Kyren Williams",
-         "price": -140,
-         "point": 3.5
-        },
-        {
-         "name": "Over",
-         "description": "Christian Watson",
-         "price": -144,
-         "point": 4.5
-        },
-        {
-         "name": "Under",
-         "description": "Christian Watson",
-         "price": 108,
-         "point": 4.5
         }
        ]
       }
@@ -404,7 +404,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:41Z",
+       "last_update": "2026-11-25T23:11:19Z",
        "outcomes": [
         {
          "name": "Over",
@@ -560,7 +560,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:45Z",
+       "last_update": "2026-11-25T23:11:25Z",
        "outcomes": [
         {
          "name": "Over",
@@ -644,7 +644,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:03:34Z",
+       "last_update": "2026-11-25T23:11:28Z",
        "outcomes": [
         {
          "name": "Over",
@@ -673,13 +673,13 @@
         {
          "name": "Over",
          "description": "Tyler Higbee",
-         "price": 110,
+         "price": 109,
          "point": 3.5
         },
         {
          "name": "Under",
          "description": "Tyler Higbee",
-         "price": -143,
+         "price": -141,
          "point": 3.5
         },
         {
@@ -721,13 +721,13 @@
         {
          "name": "Over",
          "description": "Kyren Williams",
-         "price": -101,
+         "price": 100,
          "point": 3.5
         },
         {
          "name": "Under",
          "description": "Kyren Williams",
-         "price": -128,
+         "price": -130,
          "point": 3.5
         },
         {
@@ -781,13 +781,13 @@
         {
          "name": "Over",
          "description": "MarShawn Lloyd",
-         "price": -110,
+         "price": -108,
          "point": 1.5
         },
         {
          "name": "Under",
          "description": "MarShawn Lloyd",
-         "price": -118,
+         "price": -120,
          "point": 1.5
         },
         {
@@ -805,13 +805,13 @@
         {
          "name": "Over",
          "description": "Blake Corum",
-         "price": 130,
+         "price": 128,
          "point": 2.5
         },
         {
          "name": "Under",
          "description": "Blake Corum",
-         "price": -169,
+         "price": -167,
          "point": 2.5
         },
         {
@@ -836,30 +836,30 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:44Z",
+       "last_update": "2026-11-25T23:10:05Z",
        "outcomes": [
         {
          "name": "Over",
          "description": "Blake Corum",
-         "price": 140,
-         "point": 2.5
+         "price": -185,
+         "point": 1.5
         },
         {
          "name": "Under",
          "description": "Blake Corum",
-         "price": -185,
-         "point": 2.5
+         "price": 140,
+         "point": 1.5
         },
         {
          "name": "Over",
          "description": "Chris Brooks",
-         "price": 120,
+         "price": 125,
          "point": 1.5
         },
         {
          "name": "Under",
          "description": "Chris Brooks",
-         "price": -160,
+         "price": -165,
          "point": 1.5
         },
         {
@@ -1038,7 +1038,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:42Z",
+       "last_update": "2026-11-25T23:11:25Z",
        "outcomes": [
         {
          "name": "Over",
@@ -1230,7 +1230,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:44Z",
+       "last_update": "2026-11-25T23:11:22Z",
        "outcomes": [
         {
          "name": "Over",
@@ -1422,7 +1422,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:44Z",
+       "last_update": "2026-11-25T23:11:19Z",
        "outcomes": [
         {
          "name": "Over",
@@ -1602,7 +1602,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:48Z",
+       "last_update": "2026-11-25T23:11:24Z",
        "outcomes": [
         {
          "name": "Over",
@@ -1674,7 +1674,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:45Z",
+       "last_update": "2026-11-25T23:11:23Z",
        "outcomes": [
         {
          "name": "Over",
@@ -1866,7 +1866,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:44Z",
+       "last_update": "2026-11-25T23:10:07Z",
        "outcomes": [
         {
          "name": "Over",
@@ -2068,7 +2068,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:40Z",
+       "last_update": "2026-11-25T23:11:22Z",
        "outcomes": [
         {
          "name": "Over",
@@ -2248,7 +2248,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:45Z",
+       "last_update": "2026-11-25T23:11:23Z",
        "outcomes": [
         {
          "name": "Over",
@@ -2428,7 +2428,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:05:19Z",
+       "last_update": "2026-11-25T23:11:22Z",
        "outcomes": [
         {
          "name": "Over",
@@ -2584,7 +2584,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:41Z",
+       "last_update": "2026-11-25T23:11:19Z",
        "outcomes": [
         {
          "name": "Over",
@@ -2740,7 +2740,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:46Z",
+       "last_update": "2026-11-25T23:11:26Z",
        "outcomes": [
         {
          "name": "Over",
@@ -2812,7 +2812,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-25T23:04:45Z",
+       "last_update": "2026-11-25T23:10:04Z",
        "outcomes": [
         {
          "name": "Over",
