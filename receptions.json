@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
  "generated_at": "2026-11-25T22:37:22+00:00",
+=======
+ "generated_at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
  "market": "player_receptions",
  "games": [
   {
@@ -120556,7 +120560,11 @@
    "matchup": "Green Bay Packers at Los Angeles Rams",
    "kickoff": "2026-11-26T01:00:00Z",
    "week": 12,
+<<<<<<< Updated upstream
    "captured_at": "2026-11-25T22:37:22+00:00",
+=======
+   "captured_at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
    "snapshots": 1,
    "players": [
     {
@@ -120616,7 +120624,11 @@
      "player": "Matthew Golden",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
        "line": 5.5,
        "consensus_over": 0.5031
       }
@@ -120681,7 +120693,11 @@
      "player": "Christian Watson",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
        "line": 4.5,
        "consensus_over": 0.5559
       }
@@ -120746,7 +120762,11 @@
      "player": "Tucker Kraft",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
        "line": 3.5,
        "consensus_over": 0.5727
       }
@@ -120758,19 +120778,33 @@
      "line": 3.5,
      "books": 5,
      "other_lines": [],
+<<<<<<< Updated upstream
      "consensus_over": 0.4685,
      "book_spread": 0.0212,
      "avg_vig": 0.0673,
+=======
+     "consensus_over": 0.4665,
+     "book_spread": 0.0212,
+     "avg_vig": 0.0676,
+>>>>>>> Stashed changes
      "best_over": {
       "price": 106,
       "book": "FanDuel"
      },
      "best_under": {
+<<<<<<< Updated upstream
       "price": -126,
       "book": "DraftKings"
      },
      "shop_over": 10.8,
      "shop_under": 7.9,
+=======
+      "price": -130,
+      "book": "BetMGM"
+     },
+     "shop_over": 10.8,
+     "shop_under": 5.5,
+>>>>>>> Stashed changes
      "quotes": [
       {
        "book": "betmgm",
@@ -120797,8 +120831,13 @@
        "book": "draftkings",
        "book_title": "DraftKings",
        "line": 3.5,
+<<<<<<< Updated upstream
        "over_price": -101,
        "under_price": -126
+=======
+       "over_price": 103,
+       "under_price": -132
+>>>>>>> Stashed changes
       },
       {
        "book": "fanduel",
@@ -120811,9 +120850,15 @@
      "player": "Kyren Williams",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
        "line": 3.5,
        "consensus_over": 0.4685
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+       "line": 3.5,
+       "consensus_over": 0.4665
+>>>>>>> Stashed changes
       }
      ],
      "moved_line": null,
@@ -120876,7 +120921,11 @@
      "player": "Tyler Higbee",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
        "line": 3.5,
        "consensus_over": 0.4397
       }
@@ -120890,19 +120939,33 @@
      "other_lines": [
       3.5
      ],
+<<<<<<< Updated upstream
      "consensus_over": 0.549,
      "book_spread": 0.0177,
      "avg_vig": 0.0637,
      "best_over": {
       "price": -135,
       "book": "Bovada"
+=======
+     "consensus_over": 0.5463,
+     "book_spread": 0.0254,
+     "avg_vig": 0.0639,
+     "best_over": {
+      "price": -130,
+      "book": "DraftKings"
+>>>>>>> Stashed changes
      },
      "best_under": {
       "price": 112,
       "book": "FanDuel"
      },
+<<<<<<< Updated upstream
      "shop_over": 6.5,
      "shop_under": 7.0,
+=======
+     "shop_over": 9.4,
+     "shop_under": 10.0,
+>>>>>>> Stashed changes
      "quotes": [
       {
        "book": "betonlineag",
@@ -120922,8 +120985,13 @@
        "book": "draftkings",
        "book_title": "DraftKings",
        "line": 2.5,
+<<<<<<< Updated upstream
        "over_price": -136,
        "under_price": 107
+=======
+       "over_price": -130,
+       "under_price": 102
+>>>>>>> Stashed changes
       },
       {
        "book": "fanduel",
@@ -120936,9 +121004,15 @@
      "player": "Konata Mumpfield",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
        "line": 2.5,
        "consensus_over": 0.549
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+       "line": 2.5,
+       "consensus_over": 0.5463
+>>>>>>> Stashed changes
       }
      ],
      "moved_line": null,
@@ -120948,9 +121022,15 @@
      "line": 2.5,
      "books": 5,
      "other_lines": [],
+<<<<<<< Updated upstream
      "consensus_over": 0.5192,
      "book_spread": 0.0419,
      "avg_vig": 0.0666,
+=======
+     "consensus_over": 0.5178,
+     "book_spread": 0.0419,
+     "avg_vig": 0.0664,
+>>>>>>> Stashed changes
      "best_over": {
       "price": -114,
       "book": "BetOnline.ag"
@@ -120987,8 +121067,13 @@
        "book": "draftkings",
        "book_title": "DraftKings",
        "line": 2.5,
+<<<<<<< Updated upstream
        "over_price": -125,
        "under_price": -102
+=======
+       "over_price": -121,
+       "under_price": -105
+>>>>>>> Stashed changes
       },
       {
        "book": "fanduel",
@@ -121001,9 +121086,15 @@
      "player": "Colby Parkinson",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
        "line": 2.5,
        "consensus_over": 0.5192
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+       "line": 2.5,
+       "consensus_over": 0.5178
+>>>>>>> Stashed changes
       }
      ],
      "moved_line": null,
@@ -121015,18 +121106,30 @@
      "other_lines": [
       1.5
      ],
+<<<<<<< Updated upstream
      "consensus_over": 0.3937,
      "book_spread": 0.0166,
      "avg_vig": 0.0652,
      "best_over": {
       "price": 142,
+=======
+     "consensus_over": 0.3942,
+     "book_spread": 0.0166,
+     "avg_vig": 0.065,
+     "best_over": {
+      "price": 141,
+>>>>>>> Stashed changes
       "book": "DraftKings"
      },
      "best_under": {
       "price": -172,
       "book": "BetOnline.ag"
      },
+<<<<<<< Updated upstream
      "shop_over": 10.0,
+=======
+     "shop_over": 9.0,
+>>>>>>> Stashed changes
      "shop_under": 5.5,
      "quotes": [
       {
@@ -121054,16 +121157,27 @@
        "book": "draftkings",
        "book_title": "DraftKings",
        "line": 2.5,
+<<<<<<< Updated upstream
        "over_price": 142,
        "under_price": -183
+=======
+       "over_price": 141,
+       "under_price": -181
+>>>>>>> Stashed changes
       }
      ],
      "player": "Blake Corum",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
        "line": 2.5,
        "consensus_over": 0.3937
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+       "line": 2.5,
+       "consensus_over": 0.3942
+>>>>>>> Stashed changes
       }
      ],
      "moved_line": null,
@@ -121126,7 +121240,11 @@
      "player": "CJ Daniels",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
        "line": 2.5,
        "consensus_over": 0.3938
       }
@@ -121184,7 +121302,11 @@
      "player": "Savion Williams",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
        "line": 1.5,
        "consensus_over": 0.6072
       }
@@ -121249,7 +121371,11 @@
      "player": "Tutu Atwell",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
        "line": 1.5,
        "consensus_over": 0.55
       }
@@ -121261,19 +121387,33 @@
      "line": 1.5,
      "books": 5,
      "other_lines": [],
+<<<<<<< Updated upstream
      "consensus_over": 0.4874,
      "book_spread": 0.0141,
      "avg_vig": 0.0663,
+=======
+     "consensus_over": 0.4857,
+     "book_spread": 0.0102,
+     "avg_vig": 0.0661,
+>>>>>>> Stashed changes
      "best_over": {
       "price": -105,
       "book": "BetMGM"
      },
      "best_under": {
+<<<<<<< Updated upstream
       "price": -116,
       "book": "DraftKings"
      },
      "shop_over": 4.3,
      "shop_under": 6.2,
+=======
+      "price": -120,
+      "book": "DraftKings"
+     },
+     "shop_over": 4.3,
+     "shop_under": 3.3,
+>>>>>>> Stashed changes
      "quotes": [
       {
        "book": "betmgm",
@@ -121300,8 +121440,13 @@
        "book": "draftkings",
        "book_title": "DraftKings",
        "line": 1.5,
+<<<<<<< Updated upstream
        "over_price": -110,
        "under_price": -116
+=======
+       "over_price": -106,
+       "under_price": -120
+>>>>>>> Stashed changes
       },
       {
        "book": "fanduel",
@@ -121314,9 +121459,15 @@
      "player": "Davis Allen",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
        "line": 1.5,
        "consensus_over": 0.4874
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+       "line": 1.5,
+       "consensus_over": 0.4857
+>>>>>>> Stashed changes
       }
      ],
      "moved_line": null,
@@ -121372,7 +121523,11 @@
      "player": "MarShawn Lloyd",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
        "line": 1.5,
        "consensus_over": 0.4925
       }
@@ -121437,7 +121592,11 @@
      "player": "Chris Brooks",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
        "line": 1.5,
        "consensus_over": 0.4327
       }
@@ -121495,7 +121654,11 @@
      "player": "Xavier Smith",
      "history": [
       {
+<<<<<<< Updated upstream
        "at": "2026-11-25T22:37:22+00:00",
+=======
+       "at": "2026-11-25T22:43:20+00:00",
+>>>>>>> Stashed changes
        "line": 0.5,
        "consensus_over": 0.5636
       }
@@ -121504,6 +121667,7 @@
      "moved_prob": null
     }
    ]
+<<<<<<< Updated upstream
   },
   {
    "matchup": "Chicago Bears at Detroit Lions",
@@ -123357,6 +123521,13 @@
  "totals": {
   "games": 162,
   "players": 2024
+=======
+  }
+ ],
+ "totals": {
+  "games": 160,
+  "players": 1995
+>>>>>>> Stashed changes
  },
  "weeks": [
   1,
