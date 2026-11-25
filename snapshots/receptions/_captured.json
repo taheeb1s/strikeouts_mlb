@@ -339,6 +339,11 @@
   "kickoff": "2026-09-15T00:15:00Z",
   "matchup": "Denver Broncos at Kansas City Chiefs"
  },
+ "5b612899d6dcdf998107f2c6c6e49a58": {
+  "captured_at": "2026-11-25T22:37:21+00:00",
+  "kickoff": "2026-11-26T01:00:00Z",
+  "matchup": "Green Bay Packers at Los Angeles Rams"
+ },
  "5d8d85473b87f772a979ecf294acab94": {
   "captured_at": "2026-11-15T15:50:22+00:00",
   "kickoff": "2026-11-15T18:00:00Z",
@@ -518,6 +523,11 @@
   "captured_at": "2026-10-04T17:35:25+00:00",
   "kickoff": "2026-10-04T17:02:33Z",
   "matchup": "Green Bay Packers at Tampa Bay Buccaneers"
+ },
+ "9b825e6518156008da499be041975fdd": {
+  "captured_at": "2026-11-25T22:37:21+00:00",
+  "kickoff": "2026-11-26T18:00:00Z",
+  "matchup": "Chicago Bears at Detroit Lions"
  },
  "9c5d8f57e0ba0fbd9ef436c1f0898f99": {
   "captured_at": "2026-10-30T23:48:32+00:00",
@@ -788,6 +798,11 @@
   "captured_at": "2026-11-08T16:49:30+00:00",
   "kickoff": "2026-11-08T18:00:00Z",
   "matchup": "New York Giants at Philadelphia Eagles"
+ },
+ "ffaa06af56a7137d4b078c5c46c0b730": {
+  "captured_at": "2026-11-25T22:37:22+00:00",
+  "kickoff": "2026-11-26T21:30:00Z",
+  "matchup": "Philadelphia Eagles at Dallas Cowboys"
  },
  "ffebea881c1d7b2dfb85b3e590c35985": {
   "captured_at": "2026-10-22T21:59:55+00:00",
