@@ -1,9 +1,5 @@
 {
-<<<<<<< Updated upstream
- "generated_at": "2026-11-25T22:37:25+00:00",
-=======
- "generated_at": "2026-11-25T22:43:24+00:00",
->>>>>>> Stashed changes
+ "generated_at": "2026-11-25T23:05:44+00:00",
  "backtest": {
   "games": 1582,
   "accuracy": 0.6353,
@@ -1137,7 +1133,7 @@
    "pred_total": 45.5,
    "pick": "WAS",
    "confidence": 0.575,
-   "vegas_spread": -7.0,
+   "vegas_spread": -6.5,
    "elo_home": 1353.8,
    "elo_away": 1454.3
   },

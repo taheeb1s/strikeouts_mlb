@@ -1,9 +1,5 @@
 {
-<<<<<<< Updated upstream
- "generated_at": "2026-11-25T22:37:30+00:00",
-=======
- "generated_at": "2026-11-25T22:43:30+00:00",
->>>>>>> Stashed changes
+ "generated_at": "2026-11-25T23:05:50+00:00",
  "backtest": {
   "games": 7497,
   "accuracy": 0.7045,
