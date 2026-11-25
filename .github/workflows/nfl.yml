@@ -140,10 +140,21 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Pull BEFORE staging. --autostash reapplies changes unstaged, so
-          # pulling after git add leaves nothing to commit and the commit
-          # fails. The MLB workflow shares this branch, so the pull is needed.
-          git pull --rebase --autostash origin main || true
+          # No pull, no rebase, no stash.
+          #
+          # The old version pulled with --autostash: it stashed the files
+          # this run had just built, pulled another run's version of the
+          # same files, then reapplied the stash on top - and conflicted
+          # with itself, committing files with <<<<<<< markers inside them.
+          # Every projection file on the site was left unparseable.
+          #
+          # Everything published here is a complete rebuild, so there is
+          # never anything to merge: this run's output simply replaces
+          # whatever was there. Moving HEAD to the remote tip while leaving
+          # the working tree alone does exactly that, with no conflict
+          # possible.
+          git fetch origin main
+          git reset --soft origin/main
 
           for f in receptions.json receptions_score.json nfl_games.json .last_daily \
                    cfb_games.json receptions_proj.json nfl_weeks.json \
@@ -155,9 +166,40 @@ jobs:
           [ -d snapshots ] && git add snapshots/
           [ -d proj_history ] && git add proj_history/
 
+          # Never publish a file a conflict has damaged.
+          bad=0
+          for f in $(git diff --staged --name-only | grep '\.json$' || true); do
+            if grep -q '^<<<<<<<\|^>>>>>>>' "$f" 2>/dev/null; then
+              echo "::error::$f contains conflict markers - not publishing"
+              bad=1
+            elif ! python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$f" 2>/dev/null; then
+              echo "::error::$f is not valid JSON - not publishing"
+              bad=1
+            fi
+          done
+          [ "$bad" = "1" ] && exit 1
+
           if git diff --staged --quiet; then
             echo "Nothing new to publish."
-          else
-            git commit -m "NFL update $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push
+            exit 0
           fi
+          git commit -m "Update $(date -u +%Y-%m-%dT%H:%MZ)"
+
+          # If another run pushed while this one was building, re-point at
+          # the new tip and commit on top. The working tree is untouched,
+          # so this run's output still wins - and there is still nothing
+          # to merge.
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "published"
+              exit 0
+            fi
+            echo "push rejected, retrying ($attempt)"
+            git fetch origin main
+            git reset --soft origin/main
+            git add -A
+            git diff --staged --quiet && { echo "nothing left to publish"; exit 0; }
+            git commit -m "Update $(date -u +%Y-%m-%dT%H:%MZ)"
+          done
+          echo "::error::could not publish after three attempts"
+          exit 1
