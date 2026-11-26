@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1577,6 +1578,7 @@ let state = { view: "home", data: null, card: null, nfl: null, nflScore: null, g
               kTab: "slate", nhl: null, nhlGrade: null, nhlTab: "slate", nhlSort: "proj",
               tsort: {}, selected: null,
               scores: {}, league2: "nfl", sbTimer: null, mbb: null,
+              qb: null, qbGrade: null,
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", open: new Set() };
@@ -2674,6 +2676,50 @@ function tdView() {
       rowId: p => p.player + p.team, limit: 200,
       empty: `Nothing matches "${state.q}".` })}
     ${tdParlays()}`;
+}
+
+function qbView() {
+  const d = state.qb;
+  if (!d || !d.players || !d.players.length) {
+    return `<div class="empty"><h2>No quarterback projections</h2>
+      <p>Rebuilt weekly. Needs four games of current-season form.</p></div>`;
+  }
+  const q = state.q.toLowerCase();
+  const rows = d.players.filter(p => !q
+    || p.player.toLowerCase().includes(q)
+    || (p.team || "").toLowerCase().includes(q)
+    || (p.opponent || "").toLowerCase().includes(q));
+  const hn = d.honesty || {}, mae = hn.mae || {}, nv = hn.mae_naive || {};
+  return `
+    <dl class="totals">
+      <div class="t"><dt>Week</dt><dd>${d.week}
+        <small>${d.players.length} quarterbacks</small></dd></div>
+      <div class="t"><dt>Completions error</dt><dd>${mae.completions ?? "—"}
+        <small>vs ${nv.completions ?? "—"} season avg</small></dd></div>
+      <div class="t"><dt>Yards error</dt><dd>${mae.passing_yards ?? "—"}
+        <small>vs ${nv.passing_yards ?? "—"}</small></dd></div>
+    </dl>
+    <p class="caption" style="max-width:62ch">A quarterback throws thirty-odd
+      passes a game, so completions scatter at only 0.34 times their own
+      mean — tighter than anything else here, and far tighter than
+      receptions at 0.95. Both markets beat a season average walk-forward
+      across four seasons.</p>
+    <p class="cal-key"><b>No over/under probabilities, and no passing
+      touchdowns.</b> The probabilities this model produced were not
+      calibrated — a stated 24% came in at 47% — so they are left out
+      rather than shown. Passing touchdowns failed to beat a season average
+      three separate ways: as a count, as "at least one", and as "two or
+      more".</p>
+    ${dataTable("qb", [
+      { key: "player", label: "Quarterback", render: p =>
+        `${p.player}<span class="sub">${p.team} vs ${p.opponent}</span>` },
+      { key: "completions", label: "Completions", lead: true,
+        render: p => p.completions.toFixed(1) },
+      { key: "passing_yards", label: "Yards",
+        render: p => Math.round(p.passing_yards) },
+      { key: "games", label: "Games" },
+    ], rows, { defaultKey: "completions", rowId: p => p.player_id,
+               limit: 60, empty: `Nothing matches "${state.q}".` })}`;
 }
 
 function recGradeView() {
@@ -4390,13 +4436,16 @@ function render() {
         <button data-nfltab="graded" aria-pressed="${state.nflTab === "graded"}">lines graded${
           nScored ? ` (${nScored})` : ""}</button>
         <span aria-hidden="true">·</span>
+        <button data-nfltab="qb" aria-pressed="${state.nflTab === "qb"}">quarterbacks${
+          state.qb && state.qb.players ? ` (${state.qb.players.length})` : ""}</button>
         <button data-nfltab="projgrade" aria-pressed="${state.nflTab === "projgrade"}">model graded${
           state.recGrade && state.recGrade.graded ? ` (${state.recGrade.graded})` : ""}</button>
       </div>`;
     RAIL(viewBar, nflBar, searchBar);
     document.getElementById("body").innerHTML =
       state.nflTab === "graded" ? nflGraded()
-        : state.nflTab === "projgrade" ? recGradeView() : nflView();
+        : state.nflTab === "projgrade" ? recGradeView()
+        : state.nflTab === "qb" ? qbView() : nflView();
     document.querySelectorAll(".nfl-views button").forEach(b =>
       b.onclick = () => { state.nflTab = b.dataset.nfltab; render(); });
     const ws = document.getElementById("wsel");
@@ -4543,12 +4592,14 @@ Promise.all([
     .then(r => r.ok ? r.json() : null).catch(() => null),
   fetch("mbb_games.json", { cache: "no-store" })
     .then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([c, n, rs, gm, cf, rp, td, rg, tg, nb, ng, hk, hg, mb]) => {
+  fetch("qb_model.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n, rs, gm, cf, rp, td, rg, tg, nb, ng, hk, hg, mb, qb]) => {
   state.card = c; state.nfl = n; state.nflScore = rs;
   state.games = gm; state.cfb = cf; state.recProj = rp;
   state.td = td; state.recGrade = rg; state.tdGrade = tg;
   state.nba = nb; state.nbaGrade = ng;
-  state.nhl = hk; state.nhlGrade = hg; state.mbb = mb;
+  state.nhl = hk; state.nhlGrade = hg; state.mbb = mb; state.qb = qb;
 })
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
