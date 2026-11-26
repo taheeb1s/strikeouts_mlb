@@ -122,6 +122,9 @@ jobs:
           python3 td_model.py --backfill --json \
             || echo "::warning::td_model.py failed - is it the current version?"
           python3 td_model.py --grade --json || echo "(nothing to grade yet)"
+          python3 qb_model.py --json \
+            || echo "::warning::qb_model.py failed"
+          python3 qb_model.py --grade --json || echo "(no QB results yet)"
           python3 nba_model.py --json \
             || echo "::warning::nba_model.py failed"
           python3 nba_model.py --grade --json || echo "(no NBA results yet)"
@@ -160,7 +163,8 @@ jobs:
                    cfb_games.json receptions_proj.json nfl_weeks.json \
                    receptions_grade.json td_model.json td_grade.json \
                    nba_model.json nba_grade.json \
-                   nhl_model.json nhl_grade.json mbb_games.json; do
+                   nhl_model.json nhl_grade.json mbb_games.json \
+                   qb_model.json qb_grade.json; do
             [ -f "$f" ] && git add "$f"
           done
           [ -d snapshots ] && git add snapshots/
