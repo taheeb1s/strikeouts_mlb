@@ -1,10 +1,10 @@
 {
- "captured_at": "2026-11-26T16:05:54+00:00",
+ "captured_at": "2026-11-26T16:11:59+00:00",
  "market": "player_receptions",
  "sport": "americanfootball_nfl",
  "games_captured": 1,
  "credits_spent": 1,
- "credits_remaining": "439",
+ "credits_remaining": "438",
  "games": [
   {
    "id": "f36f518585aec40e8cb40e071c0844aa",
@@ -20,7 +20,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-26T16:05:51Z",
+       "last_update": "2026-11-26T16:11:49Z",
        "outcomes": [
         {
          "name": "Over",
@@ -200,7 +200,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-26T16:05:25Z",
+       "last_update": "2026-11-26T16:11:15Z",
        "outcomes": [
         {
          "name": "Over",
@@ -301,13 +301,13 @@
         {
          "name": "Over",
          "description": "Ty Johnson",
-         "price": 120,
+         "price": 116,
          "point": 2.5
         },
         {
          "name": "Under",
          "description": "Ty Johnson",
-         "price": -160,
+         "price": -154,
          "point": 2.5
         },
         {
@@ -380,7 +380,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-26T16:05:54Z",
+       "last_update": "2026-11-26T16:10:23Z",
        "outcomes": [
         {
          "name": "Over",
@@ -548,7 +548,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-26T16:04:22Z",
+       "last_update": "2026-11-26T16:11:49Z",
        "outcomes": [
         {
          "name": "Over",
@@ -644,7 +644,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-26T16:05:22Z",
+       "last_update": "2026-11-26T16:11:19Z",
        "outcomes": [
         {
          "name": "Over",
@@ -824,7 +824,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-26T16:03:51Z",
+       "last_update": "2026-11-26T16:11:16Z",
        "outcomes": [
         {
          "name": "Over",

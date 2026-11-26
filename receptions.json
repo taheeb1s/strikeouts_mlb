@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T16:05:55+00:00",
+ "generated_at": "2026-11-26T16:12:00+00:00",
  "market": "player_receptions",
  "games": [
   {
@@ -123645,7 +123645,7 @@
    "matchup": "Kansas City Chiefs at Buffalo Bills",
    "kickoff": "2026-11-27T01:20:00Z",
    "week": 12,
-   "captured_at": "2026-11-26T16:05:54+00:00",
+   "captured_at": "2026-11-26T16:11:59+00:00",
    "snapshots": 1,
    "players": [
     {
@@ -123705,7 +123705,7 @@
      "player": "Rashee Rice",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 4.5,
        "consensus_over": 0.4745
       }
@@ -123765,7 +123765,7 @@
      "player": "Travis Kelce",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 4.5,
        "consensus_over": 0.4145
       }
@@ -123830,7 +123830,7 @@
      "player": "DJ Moore",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 3.5,
        "consensus_over": 0.551
       }
@@ -123895,7 +123895,7 @@
      "player": "Emmett Johnson",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 3.5,
        "consensus_over": 0.5398
       }
@@ -123960,7 +123960,7 @@
      "player": "Khalil Shakir",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 3.5,
        "consensus_over": 0.497
       }
@@ -124020,7 +124020,7 @@
      "player": "Josh Downs",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 3.5,
        "consensus_over": 0.4271
       }
@@ -124085,7 +124085,7 @@
      "player": "Dalton Kincaid",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 3.5,
        "consensus_over": 0.4211
       }
@@ -124097,9 +124097,9 @@
      "line": 2.5,
      "books": 5,
      "other_lines": [],
-     "consensus_over": 0.423,
+     "consensus_over": 0.4246,
      "book_spread": 0.0407,
-     "avg_vig": 0.067,
+     "avg_vig": 0.0668,
      "best_over": {
       "price": 135,
       "book": "BetMGM"
@@ -124143,16 +124143,16 @@
        "book": "fanduel",
        "book_title": "FanDuel",
        "line": 2.5,
-       "over_price": 120,
-       "under_price": -160
+       "over_price": 116,
+       "under_price": -154
       }
      ],
      "player": "Ty Johnson",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 2.5,
-       "consensus_over": 0.423
+       "consensus_over": 0.4246
       }
      ],
      "moved_line": null,
@@ -124210,7 +124210,7 @@
      "player": "Xavier Worthy",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 2.5,
        "consensus_over": 0.4105
       }
@@ -124275,7 +124275,7 @@
      "player": "Keon Coleman",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 1.5,
        "consensus_over": 0.6081
       }
@@ -124340,7 +124340,7 @@
      "player": "Noah Gray",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 1.5,
        "consensus_over": 0.4628
       }
@@ -124398,7 +124398,7 @@
      "player": "Dawson Knox",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 1.5,
        "consensus_over": 0.4403
       }
@@ -124463,7 +124463,7 @@
      "player": "James Cook",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 1.5,
        "consensus_over": 0.4135
       }
@@ -124528,7 +124528,7 @@
      "player": "Cyrus Allen",
      "history": [
       {
-       "at": "2026-11-26T16:05:54+00:00",
+       "at": "2026-11-26T16:11:59+00:00",
        "line": 1.5,
        "consensus_over": 0.3598
       }
