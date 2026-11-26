@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T17:12:33+00:00",
+ "generated_at": "2026-11-26T17:17:34+00:00",
  "backtest": {
   "games": 1583,
   "accuracy": 0.6355,
@@ -1133,7 +1133,7 @@
    "pred_total": 45.6,
    "pick": "SF",
    "confidence": 0.5945,
-   "vegas_spread": 2.5,
+   "vegas_spread": 3.0,
    "elo_home": 1675.0,
    "elo_away": 1656.5
   },
