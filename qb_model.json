@@ -1,0 +1,322 @@
+{
+ "generated_at": "2026-11-26T17:13:23+00:00",
+ "season": 2026,
+ "week": 12,
+ "trained_on": [
+  2021,
+  2022,
+  2023,
+  2024,
+  2025
+ ],
+ "honesty": {
+  "mae": {
+   "completions": 4.71,
+   "passing_yards": 58.84
+  },
+  "mae_naive": {
+   "completions": 4.86,
+   "passing_yards": 61.33
+  },
+  "note": "Both beat a season average walk-forward across four seasons: completions by 0.15 at 2.5 standard errors, yards by 2.5 at 3.4. No over/under probabilities: the ones this model produced were not calibrated, so they are deliberately absent. Passing touchdowns are deliberately absent - they failed to beat a season average three separate ways. No odds are collected for these markets."
+ },
+ "players": [
+  {
+   "player": "Dak Prescott",
+   "player_id": "00-0033077",
+   "team": "DAL",
+   "opponent": "PHI",
+   "games": 11,
+   "completions": 25.1,
+   "passing_yards": 297.0
+  },
+  {
+   "player": "Joe Burrow",
+   "player_id": "00-0036442",
+   "team": "CIN",
+   "opponent": "NO",
+   "games": 10,
+   "completions": 23.7,
+   "passing_yards": 287.3
+  },
+  {
+   "player": "Kirk Cousins",
+   "player_id": "00-0029604",
+   "team": "MIN",
+   "opponent": "ATL",
+   "games": 11,
+   "completions": 23.4,
+   "passing_yards": 265.0
+  },
+  {
+   "player": "Caleb Williams",
+   "player_id": "00-0039918",
+   "team": "CHI",
+   "opponent": "DET",
+   "games": 7,
+   "completions": 23.1,
+   "passing_yards": 255.2
+  },
+  {
+   "player": "Patrick Mahomes",
+   "player_id": "00-0033873",
+   "team": "KC",
+   "opponent": "BUF",
+   "games": 10,
+   "completions": 22.6,
+   "passing_yards": 253.7
+  },
+  {
+   "player": "Tyler Shough",
+   "player_id": "00-0040743",
+   "team": "NO",
+   "opponent": "CIN",
+   "games": 10,
+   "completions": 22.2,
+   "passing_yards": 213.4
+  },
+  {
+   "player": "Bo Nix",
+   "player_id": "00-0039732",
+   "team": "DEN",
+   "opponent": "PIT",
+   "games": 10,
+   "completions": 21.8,
+   "passing_yards": 235.1
+  },
+  {
+   "player": "Sam Darnold",
+   "player_id": "00-0034869",
+   "team": "SEA",
+   "opponent": "SF",
+   "games": 6,
+   "completions": 21.8,
+   "passing_yards": 245.1
+  },
+  {
+   "player": "Jacoby Brissett",
+   "player_id": "00-0033119",
+   "team": "BAL",
+   "opponent": "HOU",
+   "games": 10,
+   "completions": 21.4,
+   "passing_yards": 226.4
+  },
+  {
+   "player": "Deshaun Watson",
+   "player_id": "00-0033537",
+   "team": "CLE",
+   "opponent": "LV",
+   "games": 9,
+   "completions": 21.1,
+   "passing_yards": 213.7
+  },
+  {
+   "player": "Kyler Murray",
+   "player_id": "00-0035228",
+   "team": "MIN",
+   "opponent": "ATL",
+   "games": 6,
+   "completions": 20.9,
+   "passing_yards": 225.3
+  },
+  {
+   "player": "Cam Ward",
+   "player_id": "00-0040676",
+   "team": "TEN",
+   "opponent": "JAX",
+   "games": 10,
+   "completions": 20.7,
+   "passing_yards": 205.2
+  },
+  {
+   "player": "Jayden Daniels",
+   "player_id": "00-0039910",
+   "team": "WAS",
+   "opponent": "ARI",
+   "games": 8,
+   "completions": 20.7,
+   "passing_yards": 233.7
+  },
+  {
+   "player": "Drew Lock",
+   "player_id": "00-0035704",
+   "team": "SEA",
+   "opponent": "SF",
+   "games": 4,
+   "completions": 20.4,
+   "passing_yards": 229.9
+  },
+  {
+   "player": "C.J. Stroud",
+   "player_id": "00-0039163",
+   "team": "HOU",
+   "opponent": "BAL",
+   "games": 10,
+   "completions": 20.3,
+   "passing_yards": 244.2
+  },
+  {
+   "player": "Bryce Young",
+   "player_id": "00-0039150",
+   "team": "CAR",
+   "opponent": "TB",
+   "games": 10,
+   "completions": 20.2,
+   "passing_yards": 225.2
+  },
+  {
+   "player": "Josh Allen",
+   "player_id": "00-0034857",
+   "team": "BUF",
+   "opponent": "KC",
+   "games": 10,
+   "completions": 20.1,
+   "passing_yards": 245.2
+  },
+  {
+   "player": "Trevor Lawrence",
+   "player_id": "00-0036971",
+   "team": "JAX",
+   "opponent": "TEN",
+   "games": 10,
+   "completions": 20.1,
+   "passing_yards": 232.0
+  },
+  {
+   "player": "Baker Mayfield",
+   "player_id": "00-0034855",
+   "team": "TB",
+   "opponent": "CAR",
+   "games": 6,
+   "completions": 20.0,
+   "passing_yards": 204.6
+  },
+  {
+   "player": "Tyler Huntley",
+   "player_id": "00-0035993",
+   "team": "BAL",
+   "opponent": "HOU",
+   "games": 4,
+   "completions": 20.0,
+   "passing_yards": 223.8
+  },
+  {
+   "player": "Jared Goff",
+   "player_id": "00-0033106",
+   "team": "DET",
+   "opponent": "CHI",
+   "games": 10,
+   "completions": 19.3,
+   "passing_yards": 253.2
+  },
+  {
+   "player": "Brock Purdy",
+   "player_id": "00-0037834",
+   "team": "SF",
+   "opponent": "SEA",
+   "games": 10,
+   "completions": 19.1,
+   "passing_yards": 254.3
+  },
+  {
+   "player": "Geno Smith",
+   "player_id": "00-0030565",
+   "team": "NYJ",
+   "opponent": "MIA",
+   "games": 11,
+   "completions": 19.1,
+   "passing_yards": 206.4
+  },
+  {
+   "player": "Aaron Rodgers",
+   "player_id": "00-0023459",
+   "team": "PIT",
+   "opponent": "DEN",
+   "games": 10,
+   "completions": 18.9,
+   "passing_yards": 206.5
+  },
+  {
+   "player": "Michael Penix Jr.",
+   "player_id": "00-0039917",
+   "team": "ATL",
+   "opponent": "MIN",
+   "games": 8,
+   "completions": 18.8,
+   "passing_yards": 194.1
+  },
+  {
+   "player": "J.J. McCarthy",
+   "player_id": "00-0039923",
+   "team": "NYG",
+   "opponent": "IND",
+   "games": 5,
+   "completions": 18.7,
+   "passing_yards": 192.7
+  },
+  {
+   "player": "Drake Maye",
+   "player_id": "00-0039851",
+   "team": "NE",
+   "opponent": "LAC",
+   "games": 9,
+   "completions": 18.7,
+   "passing_yards": 226.2
+  },
+  {
+   "player": "Daniel Jones",
+   "player_id": "00-0035710",
+   "team": "IND",
+   "opponent": "NYG",
+   "games": 11,
+   "completions": 18.4,
+   "passing_yards": 179.6
+  },
+  {
+   "player": "Jameis Winston",
+   "player_id": "00-0031503",
+   "team": "NYG",
+   "opponent": "IND",
+   "games": 6,
+   "completions": 18.3,
+   "passing_yards": 201.8
+  },
+  {
+   "player": "Jalen Hurts",
+   "player_id": "00-0036389",
+   "team": "PHI",
+   "opponent": "DAL",
+   "games": 5,
+   "completions": 17.7,
+   "passing_yards": 180.7
+  },
+  {
+   "player": "Lamar Jackson",
+   "player_id": "00-0034796",
+   "team": "BAL",
+   "opponent": "HOU",
+   "games": 4,
+   "completions": 17.5,
+   "passing_yards": 233.2
+  },
+  {
+   "player": "Malik Willis",
+   "player_id": "00-0038128",
+   "team": "MIA",
+   "opponent": "NYJ",
+   "games": 8,
+   "completions": 15.3,
+   "passing_yards": 146.8
+  },
+  {
+   "player": "Justin Herbert",
+   "player_id": "00-0036355",
+   "team": "LAC",
+   "opponent": "NE",
+   "games": 10,
+   "completions": 13.7,
+   "passing_yards": 193.4
+  }
+ ]
+}
