@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T23:12:09+00:00",
+ "generated_at": "2026-11-26T15:58:22+00:00",
  "season": 2026,
  "week": 12,
  "trained_on": [
@@ -556,17 +556,6 @@
    "targets_recent": 10.6
   },
   {
-   "player": "Matthew Golden",
-   "team": "GB",
-   "opponent": "LA",
-   "pos": "WR",
-   "proj": 6.5,
-   "season_avg": 5.8,
-   "line": 6.5,
-   "p_over": 0.5253,
-   "targets_recent": 11.4
-  },
-  {
    "player": "Trey McBride",
    "team": "ARI",
    "opponent": "WAS",
@@ -609,17 +598,6 @@
    "line": 5.5,
    "p_over": 0.6566,
    "targets_recent": 9.8
-  },
-  {
-   "player": "Puka Nacua",
-   "team": "LA",
-   "opponent": "GB",
-   "pos": "WR",
-   "proj": 5.85,
-   "season_avg": 10.0,
-   "line": 5.5,
-   "p_over": 0.6465,
-   "targets_recent": 14.4
   },
   {
    "player": "Brock Bowers",
@@ -853,17 +831,6 @@
    "targets_recent": 6.2
   },
   {
-   "player": "Davante Adams",
-   "team": "LA",
-   "opponent": "GB",
-   "pos": "WR",
-   "proj": 4.16,
-   "season_avg": 5.0,
-   "line": 4.5,
-   "p_over": 0.4646,
-   "targets_recent": 8.6
-  },
-  {
    "player": "Chase Brown",
    "team": "CIN",
    "opponent": "NO",
@@ -961,17 +928,6 @@
    "line": 3.5,
    "p_over": 0.6566,
    "targets_recent": 5.2
-  },
-  {
-   "player": "Christian Watson",
-   "team": "GB",
-   "opponent": "LA",
-   "pos": "WR",
-   "proj": 3.73,
-   "season_avg": 5.2,
-   "line": 3.5,
-   "p_over": 0.6465,
-   "targets_recent": 7.8
   },
   {
    "player": "Christian McCaffrey",
@@ -1359,17 +1315,6 @@
    "targets_recent": 6.8
   },
   {
-   "player": "Tyler Higbee",
-   "team": "LA",
-   "opponent": "GB",
-   "pos": "TE",
-   "proj": 3.0,
-   "season_avg": 3.44,
-   "line": 2.5,
-   "p_over": 0.6869,
-   "targets_recent": 3.6
-  },
-  {
    "player": "Denzel Boston",
    "team": "CLE",
    "opponent": "LV",
@@ -1379,17 +1324,6 @@
    "line": 2.5,
    "p_over": 0.5758,
    "targets_recent": 6.6
-  },
-  {
-   "player": "Kyren Williams",
-   "team": "LA",
-   "opponent": "GB",
-   "pos": "RB",
-   "proj": 2.95,
-   "season_avg": 3.8,
-   "line": 2.5,
-   "p_over": 0.5657,
-   "targets_recent": 3.6
   },
   {
    "player": "Michael Mayer",
@@ -1445,17 +1379,6 @@
    "line": 2.5,
    "p_over": 0.5657,
    "targets_recent": 5.6
-  },
-  {
-   "player": "Colby Parkinson",
-   "team": "LA",
-   "opponent": "GB",
-   "pos": "TE",
-   "proj": 2.87,
-   "season_avg": 2.5,
-   "line": 2.5,
-   "p_over": 0.5455,
-   "targets_recent": 4.0
   },
   {
    "player": "Greg Dulcich",
@@ -1621,17 +1544,6 @@
    "line": 2.5,
    "p_over": 0.5152,
    "targets_recent": 3.6
-  },
-  {
-   "player": "Tucker Kraft",
-   "team": "GB",
-   "opponent": "LA",
-   "pos": "TE",
-   "proj": 2.68,
-   "season_avg": 3.7,
-   "line": 2.5,
-   "p_over": 0.5152,
-   "targets_recent": 5.4
   },
   {
    "player": "Pat Bryant",
@@ -2349,17 +2261,6 @@
    "targets_recent": 4.0
   },
   {
-   "player": "Davis Allen",
-   "team": "LA",
-   "opponent": "GB",
-   "pos": "TE",
-   "proj": 1.77,
-   "season_avg": 1.44,
-   "line": 1.5,
-   "p_over": 0.6061,
-   "targets_recent": 2.0
-  },
-  {
    "player": "Jadarian Price",
    "team": "SEA",
    "opponent": "SF",
@@ -2379,28 +2280,6 @@
    "season_avg": 1.56,
    "line": 1.5,
    "p_over": 0.6061,
-   "targets_recent": 2.6
-  },
-  {
-   "player": "Blake Corum",
-   "team": "LA",
-   "opponent": "GB",
-   "pos": "RB",
-   "proj": 1.71,
-   "season_avg": 1.3,
-   "line": 1.5,
-   "p_over": 0.596,
-   "targets_recent": 2.0
-  },
-  {
-   "player": "Tutu Atwell",
-   "team": "LA",
-   "opponent": "GB",
-   "pos": "WR",
-   "proj": 1.7,
-   "season_avg": 1.33,
-   "line": 1.5,
-   "p_over": 0.596,
    "targets_recent": 2.6
   },
   {
@@ -2481,17 +2360,6 @@
    "targets_recent": 3.2
   },
   {
-   "player": "Savion Williams",
-   "team": "GB",
-   "opponent": "LA",
-   "pos": "WR",
-   "proj": 1.65,
-   "season_avg": 2.6,
-   "line": 1.5,
-   "p_over": 0.5253,
-   "targets_recent": 3.0
-  },
-  {
    "player": "Brian Thomas Jr.",
    "team": "JAX",
    "opponent": "TEN",
@@ -2567,17 +2435,6 @@
    "line": 1.5,
    "p_over": 0.4949,
    "targets_recent": 2.0
-  },
-  {
-   "player": "Konata Mumpfield",
-   "team": "LA",
-   "opponent": "GB",
-   "pos": "WR",
-   "proj": 1.52,
-   "season_avg": 1.56,
-   "line": 1.5,
-   "p_over": 0.4747,
-   "targets_recent": 2.6
   },
   {
    "player": "Brevyn Spann-Ford",
@@ -2732,17 +2589,6 @@
    "line": 1.5,
    "p_over": 0.3636,
    "targets_recent": 1.6
-  },
-  {
-   "player": "MarShawn Lloyd",
-   "team": "GB",
-   "opponent": "LA",
-   "pos": "RB",
-   "proj": 1.21,
-   "season_avg": 1.78,
-   "line": 1.5,
-   "p_over": 0.3535,
-   "targets_recent": 1.8
   },
   {
    "player": "Ashton Dulin",

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-25T23:12:22+00:00",
+ "generated_at": "2026-11-26T15:58:51+00:00",
  "season": 2026,
  "week": 12,
  "trained_on": [
@@ -127,20 +127,6 @@
    "td_rate": 1.0
   },
   {
-   "player": "Kyren Williams",
-   "player_id": "00-0037840",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "RB",
-   "p_any": 0.4922,
-   "p_two": 0.1685,
-   "p_first": 0.114,
-   "i5pg": 0.9,
-   "rzpg": 3.2,
-   "td_rate": 0.7
-  },
-  {
    "player": "Derrick Henry",
    "player_id": "00-0032764",
    "team": "BAL",
@@ -167,20 +153,6 @@
    "i5pg": 1.5,
    "rzpg": 3.0,
    "td_rate": 1.0
-  },
-  {
-   "player": "Puka Nacua",
-   "player_id": "00-0039075",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.4845,
-   "p_two": 0.0798,
-   "p_first": 0.1115,
-   "i5pg": 0.43,
-   "rzpg": 2.14,
-   "td_rate": 0.714
   },
   {
    "player": "Javonte Williams",
@@ -505,20 +477,6 @@
    "td_rate": 0.5
   },
   {
-   "player": "Blake Corum",
-   "player_id": "00-0039738",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "RB",
-   "p_any": 0.385,
-   "p_two": 0.0731,
-   "p_first": 0.0818,
-   "i5pg": 0.5,
-   "rzpg": 2.1,
-   "td_rate": 0.6
-  },
-  {
    "player": "Zay Flowers",
    "player_id": "00-0039064",
    "team": "BAL",
@@ -617,20 +575,6 @@
    "td_rate": 0.5
   },
   {
-   "player": "Matthew Golden",
-   "player_id": "00-0040667",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.3685,
-   "p_two": 0.0614,
-   "p_first": 0.0774,
-   "i5pg": 0.4,
-   "rzpg": 1.7,
-   "td_rate": 0.5
-  },
-  {
    "player": "Alvin Kamara",
    "player_id": "00-0033906",
    "team": "NO",
@@ -657,20 +601,6 @@
    "i5pg": 0.8,
    "rzpg": 2.1,
    "td_rate": 0.3
-  },
-  {
-   "player": "Davante Adams",
-   "player_id": "00-0031381",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.3654,
-   "p_two": 0.0496,
-   "p_first": 0.0765,
-   "i5pg": 0.33,
-   "rzpg": 1.17,
-   "td_rate": 0.667
   },
   {
    "player": "Nico Collins",
@@ -839,20 +769,6 @@
    "i5pg": 0.0,
    "rzpg": 0.6,
    "td_rate": 0.4
-  },
-  {
-   "player": "Christian Watson",
-   "player_id": "00-0038124",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.3305,
-   "p_two": 0.061,
-   "p_first": 0.0675,
-   "i5pg": 0.3,
-   "rzpg": 0.7,
-   "td_rate": 0.7
   },
   {
    "player": "Jaxon Smith-Njigba",
@@ -1289,20 +1205,6 @@
    "td_rate": 0.4
   },
   {
-   "player": "Tucker Kraft",
-   "player_id": "00-0038996",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "TE",
-   "p_any": 0.2738,
-   "p_two": 0.0257,
-   "p_first": 0.0538,
-   "i5pg": 0.3,
-   "rzpg": 1.2,
-   "td_rate": 0.3
-  },
-  {
    "player": "Samaje Perine",
    "player_id": "00-0033526",
    "team": "CIN",
@@ -1553,34 +1455,6 @@
    "i5pg": 0.3,
    "rzpg": 0.8,
    "td_rate": 0.3
-  },
-  {
-   "player": "Pierre Strong",
-   "player_id": "00-0038098",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "RB",
-   "p_any": 0.2438,
-   "p_two": 0.049,
-   "p_first": 0.047,
-   "i5pg": 0.25,
-   "rzpg": 2.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "MarShawn Lloyd",
-   "player_id": "00-0039811",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "RB",
-   "p_any": 0.2424,
-   "p_two": 0.044,
-   "p_first": 0.0467,
-   "i5pg": 0.33,
-   "rzpg": 1.78,
-   "td_rate": 0.333
   },
   {
    "player": "Tommy Tremble",
@@ -2101,20 +1975,6 @@
    "td_rate": 0.167
   },
   {
-   "player": "Tyler Higbee",
-   "player_id": "00-0033110",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "TE",
-   "p_any": 0.2096,
-   "p_two": 0.0201,
-   "p_first": 0.0396,
-   "i5pg": 0.22,
-   "rzpg": 0.56,
-   "td_rate": 0.222
-  },
-  {
    "player": "Rashod Bateman",
    "player_id": "00-0036550",
    "team": "BAL",
@@ -2395,20 +2255,6 @@
    "td_rate": 0.333
   },
   {
-   "player": "Savion Williams",
-   "player_id": "00-0040009",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.1919,
-   "p_two": 0.0195,
-   "p_first": 0.0359,
-   "i5pg": 0.0,
-   "rzpg": 0.6,
-   "td_rate": 0.2
-  },
-  {
    "player": "Rashid Shaheed",
    "player_id": "00-0037545",
    "team": "SEA",
@@ -2577,20 +2423,6 @@
    "td_rate": 0.2
   },
   {
-   "player": "Colby Parkinson",
-   "player_id": "00-0036244",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "TE",
-   "p_any": 0.1717,
-   "p_two": 0.019,
-   "p_first": 0.0317,
-   "i5pg": 0.12,
-   "rzpg": 1.0,
-   "td_rate": 0.125
-  },
-  {
    "player": "Tre Harris",
    "player_id": "00-0040727",
    "team": "LAC",
@@ -2617,20 +2449,6 @@
    "i5pg": 0.2,
    "rzpg": 0.5,
    "td_rate": 0.1
-  },
-  {
-   "player": "Kaleb Johnson",
-   "player_id": "00-0040142",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "RB",
-   "p_any": 0.1704,
-   "p_two": 0.0463,
-   "p_first": 0.0314,
-   "i5pg": 0.38,
-   "rzpg": 0.5,
-   "td_rate": 0.125
   },
   {
    "player": "Keenan Allen",
@@ -2827,20 +2645,6 @@
    "i5pg": 0.5,
    "rzpg": 0.5,
    "td_rate": 0.25
-  },
-  {
-   "player": "Davis Allen",
-   "player_id": "00-0039074",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "TE",
-   "p_any": 0.1551,
-   "p_two": 0.0186,
-   "p_first": 0.0284,
-   "i5pg": 0.22,
-   "rzpg": 0.56,
-   "td_rate": 0.333
   },
   {
    "player": "Brevyn Spann-Ford",
@@ -3179,20 +2983,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Skyy Moore",
-   "player_id": "00-0038090",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.1275,
-   "p_two": 0.0134,
-   "p_first": 0.0229,
-   "i5pg": 0.0,
-   "rzpg": 0.83,
-   "td_rate": 0.0
-  },
-  {
    "player": "Matthew Hibner",
    "player_id": "00-0040879",
    "team": "BAL",
@@ -3261,34 +3051,6 @@
    "i5pg": 0.0,
    "rzpg": 0.17,
    "td_rate": 0.167
-  },
-  {
-   "player": "Chris Brooks",
-   "player_id": "00-0038685",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "RB",
-   "p_any": 0.1212,
-   "p_two": 0.0241,
-   "p_first": 0.0217,
-   "i5pg": 0.2,
-   "rzpg": 1.4,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Konata Mumpfield",
-   "player_id": "00-0040590",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.121,
-   "p_two": 0.0153,
-   "p_first": 0.0217,
-   "i5pg": 0.0,
-   "rzpg": 0.33,
-   "td_rate": 0.111
   },
   {
    "player": "Calvin Ridley",
@@ -3485,20 +3247,6 @@
    "i5pg": 0.56,
    "rzpg": 1.22,
    "td_rate": 0.111
-  },
-  {
-   "player": "Xavier Smith",
-   "player_id": "00-0038359",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.1066,
-   "p_two": 0.0133,
-   "p_first": 0.019,
-   "i5pg": 0.0,
-   "rzpg": 0.25,
-   "td_rate": 0.25
   },
   {
    "player": "Elijah Higgins",
@@ -3921,20 +3669,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Jonnu Smith",
-   "player_id": "00-0033858",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "TE",
-   "p_any": 0.0882,
-   "p_two": 0.0126,
-   "p_first": 0.0155,
-   "i5pg": 0.0,
-   "rzpg": 0.25,
-   "td_rate": 0.0
-  },
-  {
    "player": "Cade Stover",
    "player_id": "00-0039359",
    "team": "HOU",
@@ -3975,20 +3709,6 @@
    "i5pg": 0.17,
    "rzpg": 0.5,
    "td_rate": 0.167
-  },
-  {
-   "player": "J. Michael Sturdivant",
-   "player_id": "00-0040948",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.0853,
-   "p_two": 0.0101,
-   "p_first": 0.015,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.111
   },
   {
    "player": "Myles Price",
@@ -4294,20 +4014,6 @@
    "p_any": 0.0681,
    "p_two": 0.0101,
    "p_first": 0.0105,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Tutu Atwell",
-   "player_id": "00-0036849",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.0677,
-   "p_two": 0.0103,
-   "p_first": 0.0118,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0
@@ -4705,20 +4411,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Jordan Whittington",
-   "player_id": "00-0039751",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.0495,
-   "p_two": 0.0101,
-   "p_first": 0.0085,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
    "player": "John Bates",
    "player_id": "00-0036628",
    "team": "WAS",
@@ -4915,34 +4607,6 @@
    "td_rate": 0.143
   },
   {
-   "player": "Alex Bachman",
-   "player_id": "00-0035602",
-   "team": "LA",
-   "opponent": "GB",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.0417,
-   "p_two": 0.0101,
-   "p_first": 0.0072,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Coleman Owen",
-   "player_id": "00-0040352",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.0399,
-   "p_two": 0.0127,
-   "p_first": 0.0069,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
    "player": "Hayden Rucci",
    "player_id": "00-0039489",
    "team": "LAC",
@@ -5081,20 +4745,6 @@
    "i5pg": 0.0,
    "rzpg": 0.14,
    "td_rate": 0.143
-  },
-  {
-   "player": "Bo Melton",
-   "player_id": "00-0037091",
-   "team": "GB",
-   "opponent": "LA",
-   "game": "GB@LA",
-   "pos": "WR",
-   "p_any": 0.023,
-   "p_two": 0.0101,
-   "p_first": 0.0039,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
   },
   {
    "player": "Malik McClain",

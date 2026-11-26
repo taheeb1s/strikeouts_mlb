@@ -1,9 +1,9 @@
 {
- "generated_at": "2026-11-25T23:11:50+00:00",
+ "generated_at": "2026-11-26T15:57:46+00:00",
  "backtest": {
-  "games": 1582,
-  "accuracy": 0.6353,
-  "home_baseline": 0.543,
+  "games": 1583,
+  "accuracy": 0.6355,
+  "home_baseline": 0.5433,
   "seasons": "2021-2026"
  },
  "ratings": {
@@ -11,17 +11,17 @@
   "SF": 1675.0,
   "DEN": 1659.9,
   "SEA": 1656.5,
+  "LA": 1638.1,
   "CHI": 1633.6,
   "DET": 1633.5,
-  "LA": 1621.7,
   "JAX": 1621.6,
   "MIN": 1602.5,
   "CIN": 1598.6,
   "KC": 1598.4,
-  "GB": 1545.3,
   "HOU": 1542.7,
   "NE": 1540.4,
   "PIT": 1530.3,
+  "GB": 1528.9,
   "OAK": 1490.3,
   "NYG": 1481.0,
   "TB": 1475.4,
@@ -42,15 +42,15 @@
   "TEN": 1266.7
  },
  "results": {
-  "graded": 162,
-  "won": 103,
+  "graded": 163,
+  "won": 104,
   "lost": 59,
   "ats": {
-   "graded": 156,
-   "won": 78,
+   "graded": 157,
+   "won": 79,
    "lost": 78,
    "push": 6,
-   "win_pct": 0.5,
+   "win_pct": 0.5032,
    "avg_disagreement": 2.49,
    "bands": [
     {
@@ -60,8 +60,8 @@
     },
     {
      "band": "2 to 4",
-     "n": 42,
-     "won": 21
+     "n": 43,
+     "won": 22
     },
     {
      "band": "4 to 7",
@@ -71,17 +71,17 @@
    ]
   },
   "totals": {
-   "graded": 162,
+   "graded": 163,
    "won": 82,
-   "lost": 80,
+   "lost": 81,
    "push": 0,
-   "win_pct": 0.5062,
-   "over_rate": 0.5,
-   "avg_disagreement": 2.69
+   "win_pct": 0.5031,
+   "over_rate": 0.5031,
+   "avg_disagreement": 2.68
   },
-  "win_pct": 0.6358,
-  "home_baseline": 0.5123,
-  "margin_mae": 9.88,
+  "win_pct": 0.638,
+  "home_baseline": 0.5153,
+  "margin_mae": 9.87,
   "bands": [
    {
     "band": "50-60%",
@@ -92,10 +92,10 @@
    },
    {
     "band": "60-70%",
-    "n": 54,
-    "won": 28,
-    "said": 0.649,
-    "happened": 0.519
+    "n": 55,
+    "won": 29,
+    "said": 0.65,
+    "happened": 0.527
    },
    {
     "band": "70-80%",
@@ -114,13 +114,13 @@
   ],
   "recent": [
    {
-    "week": 11,
-    "away": "BAL",
-    "home": "CAR",
-    "pick": "CAR",
-    "conf": 0.532,
-    "pred_margin": 0.9,
-    "margin": 2,
+    "week": 12,
+    "away": "GB",
+    "home": "LA",
+    "pick": "LA",
+    "conf": 0.672,
+    "pred_margin": 5.0,
+    "margin": 13,
     "won": true
    },
    {
@@ -135,22 +135,32 @@
    },
    {
     "week": 11,
+    "away": "IND",
+    "home": "HOU",
+    "pick": "HOU",
+    "conf": 0.743,
+    "pred_margin": 7.4,
+    "margin": 23,
+    "won": true
+   },
+   {
+    "week": 11,
+    "away": "BAL",
+    "home": "CAR",
+    "pick": "CAR",
+    "conf": 0.532,
+    "pred_margin": 0.9,
+    "margin": 2,
+    "won": true
+   },
+   {
+    "week": 11,
     "away": "CIN",
     "home": "WAS",
     "pick": "CIN",
     "conf": 0.676,
     "pred_margin": -5.1,
     "margin": 2,
-    "won": false
-   },
-   {
-    "week": 11,
-    "away": "PIT",
-    "home": "PHI",
-    "pick": "PIT",
-    "conf": 0.644,
-    "pred_margin": -4.1,
-    "margin": 3,
     "won": false
    },
    {
@@ -165,12 +175,12 @@
    },
    {
     "week": 11,
-    "away": "LV",
-    "home": "DEN",
-    "pick": "DEN",
-    "conf": 0.862,
-    "pred_margin": 12.7,
-    "margin": 14,
+    "away": "MIN",
+    "home": "SF",
+    "pick": "SF",
+    "conf": 0.599,
+    "pred_margin": 2.8,
+    "margin": 25,
     "won": true
    },
    {
@@ -185,36 +195,6 @@
    },
    {
     "week": 11,
-    "away": "JAX",
-    "home": "NYG",
-    "pick": "JAX",
-    "conf": 0.699,
-    "pred_margin": -5.8,
-    "margin": 5,
-    "won": false
-   },
-   {
-    "week": 11,
-    "away": "MIN",
-    "home": "SF",
-    "pick": "SF",
-    "conf": 0.599,
-    "pred_margin": 2.8,
-    "margin": 25,
-    "won": true
-   },
-   {
-    "week": 11,
-    "away": "IND",
-    "home": "HOU",
-    "pick": "HOU",
-    "conf": 0.743,
-    "pred_margin": 7.4,
-    "margin": 23,
-    "won": true
-   },
-   {
-    "week": 11,
     "away": "TB",
     "home": "DET",
     "pick": "DET",
@@ -222,6 +202,26 @@
     "pred_margin": 7.3,
     "margin": 10,
     "won": true
+   },
+   {
+    "week": 11,
+    "away": "LV",
+    "home": "DEN",
+    "pick": "DEN",
+    "conf": 0.862,
+    "pred_margin": 12.7,
+    "margin": 14,
+    "won": true
+   },
+   {
+    "week": 11,
+    "away": "JAX",
+    "home": "NYG",
+    "pick": "JAX",
+    "conf": 0.699,
+    "pred_margin": -5.8,
+    "margin": 5,
+    "won": false
    },
    {
     "week": 11,
@@ -235,6 +235,16 @@
    },
    {
     "week": 11,
+    "away": "PIT",
+    "home": "PHI",
+    "pick": "PIT",
+    "conf": 0.644,
+    "pred_margin": -4.1,
+    "margin": 3,
+    "won": false
+   },
+   {
+    "week": 11,
     "away": "NYJ",
     "home": "LAC",
     "pick": "LAC",
@@ -245,11 +255,31 @@
    },
    {
     "week": 10,
-    "away": "WAS",
-    "home": "NYG",
-    "pick": "NYG",
-    "conf": 0.641,
-    "pred_margin": 4.0,
+    "away": "HOU",
+    "home": "CLE",
+    "pick": "HOU",
+    "conf": 0.597,
+    "pred_margin": -2.7,
+    "margin": 3,
+    "won": false
+   },
+   {
+    "week": 10,
+    "away": "KC",
+    "home": "ATL",
+    "pick": "KC",
+    "conf": 0.619,
+    "pred_margin": -3.4,
+    "margin": -22,
+    "won": true
+   },
+   {
+    "week": 10,
+    "away": "LAC",
+    "home": "BAL",
+    "pick": "BAL",
+    "conf": 0.709,
+    "pred_margin": 6.2,
     "margin": -3,
     "won": false
    },
@@ -265,62 +295,12 @@
    },
    {
     "week": 10,
-    "away": "KC",
-    "home": "ATL",
-    "pick": "KC",
-    "conf": 0.619,
-    "pred_margin": -3.4,
-    "margin": -22,
-    "won": true
-   },
-   {
-    "week": 10,
-    "away": "PIT",
-    "home": "CIN",
-    "pick": "CIN",
-    "conf": 0.593,
-    "pred_margin": 2.6,
-    "margin": 20,
-    "won": true
-   },
-   {
-    "week": 10,
-    "away": "LAC",
-    "home": "BAL",
-    "pick": "BAL",
-    "conf": 0.709,
-    "pred_margin": 6.2,
+    "away": "WAS",
+    "home": "NYG",
+    "pick": "NYG",
+    "conf": 0.641,
+    "pred_margin": 4.0,
     "margin": -3,
-    "won": false
-   },
-   {
-    "week": 10,
-    "away": "MIN",
-    "home": "GB",
-    "pick": "GB",
-    "conf": 0.548,
-    "pred_margin": 1.3,
-    "margin": -20,
-    "won": false
-   },
-   {
-    "week": 10,
-    "away": "MIA",
-    "home": "IND",
-    "pick": "IND",
-    "conf": 0.603,
-    "pred_margin": 2.9,
-    "margin": 2,
-    "won": true
-   },
-   {
-    "week": 10,
-    "away": "HOU",
-    "home": "CLE",
-    "pick": "HOU",
-    "conf": 0.597,
-    "pred_margin": -2.7,
-    "margin": 3,
     "won": false
    },
    {
@@ -345,6 +325,36 @@
    },
    {
     "week": 10,
+    "away": "MIA",
+    "home": "IND",
+    "pick": "IND",
+    "conf": 0.603,
+    "pred_margin": 2.9,
+    "margin": 2,
+    "won": true
+   },
+   {
+    "week": 10,
+    "away": "MIN",
+    "home": "GB",
+    "pick": "GB",
+    "conf": 0.548,
+    "pred_margin": 1.3,
+    "margin": -20,
+    "won": false
+   },
+   {
+    "week": 10,
+    "away": "JAX",
+    "home": "TEN",
+    "pick": "JAX",
+    "conf": 0.854,
+    "pred_margin": -12.2,
+    "margin": -17,
+    "won": true
+   },
+   {
+    "week": 10,
     "away": "LA",
     "home": "ARI",
     "pick": "LA",
@@ -365,16 +375,6 @@
    },
    {
     "week": 10,
-    "away": "JAX",
-    "home": "TEN",
-    "pick": "JAX",
-    "conf": 0.854,
-    "pred_margin": -12.2,
-    "margin": -17,
-    "won": true
-   },
-   {
-    "week": 10,
     "away": "SF",
     "home": "DAL",
     "pick": "SF",
@@ -384,13 +384,13 @@
     "won": true
    },
    {
-    "week": 9,
-    "away": "CLE",
-    "home": "NO",
-    "pick": "NO",
-    "conf": 0.512,
-    "pred_margin": 0.3,
-    "margin": 1,
+    "week": 10,
+    "away": "PIT",
+    "home": "CIN",
+    "pick": "CIN",
+    "conf": 0.593,
+    "pred_margin": 2.6,
+    "margin": 20,
     "won": true
    },
    {
@@ -405,22 +405,22 @@
    },
    {
     "week": 9,
-    "away": "DEN",
-    "home": "CAR",
-    "pick": "DEN",
-    "conf": 0.729,
-    "pred_margin": -6.9,
-    "margin": -5,
-    "won": true
-   },
-   {
-    "week": 9,
     "away": "DET",
     "home": "MIA",
     "pick": "DET",
     "conf": 0.724,
     "pred_margin": -6.7,
     "margin": -10,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "CLE",
+    "home": "NO",
+    "pick": "NO",
+    "conf": 0.512,
+    "pred_margin": 0.3,
+    "margin": 1,
     "won": true
    },
    {
@@ -435,16 +435,6 @@
    },
    {
     "week": 9,
-    "away": "JAX",
-    "home": "BAL",
-    "pick": "JAX",
-    "conf": 0.591,
-    "pred_margin": -2.6,
-    "margin": -23,
-    "won": true
-   },
-   {
-    "week": 9,
     "away": "CIN",
     "home": "ATL",
     "pick": "CIN",
@@ -455,12 +445,22 @@
    },
    {
     "week": 9,
-    "away": "HOU",
-    "home": "LAC",
-    "pick": "HOU",
-    "conf": 0.61,
-    "pred_margin": -3.1,
-    "margin": -22,
+    "away": "JAX",
+    "home": "BAL",
+    "pick": "JAX",
+    "conf": 0.591,
+    "pred_margin": -2.6,
+    "margin": -23,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "DEN",
+    "home": "CAR",
+    "pick": "DEN",
+    "conf": 0.729,
+    "pred_margin": -6.9,
+    "margin": -5,
     "won": true
    },
    {
@@ -475,12 +475,22 @@
    },
    {
     "week": 9,
-    "away": "LV",
-    "home": "SF",
-    "pick": "SF",
-    "conf": 0.83,
-    "pred_margin": 11.0,
-    "margin": 21,
+    "away": "GB",
+    "home": "NE",
+    "pick": "NE",
+    "conf": 0.66,
+    "pred_margin": 4.6,
+    "margin": -18,
+    "won": false
+   },
+   {
+    "week": 9,
+    "away": "HOU",
+    "home": "LAC",
+    "pick": "HOU",
+    "conf": 0.61,
+    "pred_margin": -3.1,
+    "margin": -22,
     "won": true
    },
    {
@@ -495,32 +505,12 @@
    },
    {
     "week": 9,
-    "away": "TB",
-    "home": "CHI",
-    "pick": "CHI",
-    "conf": 0.732,
-    "pred_margin": 7.0,
-    "margin": 3,
-    "won": true
-   },
-   {
-    "week": 9,
     "away": "NYG",
     "home": "PHI",
     "pick": "PHI",
     "conf": 0.53,
     "pred_margin": 0.8,
     "margin": -8,
-    "won": false
-   },
-   {
-    "week": 9,
-    "away": "GB",
-    "home": "NE",
-    "pick": "NE",
-    "conf": 0.66,
-    "pred_margin": 4.6,
-    "margin": -18,
     "won": false
    },
    {
@@ -534,23 +524,43 @@
     "won": true
    },
    {
-    "week": 8,
-    "away": "CAR",
-    "home": "GB",
-    "pick": "GB",
-    "conf": 0.685,
-    "pred_margin": 5.4,
-    "margin": 8,
+    "week": 9,
+    "away": "TB",
+    "home": "CHI",
+    "pick": "CHI",
+    "conf": 0.732,
+    "pred_margin": 7.0,
+    "margin": 3,
+    "won": true
+   },
+   {
+    "week": 9,
+    "away": "LV",
+    "home": "SF",
+    "pick": "SF",
+    "conf": 0.83,
+    "pred_margin": 11.0,
+    "margin": 21,
     "won": true
    },
    {
     "week": 8,
-    "away": "BAL",
-    "home": "BUF",
-    "pick": "BUF",
-    "conf": 0.752,
-    "pred_margin": 7.7,
-    "margin": 26,
+    "away": "PHI",
+    "home": "WAS",
+    "pick": "WAS",
+    "conf": 0.503,
+    "pred_margin": 0.1,
+    "margin": 17,
+    "won": true
+   },
+   {
+    "week": 8,
+    "away": "TEN",
+    "home": "CIN",
+    "pick": "CIN",
+    "conf": 0.862,
+    "pred_margin": 12.7,
+    "margin": 7,
     "won": true
    },
    {
@@ -565,13 +575,13 @@
    },
    {
     "week": 8,
-    "away": "TEN",
-    "home": "CIN",
-    "pick": "CIN",
-    "conf": 0.862,
-    "pred_margin": 12.7,
-    "margin": 7,
-    "won": true
+    "away": "MIN",
+    "home": "DET",
+    "pick": "MIN",
+    "conf": 0.533,
+    "pred_margin": -0.9,
+    "margin": 4,
+    "won": false
    },
    {
     "week": 8,
@@ -582,16 +592,6 @@
     "pred_margin": 9.5,
     "margin": 35,
     "won": true
-   },
-   {
-    "week": 8,
-    "away": "MIN",
-    "home": "DET",
-    "pick": "MIN",
-    "conf": 0.533,
-    "pred_margin": -0.9,
-    "margin": 4,
-    "won": false
    },
    {
     "week": 8,
@@ -615,12 +615,12 @@
    },
    {
     "week": 8,
-    "away": "LAC",
-    "home": "LA",
-    "pick": "LA",
-    "conf": 0.782,
-    "pred_margin": 8.9,
-    "margin": 15,
+    "away": "CAR",
+    "home": "GB",
+    "pick": "GB",
+    "conf": 0.685,
+    "pred_margin": 5.4,
+    "margin": 8,
     "won": true
    },
    {
@@ -632,26 +632,6 @@
     "pred_margin": 1.4,
     "margin": 16,
     "won": true
-   },
-   {
-    "week": 8,
-    "away": "PHI",
-    "home": "WAS",
-    "pick": "WAS",
-    "conf": 0.503,
-    "pred_margin": 0.1,
-    "margin": 17,
-    "won": true
-   },
-   {
-    "week": 8,
-    "away": "CHI",
-    "home": "SEA",
-    "pick": "SEA",
-    "conf": 0.71,
-    "pred_margin": 6.2,
-    "margin": -17,
-    "won": false
    },
    {
     "week": 8,
@@ -674,12 +654,42 @@
     "won": true
    },
    {
+    "week": 8,
+    "away": "CHI",
+    "home": "SEA",
+    "pick": "SEA",
+    "conf": 0.71,
+    "pred_margin": 6.2,
+    "margin": -17,
+    "won": false
+   },
+   {
+    "week": 8,
+    "away": "LAC",
+    "home": "LA",
+    "pick": "LA",
+    "conf": 0.782,
+    "pred_margin": 8.9,
+    "margin": 15,
+    "won": true
+   },
+   {
+    "week": 8,
+    "away": "BAL",
+    "home": "BUF",
+    "pick": "BUF",
+    "conf": 0.752,
+    "pred_margin": 7.7,
+    "margin": 26,
+    "won": true
+   },
+   {
     "week": 7,
-    "away": "DEN",
-    "home": "ARI",
-    "pick": "DEN",
-    "conf": 0.754,
-    "pred_margin": -7.8,
+    "away": "LA",
+    "home": "LV",
+    "pick": "LA",
+    "conf": 0.659,
+    "pred_margin": -4.6,
     "margin": -14,
     "won": true
    },
@@ -695,12 +705,12 @@
    },
    {
     "week": 7,
-    "away": "NE",
-    "home": "CHI",
-    "pick": "NE",
-    "conf": 0.518,
-    "pred_margin": -0.5,
-    "margin": 6,
+    "away": "MIA",
+    "home": "NYJ",
+    "pick": "NYJ",
+    "conf": 0.563,
+    "pred_margin": 1.7,
+    "margin": -3,
     "won": false
    },
    {
@@ -715,12 +725,12 @@
    },
    {
     "week": 7,
-    "away": "SF",
-    "home": "ATL",
-    "pick": "SF",
-    "conf": 0.73,
-    "pred_margin": -6.9,
-    "margin": 9,
+    "away": "TB",
+    "home": "CAR",
+    "pick": "CAR",
+    "conf": 0.656,
+    "pred_margin": 4.5,
+    "margin": -30,
     "won": false
    },
    {
@@ -735,6 +745,26 @@
    },
    {
     "week": 7,
+    "away": "NE",
+    "home": "CHI",
+    "pick": "NE",
+    "conf": 0.518,
+    "pred_margin": -0.5,
+    "margin": 6,
+    "won": false
+   },
+   {
+    "week": 7,
+    "away": "SF",
+    "home": "ATL",
+    "pick": "SF",
+    "conf": 0.73,
+    "pred_margin": -6.9,
+    "margin": 9,
+    "won": false
+   },
+   {
+    "week": 7,
     "away": "NYG",
     "home": "HOU",
     "pick": "HOU",
@@ -745,13 +775,33 @@
    },
    {
     "week": 7,
-    "away": "TB",
-    "home": "CAR",
-    "pick": "CAR",
-    "conf": 0.656,
-    "pred_margin": 4.5,
-    "margin": -30,
-    "won": false
+    "away": "IND",
+    "home": "MIN",
+    "pick": "MIN",
+    "conf": 0.819,
+    "pred_margin": 10.5,
+    "margin": 6,
+    "won": true
+   },
+   {
+    "week": 7,
+    "away": "GB",
+    "home": "DET",
+    "pick": "DET",
+    "conf": 0.599,
+    "pred_margin": 2.8,
+    "margin": 3,
+    "won": true
+   },
+   {
+    "week": 7,
+    "away": "DEN",
+    "home": "ARI",
+    "pick": "DEN",
+    "conf": 0.754,
+    "pred_margin": -7.8,
+    "margin": -14,
+    "won": true
    },
    {
     "week": 7,
@@ -774,43 +824,13 @@
     "won": false
    },
    {
-    "week": 7,
-    "away": "MIA",
-    "home": "NYJ",
-    "pick": "NYJ",
-    "conf": 0.563,
-    "pred_margin": 1.7,
-    "margin": -3,
-    "won": false
-   },
-   {
-    "week": 7,
-    "away": "IND",
-    "home": "MIN",
-    "pick": "MIN",
-    "conf": 0.819,
-    "pred_margin": 10.5,
+    "week": 6,
+    "away": "WAS",
+    "home": "SF",
+    "pick": "SF",
+    "conf": 0.847,
+    "pred_margin": 11.9,
     "margin": 6,
-    "won": true
-   },
-   {
-    "week": 7,
-    "away": "LA",
-    "home": "LV",
-    "pick": "LA",
-    "conf": 0.659,
-    "pred_margin": -4.6,
-    "margin": -14,
-    "won": true
-   },
-   {
-    "week": 7,
-    "away": "GB",
-    "home": "DET",
-    "pick": "DET",
-    "conf": 0.599,
-    "pred_margin": 2.8,
-    "margin": 3,
     "won": true
    },
    {
@@ -845,32 +865,12 @@
    },
    {
     "week": 6,
-    "away": "TEN",
-    "home": "IND",
-    "pick": "IND",
-    "conf": 0.794,
-    "pred_margin": 9.4,
-    "margin": -6,
-    "won": false
-   },
-   {
-    "week": 6,
-    "away": "LAC",
-    "home": "KC",
-    "pick": "KC",
-    "conf": 0.76,
-    "pred_margin": 8.0,
-    "margin": 16,
-    "won": true
-   },
-   {
-    "week": 6,
-    "away": "BUF",
-    "home": "LV",
-    "pick": "BUF",
-    "conf": 0.762,
-    "pred_margin": -8.1,
-    "margin": -3,
+    "away": "DAL",
+    "home": "GB",
+    "pick": "GB",
+    "conf": 0.682,
+    "pred_margin": 5.3,
+    "margin": 10,
     "won": true
    },
    {
@@ -895,44 +895,27 @@
    },
    {
     "week": 6,
-    "away": "PIT",
-    "home": "TB",
-    "pick": "PIT",
-    "conf": 0.551,
-    "pred_margin": -1.4,
-    "margin": -7,
-    "won": true
+    "away": "TEN",
+    "home": "IND",
+    "pick": "IND",
+    "conf": 0.794,
+    "pred_margin": 9.4,
+    "margin": -6,
+    "won": false
    },
    {
     "week": 6,
-    "away": "ARI",
-    "home": "LA",
-    "pick": "LA",
-    "conf": 0.828,
-    "pred_margin": 10.9,
-    "margin": -2,
+    "away": "SEA",
+    "home": "DEN",
+    "pick": "SEA",
+    "conf": 0.539,
+    "pred_margin": -1.1,
+    "margin": 3,
     "won": false
    }
   ]
  },
  "games": [
-  {
-   "season": 2026,
-   "week": 12,
-   "kickoff": "2026-11-25",
-   "home": "LA",
-   "away": "GB",
-   "p_home": 0.6717,
-   "pred_margin": 4.97,
-   "score_home": 25.1,
-   "score_away": 20.1,
-   "pred_total": 45.2,
-   "pick": "LA",
-   "confidence": 0.6717,
-   "vegas_spread": 2.5,
-   "elo_home": 1621.7,
-   "elo_away": 1545.3
-  },
   {
    "season": 2026,
    "week": 12,
@@ -997,7 +980,7 @@
    "pred_total": 43.2,
    "pick": "DEN",
    "confidence": 0.6154,
-   "vegas_spread": -3.5,
+   "vegas_spread": -4.5,
    "elo_home": 1530.3,
    "elo_away": 1659.9
   },
@@ -1048,7 +1031,7 @@
    "pred_total": 45.5,
    "pick": "NYG",
    "confidence": 0.5809,
-   "vegas_spread": -6.5,
+   "vegas_spread": -6.0,
    "elo_home": 1376.3,
    "elo_away": 1481.0
   },
@@ -1082,7 +1065,7 @@
    "pred_total": 43.7,
    "pick": "MIA",
    "confidence": 0.5913,
-   "vegas_spread": -3.5,
+   "vegas_spread": -4.5,
    "elo_home": 1345.4,
    "elo_away": 1329.3
   },
@@ -1194,15 +1177,15 @@
    "kickoff": "2026-12-03",
    "home": "LA",
    "away": "KC",
-   "p_home": 0.6012,
-   "pred_margin": 2.85,
-   "score_home": 23.4,
-   "score_away": 20.5,
-   "pred_total": 43.8,
+   "p_home": 0.6236,
+   "pred_margin": 3.51,
+   "score_home": 23.5,
+   "score_away": 20.0,
+   "pred_total": 43.6,
    "pick": "LA",
-   "confidence": 0.6012,
+   "confidence": 0.6236,
    "vegas_spread": 1.5,
-   "elo_home": 1621.7,
+   "elo_home": 1638.1,
    "elo_away": 1598.4
   },
   {
@@ -1262,16 +1245,16 @@
    "kickoff": "2026-12-06",
    "home": "NO",
    "away": "GB",
-   "p_home": 0.3385,
-   "pred_margin": -4.65,
-   "score_home": 20.0,
-   "score_away": 24.7,
-   "pred_total": 44.7,
+   "p_home": 0.36,
+   "pred_margin": -4.0,
+   "score_home": 20.2,
+   "score_away": 24.2,
+   "pred_total": 44.4,
    "pick": "GB",
-   "confidence": 0.6615,
-   "vegas_spread": -5.5,
+   "confidence": 0.64,
+   "vegas_spread": -4.5,
    "elo_home": 1381.0,
-   "elo_away": 1545.3
+   "elo_away": 1528.9
   },
   {
    "season": 2026,
@@ -1636,16 +1619,16 @@
    "kickoff": "2026-12-13",
    "home": "SF",
    "away": "LA",
-   "p_home": 0.6419,
-   "pred_margin": 4.05,
-   "score_home": 26.0,
-   "score_away": 22.0,
-   "pred_total": 48.0,
+   "p_home": 0.6199,
+   "pred_margin": 3.4,
+   "score_home": 25.6,
+   "score_away": 22.2,
+   "pred_total": 47.7,
    "pick": "SF",
-   "confidence": 0.6419,
+   "confidence": 0.6199,
    "vegas_spread": null,
    "elo_home": 1675.0,
-   "elo_away": 1621.7
+   "elo_away": 1638.1
   },
   {
    "season": 2026,
@@ -1653,15 +1636,15 @@
    "kickoff": "2026-12-13",
    "home": "GB",
    "away": "BUF",
-   "p_home": 0.3295,
-   "pred_margin": -4.94,
-   "score_home": 21.3,
-   "score_away": 26.3,
-   "pred_total": 47.6,
+   "p_home": 0.309,
+   "pred_margin": -5.59,
+   "score_home": 20.9,
+   "score_away": 26.5,
+   "pred_total": 47.4,
    "pick": "BUF",
-   "confidence": 0.6705,
+   "confidence": 0.691,
    "vegas_spread": null,
-   "elo_home": 1545.3,
+   "elo_home": 1528.9,
    "elo_away": 1716.7
   },
   {
@@ -1755,15 +1738,15 @@
    "kickoff": "2026-12-20",
    "home": "GB",
    "away": "MIA",
-   "p_home": 0.8064,
-   "pred_margin": 9.92,
-   "score_home": 26.6,
-   "score_away": 16.7,
-   "pred_total": 43.2,
+   "p_home": 0.7913,
+   "pred_margin": 9.26,
+   "score_home": 26.1,
+   "score_away": 16.9,
+   "pred_total": 43.0,
    "pick": "GB",
-   "confidence": 0.8064,
+   "confidence": 0.7913,
    "vegas_spread": null,
-   "elo_home": 1545.3,
+   "elo_home": 1528.9,
    "elo_away": 1345.4
   },
   {
@@ -1891,15 +1874,15 @@
    "kickoff": "2026-12-20",
    "home": "LA",
    "away": "DAL",
-   "p_home": 0.7701,
-   "pred_margin": 8.4,
-   "score_home": 29.7,
-   "score_away": 21.3,
-   "pred_total": 51.1,
+   "p_home": 0.7864,
+   "pred_margin": 9.06,
+   "score_home": 29.9,
+   "score_away": 20.9,
+   "pred_total": 50.8,
    "pick": "LA",
-   "confidence": 0.7701,
+   "confidence": 0.7864,
    "vegas_spread": null,
-   "elo_home": 1621.7,
+   "elo_home": 1638.1,
    "elo_away": 1459.7
   },
   {
@@ -1976,16 +1959,16 @@
    "kickoff": "2026-12-25",
    "home": "CHI",
    "away": "GB",
-   "p_home": 0.6866,
-   "pred_margin": 5.45,
-   "score_home": 25.6,
-   "score_away": 20.1,
-   "pred_total": 45.7,
+   "p_home": 0.7066,
+   "pred_margin": 6.11,
+   "score_home": 25.8,
+   "score_away": 19.7,
+   "pred_total": 45.4,
    "pick": "CHI",
-   "confidence": 0.6866,
+   "confidence": 0.7066,
    "vegas_spread": null,
    "elo_home": 1633.6,
-   "elo_away": 1545.3
+   "elo_away": 1528.9
   },
   {
    "season": 2026,
@@ -2010,16 +1993,16 @@
    "kickoff": "2026-12-25",
    "home": "SEA",
    "away": "LA",
-   "p_home": 0.6171,
-   "pred_margin": 3.32,
-   "score_home": 23.2,
-   "score_away": 19.8,
-   "pred_total": 43.0,
+   "p_home": 0.5945,
+   "pred_margin": 2.66,
+   "score_home": 22.7,
+   "score_away": 20.0,
+   "pred_total": 42.7,
    "pick": "SEA",
-   "confidence": 0.6171,
+   "confidence": 0.5945,
    "vegas_spread": null,
    "elo_home": 1656.5,
-   "elo_away": 1621.7
+   "elo_away": 1638.1
   },
   {
    "season": 2026,
@@ -2401,16 +2384,16 @@
    "kickoff": "2027-01-03",
    "home": "TB",
    "away": "LA",
-   "p_home": 0.3623,
-   "pred_margin": -3.93,
-   "score_home": 20.2,
-   "score_away": 24.1,
-   "pred_total": 44.3,
+   "p_home": 0.3408,
+   "pred_margin": -4.59,
+   "score_home": 19.8,
+   "score_away": 24.3,
+   "pred_total": 44.1,
    "pick": "LA",
-   "confidence": 0.6377,
+   "confidence": 0.6592,
    "vegas_spread": null,
    "elo_home": 1475.4,
-   "elo_away": 1621.7
+   "elo_away": 1638.1
   },
   {
    "season": 2026,
@@ -2486,15 +2469,15 @@
    "kickoff": "2027-01-04",
    "home": "GB",
    "away": "HOU",
-   "p_home": 0.5723,
-   "pred_margin": 2.02,
-   "score_home": 23.6,
-   "score_away": 21.6,
-   "pred_total": 45.2,
+   "p_home": 0.549,
+   "pred_margin": 1.37,
+   "score_home": 23.2,
+   "score_away": 21.8,
+   "pred_total": 45.0,
    "pick": "GB",
-   "confidence": 0.5723,
+   "confidence": 0.549,
    "vegas_spread": null,
-   "elo_home": 1545.3,
+   "elo_home": 1528.9,
    "elo_away": 1542.7
   },
   {
@@ -2605,15 +2588,15 @@
    "kickoff": "2027-01-10",
    "home": "GB",
    "away": "DET",
-   "p_home": 0.4424,
-   "pred_margin": -1.61,
-   "score_home": 22.9,
-   "score_away": 24.5,
-   "pred_total": 47.4,
+   "p_home": 0.4193,
+   "pred_margin": -2.26,
+   "score_home": 22.4,
+   "score_away": 24.7,
+   "pred_total": 47.1,
    "pick": "DET",
-   "confidence": 0.5576,
+   "confidence": 0.5807,
    "vegas_spread": null,
-   "elo_home": 1545.3,
+   "elo_home": 1528.9,
    "elo_away": 1633.5
   },
   {
@@ -2673,15 +2656,15 @@
    "kickoff": "2027-01-10",
    "home": "LA",
    "away": "SEA",
-   "p_home": 0.5189,
-   "pred_margin": 0.52,
-   "score_home": 21.8,
-   "score_away": 21.2,
-   "pred_total": 43.0,
+   "p_home": 0.5424,
+   "pred_margin": 1.18,
+   "score_home": 22.0,
+   "score_away": 20.8,
+   "pred_total": 42.7,
    "pick": "LA",
-   "confidence": 0.5189,
+   "confidence": 0.5424,
    "vegas_spread": null,
-   "elo_home": 1621.7,
+   "elo_home": 1638.1,
    "elo_away": 1656.5
   },
   {
