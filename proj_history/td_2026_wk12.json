@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T17:18:19+00:00",
+ "generated_at": "2026-11-27T15:21:26+00:00",
  "season": 2026,
  "week": 12,
  "trained_on": [
@@ -14,34 +14,6 @@
   "note": "Measured on a clean 2025 test. Beats both a player's own touchdown rate and the league base rate, and the probabilities are calibrated. Not compared to any market - no touchdown odds are collected."
  },
  "players": [
-  {
-   "player": "Kenneth Walker III",
-   "player_id": "00-0038134",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "RB",
-   "p_any": 0.6514,
-   "p_two": 0.1685,
-   "p_first": 0.1575,
-   "i5pg": 2.25,
-   "rzpg": 5.5,
-   "td_rate": 1.375
-  },
-  {
-   "player": "Jahmyr Gibbs",
-   "player_id": "00-0039139",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "RB",
-   "p_any": 0.6344,
-   "p_two": 0.1022,
-   "p_first": 0.1472,
-   "i5pg": 2.1,
-   "rzpg": 6.4,
-   "td_rate": 1.5
-  },
   {
    "player": "Christian McCaffrey",
    "player_id": "00-0033280",
@@ -71,20 +43,6 @@
    "td_rate": 0.9
   },
   {
-   "player": "D'Andre Swift",
-   "player_id": "00-0036275",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "RB",
-   "p_any": 0.5602,
-   "p_two": 0.1685,
-   "p_first": 0.1202,
-   "i5pg": 2.0,
-   "rzpg": 4.3,
-   "td_rate": 1.1
-  },
-  {
    "player": "Bhayshul Tuten",
    "player_id": "00-0040719",
    "team": "JAX",
@@ -97,34 +55,6 @@
    "i5pg": 1.0,
    "rzpg": 3.5,
    "td_rate": 0.8
-  },
-  {
-   "player": "CeeDee Lamb",
-   "player_id": "00-0036358",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "WR",
-   "p_any": 0.5111,
-   "p_two": 0.0746,
-   "p_first": 0.1239,
-   "i5pg": 0.64,
-   "rzpg": 2.27,
-   "td_rate": 0.818
-  },
-  {
-   "player": "James Cook",
-   "player_id": "00-0037248",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "RB",
-   "p_any": 0.5094,
-   "p_two": 0.0467,
-   "p_first": 0.1064,
-   "i5pg": 1.3,
-   "rzpg": 4.3,
-   "td_rate": 1.0
   },
   {
    "player": "Derrick Henry",
@@ -155,20 +85,6 @@
    "td_rate": 1.0
   },
   {
-   "player": "Javonte Williams",
-   "player_id": "00-0036997",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "RB",
-   "p_any": 0.4676,
-   "p_two": 0.1022,
-   "p_first": 0.1092,
-   "i5pg": 2.27,
-   "rzpg": 4.64,
-   "td_rate": 1.091
-  },
-  {
    "player": "Parker Washington",
    "player_id": "00-0038606",
    "team": "JAX",
@@ -183,20 +99,6 @@
    "td_rate": 0.6
   },
   {
-   "player": "Travis Kelce",
-   "player_id": "00-0030506",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "TE",
-   "p_any": 0.4509,
-   "p_two": 0.0333,
-   "p_first": 0.0896,
-   "i5pg": 0.1,
-   "rzpg": 0.6,
-   "td_rate": 0.5
-  },
-  {
    "player": "Quinshon Judkins",
    "player_id": "00-0040784",
    "team": "CLE",
@@ -209,20 +111,6 @@
    "i5pg": 1.11,
    "rzpg": 2.89,
    "td_rate": 0.444
-  },
-  {
-   "player": "Amon-Ra St. Brown",
-   "player_id": "00-0036963",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "WR",
-   "p_any": 0.4439,
-   "p_two": 0.0513,
-   "p_first": 0.0859,
-   "i5pg": 0.5,
-   "rzpg": 1.9,
-   "td_rate": 0.8
   },
   {
    "player": "Cam Skattebo",
@@ -281,20 +169,6 @@
    "td_rate": 0.444
   },
   {
-   "player": "Kyle Monangai",
-   "player_id": "00-0040236",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "RB",
-   "p_any": 0.4366,
-   "p_two": 0.0911,
-   "p_first": 0.0839,
-   "i5pg": 1.2,
-   "rzpg": 3.2,
-   "td_rate": 0.6
-  },
-  {
    "player": "Jonathan Taylor",
    "player_id": "00-0036223",
    "team": "IND",
@@ -335,20 +209,6 @@
    "i5pg": 0.3,
    "rzpg": 1.4,
    "td_rate": 0.7
-  },
-  {
-   "player": "Luther Burden III",
-   "player_id": "00-0040735",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "WR",
-   "p_any": 0.4242,
-   "p_two": 0.0744,
-   "p_first": 0.0808,
-   "i5pg": 0.3,
-   "rzpg": 1.4,
-   "td_rate": 0.4
   },
   {
    "player": "Emeka Egbuka",
@@ -407,34 +267,6 @@
    "td_rate": 0.333
   },
   {
-   "player": "Jameson Williams",
-   "player_id": "00-0037240",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "WR",
-   "p_any": 0.399,
-   "p_two": 0.0318,
-   "p_first": 0.0745,
-   "i5pg": 0.1,
-   "rzpg": 1.0,
-   "td_rate": 0.6
-  },
-  {
-   "player": "Colston Loveland",
-   "player_id": "00-0040126",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "TE",
-   "p_any": 0.3988,
-   "p_two": 0.0379,
-   "p_first": 0.0745,
-   "i5pg": 0.2,
-   "rzpg": 1.2,
-   "td_rate": 0.3
-  },
-  {
    "player": "Dylan Sampson",
    "player_id": "00-0040162",
    "team": "CLE",
@@ -447,34 +279,6 @@
    "i5pg": 0.0,
    "rzpg": 0.6,
    "td_rate": 0.0
-  },
-  {
-   "player": "George Pickens",
-   "player_id": "00-0037247",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "WR",
-   "p_any": 0.3957,
-   "p_two": 0.0628,
-   "p_first": 0.0872,
-   "i5pg": 0.6,
-   "rzpg": 1.3,
-   "td_rate": 0.6
-  },
-  {
-   "player": "Emmett Johnson",
-   "player_id": "00-0041013",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "RB",
-   "p_any": 0.3941,
-   "p_two": 0.0733,
-   "p_first": 0.0749,
-   "i5pg": 0.1,
-   "rzpg": 1.5,
-   "td_rate": 0.5
   },
   {
    "player": "Zay Flowers",
@@ -561,20 +365,6 @@
    "td_rate": 0.7
   },
   {
-   "player": "Saquon Barkley",
-   "player_id": "00-0034844",
-   "team": "PHI",
-   "opponent": "DAL",
-   "game": "PHI@DAL",
-   "pos": "RB",
-   "p_any": 0.3723,
-   "p_two": 0.07,
-   "p_first": 0.0807,
-   "i5pg": 0.75,
-   "rzpg": 1.62,
-   "td_rate": 0.5
-  },
-  {
    "player": "Alvin Kamara",
    "player_id": "00-0033906",
    "team": "NO",
@@ -615,20 +405,6 @@
    "i5pg": 0.0,
    "rzpg": 1.0,
    "td_rate": 0.75
-  },
-  {
-   "player": "Tyquan Thornton",
-   "player_id": "00-0038104",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.3593,
-   "p_two": 0.0343,
-   "p_first": 0.0665,
-   "i5pg": 0.25,
-   "rzpg": 0.5,
-   "td_rate": 0.5
   },
   {
    "player": "Kendre Miller",
@@ -757,20 +533,6 @@
    "td_rate": 0.5
   },
   {
-   "player": "DeVonta Smith",
-   "player_id": "00-0036912",
-   "team": "PHI",
-   "opponent": "DAL",
-   "game": "PHI@DAL",
-   "pos": "WR",
-   "p_any": 0.3315,
-   "p_two": 0.0701,
-   "p_first": 0.0697,
-   "i5pg": 0.0,
-   "rzpg": 0.6,
-   "td_rate": 0.4
-  },
-  {
    "player": "Jaxon Smith-Njigba",
    "player_id": "00-0038543",
    "team": "SEA",
@@ -799,20 +561,6 @@
    "td_rate": 0.444
   },
   {
-   "player": "DJ Moore",
-   "player_id": "00-0034827",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.3274,
-   "p_two": 0.0334,
-   "p_first": 0.0593,
-   "i5pg": 0.25,
-   "rzpg": 1.25,
-   "td_rate": 0.5
-  },
-  {
    "player": "Deebo Samuel Sr.",
    "player_id": "00-0035719",
    "team": "SF",
@@ -825,20 +573,6 @@
    "i5pg": 0.29,
    "rzpg": 0.86,
    "td_rate": 0.714
-  },
-  {
-   "player": "Ryan Flournoy",
-   "player_id": "00-0039410",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "WR",
-   "p_any": 0.3205,
-   "p_two": 0.0238,
-   "p_first": 0.0669,
-   "i5pg": 0.18,
-   "rzpg": 1.27,
-   "td_rate": 0.273
   },
   {
    "player": "Omarion Hampton",
@@ -1107,34 +841,6 @@
    "td_rate": 0.143
   },
   {
-   "player": "Rome Odunze",
-   "player_id": "00-0039919",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "WR",
-   "p_any": 0.2836,
-   "p_two": 0.0271,
-   "p_first": 0.0488,
-   "i5pg": 0.2,
-   "rzpg": 0.9,
-   "td_rate": 0.1
-  },
-  {
-   "player": "Tank Bigsby",
-   "player_id": "00-0038555",
-   "team": "PHI",
-   "opponent": "DAL",
-   "game": "PHI@DAL",
-   "pos": "RB",
-   "p_any": 0.2823,
-   "p_two": 0.0657,
-   "p_first": 0.0574,
-   "i5pg": 0.25,
-   "rzpg": 1.25,
-   "td_rate": 0.25
-  },
-  {
    "player": "Drake London",
    "player_id": "00-0037238",
    "team": "ATL",
@@ -1175,20 +881,6 @@
    "i5pg": 0.0,
    "rzpg": 0.6,
    "td_rate": 0.4
-  },
-  {
-   "player": "Sam LaPorta",
-   "player_id": "00-0039065",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "TE",
-   "p_any": 0.2774,
-   "p_two": 0.0283,
-   "p_first": 0.0475,
-   "i5pg": 0.3,
-   "rzpg": 1.3,
-   "td_rate": 0.3
   },
   {
    "player": "Tetairoa McMillan",
@@ -1303,20 +995,6 @@
    "td_rate": 0.364
   },
   {
-   "player": "Kalif Raymond",
-   "player_id": "00-0032464",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "WR",
-   "p_any": 0.2602,
-   "p_two": 0.0193,
-   "p_first": 0.0441,
-   "i5pg": 0.0,
-   "rzpg": 0.7,
-   "td_rate": 0.1
-  },
-  {
    "player": "Jordan Mason",
    "player_id": "00-0037525",
    "team": "MIN",
@@ -1329,20 +1007,6 @@
    "i5pg": 0.17,
    "rzpg": 1.33,
    "td_rate": 0.167
-  },
-  {
-   "player": "Tyler Goodson",
-   "player_id": "00-0037120",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "RB",
-   "p_any": 0.2557,
-   "p_two": 0.0414,
-   "p_first": 0.0511,
-   "i5pg": 0.0,
-   "rzpg": 2.17,
-   "td_rate": 0.0
   },
   {
    "player": "Caleb Douglas",
@@ -1415,20 +1079,6 @@
    "td_rate": 0.333
   },
   {
-   "player": "Rashee Rice",
-   "player_id": "00-0039067",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.2452,
-   "p_two": 0.0325,
-   "p_first": 0.042,
-   "i5pg": 0.0,
-   "rzpg": 1.0,
-   "td_rate": 0.286
-  },
-  {
    "player": "Mason Taylor",
    "player_id": "00-0040736",
    "team": "NYJ",
@@ -1469,34 +1119,6 @@
    "i5pg": 0.1,
    "rzpg": 0.8,
    "td_rate": 0.3
-  },
-  {
-   "player": "Josh Downs",
-   "player_id": "00-0038997",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.2405,
-   "p_two": 0.0297,
-   "p_first": 0.0411,
-   "i5pg": 0.0,
-   "rzpg": 0.73,
-   "td_rate": 0.182
-  },
-  {
-   "player": "Xavier Worthy",
-   "player_id": "00-0039894",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.2404,
-   "p_two": 0.0218,
-   "p_first": 0.0411,
-   "i5pg": 0.2,
-   "rzpg": 0.9,
-   "td_rate": 0.2
   },
   {
    "player": "Terry McLaurin",
@@ -1569,34 +1191,6 @@
    "td_rate": 0.182
   },
   {
-   "player": "Dalton Kincaid",
-   "player_id": "00-0038933",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "TE",
-   "p_any": 0.2389,
-   "p_two": 0.0195,
-   "p_first": 0.0408,
-   "i5pg": 0.11,
-   "rzpg": 0.89,
-   "td_rate": 0.222
-  },
-  {
-   "player": "Jake Ferguson",
-   "player_id": "00-0038041",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "TE",
-   "p_any": 0.2389,
-   "p_two": 0.0257,
-   "p_first": 0.0473,
-   "i5pg": 0.12,
-   "rzpg": 0.75,
-   "td_rate": 0.5
-  },
-  {
    "player": "Pat Bryant",
    "player_id": "00-0040134",
    "team": "DEN",
@@ -1650,20 +1244,6 @@
    "p_first": 0.0506,
    "i5pg": 0.2,
    "rzpg": 0.5,
-   "td_rate": 0.3
-  },
-  {
-   "player": "Keon Coleman",
-   "player_id": "00-0039901",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.2354,
-   "p_two": 0.0195,
-   "p_first": 0.0401,
-   "i5pg": 0.2,
-   "rzpg": 0.6,
    "td_rate": 0.3
   },
   {
@@ -1863,20 +1443,6 @@
    "td_rate": 0.2
   },
   {
-   "player": "Khalil Shakir",
-   "player_id": "00-0037261",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.219,
-   "p_two": 0.0273,
-   "p_first": 0.0369,
-   "i5pg": 0.1,
-   "rzpg": 1.0,
-   "td_rate": 0.1
-  },
-  {
    "player": "Ted Hurst III",
    "player_id": "00-0041048",
    "team": "TB",
@@ -1889,20 +1455,6 @@
    "i5pg": 0.22,
    "rzpg": 0.67,
    "td_rate": 0.333
-  },
-  {
-   "player": "Darius Cooper",
-   "player_id": "00-0040024",
-   "team": "PHI",
-   "opponent": "DAL",
-   "game": "PHI@DAL",
-   "pos": "WR",
-   "p_any": 0.2158,
-   "p_two": 0.0511,
-   "p_first": 0.0421,
-   "i5pg": 0.2,
-   "rzpg": 0.4,
-   "td_rate": 0.4
   },
   {
    "player": "A.J. Brown",
@@ -2073,20 +1625,6 @@
    "td_rate": 0.1
   },
   {
-   "player": "Makai Lemon",
-   "player_id": "00-0040867",
-   "team": "PHI",
-   "opponent": "DAL",
-   "game": "PHI@DAL",
-   "pos": "WR",
-   "p_any": 0.2046,
-   "p_two": 0.0197,
-   "p_first": 0.0396,
-   "i5pg": 0.1,
-   "rzpg": 0.3,
-   "td_rate": 0.1
-  },
-  {
    "player": "Antonio Williams",
    "player_id": "00-0041040",
    "team": "WAS",
@@ -2127,20 +1665,6 @@
    "i5pg": 0.29,
    "rzpg": 0.57,
    "td_rate": 0.429
-  },
-  {
-   "player": "Dallas Goedert",
-   "player_id": "00-0034351",
-   "team": "PHI",
-   "opponent": "DAL",
-   "game": "PHI@DAL",
-   "pos": "TE",
-   "p_any": 0.2019,
-   "p_two": 0.0182,
-   "p_first": 0.039,
-   "i5pg": 0.0,
-   "rzpg": 0.38,
-   "td_rate": 0.25
   },
   {
    "player": "Treylon Burks",
@@ -2227,20 +1751,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Dontayvion Wicks",
-   "player_id": "00-0038393",
-   "team": "PHI",
-   "opponent": "DAL",
-   "game": "PHI@DAL",
-   "pos": "WR",
-   "p_any": 0.1956,
-   "p_two": 0.0335,
-   "p_first": 0.0377,
-   "i5pg": 0.17,
-   "rzpg": 0.67,
-   "td_rate": 0.167
-  },
-  {
    "player": "Roman Wilson",
    "player_id": "00-0039739",
    "team": "PIT",
@@ -2281,20 +1791,6 @@
    "i5pg": 0.17,
    "rzpg": 1.17,
    "td_rate": 0.0
-  },
-  {
-   "player": "Noah Gray",
-   "player_id": "00-0036637",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "TE",
-   "p_any": 0.1886,
-   "p_two": 0.0152,
-   "p_first": 0.0312,
-   "i5pg": 0.1,
-   "rzpg": 0.4,
-   "td_rate": 0.1
   },
   {
    "player": "Eli Raridon",
@@ -2437,20 +1933,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Dawson Knox",
-   "player_id": "00-0035689",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "TE",
-   "p_any": 0.1714,
-   "p_two": 0.0132,
-   "p_first": 0.0281,
-   "i5pg": 0.2,
-   "rzpg": 0.5,
-   "td_rate": 0.1
-  },
-  {
    "player": "Keenan Allen",
    "player_id": "00-0030279",
    "team": "SF",
@@ -2463,20 +1945,6 @@
    "i5pg": 0.1,
    "rzpg": 0.5,
    "td_rate": 0.1
-  },
-  {
-   "player": "Roschon Johnson",
-   "player_id": "00-0039021",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "RB",
-   "p_any": 0.1675,
-   "p_two": 0.0283,
-   "p_first": 0.0268,
-   "i5pg": 0.71,
-   "rzpg": 1.86,
-   "td_rate": 0.143
   },
   {
    "player": "Malachi Fields",
@@ -2505,20 +1973,6 @@
    "i5pg": 0.25,
    "rzpg": 0.5,
    "td_rate": 0.25
-  },
-  {
-   "player": "Isaac TeSlaa",
-   "player_id": "00-0040669",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "WR",
-   "p_any": 0.1612,
-   "p_two": 0.019,
-   "p_first": 0.0257,
-   "i5pg": 0.11,
-   "rzpg": 0.78,
-   "td_rate": 0.111
   },
   {
    "player": "Kenyon Sadiq",
@@ -2647,48 +2101,6 @@
    "td_rate": 0.25
   },
   {
-   "player": "Brevyn Spann-Ford",
-   "player_id": "00-0039530",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "TE",
-   "p_any": 0.1523,
-   "p_two": 0.0136,
-   "p_first": 0.0286,
-   "i5pg": 0.09,
-   "rzpg": 0.36,
-   "td_rate": 0.091
-  },
-  {
-   "player": "Cole Kmet",
-   "player_id": "00-0036290",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "TE",
-   "p_any": 0.1517,
-   "p_two": 0.0131,
-   "p_first": 0.0241,
-   "i5pg": 0.0,
-   "rzpg": 0.14,
-   "td_rate": 0.143
-  },
-  {
-   "player": "Ty Johnson",
-   "player_id": "00-0035537",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "RB",
-   "p_any": 0.1517,
-   "p_two": 0.0198,
-   "p_first": 0.0246,
-   "i5pg": 0.25,
-   "rzpg": 0.88,
-   "td_rate": 0.0
-  },
-  {
    "player": "Corey Kiner",
    "player_id": "00-0040556",
    "team": "NE",
@@ -2787,34 +2199,6 @@
    "td_rate": 0.1
   },
   {
-   "player": "Will Shipley",
-   "player_id": "00-0039746",
-   "team": "PHI",
-   "opponent": "DAL",
-   "game": "PHI@DAL",
-   "pos": "RB",
-   "p_any": 0.1435,
-   "p_two": 0.0427,
-   "p_first": 0.0268,
-   "i5pg": 0.33,
-   "rzpg": 1.5,
-   "td_rate": 0.167
-  },
-  {
-   "player": "Sione Vaki",
-   "player_id": "00-0039364",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "RB",
-   "p_any": 0.1425,
-   "p_two": 0.0183,
-   "p_first": 0.0225,
-   "i5pg": 0.1,
-   "rzpg": 0.2,
-   "td_rate": 0.0
-  },
-  {
    "player": "Ameer Abdullah",
    "player_id": "00-0032104",
    "team": "JAX",
@@ -2827,20 +2211,6 @@
    "i5pg": 0.0,
    "rzpg": 0.56,
    "td_rate": 0.0
-  },
-  {
-   "player": "KaVontae Turpin",
-   "player_id": "00-0037801",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "WR",
-   "p_any": 0.1401,
-   "p_two": 0.0113,
-   "p_first": 0.0261,
-   "i5pg": 0.0,
-   "rzpg": 0.38,
-   "td_rate": 0.25
   },
   {
    "player": "Oronde Gadsden II",
@@ -3081,20 +2451,6 @@
    "td_rate": 0.333
   },
   {
-   "player": "Josh Palmer",
-   "player_id": "00-0036988",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.1162,
-   "p_two": 0.0174,
-   "p_first": 0.0185,
-   "i5pg": 0.2,
-   "rzpg": 0.2,
-   "td_rate": 0.4
-  },
-  {
    "player": "Trevor Etienne",
    "player_id": "00-0040644",
    "team": "CAR",
@@ -3177,20 +2533,6 @@
    "i5pg": 0.0,
    "rzpg": 0.4,
    "td_rate": 0.2
-  },
-  {
-   "player": "Cyrus Allen",
-   "player_id": "00-0040890",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.1109,
-   "p_two": 0.0103,
-   "p_first": 0.0176,
-   "i5pg": 0.0,
-   "rzpg": 0.25,
-   "td_rate": 0.125
   },
   {
    "player": "Jeremy Ruckert",
@@ -3431,20 +2773,6 @@
    "td_rate": 0.143
   },
   {
-   "player": "Andrew Armstrong",
-   "player_id": "00-0040298",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.0981,
-   "p_two": 0.0148,
-   "p_first": 0.0154,
-   "i5pg": 0.17,
-   "rzpg": 0.17,
-   "td_rate": 0.167
-  },
-  {
    "player": "Jauan Jennings",
    "player_id": "00-0036259",
    "team": "MIN",
@@ -3485,20 +2813,6 @@
    "i5pg": 0.0,
    "rzpg": 0.25,
    "td_rate": 0.25
-  },
-  {
-   "player": "Jalen Royals",
-   "player_id": "00-0040646",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.0967,
-   "p_two": 0.0149,
-   "p_first": 0.0152,
-   "i5pg": 0.2,
-   "rzpg": 0.3,
-   "td_rate": 0.1
   },
   {
    "player": "Charlie Woerner",
@@ -3543,20 +2857,6 @@
    "td_rate": 0.25
   },
   {
-   "player": "Zavion Thomas",
-   "player_id": "00-0041051",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "WR",
-   "p_any": 0.093,
-   "p_two": 0.0129,
-   "p_first": 0.0143,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
    "player": "Daniel Bellinger",
    "player_id": "00-0038115",
    "team": "TEN",
@@ -3585,20 +2885,6 @@
    "td_rate": 0.091
   },
   {
-   "player": "Tyler Conklin",
-   "player_id": "00-0034270",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "TE",
-   "p_any": 0.0914,
-   "p_two": 0.0126,
-   "p_first": 0.014,
-   "i5pg": 0.0,
-   "rzpg": 0.25,
-   "td_rate": 0.0
-  },
-  {
    "player": "John Metchie III",
    "player_id": "00-0037614",
    "team": "CAR",
@@ -3611,20 +2897,6 @@
    "i5pg": 0.11,
    "rzpg": 0.33,
    "td_rate": 0.111
-  },
-  {
-   "player": "Brock Wright",
-   "player_id": "00-0036754",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "TE",
-   "p_any": 0.0908,
-   "p_two": 0.0127,
-   "p_first": 0.0139,
-   "i5pg": 0.0,
-   "rzpg": 0.14,
-   "td_rate": 0.0
   },
   {
    "player": "Bryce Lance",
@@ -3652,20 +2924,6 @@
    "p_first": 0.0187,
    "i5pg": 0.0,
    "rzpg": 0.43,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Ray Davis",
-   "player_id": "00-0039875",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "RB",
-   "p_any": 0.0884,
-   "p_two": 0.018,
-   "p_first": 0.0138,
-   "i5pg": 0.11,
-   "rzpg": 0.11,
    "td_rate": 0.0
   },
   {
@@ -3795,20 +3053,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Sam Roush",
-   "player_id": "00-0041558",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "TE",
-   "p_any": 0.0823,
-   "p_two": 0.0127,
-   "p_first": 0.0126,
-   "i5pg": 0.0,
-   "rzpg": 0.14,
-   "td_rate": 0.0
-  },
-  {
    "player": "Tylan Wallace",
    "player_id": "00-0036630",
    "team": "CLE",
@@ -3851,20 +3095,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Marquise Brown",
-   "player_id": "00-0035662",
-   "team": "PHI",
-   "opponent": "DAL",
-   "game": "PHI@DAL",
-   "pos": "WR",
-   "p_any": 0.0781,
-   "p_two": 0.0103,
-   "p_first": 0.0141,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
    "player": "Malik Benson",
    "player_id": "00-0040894",
    "team": "LV",
@@ -3876,20 +3106,6 @@
    "p_first": 0.0157,
    "i5pg": 0.0,
    "rzpg": 0.57,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Jackson Hawes",
-   "player_id": "00-0040194",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "TE",
-   "p_any": 0.0776,
-   "p_two": 0.0122,
-   "p_first": 0.0121,
-   "i5pg": 0.17,
-   "rzpg": 0.17,
    "td_rate": 0.0
   },
   {
@@ -3933,20 +3149,6 @@
    "i5pg": 0.0,
    "rzpg": 0.17,
    "td_rate": 0.333
-  },
-  {
-   "player": "Hunter Luepke",
-   "player_id": "00-0038738",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "RB",
-   "p_any": 0.073,
-   "p_two": 0.0101,
-   "p_first": 0.0131,
-   "i5pg": 0.0,
-   "rzpg": 0.22,
-   "td_rate": 0.0
   },
   {
    "player": "Eric Saubert",
@@ -4005,34 +3207,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Jake Briningstool",
-   "player_id": "00-0040081",
-   "team": "KC",
-   "opponent": "BUF",
-   "game": "KC@BUF",
-   "pos": "TE",
-   "p_any": 0.0681,
-   "p_two": 0.0101,
-   "p_first": 0.0105,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Keleki Latu",
-   "player_id": "00-0040363",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "TE",
-   "p_any": 0.0675,
-   "p_two": 0.0127,
-   "p_first": 0.0104,
-   "i5pg": 0.0,
-   "rzpg": 0.11,
-   "td_rate": 0.111
-  },
-  {
    "player": "Jelani Woods",
    "player_id": "00-0037755",
    "team": "NYJ",
@@ -4075,20 +3249,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Luke Schoonmaker",
-   "player_id": "00-0038547",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "TE",
-   "p_any": 0.0653,
-   "p_two": 0.0101,
-   "p_first": 0.0117,
-   "i5pg": 0.0,
-   "rzpg": 0.2,
-   "td_rate": 0.0
-  },
-  {
    "player": "Anthony Gould",
    "player_id": "00-0039816",
    "team": "IND",
@@ -4112,20 +3272,6 @@
    "p_any": 0.0638,
    "p_two": 0.0145,
    "p_first": 0.0129,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Johnny Mundt",
-   "player_id": "00-0033246",
-   "team": "PHI",
-   "opponent": "DAL",
-   "game": "PHI@DAL",
-   "pos": "TE",
-   "p_any": 0.0605,
-   "p_two": 0.0101,
-   "p_first": 0.0108,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0
@@ -4156,20 +3302,6 @@
    "p_first": 0.0104,
    "i5pg": 0.0,
    "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Jonathan Mingo",
-   "player_id": "00-0039062",
-   "team": "DAL",
-   "opponent": "PHI",
-   "game": "PHI@DAL",
-   "pos": "WR",
-   "p_any": 0.0576,
-   "p_two": 0.0101,
-   "p_first": 0.0103,
-   "i5pg": 0.0,
-   "rzpg": 0.14,
    "td_rate": 0.0
   },
   {
@@ -4294,20 +3426,6 @@
    "p_any": 0.0545,
    "p_two": 0.0101,
    "p_first": 0.0101,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Tom Kennedy",
-   "player_id": "00-0035544",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "WR",
-   "p_any": 0.054,
-   "p_two": 0.0127,
-   "p_first": 0.0081,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0
@@ -4509,48 +3627,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "DeAndre Carter",
-   "player_id": "00-0031763",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "WR",
-   "p_any": 0.046,
-   "p_two": 0.0101,
-   "p_first": 0.0069,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Jahdae Walker",
-   "player_id": "00-0040277",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "WR",
-   "p_any": 0.0449,
-   "p_two": 0.0105,
-   "p_first": 0.0067,
-   "i5pg": 0.14,
-   "rzpg": 0.14,
-   "td_rate": 0.143
-  },
-  {
-   "player": "Jacob Saylors",
-   "player_id": "00-0038896",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "RB",
-   "p_any": 0.0436,
-   "p_two": 0.0127,
-   "p_first": 0.0065,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
    "player": "David Moore",
    "player_id": "00-0033589",
    "team": "CAR",
@@ -4560,20 +3636,6 @@
    "p_any": 0.0433,
    "p_two": 0.0101,
    "p_first": 0.0082,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Tay Martin",
-   "player_id": "00-0037524",
-   "team": "DET",
-   "opponent": "CHI",
-   "game": "CHI@DET",
-   "pos": "WR",
-   "p_any": 0.0424,
-   "p_two": 0.0127,
-   "p_first": 0.0063,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0
@@ -4644,20 +3706,6 @@
    "p_any": 0.0369,
    "p_two": 0.0101,
    "p_first": 0.0065,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Greg Dortch",
-   "player_id": "00-0035500",
-   "team": "BUF",
-   "opponent": "KC",
-   "game": "KC@BUF",
-   "pos": "WR",
-   "p_any": 0.033,
-   "p_two": 0.0127,
-   "p_first": 0.005,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0
@@ -4789,20 +3837,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Zavier Scott",
-   "player_id": "00-0038440",
-   "team": "CHI",
-   "opponent": "DET",
-   "game": "CHI@DET",
-   "pos": "RB",
-   "p_any": 0.0206,
-   "p_two": 0.0101,
-   "p_first": 0.003,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
    "player": "Quintin Morris",
    "player_id": "00-0036590",
    "team": "JAX",
@@ -4868,20 +3902,6 @@
    "p_any": 0.0191,
    "p_two": 0.0101,
    "p_first": 0.0037,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Britain Covey",
-   "player_id": "00-0037132",
-   "team": "PHI",
-   "opponent": "DAL",
-   "game": "PHI@DAL",
-   "pos": "WR",
-   "p_any": 0.0189,
-   "p_two": 0.0101,
-   "p_first": 0.0033,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0

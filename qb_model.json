@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T17:18:25+00:00",
+ "generated_at": "2026-11-27T15:21:32+00:00",
  "season": 2026,
  "week": 12,
  "trained_on": [
@@ -22,15 +22,6 @@
  },
  "players": [
   {
-   "player": "Dak Prescott",
-   "player_id": "00-0033077",
-   "team": "DAL",
-   "opponent": "PHI",
-   "games": 11,
-   "completions": 25.1,
-   "passing_yards": 297.0
-  },
-  {
    "player": "Joe Burrow",
    "player_id": "00-0036442",
    "team": "CIN",
@@ -47,24 +38,6 @@
    "games": 11,
    "completions": 23.4,
    "passing_yards": 265.0
-  },
-  {
-   "player": "Caleb Williams",
-   "player_id": "00-0039918",
-   "team": "CHI",
-   "opponent": "DET",
-   "games": 7,
-   "completions": 23.1,
-   "passing_yards": 255.2
-  },
-  {
-   "player": "Patrick Mahomes",
-   "player_id": "00-0033873",
-   "team": "KC",
-   "opponent": "BUF",
-   "games": 10,
-   "completions": 22.6,
-   "passing_yards": 253.7
   },
   {
    "player": "Tyler Shough",
@@ -166,15 +139,6 @@
    "passing_yards": 225.2
   },
   {
-   "player": "Josh Allen",
-   "player_id": "00-0034857",
-   "team": "BUF",
-   "opponent": "KC",
-   "games": 10,
-   "completions": 20.1,
-   "passing_yards": 245.2
-  },
-  {
    "player": "Trevor Lawrence",
    "player_id": "00-0036971",
    "team": "JAX",
@@ -200,15 +164,6 @@
    "games": 4,
    "completions": 20.0,
    "passing_yards": 223.8
-  },
-  {
-   "player": "Jared Goff",
-   "player_id": "00-0033106",
-   "team": "DET",
-   "opponent": "CHI",
-   "games": 10,
-   "completions": 19.3,
-   "passing_yards": 253.2
   },
   {
    "player": "Brock Purdy",
@@ -281,15 +236,6 @@
    "games": 6,
    "completions": 18.3,
    "passing_yards": 201.8
-  },
-  {
-   "player": "Jalen Hurts",
-   "player_id": "00-0036389",
-   "team": "PHI",
-   "opponent": "DAL",
-   "games": 5,
-   "completions": 17.7,
-   "passing_yards": 180.7
   },
   {
    "player": "Lamar Jackson",

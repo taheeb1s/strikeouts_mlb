@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-26T17:18:01+00:00",
+ "generated_at": "2026-11-27T15:21:12+00:00",
  "season": 2026,
  "week": 12,
  "trained_on": [
@@ -545,17 +545,6 @@
    "targets_recent": 11.6
   },
   {
-   "player": "DeVonta Smith",
-   "team": "PHI",
-   "opponent": "DAL",
-   "pos": "WR",
-   "proj": 6.73,
-   "season_avg": 6.2,
-   "line": 6.5,
-   "p_over": 0.6061,
-   "targets_recent": 10.6
-  },
-  {
    "player": "Trey McBride",
    "team": "ARI",
    "opponent": "WAS",
@@ -578,28 +567,6 @@
    "targets_recent": 11.8
   },
   {
-   "player": "Amon-Ra St. Brown",
-   "team": "DET",
-   "opponent": "CHI",
-   "pos": "WR",
-   "proj": 6.07,
-   "season_avg": 7.0,
-   "line": 6.5,
-   "p_over": 0.4444,
-   "targets_recent": 8.0
-  },
-  {
-   "player": "George Pickens",
-   "team": "DAL",
-   "opponent": "PHI",
-   "pos": "WR",
-   "proj": 5.91,
-   "season_avg": 5.7,
-   "line": 5.5,
-   "p_over": 0.6566,
-   "targets_recent": 9.8
-  },
-  {
    "player": "Brock Bowers",
    "team": "LV",
    "opponent": "CLE",
@@ -609,17 +576,6 @@
    "line": 5.5,
    "p_over": 0.5253,
    "targets_recent": 7.4
-  },
-  {
-   "player": "CeeDee Lamb",
-   "team": "DAL",
-   "opponent": "PHI",
-   "pos": "WR",
-   "proj": 5.48,
-   "season_avg": 8.0,
-   "line": 5.5,
-   "p_over": 0.5152,
-   "targets_recent": 12.8
   },
   {
    "player": "Zay Flowers",
@@ -732,17 +688,6 @@
    "targets_recent": 5.0
   },
   {
-   "player": "Rashee Rice",
-   "team": "KC",
-   "opponent": "BUF",
-   "pos": "WR",
-   "proj": 4.45,
-   "season_avg": 5.14,
-   "line": 4.5,
-   "p_over": 0.5051,
-   "targets_recent": 7.2
-  },
-  {
    "player": "Ashton Jeanty",
    "team": "LV",
    "opponent": "CLE",
@@ -853,28 +798,6 @@
    "targets_recent": 7.4
   },
   {
-   "player": "Luther Burden III",
-   "team": "CHI",
-   "opponent": "DET",
-   "pos": "WR",
-   "proj": 4.11,
-   "season_avg": 5.1,
-   "line": 4.5,
-   "p_over": 0.4545,
-   "targets_recent": 6.8
-  },
-  {
-   "player": "Jahmyr Gibbs",
-   "team": "DET",
-   "opponent": "CHI",
-   "pos": "RB",
-   "proj": 4.04,
-   "season_avg": 4.5,
-   "line": 4.5,
-   "p_over": 0.4444,
-   "targets_recent": 4.8
-  },
-  {
    "player": "Devaughn Vele",
    "team": "NO",
    "opponent": "CIN",
@@ -917,17 +840,6 @@
    "line": 3.5,
    "p_over": 0.6768,
    "targets_recent": 7.0
-  },
-  {
-   "player": "Dallas Goedert",
-   "team": "PHI",
-   "opponent": "DAL",
-   "pos": "TE",
-   "proj": 3.81,
-   "season_avg": 4.0,
-   "line": 3.5,
-   "p_over": 0.6566,
-   "targets_recent": 5.2
   },
   {
    "player": "Christian McCaffrey",
@@ -974,28 +886,6 @@
    "targets_recent": 6.2
   },
   {
-   "player": "Travis Kelce",
-   "team": "KC",
-   "opponent": "BUF",
-   "pos": "TE",
-   "proj": 3.37,
-   "season_avg": 4.1,
-   "line": 3.5,
-   "p_over": 0.4646,
-   "targets_recent": 6.0
-  },
-  {
-   "player": "Xavier Worthy",
-   "team": "KC",
-   "opponent": "BUF",
-   "pos": "WR",
-   "proj": 3.37,
-   "season_avg": 3.5,
-   "line": 3.5,
-   "p_over": 0.4646,
-   "targets_recent": 5.0
-  },
-  {
    "player": "Mark Andrews",
    "team": "BAL",
    "opponent": "HOU",
@@ -1018,28 +908,6 @@
    "targets_recent": 7.8
   },
   {
-   "player": "Makai Lemon",
-   "team": "PHI",
-   "opponent": "DAL",
-   "pos": "WR",
-   "proj": 3.28,
-   "season_avg": 3.8,
-   "line": 3.5,
-   "p_over": 0.4646,
-   "targets_recent": 7.0
-  },
-  {
-   "player": "DJ Moore",
-   "team": "BUF",
-   "opponent": "KC",
-   "pos": "WR",
-   "proj": 3.24,
-   "season_avg": 3.88,
-   "line": 3.5,
-   "p_over": 0.4545,
-   "targets_recent": 6.0
-  },
-  {
    "player": "Tre Harris",
    "team": "LAC",
    "opponent": "NE",
@@ -1049,17 +917,6 @@
    "line": 3.5,
    "p_over": 0.4545,
    "targets_recent": 4.2
-  },
-  {
-   "player": "Rome Odunze",
-   "team": "CHI",
-   "opponent": "DET",
-   "pos": "WR",
-   "proj": 3.23,
-   "season_avg": 3.6,
-   "line": 3.5,
-   "p_over": 0.4545,
-   "targets_recent": 5.2
   },
   {
    "player": "Cade Otton",
@@ -1084,17 +941,6 @@
    "targets_recent": 5.0
   },
   {
-   "player": "Colston Loveland",
-   "team": "CHI",
-   "opponent": "DET",
-   "pos": "TE",
-   "proj": 3.21,
-   "season_avg": 4.0,
-   "line": 3.5,
-   "p_over": 0.4545,
-   "targets_recent": 7.4
-  },
-  {
    "player": "Antonio Williams",
    "team": "WAS",
    "opponent": "ARI",
@@ -1104,17 +950,6 @@
    "line": 3.5,
    "p_over": 0.4545,
    "targets_recent": 6.0
-  },
-  {
-   "player": "Dontayvion Wicks",
-   "team": "PHI",
-   "opponent": "DAL",
-   "pos": "WR",
-   "proj": 3.18,
-   "season_avg": 3.17,
-   "line": 3.5,
-   "p_over": 0.4545,
-   "targets_recent": 5.6
   },
   {
    "player": "Chris Godwin Jr.",
@@ -1139,17 +974,6 @@
    "targets_recent": 4.2
   },
   {
-   "player": "Josh Downs",
-   "team": "KC",
-   "opponent": "BUF",
-   "pos": "WR",
-   "proj": 3.15,
-   "season_avg": 3.73,
-   "line": 3.5,
-   "p_over": 0.4444,
-   "targets_recent": 5.0
-  },
-  {
    "player": "Jakobi Meyers",
    "team": "JAX",
    "opponent": "TEN",
@@ -1170,28 +994,6 @@
    "line": 3.5,
    "p_over": 0.4444,
    "targets_recent": 5.8
-  },
-  {
-   "player": "Dalton Kincaid",
-   "team": "BUF",
-   "opponent": "KC",
-   "pos": "TE",
-   "proj": 3.1,
-   "season_avg": 3.56,
-   "line": 3.5,
-   "p_over": 0.4444,
-   "targets_recent": 4.4
-  },
-  {
-   "player": "Khalil Shakir",
-   "team": "BUF",
-   "opponent": "KC",
-   "pos": "WR",
-   "proj": 3.1,
-   "season_avg": 3.8,
-   "line": 3.5,
-   "p_over": 0.4444,
-   "targets_recent": 5.6
   },
   {
    "player": "Jaylen Waddle",
@@ -1282,17 +1084,6 @@
    "targets_recent": 7.4
   },
   {
-   "player": "Sam LaPorta",
-   "team": "DET",
-   "opponent": "CHI",
-   "pos": "TE",
-   "proj": 3.03,
-   "season_avg": 3.9,
-   "line": 3.5,
-   "p_over": 0.4343,
-   "targets_recent": 4.4
-  },
-  {
    "player": "Hunter Henry",
    "team": "NE",
    "opponent": "LAC",
@@ -1370,17 +1161,6 @@
    "targets_recent": 3.4
   },
   {
-   "player": "Jameson Williams",
-   "team": "DET",
-   "opponent": "CHI",
-   "pos": "WR",
-   "proj": 2.91,
-   "season_avg": 3.6,
-   "line": 2.5,
-   "p_over": 0.5657,
-   "targets_recent": 5.6
-  },
-  {
    "player": "Greg Dulcich",
    "team": "MIA",
    "opponent": "NYJ",
@@ -1423,17 +1203,6 @@
    "line": 2.5,
    "p_over": 0.5354,
    "targets_recent": 5.4
-  },
-  {
-   "player": "Kalif Raymond",
-   "team": "CHI",
-   "opponent": "DET",
-   "pos": "WR",
-   "proj": 2.8,
-   "season_avg": 3.3,
-   "line": 2.5,
-   "p_over": 0.5253,
-   "targets_recent": 3.6
   },
   {
    "player": "Jaylen Warren",
@@ -1535,17 +1304,6 @@
    "targets_recent": 3.4
   },
   {
-   "player": "Kenneth Walker III",
-   "team": "KC",
-   "opponent": "BUF",
-   "pos": "RB",
-   "proj": 2.68,
-   "season_avg": 3.25,
-   "line": 2.5,
-   "p_over": 0.5152,
-   "targets_recent": 3.6
-  },
-  {
    "player": "Pat Bryant",
    "team": "DEN",
    "opponent": "PIT",
@@ -1599,17 +1357,6 @@
    "line": 2.5,
    "p_over": 0.5152,
    "targets_recent": 2.6
-  },
-  {
-   "player": "Keon Coleman",
-   "team": "BUF",
-   "opponent": "KC",
-   "pos": "WR",
-   "proj": 2.59,
-   "season_avg": 2.6,
-   "line": 2.5,
-   "p_over": 0.5152,
-   "targets_recent": 4.4
   },
   {
    "player": "Evan Engram",
@@ -1711,17 +1458,6 @@
    "targets_recent": 4.6
   },
   {
-   "player": "Emmett Johnson",
-   "team": "KC",
-   "opponent": "BUF",
-   "pos": "RB",
-   "proj": 2.44,
-   "season_avg": 2.4,
-   "line": 2.5,
-   "p_over": 0.4949,
-   "targets_recent": 3.8
-  },
-  {
    "player": "RJ Harvey",
    "team": "DEN",
    "opponent": "PIT",
@@ -1788,17 +1524,6 @@
    "targets_recent": 3.2
   },
   {
-   "player": "D'Andre Swift",
-   "team": "CHI",
-   "opponent": "DET",
-   "pos": "RB",
-   "proj": 2.35,
-   "season_avg": 2.6,
-   "line": 2.5,
-   "p_over": 0.4646,
-   "targets_recent": 3.0
-  },
-  {
    "player": "Oronde Gadsden II",
    "team": "LAC",
    "opponent": "NE",
@@ -1841,17 +1566,6 @@
    "line": 2.5,
    "p_over": 0.4545,
    "targets_recent": 3.6
-  },
-  {
-   "player": "Ryan Flournoy",
-   "team": "DAL",
-   "opponent": "PHI",
-   "pos": "WR",
-   "proj": 2.32,
-   "season_avg": 3.55,
-   "line": 2.5,
-   "p_over": 0.4545,
-   "targets_recent": 3.8
   },
   {
    "player": "Darnell Washington",
@@ -1931,17 +1645,6 @@
    "targets_recent": 2.4
   },
   {
-   "player": "Ty Johnson",
-   "team": "BUF",
-   "opponent": "KC",
-   "pos": "RB",
-   "proj": 2.27,
-   "season_avg": 3.12,
-   "line": 2.5,
-   "p_over": 0.4444,
-   "targets_recent": 3.2
-  },
-  {
    "player": "Rashid Shaheed",
    "team": "SEA",
    "opponent": "SF",
@@ -2019,28 +1722,6 @@
    "targets_recent": 5.4
   },
   {
-   "player": "Javonte Williams",
-   "team": "DAL",
-   "opponent": "PHI",
-   "pos": "RB",
-   "proj": 2.13,
-   "season_avg": 2.55,
-   "line": 2.5,
-   "p_over": 0.3333,
-   "targets_recent": 2.2
-  },
-  {
-   "player": "Cyrus Allen",
-   "team": "KC",
-   "opponent": "BUF",
-   "pos": "WR",
-   "proj": 2.12,
-   "season_avg": 1.12,
-   "line": 2.5,
-   "p_over": 0.3333,
-   "targets_recent": 2.8
-  },
-  {
    "player": "Efton Chism III",
    "team": "NE",
    "opponent": "LAC",
@@ -2052,17 +1733,6 @@
    "targets_recent": 2.6
   },
   {
-   "player": "Noah Gray",
-   "team": "KC",
-   "opponent": "BUF",
-   "pos": "TE",
-   "proj": 2.06,
-   "season_avg": 1.9,
-   "line": 2.5,
-   "p_over": 0.3333,
-   "targets_recent": 2.8
-  },
-  {
    "player": "Gavin Bartholomew",
    "team": "MIN",
    "opponent": "ATL",
@@ -2072,17 +1742,6 @@
    "line": 2.5,
    "p_over": 0.3333,
    "targets_recent": 3.0
-  },
-  {
-   "player": "Jake Ferguson",
-   "team": "DAL",
-   "opponent": "PHI",
-   "pos": "TE",
-   "proj": 2.03,
-   "season_avg": 2.38,
-   "line": 2.5,
-   "p_over": 0.3333,
-   "targets_recent": 3.2
   },
   {
    "player": "Treylon Burks",
@@ -2195,17 +1854,6 @@
    "targets_recent": 2.6
   },
   {
-   "player": "Dawson Knox",
-   "team": "BUF",
-   "opponent": "KC",
-   "pos": "TE",
-   "proj": 1.86,
-   "season_avg": 1.6,
-   "line": 1.5,
-   "p_over": 0.6061,
-   "targets_recent": 2.8
-  },
-  {
    "player": "Tory Horton",
    "team": "SEA",
    "opponent": "SF",
@@ -2237,17 +1885,6 @@
    "line": 1.5,
    "p_over": 0.6061,
    "targets_recent": 2.6
-  },
-  {
-   "player": "Darius Cooper",
-   "team": "PHI",
-   "opponent": "DAL",
-   "pos": "WR",
-   "proj": 1.82,
-   "season_avg": 1.7,
-   "line": 1.5,
-   "p_over": 0.6061,
-   "targets_recent": 4.8
   },
   {
    "player": "Cooper Kupp",
@@ -2437,17 +2074,6 @@
    "targets_recent": 2.0
   },
   {
-   "player": "Brevyn Spann-Ford",
-   "team": "DAL",
-   "opponent": "PHI",
-   "pos": "TE",
-   "proj": 1.51,
-   "season_avg": 1.64,
-   "line": 1.5,
-   "p_over": 0.4747,
-   "targets_recent": 3.0
-  },
-  {
    "player": "Aaron Jones",
    "team": "MIN",
    "opponent": "ATL",
@@ -2511,17 +2137,6 @@
    "season_avg": 1.67,
    "line": 1.5,
    "p_over": 0.404,
-   "targets_recent": 2.8
-  },
-  {
-   "player": "Isaac TeSlaa",
-   "team": "DET",
-   "opponent": "CHI",
-   "pos": "WR",
-   "proj": 1.4,
-   "season_avg": 1.44,
-   "line": 1.5,
-   "p_over": 0.3838,
    "targets_recent": 2.8
   },
   {
@@ -2602,17 +2217,6 @@
    "targets_recent": 1.6
   },
   {
-   "player": "Jalen Royals",
-   "team": "KC",
-   "opponent": "BUF",
-   "pos": "WR",
-   "proj": 1.15,
-   "season_avg": 0.8,
-   "line": 1.5,
-   "p_over": 0.3434,
-   "targets_recent": 1.2
-  },
-  {
    "player": "George Holani",
    "team": "SEA",
    "opponent": "SF",
@@ -2666,17 +2270,6 @@
    "line": 1.5,
    "p_over": 0.3131,
    "targets_recent": 1.2
-  },
-  {
-   "player": "James Cook",
-   "team": "BUF",
-   "opponent": "KC",
-   "pos": "RB",
-   "proj": 0.98,
-   "season_avg": 1.4,
-   "line": 0.5,
-   "p_over": 0.6465,
-   "targets_recent": 2.0
   },
   {
    "player": "Cody White",
