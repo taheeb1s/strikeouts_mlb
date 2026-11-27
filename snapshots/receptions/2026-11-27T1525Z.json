@@ -1,10 +1,10 @@
 {
- "captured_at": "2026-11-27T15:20:47+00:00",
+ "captured_at": "2026-11-27T15:25:15+00:00",
  "market": "player_receptions",
  "sport": "americanfootball_nfl",
  "games_captured": 1,
  "credits_spent": 1,
- "credits_remaining": "437",
+ "credits_remaining": "436",
  "games": [
   {
    "id": "44a3bcf5bd002583ddef2207a92dd977",
@@ -20,7 +20,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-27T15:20:28Z",
+       "last_update": "2026-11-27T15:24:19Z",
        "outcomes": [
         {
          "name": "Over",
@@ -224,7 +224,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-27T15:20:19Z",
+       "last_update": "2026-11-27T15:24:51Z",
        "outcomes": [
         {
          "name": "Over",
@@ -428,7 +428,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-27T15:19:32Z",
+       "last_update": "2026-11-27T15:24:40Z",
        "outcomes": [
         {
          "name": "Over",
@@ -632,7 +632,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-27T15:19:36Z",
+       "last_update": "2026-11-27T15:24:43Z",
        "outcomes": [
         {
          "name": "Over",
@@ -740,7 +740,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-27T15:20:27Z",
+       "last_update": "2026-11-27T15:22:55Z",
        "outcomes": [
         {
          "name": "Over",
@@ -775,19 +775,19 @@
         {
          "name": "Under",
          "description": "Courtland Sutton",
-         "price": 109,
+         "price": 108,
          "point": 2.5
         },
         {
          "name": "Over",
          "description": "Troy Franklin",
-         "price": -152,
+         "price": -154,
          "point": 0.5
         },
         {
          "name": "Under",
          "description": "Troy Franklin",
-         "price": 116,
+         "price": 118,
          "point": 0.5
         },
         {
@@ -841,13 +841,13 @@
         {
          "name": "Over",
          "description": "Marvin Mims Jr.",
-         "price": 149,
+         "price": 152,
          "point": 1.5
         },
         {
          "name": "Under",
          "description": "Marvin Mims Jr.",
-         "price": -196,
+         "price": -200,
          "point": 1.5
         },
         {
@@ -913,13 +913,13 @@
         {
          "name": "Over",
          "description": "Adam Trautman",
-         "price": -175,
+         "price": -179,
          "point": 0.5
         },
         {
          "name": "Under",
          "description": "Adam Trautman",
-         "price": 135,
+         "price": 136,
          "point": 0.5
         },
         {
@@ -944,7 +944,7 @@
      "markets": [
       {
        "key": "player_receptions",
-       "last_update": "2026-11-27T15:19:40Z",
+       "last_update": "2026-11-27T15:24:49Z",
        "outcomes": [
         {
          "name": "Over",

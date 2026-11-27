@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T15:20:47+00:00",
+ "generated_at": "2026-11-27T15:25:15+00:00",
  "market": "player_receptions",
  "games": [
   {
@@ -124542,7 +124542,7 @@
    "matchup": "Denver Broncos at Pittsburgh Steelers",
    "kickoff": "2026-11-27T20:00:00Z",
    "week": 12,
-   "captured_at": "2026-11-27T15:20:47+00:00",
+   "captured_at": "2026-11-27T15:25:15+00:00",
    "snapshots": 1,
    "players": [
     {
@@ -124602,7 +124602,7 @@
      "player": "Jaylen Waddle",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 3.5,
        "consensus_over": 0.5335
       }
@@ -124667,7 +124667,7 @@
      "player": "Jonah Coleman",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 3.5,
        "consensus_over": 0.4715
       }
@@ -124732,7 +124732,7 @@
      "player": "Germie Bernard",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 2.5,
        "consensus_over": 0.5723
       }
@@ -124744,9 +124744,9 @@
      "line": 2.5,
      "books": 5,
      "other_lines": [],
-     "consensus_over": 0.5475,
+     "consensus_over": 0.5473,
      "book_spread": 0.0223,
-     "avg_vig": 0.0671,
+     "avg_vig": 0.0676,
      "best_over": {
       "price": -135,
       "book": "BetMGM"
@@ -124770,7 +124770,7 @@
        "book_title": "BetOnline.ag",
        "line": 2.5,
        "over_price": -141,
-       "under_price": 109
+       "under_price": 108
       },
       {
        "book": "bovada",
@@ -124797,9 +124797,9 @@
      "player": "Courtland Sutton",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 2.5,
-       "consensus_over": 0.5475
+       "consensus_over": 0.5473
       }
      ],
      "moved_line": null,
@@ -124862,7 +124862,7 @@
      "player": "DK Metcalf",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 2.5,
        "consensus_over": 0.5279
       }
@@ -124927,7 +124927,7 @@
      "player": "Evan Engram",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 2.5,
        "consensus_over": 0.483
       }
@@ -124992,7 +124992,7 @@
      "player": "Jaylen Warren",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 2.5,
        "consensus_over": 0.511
       }
@@ -125057,7 +125057,7 @@
      "player": "Pat Bryant",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 2.5,
        "consensus_over": 0.4745
       }
@@ -125122,7 +125122,7 @@
      "player": "Pat Freiermuth",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 2.5,
        "consensus_over": 0.4462
       }
@@ -125187,7 +125187,7 @@
      "player": "Darnell Washington",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 1.5,
        "consensus_over": 0.5601
       }
@@ -125252,7 +125252,7 @@
      "player": "Rico Dowdle",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 1.5,
        "consensus_over": 0.557
       }
@@ -125317,7 +125317,7 @@
      "player": "Roman Wilson",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 1.5,
        "consensus_over": 0.461
       }
@@ -125382,7 +125382,7 @@
      "player": "Michael Pittman Jr.",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 1.5,
        "consensus_over": 0.4339
       }
@@ -125394,7 +125394,7 @@
      "line": 1.5,
      "books": 5,
      "other_lines": [],
-     "consensus_over": 0.3742,
+     "consensus_over": 0.3733,
      "book_spread": 0.0176,
      "avg_vig": 0.0667,
      "best_over": {
@@ -125419,8 +125419,8 @@
        "book": "betonlineag",
        "book_title": "BetOnline.ag",
        "line": 1.5,
-       "over_price": 149,
-       "under_price": -196
+       "over_price": 152,
+       "under_price": -200
       },
       {
        "book": "bovada",
@@ -125447,9 +125447,9 @@
      "player": "Marvin Mims Jr.",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 1.5,
-       "consensus_over": 0.3742
+       "consensus_over": 0.3733
       }
      ],
      "moved_line": null,
@@ -125459,9 +125459,9 @@
      "line": 0.5,
      "books": 5,
      "other_lines": [],
-     "consensus_over": 0.6017,
+     "consensus_over": 0.6023,
      "book_spread": 0.0269,
-     "avg_vig": 0.0645,
+     "avg_vig": 0.0652,
      "best_over": {
       "price": -165,
       "book": "BetMGM"
@@ -125484,8 +125484,8 @@
        "book": "betonlineag",
        "book_title": "BetOnline.ag",
        "line": 0.5,
-       "over_price": -175,
-       "under_price": 135
+       "over_price": -179,
+       "under_price": 136
       },
       {
        "book": "bovada",
@@ -125512,9 +125512,9 @@
      "player": "Adam Trautman",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 0.5,
-       "consensus_over": 0.6017
+       "consensus_over": 0.6023
       }
      ],
      "moved_line": null,
@@ -125524,9 +125524,9 @@
      "line": 0.5,
      "books": 5,
      "other_lines": [],
-     "consensus_over": 0.5679,
+     "consensus_over": 0.5686,
      "book_spread": 0.0384,
-     "avg_vig": 0.0674,
+     "avg_vig": 0.0672,
      "best_over": {
       "price": -140,
       "book": "BetMGM"
@@ -125549,8 +125549,8 @@
        "book": "betonlineag",
        "book_title": "BetOnline.ag",
        "line": 0.5,
-       "over_price": -152,
-       "under_price": 116
+       "over_price": -154,
+       "under_price": 118
       },
       {
        "book": "bovada",
@@ -125577,9 +125577,9 @@
      "player": "Troy Franklin",
      "history": [
       {
-       "at": "2026-11-27T15:20:47+00:00",
+       "at": "2026-11-27T15:25:15+00:00",
        "line": 0.5,
-       "consensus_over": 0.5679
+       "consensus_over": 0.5686
       }
      ],
      "moved_line": null,
