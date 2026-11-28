@@ -2984,9 +2984,28 @@ function mbbView() {
         render: g => `${Math.round(g.score_away)}&ndash;${Math.round(g.score_home)}` },
       { key: "pred_total", label: "Total",
         render: g => (g.pred_total == null ? "—" : Math.round(g.pred_total)) },
+      { key: "mkt_margin", label: "Line",
+        render: g => (g.mkt_margin == null ? "—"
+          : (g.mkt_margin > 0 ? "+" : "") + g.mkt_margin.toFixed(1)) },
+      { key: "gap", label: "Gap",
+        sortValue: g => (g.mkt_margin == null ? null
+                         : Math.abs(g.pred_margin - g.mkt_margin)),
+        render: g => {
+          if (g.mkt_margin == null) return "—";
+          const d = g.pred_margin - g.mkt_margin;
+          const big = Math.abs(d) >= 4;
+          return `<span class="${big ? "shop" : ""}">${d > 0 ? "+" : ""}${d.toFixed(1)}</span>`;
+        } },
     ], rows, { defaultKey: "confidence", rowId: g => g.away + g.home,
                limit: 200, empty: `Nothing matches "${state.q}".` })}
     ${pickParlays(d, "mbb")}
+    ${d.lines ? `<p class="cal-key">Market numbers from the
+      <b>${d.lines.phase === "open" ? "opening" : "closing"}</b> capture at
+      ${new Date(d.lines.at).toLocaleTimeString(undefined,
+        {hour:"numeric",minute:"2-digit"})}, ${d.lines.games} games priced.
+      The Gap column is the model minus the market — red past four points.
+      Those are where the two most disagree, which is also where the model
+      has historically been least reliable.</p>` : ""}
     <p class="cal-key">The winner and margin come from team ratings; the
       total from opponent-adjusted scoring rates. Tempo matters more here
       than anywhere else on this page — the totals beat a flat league
