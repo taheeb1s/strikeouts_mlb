@@ -341,6 +341,12 @@ def main():
             "games": nxt,
         }
         json.dump(out, open("mbb_games.json", "w"), indent=1)
+        # Archive before tomorrow overwrites it, so each day's picks can be
+        # compared against where the line opened and closed.
+        if nxt:
+            os.makedirs("proj_history", exist_ok=True)
+            json.dump(out, open(f"proj_history/mbb_{nxt[0]['date']}.json",
+                                "w"), indent=1)
         print(f"\n  Wrote mbb_games.json ({len(nxt)} games)")
     return 0
 
