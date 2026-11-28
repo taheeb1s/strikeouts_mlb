@@ -18,6 +18,7 @@ Data is sportsdataverse, read from public files on GitHub. No key.
 """
 
 import argparse
+import glob
 import json
 import os
 import sys
@@ -37,7 +38,12 @@ NON_D1 = 1150.0         # a generic team from outside Division I
 K = 26.0
 HOME_EDGE = 100.0
 CARRYOVER = 0.8
-PTS_PER_ELO = 28.0
+PTS_PER_ELO = 21.0
+# Fitted on 26,567 games, not guessed. At 28 the margins came out about a
+# third too small: on games the market made a 20-point mismatch the model
+# was thirteen points short, while agreeing almost exactly on close ones.
+# A cubic fit does no better than a straight line, so the relationship is
+# linear - the constant was simply wrong.
 LG_PTS = 72.0           # points per team per game, Division I
 OD_K = 0.06             # how fast scoring ratings chase recent form
 TOTAL_TRUST = 1.0
@@ -92,6 +98,68 @@ def load(seasons):
     d["neutral"] = d.get("neutral_site", False).astype(bool) \
         if "neutral_site" in d else False
     return d
+
+
+def latest_lines():
+    """Today's captured spreads and totals, if any.
+
+    The opening numbers are worth showing beside the model's own, whether
+    or not there is enough history for closing line value yet - the gap
+    between the two is the whole point.
+    """
+    files = sorted(glob.glob("snapshots/cbb/*_open.json")) \
+        + sorted(glob.glob("snapshots/cbb/*_close.json"))
+    if not files:
+        return {}, None
+    newest = max(files, key=os.path.getmtime)
+    try:
+        d = json.load(open(newest))
+    except Exception:
+        return {}, None
+
+    def k(away, home):
+        n = lambda t: "".join(c for c in str(t).lower() if c.isalnum())
+        return f"{n(away)}@{n(home)}"
+
+    return ({k(g["away"], g["home"]): g for g in d.get("games", [])},
+            {"phase": d.get("phase"), "at": d.get("captured_at"),
+             "games": len(d.get("games", []))})
+
+
+def match_line(lines, away, home):
+    """Find the captured line for a game.
+
+    Books and the schedule name teams differently ("St. Thomas (MN)
+    Tommies" against "St Thomas"), and they do not always agree on which
+    side is at home - neutral-site games get listed either way round. So
+    match on the longest word of each name, try both orders, and say when
+    the sides were reversed so the spread can be flipped to suit.
+
+    Returns (line, reversed) or (None, False).
+    """
+    n = lambda t: "".join(c for c in str(t).lower() if c.isalnum())
+
+    def token(t):
+        ws = [w for w in str(t).replace(".", " ").replace("-", " ").split()
+              if len(w) > 3]
+        return n(max(ws, key=len)) if ws else n(t)
+
+    ka, kh = n(away), n(home)
+    if lines.get(f"{ka}@{kh}"):
+        return lines[f"{ka}@{kh}"], False
+    if lines.get(f"{kh}@{ka}"):
+        return lines[f"{kh}@{ka}"], True
+
+    ta, th = token(away), token(home)
+    if not ta or not th:
+        return None, False
+    for key, g in lines.items():
+        a, h = key.split("@")
+        if ta in a and th in h:
+            return g, False
+        if th in a and ta in h:
+            return g, True
+    return None, False
 
 
 def team_name(row, side):
@@ -297,6 +365,7 @@ def main():
         day = todo.et.dt.normalize().min()
         same = todo[todo.et.dt.normalize() == day]
         avg_total = float(d.total.mean())
+        lines, line_meta = latest_lines()
         for _, g in same.iterrows():
             eh = final.get(g.home_id, START)
             ea = final.get(g.away_id, START)
@@ -307,8 +376,22 @@ def main():
             raw = (2 * LG_PTS + off.get(g.home_id, 0.0) + dfn.get(g.away_id, 0.0)
                    + off.get(g.away_id, 0.0) + dfn.get(g.home_id, 0.0))
             tot = TOTAL_TRUST * raw + (1 - TOTAL_TRUST) * 2 * LG_PTS
+            mk, flipped = match_line(lines, team_name(g, "away"),
+                                     team_name(g, "home"))
+            mkt_home = None
+            if mk and mk.get("spread_home") is not None:
+                sp = float(mk["spread_home"])
+                # the books listed the sides the other way round
+                mkt_home = round(sp if flipped else -sp, 1)
             nxt.append({
                 "date": str(day.date()), "neutral": bool(g.neutral),
+                # the market's own number, where it was captured. A spread
+                # is quoted as a handicap, so flip it to the same footing
+                # as the model's margin.
+                "mkt_margin": mkt_home,
+                "mkt_total": (None if not mk or mk.get("total") is None
+                              else round(float(mk["total"]), 1)),
+                "mkt_books": (mk or {}).get("books"),
                 "home": team_name(g, "home"), "away": team_name(g, "away"),
                 "p_home": round(float(p), 4),
                 "pred_margin": round(float(m), 2),
@@ -338,6 +421,7 @@ def main():
             "ratings": {names.get(t, str(t)): round(float(v), 1) for t, v in
                         sorted(final.items(), key=lambda x: -x[1])[:40]},
             "results": season_results(df, season),
+            "lines": line_meta,
             "games": nxt,
         }
         json.dump(out, open("mbb_games.json", "w"), indent=1)
