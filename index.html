@@ -3860,10 +3860,15 @@ function fetchScores(key) {
   const path = (LEAGUES.find(l => l[0] === key) || [])[2];
   if (!path) return;
   state.scores[key] = { loading: true };
-  // groups=50 is the top division in both college sports, and the
-  // default page size is far too small for a basketball slate that runs
-  // to a few hundred games.
-  const extra = (key === "cfb" || key === "mbb") ? "?groups=50&limit=400" : "";
+  // The group code differs by sport: 80 is FBS football, 50 is Division I
+  // basketball. Using 50 for football filtered on a code that means
+  // nothing there, and the tab showed no games at all.
+  //
+  // The limit matters as much: a Saturday is 60-90 FBS games and a
+  // basketball night a few hundred, against a default page of about 25,
+  // so real games silently fall off the end.
+  const GROUP = { cfb: 80, mbb: 50 };
+  const extra = GROUP[key] ? `?groups=${GROUP[key]}&limit=400` : "";
   // Wrapped: a throw here would otherwise take the whole render down with
   // it, and this is the one thing on the page that depends on a live
   // third-party feed.
