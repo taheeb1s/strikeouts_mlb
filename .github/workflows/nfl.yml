@@ -94,11 +94,28 @@ jobs:
             echo "go=no" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Capture lines
+      # Reception odds are no longer bought. The projections stay - they
+      # need no odds - but the captures were measuring closing value on the
+      # weakest model here while the two strongest had no odds at all.
+      # That budget now goes to college basketball.
+
+      - name: College basketball lines
+        id: cbb
+        continue-on-error: true
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-          WINDOW: ${{ github.event.inputs.window || '4' }}
-        run: python3 nfl_collect.py --window "$WINDOW"
+        run: |
+          # One request covers the whole board, so the cost does not grow
+          # with the slate. Morning for the opener, evening before tip for
+          # the close - about 120 credits a month for both.
+          H=$(date -u +%H); H=${H#0}
+          if [ "$H" -ge 13 ] && [ "$H" -le 16 ]; then
+            python3 cbb_odds.py --phase open
+          elif [ "$H" -ge 22 ] || [ "$H" -le 1 ]; then
+            python3 cbb_odds.py --phase close
+          else
+            echo "Not a capture window ($H:00 UTC). Nothing spent."
+          fi
 
       - name: Build the page data
         continue-on-error: true
@@ -125,6 +142,7 @@ jobs:
           python3 qb_model.py --json \
             || echo "::warning::qb_model.py failed"
           python3 qb_model.py --grade --json || echo "(no QB results yet)"
+          python3 cbb_clv.py --json || echo "(no closing-line data yet)"
           python3 nba_model.py --json \
             || echo "::warning::nba_model.py failed"
           python3 nba_model.py --grade --json || echo "(no NBA results yet)"
@@ -164,7 +182,7 @@ jobs:
                    receptions_grade.json td_model.json td_grade.json \
                    nba_model.json nba_grade.json \
                    nhl_model.json nhl_grade.json mbb_games.json \
-                   qb_model.json qb_grade.json; do
+                   qb_model.json qb_grade.json cbb_clv.json; do
             [ -f "$f" ] && git add "$f"
           done
           [ -d snapshots ] && git add snapshots/
