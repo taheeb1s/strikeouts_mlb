@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T15:26:05+00:00",
+ "generated_at": "2026-11-28T14:59:55+00:00",
  "season": 2026,
  "week": 12,
  "trained_on": [
@@ -69,20 +69,6 @@
    "i5pg": 1.82,
    "rzpg": 4.55,
    "td_rate": 1.091
-  },
-  {
-   "player": "Jonah Coleman",
-   "player_id": "00-0041496",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "RB",
-   "p_any": 0.4907,
-   "p_two": 0.0428,
-   "p_first": 0.1338,
-   "i5pg": 1.5,
-   "rzpg": 3.0,
-   "td_rate": 1.0
   },
   {
    "player": "Parker Washington",
@@ -673,20 +659,6 @@
    "td_rate": 0.4
   },
   {
-   "player": "Jaylen Warren",
-   "player_id": "00-0037228",
-   "team": "PIT",
-   "opponent": "DEN",
-   "game": "DEN@PIT",
-   "pos": "RB",
-   "p_any": 0.3082,
-   "p_two": 0.071,
-   "p_first": 0.073,
-   "i5pg": 0.4,
-   "rzpg": 1.7,
-   "td_rate": 0.3
-  },
-  {
    "player": "Chris Olave",
    "player_id": "00-0037239",
    "team": "NO",
@@ -825,20 +797,6 @@
    "i5pg": 0.4,
    "rzpg": 1.4,
    "td_rate": 0.4
-  },
-  {
-   "player": "Rico Dowdle",
-   "player_id": "00-0036139",
-   "team": "PIT",
-   "opponent": "DEN",
-   "game": "DEN@PIT",
-   "pos": "RB",
-   "p_any": 0.2898,
-   "p_two": 0.049,
-   "p_first": 0.0678,
-   "i5pg": 0.14,
-   "rzpg": 1.57,
-   "td_rate": 0.143
   },
   {
    "player": "Drake London",
@@ -1037,20 +995,6 @@
    "td_rate": 0.333
   },
   {
-   "player": "DK Metcalf",
-   "player_id": "00-0035640",
-   "team": "PIT",
-   "opponent": "DEN",
-   "game": "DEN@PIT",
-   "pos": "WR",
-   "p_any": 0.2507,
-   "p_two": 0.0289,
-   "p_first": 0.0572,
-   "i5pg": 0.3,
-   "rzpg": 0.6,
-   "td_rate": 0.2
-  },
-  {
    "player": "Cade Otton",
    "player_id": "00-0038129",
    "team": "TB",
@@ -1163,20 +1107,6 @@
    "td_rate": 0.4
   },
   {
-   "player": "Pat Freiermuth",
-   "player_id": "00-0036894",
-   "team": "PIT",
-   "opponent": "DEN",
-   "game": "DEN@PIT",
-   "pos": "TE",
-   "p_any": 0.2397,
-   "p_two": 0.0221,
-   "p_first": 0.0543,
-   "i5pg": 0.3,
-   "rzpg": 0.8,
-   "td_rate": 0.6
-  },
-  {
    "player": "Justice Hill",
    "player_id": "00-0034975",
    "team": "BAL",
@@ -1189,20 +1119,6 @@
    "i5pg": 0.0,
    "rzpg": 0.64,
    "td_rate": 0.182
-  },
-  {
-   "player": "Pat Bryant",
-   "player_id": "00-0040134",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "WR",
-   "p_any": 0.2358,
-   "p_two": 0.0231,
-   "p_first": 0.0533,
-   "i5pg": 0.5,
-   "rzpg": 0.5,
-   "td_rate": 0.333
   },
   {
    "player": "Mike Gesicki",
@@ -1303,20 +1219,6 @@
    "td_rate": 0.2
   },
   {
-   "player": "J.K. Dobbins",
-   "player_id": "00-0036158",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "RB",
-   "p_any": 0.23,
-   "p_two": 0.0242,
-   "p_first": 0.0518,
-   "i5pg": 0.8,
-   "rzpg": 1.5,
-   "td_rate": 0.3
-  },
-  {
    "player": "KC Concepcion",
    "player_id": "00-0041547",
    "team": "CLE",
@@ -1359,20 +1261,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Germie Bernard",
-   "player_id": "00-0041489",
-   "team": "PIT",
-   "opponent": "DEN",
-   "game": "DEN@PIT",
-   "pos": "WR",
-   "p_any": 0.2252,
-   "p_two": 0.0293,
-   "p_first": 0.0506,
-   "i5pg": 0.0,
-   "rzpg": 1.11,
-   "td_rate": 0.111
-  },
-  {
    "player": "Wan'Dale Robinson",
    "player_id": "00-0038117",
    "team": "TEN",
@@ -1413,20 +1301,6 @@
    "i5pg": 0.2,
    "rzpg": 0.9,
    "td_rate": 0.4
-  },
-  {
-   "player": "Courtland Sutton",
-   "player_id": "00-0034348",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "WR",
-   "p_any": 0.2201,
-   "p_two": 0.025,
-   "p_first": 0.0493,
-   "i5pg": 0.4,
-   "rzpg": 1.0,
-   "td_rate": 0.2
   },
   {
    "player": "Kaelon Black",
@@ -1483,20 +1357,6 @@
    "i5pg": 0.22,
    "rzpg": 0.78,
    "td_rate": 0.0
-  },
-  {
-   "player": "Jaylen Waddle",
-   "player_id": "00-0036613",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "WR",
-   "p_any": 0.213,
-   "p_two": 0.0189,
-   "p_first": 0.0475,
-   "i5pg": 0.3,
-   "rzpg": 0.8,
-   "td_rate": 0.2
   },
   {
    "player": "Marvin Harrison Jr.",
@@ -1583,20 +1443,6 @@
    "td_rate": 0.091
   },
   {
-   "player": "RJ Harvey",
-   "player_id": "00-0040730",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "RB",
-   "p_any": 0.207,
-   "p_two": 0.0302,
-   "p_first": 0.046,
-   "i5pg": 0.33,
-   "rzpg": 0.83,
-   "td_rate": 0.333
-  },
-  {
    "player": "TreVeyon Henderson",
    "player_id": "00-0040734",
    "team": "NE",
@@ -1651,20 +1497,6 @@
    "i5pg": 0.0,
    "rzpg": 0.25,
    "td_rate": 0.25
-  },
-  {
-   "player": "Nate Adkins",
-   "player_id": "00-0038783",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "TE",
-   "p_any": 0.2038,
-   "p_two": 0.0229,
-   "p_first": 0.0452,
-   "i5pg": 0.29,
-   "rzpg": 0.57,
-   "td_rate": 0.429
   },
   {
    "player": "Treylon Burks",
@@ -1751,20 +1583,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Roman Wilson",
-   "player_id": "00-0039739",
-   "team": "PIT",
-   "opponent": "DEN",
-   "game": "DEN@PIT",
-   "pos": "WR",
-   "p_any": 0.1954,
-   "p_two": 0.0195,
-   "p_first": 0.0431,
-   "i5pg": 0.0,
-   "rzpg": 0.5,
-   "td_rate": 0.333
-  },
-  {
    "player": "Rashid Shaheed",
    "player_id": "00-0037545",
    "team": "SEA",
@@ -1805,20 +1623,6 @@
    "i5pg": 0.22,
    "rzpg": 0.67,
    "td_rate": 0.222
-  },
-  {
-   "player": "Evan Engram",
-   "player_id": "00-0033881",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "TE",
-   "p_any": 0.1817,
-   "p_two": 0.015,
-   "p_first": 0.0398,
-   "i5pg": 0.0,
-   "rzpg": 0.4,
-   "td_rate": 0.1
   },
   {
    "player": "Chris Godwin Jr.",
@@ -2015,20 +1819,6 @@
    "i5pg": 0.11,
    "rzpg": 0.56,
    "td_rate": 0.222
-  },
-  {
-   "player": "Darnell Washington",
-   "player_id": "00-0038558",
-   "team": "PIT",
-   "opponent": "DEN",
-   "game": "DEN@PIT",
-   "pos": "TE",
-   "p_any": 0.1603,
-   "p_two": 0.0195,
-   "p_first": 0.0346,
-   "i5pg": 0.3,
-   "rzpg": 0.7,
-   "td_rate": 0.3
   },
   {
    "player": "Michael Mayer",
@@ -2633,34 +2423,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Troy Franklin",
-   "player_id": "00-0039868",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "WR",
-   "p_any": 0.1049,
-   "p_two": 0.0109,
-   "p_first": 0.022,
-   "i5pg": 0.0,
-   "rzpg": 0.33,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Tyler Badie",
-   "player_id": "00-0037085",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "RB",
-   "p_any": 0.1039,
-   "p_two": 0.0175,
-   "p_first": 0.0218,
-   "i5pg": 0.2,
-   "rzpg": 0.6,
-   "td_rate": 0.0
-  },
-  {
    "player": "Isaiah Williams",
    "player_id": "00-0039451",
    "team": "NYJ",
@@ -2728,20 +2490,6 @@
    "p_first": 0.0235,
    "i5pg": 0.0,
    "rzpg": 0.56,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Marvin Mims Jr.",
-   "player_id": "00-0038976",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "WR",
-   "p_any": 0.0996,
-   "p_two": 0.0145,
-   "p_first": 0.0208,
-   "i5pg": 0.0,
-   "rzpg": 0.25,
    "td_rate": 0.0
   },
   {
@@ -2913,20 +2661,6 @@
    "td_rate": 0.1
   },
   {
-   "player": "Lew Nichols III",
-   "player_id": "00-0038409",
-   "team": "PIT",
-   "opponent": "DEN",
-   "game": "DEN@PIT",
-   "pos": "RB",
-   "p_any": 0.09,
-   "p_two": 0.0107,
-   "p_first": 0.0187,
-   "i5pg": 0.0,
-   "rzpg": 0.43,
-   "td_rate": 0.0
-  },
-  {
    "player": "Cade Stover",
    "player_id": "00-0039359",
    "team": "HOU",
@@ -2939,34 +2673,6 @@
    "i5pg": 0.33,
    "rzpg": 0.33,
    "td_rate": 0.0
-  },
-  {
-   "player": "Ben Skowronek",
-   "player_id": "00-0036862",
-   "team": "PIT",
-   "opponent": "DEN",
-   "game": "DEN@PIT",
-   "pos": "WR",
-   "p_any": 0.0856,
-   "p_two": 0.0113,
-   "p_first": 0.0177,
-   "i5pg": 0.0,
-   "rzpg": 0.4,
-   "td_rate": 0.2
-  },
-  {
-   "player": "Adam Trautman",
-   "player_id": "00-0036422",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "TE",
-   "p_any": 0.0854,
-   "p_two": 0.0136,
-   "p_first": 0.0177,
-   "i5pg": 0.17,
-   "rzpg": 0.5,
-   "td_rate": 0.167
   },
   {
    "player": "Myles Price",
@@ -3277,20 +2983,6 @@
    "td_rate": 0.0
   },
   {
-   "player": "Travis Homer",
-   "player_id": "00-0035594",
-   "team": "PIT",
-   "opponent": "DEN",
-   "game": "DEN@PIT",
-   "pos": "RB",
-   "p_any": 0.06,
-   "p_two": 0.0134,
-   "p_first": 0.0123,
-   "i5pg": 0.0,
-   "rzpg": 0.5,
-   "td_rate": 0.0
-  },
-  {
    "player": "Jaylin Lane",
    "player_id": "00-0040164",
    "team": "WAS",
@@ -3400,20 +3092,6 @@
    "p_first": 0.0147,
    "i5pg": 0.0,
    "rzpg": 0.12,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Lil'Jordan Humphrey",
-   "player_id": "00-0035406",
-   "team": "DEN",
-   "opponent": "PIT",
-   "game": "DEN@PIT",
-   "pos": "WR",
-   "p_any": 0.0554,
-   "p_two": 0.0101,
-   "p_first": 0.0113,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
    "td_rate": 0.0
   },
   {
@@ -3902,20 +3580,6 @@
    "p_any": 0.0191,
    "p_two": 0.0101,
    "p_first": 0.0037,
-   "i5pg": 0.0,
-   "rzpg": 0.0,
-   "td_rate": 0.0
-  },
-  {
-   "player": "Kaden Wetjen",
-   "player_id": "00-0041397",
-   "team": "PIT",
-   "opponent": "DEN",
-   "game": "DEN@PIT",
-   "pos": "WR",
-   "p_any": 0.0182,
-   "p_two": 0.0101,
-   "p_first": 0.0036,
    "i5pg": 0.0,
    "rzpg": 0.0,
    "td_rate": 0.0

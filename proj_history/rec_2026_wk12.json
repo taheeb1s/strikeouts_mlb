@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T15:25:46+00:00",
+ "generated_at": "2026-11-28T14:59:42+00:00",
  "season": 2026,
  "week": 12,
  "trained_on": [
@@ -710,17 +710,6 @@
    "targets_recent": 8.6
   },
   {
-   "player": "Germie Bernard",
-   "team": "PIT",
-   "opponent": "DEN",
-   "pos": "WR",
-   "proj": 4.27,
-   "season_avg": 4.22,
-   "line": 4.5,
-   "p_over": 0.4747,
-   "targets_recent": 7.0
-  },
-  {
    "player": "Tee Higgins",
    "team": "CIN",
    "opponent": "NO",
@@ -996,17 +985,6 @@
    "targets_recent": 5.8
   },
   {
-   "player": "Jaylen Waddle",
-   "team": "DEN",
-   "opponent": "PIT",
-   "pos": "WR",
-   "proj": 3.08,
-   "season_avg": 3.3,
-   "line": 3.5,
-   "p_over": 0.4444,
-   "targets_recent": 5.4
-  },
-  {
    "player": "Terry McLaurin",
    "team": "WAS",
    "opponent": "ARI",
@@ -1071,17 +1049,6 @@
    "line": 3.5,
    "p_over": 0.4343,
    "targets_recent": 6.0
-  },
-  {
-   "player": "DK Metcalf",
-   "team": "PIT",
-   "opponent": "DEN",
-   "pos": "WR",
-   "proj": 3.05,
-   "season_avg": 3.6,
-   "line": 3.5,
-   "p_over": 0.4343,
-   "targets_recent": 7.4
   },
   {
    "player": "Hunter Henry",
@@ -1150,17 +1117,6 @@
    "targets_recent": 3.4
   },
   {
-   "player": "Pat Freiermuth",
-   "team": "PIT",
-   "opponent": "DEN",
-   "pos": "TE",
-   "proj": 2.92,
-   "season_avg": 3.2,
-   "line": 2.5,
-   "p_over": 0.5657,
-   "targets_recent": 3.4
-  },
-  {
    "player": "Greg Dulcich",
    "team": "MIA",
    "opponent": "NYJ",
@@ -1205,17 +1161,6 @@
    "targets_recent": 5.4
   },
   {
-   "player": "Jaylen Warren",
-   "team": "PIT",
-   "opponent": "DEN",
-   "pos": "RB",
-   "proj": 2.8,
-   "season_avg": 3.2,
-   "line": 2.5,
-   "p_over": 0.5253,
-   "targets_recent": 3.8
-  },
-  {
    "player": "Tre Tucker",
    "team": "LV",
    "opponent": "CLE",
@@ -1225,17 +1170,6 @@
    "line": 2.5,
    "p_over": 0.5253,
    "targets_recent": 6.6
-  },
-  {
-   "player": "Jonah Coleman",
-   "team": "DEN",
-   "opponent": "PIT",
-   "pos": "RB",
-   "proj": 2.78,
-   "season_avg": 2.83,
-   "line": 2.5,
-   "p_over": 0.5152,
-   "targets_recent": 3.8
   },
   {
    "player": "Xavier Hutchinson",
@@ -1304,17 +1238,6 @@
    "targets_recent": 3.4
   },
   {
-   "player": "Pat Bryant",
-   "team": "DEN",
-   "opponent": "PIT",
-   "pos": "WR",
-   "proj": 2.64,
-   "season_avg": 2.67,
-   "line": 2.5,
-   "p_over": 0.5152,
-   "targets_recent": 3.0
-  },
-  {
    "player": "Tony Pollard",
    "team": "TEN",
    "opponent": "JAX",
@@ -1359,17 +1282,6 @@
    "targets_recent": 2.6
   },
   {
-   "player": "Evan Engram",
-   "team": "DEN",
-   "opponent": "PIT",
-   "pos": "TE",
-   "proj": 2.59,
-   "season_avg": 2.3,
-   "line": 2.5,
-   "p_over": 0.5152,
-   "targets_recent": 4.2
-  },
-  {
    "player": "Dalton Schultz",
    "team": "HOU",
    "opponent": "BAL",
@@ -1390,28 +1302,6 @@
    "line": 2.5,
    "p_over": 0.5152,
    "targets_recent": 5.4
-  },
-  {
-   "player": "Courtland Sutton",
-   "team": "DEN",
-   "opponent": "PIT",
-   "pos": "WR",
-   "proj": 2.54,
-   "season_avg": 2.5,
-   "line": 2.5,
-   "p_over": 0.5152,
-   "targets_recent": 4.6
-  },
-  {
-   "player": "Roman Wilson",
-   "team": "PIT",
-   "opponent": "DEN",
-   "pos": "WR",
-   "proj": 2.54,
-   "season_avg": 2.83,
-   "line": 2.5,
-   "p_over": 0.5152,
-   "targets_recent": 5.0
   },
   {
    "player": "Jaylin Noel",
@@ -1456,17 +1346,6 @@
    "line": 2.5,
    "p_over": 0.5152,
    "targets_recent": 4.6
-  },
-  {
-   "player": "RJ Harvey",
-   "team": "DEN",
-   "opponent": "PIT",
-   "pos": "RB",
-   "proj": 2.43,
-   "season_avg": 4.17,
-   "line": 2.5,
-   "p_over": 0.4949,
-   "targets_recent": 4.8
   },
   {
    "player": "Mason Taylor",
@@ -1535,17 +1414,6 @@
    "targets_recent": 3.0
   },
   {
-   "player": "Rico Dowdle",
-   "team": "PIT",
-   "opponent": "DEN",
-   "pos": "RB",
-   "proj": 2.35,
-   "season_avg": 2.71,
-   "line": 2.5,
-   "p_over": 0.4646,
-   "targets_recent": 3.4
-  },
-  {
    "player": "Kenny Gainwell",
    "team": "TB",
    "opponent": "CAR",
@@ -1563,17 +1431,6 @@
    "pos": "TE",
    "proj": 2.32,
    "season_avg": 1.89,
-   "line": 2.5,
-   "p_over": 0.4545,
-   "targets_recent": 3.6
-  },
-  {
-   "player": "Darnell Washington",
-   "team": "PIT",
-   "opponent": "DEN",
-   "pos": "TE",
-   "proj": 2.32,
-   "season_avg": 2.3,
    "line": 2.5,
    "p_over": 0.4545,
    "targets_recent": 3.6
@@ -1775,17 +1632,6 @@
    "line": 1.5,
    "p_over": 0.6061,
    "targets_recent": 2.0
-  },
-  {
-   "player": "Troy Franklin",
-   "team": "DEN",
-   "opponent": "PIT",
-   "pos": "WR",
-   "proj": 1.93,
-   "season_avg": 1.0,
-   "line": 1.5,
-   "p_over": 0.6061,
-   "targets_recent": 2.2
   },
   {
    "player": "Mitchell Evans",
@@ -2113,17 +1959,6 @@
    "pos": "RB",
    "proj": 1.46,
    "season_avg": 1.78,
-   "line": 1.5,
-   "p_over": 0.404,
-   "targets_recent": 2.6
-  },
-  {
-   "player": "Marvin Mims Jr.",
-   "team": "DEN",
-   "opponent": "PIT",
-   "pos": "WR",
-   "proj": 1.45,
-   "season_avg": 1.38,
    "line": 1.5,
    "p_over": 0.404,
    "targets_recent": 2.6

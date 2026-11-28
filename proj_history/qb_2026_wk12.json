@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-27T15:26:12+00:00",
+ "generated_at": "2026-11-28T15:00:01+00:00",
  "season": 2026,
  "week": 12,
  "trained_on": [
@@ -47,15 +47,6 @@
    "games": 10,
    "completions": 22.2,
    "passing_yards": 213.4
-  },
-  {
-   "player": "Bo Nix",
-   "player_id": "00-0039732",
-   "team": "DEN",
-   "opponent": "PIT",
-   "games": 10,
-   "completions": 21.8,
-   "passing_yards": 235.1
   },
   {
    "player": "Sam Darnold",
@@ -182,15 +173,6 @@
    "games": 11,
    "completions": 19.1,
    "passing_yards": 206.4
-  },
-  {
-   "player": "Aaron Rodgers",
-   "player_id": "00-0023459",
-   "team": "PIT",
-   "opponent": "DEN",
-   "games": 10,
-   "completions": 18.9,
-   "passing_yards": 206.5
   },
   {
    "player": "Michael Penix Jr.",
