@@ -1578,7 +1578,7 @@ let state = { view: "home", data: null, card: null, nfl: null, nflScore: null, g
               kTab: "slate", nhl: null, nhlGrade: null, nhlTab: "slate", nhlSort: "proj",
               tsort: {}, selected: null,
               scores: {}, league2: "nfl", sbTimer: null, mbb: null,
-              qb: null, qbGrade: null,
+              qb: null, qbGrade: null, clv: null,
               q: "", pitcher: null, day: null, nflTab: "lines",
               layout: "ledger",
               sort: "proj", open: new Set() };
@@ -2903,6 +2903,42 @@ function pickResults(src, label) {
     })()}`;
 }
 
+function clvBlock() {
+  const c = state.clv;
+  if (!c) return "";
+  if (!c.graded) {
+    return `<div class="projnote">Closing line value starts once the
+      opening and closing numbers have both been captured for a day's
+      games. ${c.note ? c.note[0].toUpperCase() + c.note.slice(1) + "." : ""}</div>`;
+  }
+  if (!c.moved) {
+    return `<div class="projnote">${c.graded} games matched, but no line
+      has moved yet.</div>`;
+  }
+  const rate = c.clv_rate;
+  const n = c.moved;
+  const se = Math.sqrt(0.25 / n);
+  const sigma = Math.abs(rate - 0.5) / se;
+  const solid = n >= 100;
+  return `
+    <div class="rec">
+      <span><span class="big">${(rate * 100).toFixed(1)}%</span>
+        <span class="lbl">of moves went the model's way</span></span>
+      <span><span class="pctg">${c.avg_move_toward > 0 ? "+" : ""}${c.avg_move_toward}</span>
+        <span class="lbl">points, average move</span></span>
+      <span class="split">${c.toward_model} of ${n} lines moved toward it<br>
+        ${c.graded} games matched over ${c.dates.length} day${c.dates.length === 1 ? "" : "s"}</span>
+    </div>
+    <p class="cal-key"><b>Closing line value.</b> Did the number drift
+      toward the side this model preferred between the morning and tip-off?
+      A model with no edge moves the line its way about half the time. This
+      is at <b>${(rate * 100).toFixed(1)}%</b>, ${sigma.toFixed(1)} standard
+      errors from a coin flip${solid ? "" : " — and under a hundred moves "
+      + "that is still noise, so keep collecting"}. This matters more than a
+      win rate because it says something in dozens of games rather than
+      hundreds, and does not depend on how any single game turned out.</p>`;
+}
+
 function mbbView() {
   const d = state.mbb;
   if (!d || !d.games || !d.games.length) {
@@ -3148,7 +3184,9 @@ function nflView() {
         this tab is line comparison only.</div>`;
 
   return `${note}<p class="caption" style="max-width:58ch"><b>Nothing here is a
-    pick.</b> Every percentage is the books' own number with their margin
+    pick</b>, and these lines are no longer being captured — the budget
+    moved to college basketball, where the model is strong enough for
+    closing line value to mean something. The projections carry on. Every percentage is the books' own number with their margin
     removed — not a forecast. The dollar figure is what taking the best
     available price instead of the worst is worth per $100 on that side; it
     says where shopping pays, not which way to bet. There is no reception
@@ -4594,12 +4632,14 @@ Promise.all([
     .then(r => r.ok ? r.json() : null).catch(() => null),
   fetch("qb_model.json", { cache: "no-store" })
     .then(r => r.ok ? r.json() : null).catch(() => null),
-]).then(([c, n, rs, gm, cf, rp, td, rg, tg, nb, ng, hk, hg, mb, qb]) => {
+  fetch("cbb_clv.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : null).catch(() => null),
+]).then(([c, n, rs, gm, cf, rp, td, rg, tg, nb, ng, hk, hg, mb, qb, cv]) => {
   state.card = c; state.nfl = n; state.nflScore = rs;
   state.games = gm; state.cfb = cf; state.recProj = rp;
   state.td = td; state.recGrade = rg; state.tdGrade = tg;
   state.nba = nb; state.nbaGrade = ng;
-  state.nhl = hk; state.nhlGrade = hg; state.mbb = mb; state.qb = qb;
+  state.nhl = hk; state.nhlGrade = hg; state.mbb = mb; state.qb = qb; state.clv = cv;
 })
   .then(() => fetch("projections.json", { cache: "no-store" }))
   .then(r => r.ok ? r.json() : Promise.reject(r.status))
