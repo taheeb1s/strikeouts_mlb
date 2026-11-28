@@ -3849,7 +3849,8 @@ const DRAWERS = {
 // a plain message rather than breaking the tab.
 const LEAGUES = [
   ["nfl", "NFL", "football/nfl"],
-  ["cfb", "College", "football/college-football"],
+  ["cfb", "College FB", "football/college-football"],
+  ["mbb", "College BB", "basketball/mens-college-basketball"],
   ["nba", "NBA", "basketball/nba"],
   ["nhl", "NHL", "hockey/nhl"],
   ["mlb", "MLB", "baseball/mlb"],
@@ -3859,7 +3860,10 @@ function fetchScores(key) {
   const path = (LEAGUES.find(l => l[0] === key) || [])[2];
   if (!path) return;
   state.scores[key] = { loading: true };
-  const extra = key === "cfb" ? "?groups=50&limit=200" : "";
+  // groups=50 is the top division in both college sports, and the
+  // default page size is far too small for a basketball slate that runs
+  // to a few hundred games.
+  const extra = (key === "cfb" || key === "mbb") ? "?groups=50&limit=400" : "";
   // Wrapped: a throw here would otherwise take the whole render down with
   // it, and this is the one thing on the page that depends on a live
   // third-party feed.
